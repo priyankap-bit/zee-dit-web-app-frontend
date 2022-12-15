@@ -1,0 +1,22 @@
+.ilt20-filterbar-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ilt20-filterbar-navigation{
+width: 10rem;
+}
+
+.ilt20-filterbar-select select {
+    width: 10rem;
+    height: 1.8rem;
+    font-weight: 600;
+}
+
+.ilt20-filterbar-select option {
+    
+}
+
+.ilt20-filterbar-select p{
+    font-size: 10px;
+}
