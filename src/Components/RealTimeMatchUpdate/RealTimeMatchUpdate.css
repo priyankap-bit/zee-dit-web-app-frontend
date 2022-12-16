@@ -1,14 +1,17 @@
-.real-time-match-update-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.real-time-container {
+   display: flex;
 }
-
-.realtime-update-summary{
-    display: flex;
-}
-
 .realtime-update-summary-item{
-    margin: 0 2rem;
+    border-radius: 30px;
+    border: 5px solid #000;
+    color: #FFF;
+    flex: 33.33% 1;
+    height: 100px;
+    padding: 10px;
+    margin: 40px;
+    background-color: #7030A0;
+    text-align: center;
 }
+/* .real-time-match-update-container {
+    padding: 2.5rem;
+} */

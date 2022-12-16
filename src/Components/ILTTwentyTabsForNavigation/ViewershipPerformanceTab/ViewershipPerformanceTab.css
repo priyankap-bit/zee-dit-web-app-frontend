@@ -30,7 +30,8 @@
 }
 
 .viewership-preformance-summary{
-    display: flex;
+    max-width: 1300px;
+  
     justify-content: center;
     align-items: center;
     height: 300px;

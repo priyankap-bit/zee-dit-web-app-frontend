@@ -30,22 +30,24 @@ const RealTimeMatchUpdate = (props) => {
 
     return (
         <div className='real-time-match-update-container'>
-            <div className='realtime-update-summary'>
-                <div className='realtime-update-summary-item'>
+            <div className="real-time-container">
+                <div class="realtime-update-summary-item">
                     <p>Viewers</p>
                     <h2>65.54M</h2>
                 </div>
-                <div className='realtime-update-summary-item'>
+                <div class="realtime-update-summary-item">
                     <p>Watch Time</p>
                     <h2>65.54M</h2>
                 </div>
-                <div className='realtime-update-summary-item'>
+                <div class="realtime-update-summary-item">
                     <p>Ad Impressions</p>
                     <h2>65.54M</h2>
                 </div>
-            </div>
-            <div className='realtime-update-timeline'></div>
+	        </div>
+        <div className='realtime-update-timeline'></div>
+            
         </div>
+        
     )
 }
 
