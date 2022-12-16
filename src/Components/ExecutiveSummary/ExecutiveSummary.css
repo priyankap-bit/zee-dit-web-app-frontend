@@ -1,0 +1,69 @@
+.executive-summary-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.executive-summary-linear {
+    /* width: 33%; */
+    /* border: 1px solid gray; */
+    display: flex;
+    flex-direction: column;
+}
+
+.executive-summary-linear-title {
+    background-color: bisque;
+    justify-content: center;
+    align-items: center;
+}
+
+.executive-summary-linear-subtitle {
+    margin: 1rem 0;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.executive-summary-linear-subtitle p {
+    margin: 0 !important;
+}
+
+.executive-summary-tile {
+    background-color: #f3f3f3;
+    border-radius: 20%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.executive-summary-tile-name h4 {
+    margin: 0 !important;
+    padding-top: 1rem;
+}
+
+.executive-summary-tile-primary-val {
+    font-size: 24px;
+    margin-top: 0.5rem;
+}
+
+.executive-summary-tile-secondary-val {
+    display: flex;
+    margin:0.5rem 0;
+}
+
+.executive-summary-tile-secondary-val-perneg{
+    margin: 0 1rem;
+    color: rgb(180, 11, 11);
+}
+
+.executive-summary-tile-secondary-val-perpos{
+    margin: 0 1rem;
+    color: rgb(62, 186, 4);
+}
+
+.executive-summary-tile-secondary-val-num{
+    color: grey;
+}
+
+.executive-summary-digital {
+    /* border: 1px solid gray; */
+}
