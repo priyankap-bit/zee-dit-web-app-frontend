@@ -14,7 +14,7 @@ const RealTimeMatchUpdate = (props) => {
 
         const getRealTimeMatchUpdates = async () => {
             let viewers = await ILTTwentySummaryServices.getViewers(),
-                watchTime = await ILTTwentySummaryServices.getViewers(),
+                watchTime = await ILTTwentySummaryServices.getWatchTime(),
                 adImpressions = await ILTTwentySummaryServices.getAdImpressions();
 
             setRealTimeMatchUpdateSummary({
@@ -32,16 +32,19 @@ const RealTimeMatchUpdate = (props) => {
         <div className='real-time-match-update-container'>
             <div className="real-time-container">
                 <div class="realtime-update-summary-item">
-                    <p>Viewers</p>
-                    <h2>{realTimeMatchUpdateSummary.viewers}</h2>
+                    <img src='/static/images/logos/Viewers.svg' height={50} alt='Viewers Logo' />
+                    <p className='realtime-update-title'>Viewers</p>
+                    <h2 className='realtime-update-api'>{realTimeMatchUpdateSummary.viewers}</h2>
                 </div>
                 <div class="realtime-update-summary-item">
-                    <p>Watch Time</p>
-                    <h2>{realTimeMatchUpdateSummary.watchTime}</h2>
+                    <img src='/static/images/logos/Watchtime.svg' height={50} alt='Viewers Logo' />
+                    <p className='realtime-update-title'>Watch Time</p>
+                    <h2 className='realtime-update-api'>{realTimeMatchUpdateSummary.watchTime}</h2>
                 </div>
                 <div class="realtime-update-summary-item">
-                    <p>Ad Impressions</p>
-                    <h2>{realTimeMatchUpdateSummary.adImpressions}</h2>
+                    <img src='/static/images/logos/Ads.svg' height={50} alt='Viewers Logo' />
+                    <p className='realtime-update-title'>Ad Impressions</p>
+                    <h2 className='realtime-update-api'>{realTimeMatchUpdateSummary.adImpressions}</h2>
                 </div>
 	        </div>
         <div className='realtime-update-timeline'></div>

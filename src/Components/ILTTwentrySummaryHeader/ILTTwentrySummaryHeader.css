@@ -15,4 +15,12 @@
 .ilt20-header-zee-logo-4 {
     margin-left: 25px;
 }
-
+@media only screen and (max-width: 767px) {
+    .ilt20-header-ilt20-text-3 h1{font-size: 25px;}
+    .ilt20-filterbar-navigation{width: 0.5rem!important;}
+    .ilttwenty-navigation-tabs-container,.viewership-navigationtab-ul{padding-left: 0.3rem!important;}
+    ul.navigationtab-ul{padding: 3px!important;}
+    .real-time-container{display: inline!important;}
+    .realtime-update-summary-item{-webkit-box-reflect:none!important;}
+ 
+}

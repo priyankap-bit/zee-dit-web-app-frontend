@@ -2,16 +2,20 @@
    display: flex;
 }
 .realtime-update-summary-item{
+    -webkit-box-reflect: below -1px linear-gradient(to bottom, rgba(0,0,0,0.0), rgb(0 0 0 / 51%));
     border-radius: 30px;
     border: 5px solid #000;
     color: #FFF;
     flex: 33.33% 1;
-    height: 100px;
+    height: auto;
     padding: 10px;
     margin: 40px;
     background-color: #7030A0;
     text-align: center;
 }
-/* .real-time-match-update-container {
-    padding: 2.5rem;
-} */
+p.realtime-update-title {
+    margin: 5px!important;
+}
+h2.realtime-update-api {
+    margin: 3px;
+}
