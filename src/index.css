@@ -1,6 +1,22 @@
+@font-face {
+  font-family: GothamBold;
+  src: url('/public/static/fonts/Gotham\ Bold.otf');
+}
+
+@font-face {
+  font-family: GothamMedium;
+  src: url('/public/static/fonts/Gotham\ Medium.otf');
+}
+
+@font-face {
+  font-family: GothamLight;
+  src: url('/public/static/fonts/Gotham\ Light.otf');
+}
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: GothamMedium, Verdana, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,24 +1,35 @@
+import { useState } from 'react';
 import './ILTTwentyTabsForNavigation.css';
+import ViewershipPerformanceTab from './ViewershipPerformanceTab/ViewershipPerformanceTab';
 
 const ILTTwentyTabsForNavigation = (props) => {
 
-    // const { isNavigationTabActive, handleNavigationTabClick } = props;
+    const [activeTab, setActiveTab] = useState('viewershipPerformance');
+
+    const handleOnNavigationTabClick = (tab, event) => {
+        tab === 'viewershipPerformance' ? setActiveTab('viewershipPerformance') : setActiveTab('socialListing');
+    }
 
     return (
         <div className='ilttwenty-navigation-tabs-container'>
-            <div
-                // className={isNavigationTabActive.viewershipPerformance ? 'navigation-tab-active' : 'navigation-tab-inactive'}
-                className='navigation-tab-active'
-            // onClick={handleNavigationTabClick('viewershipPerformance')}
-            >
-                <p>Viewership Performance</p>
-            </div>
-            <div
-                // className={isNavigationTabActive.socialListing ? 'navigation-tab-active' : 'navigation-tab-inactive'}
-                className='navigation-tab-inactive'
-            // onClick={handleNavigationTabClick('socialListing')}
-            >
-                <p>Social Listening</p>
+            <ul className='navigationtab-ul'>
+                <li
+                    className={activeTab === 'viewershipPerformance' ? 'navigation-tab-active' : 'navigation-tab-inactive'}
+                    onClick={() => handleOnNavigationTabClick('viewershipPerformance')}
+                >
+                    Viewership Performance
+                </li>
+                <li
+                    className={activeTab === 'socialListing' ? 'navigation-tab-active' : 'navigation-tab-inactive'}
+                    onClick={() => handleOnNavigationTabClick('socialListing')}
+                >
+                    Social Listening
+                </li>
+            </ul>
+            <div className='ilttwenty-navigation-tabs-data'>
+                {
+                    activeTab === 'viewershipPerformance' ? <ViewershipPerformanceTab /> : <p>historicalupdate</p>
+                }
             </div>
         </div>
     )

@@ -1,7 +1,8 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import ILTTwentrySummaryHeader from '../../Components/ILTTwentrySummaryHeader/ILTTwentrySummaryHeader';
 import ILTTwentyFilterBar from '../../Components/ILTTwentyFilterBar/ILTTwentyFilterBar';
 import ILTTwentyTabsForNavigation from '../../Components/ILTTwentyTabsForNavigation/ILTTwentyTabsForNavigation';
+import ILTTwentySummaryServices from '../../Services/ILTTwentySummaryServices';
 import './ILTTwentySummary.css';
 
 const ILTTwentySummary = (props) => {
@@ -29,9 +30,16 @@ const ILTTwentySummary = (props) => {
             <ILTTwentrySummaryHeader />
             <ILTTwentyFilterBar />
             <ILTTwentyTabsForNavigation
-                // isNavigationTabActive={isNavigationTabActive}
-                // handleNavigationTabClick={handleNavigationTabClick}
+            // isNavigationTabActive={isNavigationTabActive}
+            // handleNavigationTabClick={handleNavigationTabClick}
             />
+            {/* {
+                console.log(
+                    ILTTwentySummaryServices.getAdImpressions(),
+                    ILTTwentySummaryServices.getViewers(),
+                    ILTTwentySummaryServices.getWatchTime()
+                )
+            } */}
         </div>
     )
 }

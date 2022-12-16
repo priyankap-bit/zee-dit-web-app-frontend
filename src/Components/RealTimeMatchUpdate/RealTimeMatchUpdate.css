@@ -1,0 +1,14 @@
+.real-time-match-update-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.realtime-update-summary{
+    display: flex;
+}
+
+.realtime-update-summary-item{
+    margin: 0 2rem;
+}
