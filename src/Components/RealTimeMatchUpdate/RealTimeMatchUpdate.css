@@ -19,3 +19,8 @@ p.realtime-update-title {
 h2.realtime-update-api {
     margin: 3px;
 }
+@media only screen and (max-width: 767px) {
+    .realtime-update-summary-item{margin-top: 100px!important;}
+    .navigationtab-ul li,.viewership-navigationtab-ul li{font-size: 10px!important;}
+    
+}

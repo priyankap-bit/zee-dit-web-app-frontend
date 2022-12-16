@@ -31,8 +31,10 @@
 
 .viewership-preformance-summary{
     max-width: 1300px;
-  
     justify-content: center;
     align-items: center;
     height: 300px;
+}
+@media only screen and (max-width: 767px) {
+    .viewership-preformance-summary{margin-top: -60px!important;}
 }
