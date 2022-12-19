@@ -5,6 +5,7 @@ const ExecutiveSummary = (props) => {
     <div className="executive-summary-container">
       <div className="executive-summary-linear">
         <div className="executive-summary-linear-title">
+        <img src="/static/images/logos/Linear-icon.svg" height={50} alt="Linear Logo"className="executive-summary-linear-image"/>
           <h3>Linear</h3>
         </div>
         <div className="executive-summary-linear-subtitle">
@@ -28,7 +29,7 @@ const ExecutiveSummary = (props) => {
         </div>
         <div className="executive-summary-tile">
           <div className="executive-summary-tile-name">
-            <h4>Reach</h4>
+            <h4>Watchtime</h4>
           </div>
           <div className="executive-summary-tile-primary-val">
             <h2>5.632 M</h2>
@@ -49,6 +50,7 @@ const ExecutiveSummary = (props) => {
       </div>
       <div className="executive-summary-digital">
         <div className="executive-summary-digital-title">
+          <img src="/static/images/logos/Digital-icon.svg" height={50} alt="Digital Logo"className="executive-summary-linear-image"/>
           <h3>Digital</h3>
         </div>
         <div className="digital-daywise-and-cumulative">
@@ -58,7 +60,7 @@ const ExecutiveSummary = (props) => {
             </div>
             <div className="executive-summary-tile">
               <div className="executive-summary-tile-name">
-                <h4>Reach</h4>
+                <h4>Viewers</h4>
               </div>
               <div className="executive-summary-tile-primary-val">
                 <h2>5.632 M</h2>
@@ -74,7 +76,7 @@ const ExecutiveSummary = (props) => {
             </div>
             <div className="executive-summary-tile">
               <div className="executive-summary-tile-name">
-                <h4>Reach</h4>
+                <h4>Watchtime</h4>
               </div>
               <div className="executive-summary-tile-primary-val">
                 <h2>5.632 M</h2>

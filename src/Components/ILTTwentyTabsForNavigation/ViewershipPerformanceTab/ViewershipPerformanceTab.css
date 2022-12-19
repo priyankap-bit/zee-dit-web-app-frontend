@@ -17,6 +17,7 @@
 }
 
 .viewership-navigationtab-ul {
+  
     display: flex;
     list-style: none;
     margin: 0 !important;
@@ -31,10 +32,11 @@
 
 .viewership-preformance-summary{
     /* max-width: 1300px; */
+    padding-top: 20px;
     justify-content: center;
     align-items: center;
     height: 300px;
 }
-@media only screen and (max-width: 767px) {
+/* @media only screen and (max-width: 767px) {
     .viewership-preformance-summary{margin-top: -60px!important;}
-}
+} */
