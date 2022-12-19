@@ -1,6 +1,46 @@
+import { useEffect, useState } from "react";
 import "./ExecutiveSummary.css";
+import * as d3 from "d3";
 
 const ExecutiveSummary = (props) => {
+  const [LineData] = useState([ 0, 50,100,150,300,600,0]);
+  
+
+// LINE CHART
+    useEffect(()=> {
+      // setting up svg
+        const w = 400;
+        const h = 150;
+        const svg = d3.select('.chart')
+          .attr('width', w)
+          .attr('height', h)
+          .style('background', 'white')
+          .style('border-radius', '9px')
+          .style('margin-top', '50')
+          .style('box-shadow', '0px 0px 14px -2px #cfd5ff');
+      //setting scaling
+        const xScale = d3.scaleLinear()
+          .domain([0, LineData.length - 1])
+          .range([0, w]);
+        const yScale = d3.scaleLinear()
+          .domain([0, h])
+          .range([h, 0]);
+        const generateScaledLine = d3.line()
+          .x((d, i)=> xScale(i)) 
+          .y(yScale)
+          .curve(d3.curveCardinal); 
+      //setting axes
+      //setting up data for svg 
+        svg.selectAll('.line')
+      .data([LineData])
+      .join('path')
+      .attr('d', d => generateScaledLine(d))
+      .attr('fill', '#145DA0')
+      .attr('stroke', '#145DA0')
+      .attr('stroke-width', '2px');
+}, [LineData]); 
+
+
   return (
     <div className="executive-summary-container">
       <div className="executive-summary-linear">
@@ -29,7 +69,7 @@ const ExecutiveSummary = (props) => {
         </div>
         <div className="executive-summary-tile">
           <div className="executive-summary-tile-name">
-            <h4>Watchtime</h4>
+            <h4>Watch Time</h4>
           </div>
           <div className="executive-summary-tile-primary-val">
             <h2>5.632 M</h2>
@@ -76,7 +116,7 @@ const ExecutiveSummary = (props) => {
             </div>
             <div className="executive-summary-tile">
               <div className="executive-summary-tile-name">
-                <h4>Watchtime</h4>
+                <h4>Watch Time</h4>
               </div>
               <div className="executive-summary-tile-primary-val">
                 <h2>5.632 M</h2>
@@ -94,6 +134,10 @@ const ExecutiveSummary = (props) => {
           <div className="digital-performance">
             <div className="executive-summary-linear-subtitle">
               <p>Cumulative Performance</p>
+            </div>
+            <div>
+              <svg className="chart" />
+          
             </div>
           </div>
         </div>
