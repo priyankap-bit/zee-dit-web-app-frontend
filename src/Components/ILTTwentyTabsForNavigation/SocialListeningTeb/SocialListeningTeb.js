@@ -5,7 +5,7 @@ import './SocialListeningTeb.css';
 const SocialListeningTeb = (props) => {
 
     return (      
-        <div className="executive-summary-tile">
+<div className="executive-summary-tile">
           <div className="executive-summary-tile-name">
             <h4>Reach</h4>
           </div>

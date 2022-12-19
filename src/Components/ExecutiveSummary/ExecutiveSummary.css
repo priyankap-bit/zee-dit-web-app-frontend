@@ -30,7 +30,7 @@
     border: 1px solid gray;
     border-radius: 5px;
     width: 55%;
-    /* height: 19px; */
+    
 }
 
 .executive-summary-linear-subtitle p {
@@ -127,6 +127,5 @@ img.executive-summary-linear-image {
  }
  @media only screen and (max-width: 767px) {
     .executive-summary-container{display: grid;}
-    .digital-daywise-and-cumulative{display: grid;}
-    .executive-summary-linear,.executive-summary-digital{width: 111%;margin-top: 20px;}
+    .executive-summary-linear,.executive-summary-digital{width: 100%;}
  }
