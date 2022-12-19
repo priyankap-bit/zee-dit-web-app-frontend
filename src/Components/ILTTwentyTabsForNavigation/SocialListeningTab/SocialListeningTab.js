@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import './SocialListeningTeb.css';
+import './SocialListeningTab.css';
 
-const SocialListeningTeb = (props) => {
+const SocialListeningTab = (props) => {
 
     return (      
         <div className="social-listening-tile">
@@ -57,4 +57,4 @@ const SocialListeningTeb = (props) => {
 
 }
 
-export default SocialListeningTeb;
+export default SocialListeningTab;
