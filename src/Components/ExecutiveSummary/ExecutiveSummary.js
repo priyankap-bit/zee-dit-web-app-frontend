@@ -3,7 +3,7 @@ import "./ExecutiveSummary.css";
 import * as d3 from "d3";
 
 const ExecutiveSummary = (props) => {
-  const [LineData] = useState([ 0, 44, 50, 51, 55, 54, 52, 50, 52, 55, 52, 50, 52, 49, 50, 53, 50,44, 50, 51, 55, 54, 52, 50, 52, 55, 52, 50, 52, 49, 50, 53, 50, 54, 55, 50, 51, 0]);
+  const [LineData] = useState([ 0, 50,100,150,300,600,0]);
   
 
 // LINE CHART
@@ -35,8 +35,8 @@ const ExecutiveSummary = (props) => {
       .data([LineData])
       .join('path')
       .attr('d', d => generateScaledLine(d))
-      .attr('fill', 'rgb(192 233 192)')
-      .attr('stroke', '#53d369')
+      .attr('fill', '#145DA0')
+      .attr('stroke', '#145DA0')
       .attr('stroke-width', '2px');
 }, [LineData]); 
 
@@ -137,6 +137,7 @@ const ExecutiveSummary = (props) => {
             </div>
             <div>
               <svg className="chart" />
+          
             </div>
           </div>
         </div>
