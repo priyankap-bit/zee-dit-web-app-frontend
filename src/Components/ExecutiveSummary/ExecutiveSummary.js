@@ -29,7 +29,7 @@ const ExecutiveSummary = (props) => {
         </div>
         <div className="executive-summary-tile">
           <div className="executive-summary-tile-name">
-            <h4>Watchtime</h4>
+            <h4>Watch Time</h4>
           </div>
           <div className="executive-summary-tile-primary-val">
             <h2>5.632 M</h2>
@@ -76,7 +76,7 @@ const ExecutiveSummary = (props) => {
             </div>
             <div className="executive-summary-tile">
               <div className="executive-summary-tile-name">
-                <h4>Watchtime</h4>
+                <h4>Watch Time</h4>
               </div>
               <div className="executive-summary-tile-primary-val">
                 <h2>5.632 M</h2>
