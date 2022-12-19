@@ -13,3 +13,6 @@
     margin-bottom: 20px;
     margin: 30px;
 }
+@media only screen and (max-width: 767px) {
+    .social-listening-tile{display: grid;width: 100%!important;margin: 0px!important;}
+}
