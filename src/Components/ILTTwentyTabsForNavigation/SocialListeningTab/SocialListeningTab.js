@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import DonutChart from '../../Charts/DonutChart';
 
 import './SocialListeningTab.css';
 
@@ -49,8 +50,10 @@ const SocialListeningTab = (props) => {
               </div>
           </div>
          
-          
-          
+          {/* <div>
+            <DonutChart/>
+          </div>
+           */}
         </div>
 
     )
