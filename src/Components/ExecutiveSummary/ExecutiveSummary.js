@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import { async } from "q";
 import ILTTwentySummaryServices from "../../Services/ILTTwentySummaryServices";
 import ExecutiveSummaryDigital from "./ExecutiveSummaryDigital";
+import { useEffect, useState } from "react";
 
 const ExecutiveSummary = (props) => {
   const [executiveSummaryData, setExecutiveSummaryData] = useState({

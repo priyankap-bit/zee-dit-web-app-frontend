@@ -21,7 +21,7 @@ const ExecutiveSummaryDigital = () => {
 
     executiveSummaryDigital();
   }, []);
-  console.log(executiveSummaryData);
+ 
   return (
     <div className="executive-summary-digital">
       <div className="executive-summary-digital-title">
@@ -38,38 +38,43 @@ const ExecutiveSummaryDigital = () => {
           <div className="executive-summary-linear-subtitle">
             <p>Day-wise Performance</p>
           </div>
-          <div className="executive-summary-tile">
-            <div className="executive-summary-tile-name">
-              <h4>Viewers</h4>
-            </div>
-            <div className="executive-summary-tile-primary-val">
-              <h2>5.632 M</h2>
-            </div>
-            <div className="executive-summary-tile-secondary-val">
-              <p className="executive-summary-tile-secondary-val-perneg">
-                -39.9%
-              </p>
-              <p className="executive-summary-tile-secondary-val-num">
-                Prev. 9.37K
-              </p>
-            </div>
-          </div>
-          <div className="executive-summary-tile">
-            <div className="executive-summary-tile-name">
-              <h4>Watch Time</h4>
-            </div>
-            <div className="executive-summary-tile-primary-val">
-              <h2>5.632 M</h2>
-            </div>
-            <div className="executive-summary-tile-secondary-val">
-              <p className="executive-summary-tile-secondary-val-perneg">
-                -39.9%
-              </p>
-              <p className="executive-summary-tile-secondary-val-num">
-                Prev. 9.37K
-              </p>
-            </div>
-          </div>
+          {executiveSummaryData.digitalViewers !== null &&
+            executiveSummaryData.digitalWatchTime !== null && (
+              <>
+                <div className="executive-summary-tile">
+                  <div className="executive-summary-tile-name">
+                    <h4>{executiveSummaryData.digitalViewers[0].title}</h4>
+                  </div>
+                  <div className="executive-summary-tile-primary-val">
+                    <h2>{executiveSummaryData.digitalViewers[0].views}</h2>
+                  </div>
+                  <div className="executive-summary-tile-secondary-val">
+                    <p className="executive-summary-tile-secondary-val-perneg">
+                      {executiveSummaryData.digitalViewers[0].different}
+                    </p>
+                    <p className="executive-summary-tile-secondary-val-num">
+                      Prev. {executiveSummaryData.digitalViewers[0].prev}
+                    </p>
+                  </div>
+                </div>
+                <div className="executive-summary-tile">
+                  <div className="executive-summary-tile-name">
+                    <h4>{executiveSummaryData.digitalWatchTime[0].title}</h4>
+                  </div>
+                  <div className="executive-summary-tile-primary-val">
+                    <h2>{executiveSummaryData.digitalWatchTime[0].time}</h2>
+                  </div>
+                  <div className="executive-summary-tile-secondary-val">
+                    <p className="executive-summary-tile-secondary-val-perneg">
+                      {executiveSummaryData.digitalWatchTime[0].different}
+                    </p>
+                    <p className="executive-summary-tile-secondary-val-num">
+                      {executiveSummaryData.digitalWatchTime[0].prev}
+                    </p>
+                  </div>
+                </div>
+              </>
+            )}
         </div>
         <div className="digital-performance">
           <div className="executive-summary-linear-subtitle">
