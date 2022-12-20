@@ -30,12 +30,16 @@
     border: 1px solid gray;
     border-radius: 5px;
     width: 55%;
-    
+    height: 29px;
 }
 
 .executive-summary-linear-subtitle p {
     padding: 5px;
     margin: 0 !important;
+}
+
+.chart-container {
+    width: 100%;
 }
 
 .executive-summary-tile {
