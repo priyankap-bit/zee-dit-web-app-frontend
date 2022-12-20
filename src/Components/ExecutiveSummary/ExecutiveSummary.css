@@ -130,6 +130,9 @@ img.executive-summary-linear-image {
     .executive-summary-linear{width: 30%;}
  }
  @media only screen and (max-width: 767px) {
-    .executive-summary-container{display: grid;}
-    .executive-summary-linear,.executive-summary-digital{width: 100%;}
+    .executive-summary-container,.digital-daywise-and-cumulative{display: grid;}
+    .executive-summary-linear,.executive-summary-digital{width:80%;}
+    .executive-summary-linear-subtitle{width: auto;}
+    .digital-performance {
+        width: 79%;}
  }
