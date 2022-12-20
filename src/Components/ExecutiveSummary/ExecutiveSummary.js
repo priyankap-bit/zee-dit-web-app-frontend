@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import "./ExecutiveSummary.css";
 
 import { async } from "q";
+import * as d3 from 'd3';
 import ILTTwentySummaryServices from "../../Services/ILTTwentySummaryServices";
 import ExecutiveSummaryDigital from "./ExecutiveSummaryDigital";
 
