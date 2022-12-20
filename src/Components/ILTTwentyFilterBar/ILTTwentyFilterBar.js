@@ -18,7 +18,7 @@ const ILTTwentyFilterBar = (props) => {
                     <option value='today'>Today</option>
                     <option value='yesterday'>Yesterday</option>
                 </select>
-                <p>Default - Yesterday</p>
+               {/* <p>Default - Yesterday</p> */}
             </div>
         </div>
     )

@@ -1,38 +1,52 @@
 .executive-summary-container {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .executive-summary-linear {
-    /* width: 33%; */
-    /* border: 1px solid gray; */
+    width: 33%;
+    border: 2px solid gray;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
 .executive-summary-linear-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
     background-color: bisque;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .executive-summary-linear-subtitle {
     margin: 1rem 0;
     border: 1px solid gray;
     border-radius: 5px;
+    width: 55%;
+    
 }
 
 .executive-summary-linear-subtitle p {
+    padding: 5px;
     margin: 0 !important;
 }
 
 .executive-summary-tile {
     background-color: #f3f3f3;
-    border-radius: 20%;
+    border-radius: 20px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90%;
+    margin-bottom: 20px;
 }
 
 .executive-summary-tile-name h4 {
@@ -65,5 +79,53 @@
 }
 
 .executive-summary-digital {
-    /* border: 1px solid gray; */
+    width: 66%;
+    border: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
+
+.update-detail {
+    width: 95%;
+    text-align: start;
+    margin-bottom: 8px;
+    color: gray;
+}
+
+.d-block {
+    display: block;
+}
+
+.digital-daywise-and-cumulative{
+    display: flex;
+    width: 100%;
+}
+
+.digital-performance {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+}
+
+.executive-summary-digital-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    background-color: rgba(196, 255, 198, 0.607);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+img.executive-summary-linear-image {
+    margin-top: -11px;
+}
+@media only screen and (max-width: 1023px) and (min-width: 768px){ 
+    .executive-summary-linear-subtitle p{font-size: 10px;}
+    .executive-summary-linear{width: 30%;}
+ }
+ @media only screen and (max-width: 767px) {
+    .executive-summary-container{display: grid;}
+    .executive-summary-linear,.executive-summary-digital{width: 100%;}
+ }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './ILTTwentyTabsForNavigation.css';
 import ViewershipPerformanceTab from './ViewershipPerformanceTab/ViewershipPerformanceTab';
+import SocialListeningTab from './SocialListeningTab/SocialListeningTab';
 
 const ILTTwentyTabsForNavigation = (props) => {
 
@@ -28,7 +29,7 @@ const ILTTwentyTabsForNavigation = (props) => {
             </ul>
             <div className='ilttwenty-navigation-tabs-data'>
                 {
-                    activeTab === 'viewershipPerformance' ? <ViewershipPerformanceTab /> : <p>historicalupdate</p>
+                    activeTab === 'viewershipPerformance' ? <ViewershipPerformanceTab /> : <p><SocialListeningTab /></p>
                 }
             </div>
         </div>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { async } from "q";
 
 const baseURL = 'http://localhost:5000/';
 
@@ -31,6 +32,50 @@ export default {
             throw (error);
         }
     },
-
+    getLinearReachApi: async function () {
+        try{
+            const response = await axios.get(baseURL + 'linearReachApi')
+            return response.data
+        }catch(error){
+            console.log(error);
+            throw(error);
+        }
+    },
+    getLinearWatchTime: async() => {
+        try{
+            const response = await axios.get(baseURL + 'linearWatchTimeApi')
+            return response.data
+        }catch(error){
+            console.log(error);
+            throw(error)
+        }
+    },
+    getLinearUpdateDates: async() => {
+        try{
+            const response = await axios.get(baseURL + 'executiveupdateapi')
+            return response.data
+        }catch(error){
+            console.log(error);
+            throw(error)
+        }
+    },
+    getDigitalViewers: async() => {
+        try{
+            const response = await axios.get(baseURL + 'ottViewersApi')
+            return response.data
+        }catch(error){
+            console.log(error);
+            throw(error)
+        }
+    },
+    getDigitalWatchTime: async() => {
+        try{
+            const response = await axios.get(baseURL + 'ottWatchTimeApi')
+            return response.data
+        }catch(error){
+            console.log(error);
+            throw(error)
+        }
+    }
 
 }

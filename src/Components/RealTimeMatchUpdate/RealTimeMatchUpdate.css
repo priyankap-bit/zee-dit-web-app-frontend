@@ -1,14 +1,26 @@
-.real-time-match-update-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.real-time-container {
+   display: flex;
 }
-
-.realtime-update-summary{
-    display: flex;
-}
-
 .realtime-update-summary-item{
-    margin: 0 2rem;
+    -webkit-box-reflect: below -1px linear-gradient(to bottom, rgba(0,0,0,0.0), rgb(0 0 0 / 51%));
+    border-radius: 30px;
+    border: 5px solid #000;
+    color: #FFF;
+    flex: 33.33% 1;
+    height: auto;
+    padding: 10px;
+    margin: 40px;
+    background-color: #7030A0;
+    text-align: center;
+}
+p.realtime-update-title {
+    margin: 5px!important;
+}
+h2.realtime-update-api {
+    margin: 3px;
+}
+@media only screen and (max-width: 767px) {
+    /* .realtime-update-summary-item{margin-top: 100px!important;} */
+    .navigationtab-ul li,.viewership-navigationtab-ul li{font-size: 10px!important;}
+    
 }
