@@ -7,6 +7,8 @@ const ILTTwentyTabsForNavigation = (props) => {
 
     const [activeTab, setActiveTab] = useState('viewershipPerformance');
 
+    const { selectedFilterDate } = props;
+
     const handleOnNavigationTabClick = (tab, event) => {
         tab === 'viewershipPerformance' ? setActiveTab('viewershipPerformance') : setActiveTab('socialListing');
     }
@@ -29,7 +31,9 @@ const ILTTwentyTabsForNavigation = (props) => {
             </ul>
             <div className='ilttwenty-navigation-tabs-data'>
                 {
-                    activeTab === 'viewershipPerformance' ? <ViewershipPerformanceTab /> : <p><SocialListeningTab /></p>
+                    activeTab === 'viewershipPerformance' ?
+                        <ViewershipPerformanceTab selectedFilterDate={selectedFilterDate} /> :
+                        <SocialListeningTab selectedFilterDate={selectedFilterDate} />
                 }
             </div>
         </div>

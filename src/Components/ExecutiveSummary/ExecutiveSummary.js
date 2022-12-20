@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import "./ExecutiveSummary.css";
 import * as d3 from "d3";
 import { async } from "q";
@@ -6,12 +6,16 @@ import ILTTwentySummaryServices from "../../Services/ILTTwentySummaryServices";
 import ExecutiveSummaryDigital from "./ExecutiveSummaryDigital";
 
 const ExecutiveSummary = (props) => {
+
+  const { selectedFilterDate } = props;
+  const [value, setValue] = useState();
+
   const [executiveSummaryData, setExecutiveSummaryData] = useState({
     linearReach: null,
     linearWatchTime: null,
     updateDate: null,
   });
-  const [LineData] = useState([ 0, 50,100,150,300,600,0]);
+  const [LineData] = useState([0, 50, 100, 150, 300, 600, 0]);
 
   // LINE CHART
   useEffect(() => {
@@ -64,6 +68,11 @@ const ExecutiveSummary = (props) => {
     executiveSummaryLinear();
   }, []);
 
+  useEffect(() => {
+    // value = Math.random() * 100;
+    setValue(Math.random() * 100)
+  }, [selectedFilterDate]);
+
   return (
     <div className="executive-summary-container">
       <div className="executive-summary-linear">
@@ -79,6 +88,10 @@ const ExecutiveSummary = (props) => {
         <div className="executive-summary-linear-subtitle">
           <p>Day-wise Performance</p>
         </div>
+
+        {value !== null && (<>
+          <h2>{selectedFilterDate}</h2>
+        </>)}
         {executiveSummaryData.linearReach !== null &&
           executiveSummaryData.linearWatchTime !== null &&
           executiveSummaryData.updateDate !== null && (
@@ -130,7 +143,8 @@ const ExecutiveSummary = (props) => {
             </>
           )}
       </div>
-      <ExecutiveSummaryDigital />
+      <ExecutiveSummaryDigital selectedFilterDate={selectedFilterDate} />
+
     </div>
   );
 };

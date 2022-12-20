@@ -3,11 +3,16 @@ import ILTTwentySummaryServices from "../../Services/ILTTwentySummaryServices";
 import "./RealTimeMatchUpdate.css";
 
 const RealTimeMatchUpdate = (props) => {
+
+  // const { selectedFilterDate } = props;
+
   const [realTimeMatchUpdateSummary, setRealTimeMatchUpdateSummary] = useState({
     viewers: null,
     watchTime: null,
     adImpressions: null,
   });
+
+  const [tempValue, setTempValue] = useState(null);
 
   useEffect(() => {
     const getRealTimeMatchUpdates = async () => {
@@ -25,11 +30,11 @@ const RealTimeMatchUpdate = (props) => {
     getRealTimeMatchUpdates();
   }, []);
 
-  // if(realTimeMatchUpdateSummary.viewers !== null){
-  //   console.log(realTimeMatchUpdateSummary.viewers[0].yesterday);
-  //   console.log(realTimeMatchUpdateSummary.watchTime[0].yesterday);
-  //   console.log(realTimeMatchUpdateSummary.adImpressions[0].yesterday);
-  // }
+  if(realTimeMatchUpdateSummary.viewers !== null){
+    console.log(realTimeMatchUpdateSummary.viewers[0].yesterday);
+    console.log(realTimeMatchUpdateSummary.watchTime[0].yesterday);
+    console.log(realTimeMatchUpdateSummary.adImpressions[0].yesterday);
+  }
 
   return (
     <div className="real-time-match-update-container">

@@ -7,11 +7,13 @@ const ViewershipPerformanceTab = (props) => {
 
     const [activeTab, setActiveTab] = useState('realtimematchupdate');
 
+    const { selectedFilterDate } = props;
+
     const handleOnNavigationTabClick = (tab, event) => {
         tab === 'realtimematchupdate' ? setActiveTab('realtimematchupdate') : setActiveTab('executivesummary');
     }
 
-    const handleOnExecutiveSumSelectChange = (event) => { }
+    // const handleOnExecutiveSumSelectChange = (event) => { }
 
     return (
         <div className='viewership-performance-tab-container'>
@@ -43,7 +45,9 @@ const ViewershipPerformanceTab = (props) => {
 
             <div className='viewership-preformance-summary'>
                 {
-                    activeTab === 'realtimematchupdate' ? <RealTimeMatchUpdate /> : <ExecutiveSummary />
+                    activeTab === 'realtimematchupdate' ?
+                        <RealTimeMatchUpdate selectedFilterDate={selectedFilterDate} /> :
+                        <ExecutiveSummary selectedFilterDate={selectedFilterDate} />
                 }
             </div>
 

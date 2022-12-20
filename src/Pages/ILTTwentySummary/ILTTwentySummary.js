@@ -12,6 +12,8 @@ const ILTTwentySummary = (props) => {
         socialListing: false,
     })
 
+    const [selectedFilterDate, setSelectedFilterDate] = useState(null);
+
     const handleNavigationTabClick = useCallback((tab, event) => {
         console.log('handleNavigationTabClick');
         tab === 'viewershipPerformance' ?
@@ -23,23 +25,21 @@ const ILTTwentySummary = (props) => {
                 viewershipPerformance: false,
                 socialListing: true,
             })
-    }, [isNavigationTabActive])
+    }, [isNavigationTabActive]);
+
+    const handleFilterValueChange = date => setSelectedFilterDate(date);
 
     return (
         <div className='ilt20-summary-container'>
             <ILTTwentrySummaryHeader />
-            <ILTTwentyFilterBar />
-            <ILTTwentyTabsForNavigation
-            // isNavigationTabActive={isNavigationTabActive}
-            // handleNavigationTabClick={handleNavigationTabClick}
+            <ILTTwentyFilterBar
+                handleFilterValueChange={handleFilterValueChange}
             />
-            {/* {
-                console.log(
-                    ILTTwentySummaryServices.getAdImpressions(),
-                    ILTTwentySummaryServices.getViewers(),
-                    ILTTwentySummaryServices.getWatchTime()
-                )
-            } */}
+            <ILTTwentyTabsForNavigation
+                // isNavigationTabActive={isNavigationTabActive}
+                // handleNavigationTabClick={handleNavigationTabClick}
+                selectedFilterDate={selectedFilterDate}
+            />
         </div>
     )
 }
