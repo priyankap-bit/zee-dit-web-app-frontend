@@ -76,6 +76,33 @@ export default {
             console.log(error);
             throw(error)
         }
+    },
+    getSocialListening: async() => {
+        try{
+            const response = await axios.get(baseURL + 'sociallisteningapi')
+            return response.data
+        }catch(error){
+            console.log(error);
+            throw(error)
+        }
+    },
+    getCumulativePerformanceData: async() => {
+        try{
+            const response = await axios.get(baseURL + 'ottGraphApi')
+            return response.data
+        }catch(error){
+            console.log(error);
+            throw(error)
+        }
+    },
+    getUpdateNextUpdate: async () => {
+        try{
+            const response = await axios.get(baseURL + 'update-next-update');
+            return response.data
+        }catch(error){
+            console.log(error);
+            throw(error)
+        }
     }
 
 }

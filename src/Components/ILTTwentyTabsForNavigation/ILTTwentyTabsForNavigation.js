@@ -29,7 +29,7 @@ const ILTTwentyTabsForNavigation = (props) => {
             </ul>
             <div className='ilttwenty-navigation-tabs-data'>
                 {
-                    activeTab === 'viewershipPerformance' ? <ViewershipPerformanceTab /> : <p><SocialListeningTab /></p>
+                    activeTab === 'viewershipPerformance' ? <ViewershipPerformanceTab /> : <SocialListeningTab />
                 }
             </div>
         </div>
