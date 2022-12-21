@@ -17,3 +17,10 @@
 @media only screen and (max-width: 767px) {
     .social-listening-tile{display: grid;width: 100%!important;margin: 0px!important;}
 }
+
+.words-cloud{
+    height: 250px;
+    width: 400px;
+    /* border: 1px solid black; */
+    border-radius: 100%;
+}

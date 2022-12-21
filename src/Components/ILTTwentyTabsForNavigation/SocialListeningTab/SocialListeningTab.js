@@ -2,11 +2,14 @@ import { async } from "q";
 import React, { useEffect, useState } from "react";
 import ILTTwentySummaryServices from "../../../Services/ILTTwentySummaryServices";
 import DonutChart from "../../Charts/DonutChart";
+import ReactWordcloud from "react-wordcloud";
 
 import "./SocialListeningTab.css";
+import WordsCloud from "./WordsCloud";
 
 const SocialListeningTab = (props) => {
   const [socialListingFetchData, setSocialListingFetchData] = useState(null);
+ 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,7 +71,10 @@ const SocialListeningTab = (props) => {
         )}
       </div>
       <div className="social-listening-tile">
-        <DonutChart />
+          <DonutChart />
+      </div>
+      <div className="social-listening-tile">
+        <WordsCloud />
       </div>
     </div>
   );
