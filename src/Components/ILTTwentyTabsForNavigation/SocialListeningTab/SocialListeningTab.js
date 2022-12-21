@@ -1,15 +1,15 @@
-import { async } from "q";
 import React, { useEffect, useState } from "react";
-import ILTTwentySummaryServices from "../../../Services/ILTTwentySummaryServices";
-import DonutChart from "../../Charts/DonutChart";
-import ReactWordcloud from "react-wordcloud";
-
 import "./SocialListeningTab.css";
+import DonutChart from "../../Charts/DonutChart";
 import WordsCloud from "./WordsCloud";
+import ConsumerTrack from "./ConsumerTrack";
+import SocialListeningTotalCards from "./SocialListeningTotalCards";
+import ILTTwentySummaryServices from "../../../Services/ILTTwentySummaryServices";
+import QualitativeInputs from "./QualitativeInputs";
+import SocialListeningText from "./SocialListeningText";
 
 const SocialListeningTab = (props) => {
   const [socialListingFetchData, setSocialListingFetchData] = useState(null);
- 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,63 +19,54 @@ const SocialListeningTab = (props) => {
     };
     fetchData();
   }, []);
+  console.log(socialListingFetchData);
 
   return (
     <div>
-      <div className="social-listening-tile">
-        {socialListingFetchData !== null && (
-          <>
-            <div className="social-listening-title">
-              <h4>{socialListingFetchData[0].mentions.title}</h4>
-              <div className="executive-summary-tile-primary-val">
-                <h2>{socialListingFetchData[0].mentions.views}</h2>
-              </div>
-              <div className="executive-summary-tile-secondary-val">
-                <p className="executive-summary-tile-secondary-val-perneg">
-                  {socialListingFetchData[0].mentions.different}
-                </p>
-                <p className="executive-summary-tile-secondary-val-num">
-                  {socialListingFetchData[0].mentions.prev}
-                </p>
-              </div>
-            </div>
-            <div className="social-listening-title">
-              <h4>{socialListingFetchData[0].distinct_users.title}</h4>
-              <div className="executive-summary-tile-primary-val">
-                <h2>{socialListingFetchData[0].distinct_users.views}</h2>
-              </div>
-              <div className="executive-summary-tile-secondary-val">
-                <p className="executive-summary-tile-secondary-val-perneg">
-                  {socialListingFetchData[0].distinct_users.different}
-                </p>
-                <p className="executive-summary-tile-secondary-val-num">
-                  Prev. {socialListingFetchData[0].distinct_users.prev}
-                </p>
-              </div>
-            </div>
-            <div className="social-listening-title">
-              <h4>{socialListingFetchData[0].engagement.title}</h4>
-              <div className="executive-summary-tile-primary-val">
-                <h2>{socialListingFetchData[0].engagement.views}</h2>
-              </div>
-              <div className="executive-summary-tile-secondary-val">
-                <p className="executive-summary-tile-secondary-val-perneg">
-                  {socialListingFetchData[0].engagement.different}
-                </p>
-                <p className="executive-summary-tile-secondary-val-num">
-                  Prev. {socialListingFetchData[0].engagement.prev}
-                </p>
-              </div>
-            </div>
-          </>
-        )}
-      </div>
-      <div className="social-listening-tile">
-          <DonutChart />
-      </div>
-      <div className="social-listening-tile">
-        <WordsCloud />
-      </div>
+      {socialListingFetchData !== null && (
+        <div>
+          <div className="social-listening-tile">
+            <SocialListeningTotalCards
+              socialListingFetchData={
+                socialListingFetchData[0].total_numbers.mentions
+              }
+            />
+            <SocialListeningTotalCards
+              socialListingFetchData={
+                socialListingFetchData[0].total_numbers.distinct_users
+              }
+            />
+            <SocialListeningTotalCards
+              socialListingFetchData={
+                socialListingFetchData[0].total_numbers.engagement
+              }
+            />
+          </div>
+
+          <div className="social-listening-tile" >
+            <DonutChart
+              donutChart={socialListingFetchData[0].chart_data.donut_chart.data}
+            />
+            <WordsCloud
+              wordsCloud={socialListingFetchData[0].chart_data.words_cloud.data}
+            />
+            <ConsumerTrack
+              consumerTrackData={
+                socialListingFetchData[0].chart_data.consumer_track.data
+              }
+            />
+          </div>
+          <div className="border" >
+            <QualitativeInputs
+              qualitativeInputData={
+                socialListingFetchData[0].chart_data.qualitative_input.data
+              }
+            />
+          
+            <SocialListeningText />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

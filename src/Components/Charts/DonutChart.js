@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3v4";
-import ReactWordcloud from "react-wordcloud";
 import "./DonutChart.css";
 
 const DonutChart = (props) => {
+  const { donutChart } = props;
+  console.log("donut chart data :", donutChart);
   useEffect(() => {
     // set the dimensions and margins of the graph
     var width = 250,
@@ -23,19 +24,19 @@ const DonutChart = (props) => {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     // Create dummy data
-    var data = { a: 3, b: 25, c: 30 };
+    // var data = { a: 3, b: 25, c: 30 };
 
     // set the color scale
     var color = d3
       .scaleOrdinal()
-      .domain(data)
-      .range(["#48c4fc", "#88147c", "#08bc34", "#6b486b", "#a05d56"]);
+      .domain(donutChart)
+      .range(["#B73864", "#00C143", "#FFD354"]);
 
     // Compute the position of each group on the pie:
     var pie = d3.pie().value(function (d) {
       return d.value;
     });
-    var data_ready = pie(d3.entries(data));
+    var data_ready = pie(d3.entries(donutChart));
 
     // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
     svg
@@ -59,11 +60,9 @@ const DonutChart = (props) => {
   }, []);
 
   return (
-    <div className="social-listening-tile">
-      <div className="social-listening-title">
-        <p>Sentiment distribution across mentions</p>
-        <svg id="my_dataviz"></svg>
-      </div>
+    <div className="social-listening-title">
+      <p>Sentiment distribution across mentions</p>
+      <svg id="my_dataviz"></svg>
     </div>
   );
 };
