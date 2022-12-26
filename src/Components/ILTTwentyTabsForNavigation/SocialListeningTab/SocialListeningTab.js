@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./SocialListeningTab.css";
 import DonutChart from "../../Charts/DonutChart";
+import GroupedBar from "../../Charts/GroupedBar";
+import LineChart from "../../Charts/LineChart";
 import WordsCloud from "./WordsCloud";
 import ConsumerTrack from "./ConsumerTrack";
 import SocialListeningTotalCards from "./SocialListeningTotalCards";
@@ -44,6 +46,11 @@ const SocialListeningTab = (props) => {
           </div>
 
           <div className="social-listening-tile" >
+            
+            {/* <GroupedBar/> */}
+
+            <LineChart/>
+          
             <DonutChart
               donutChart={socialListingFetchData[0].chart_data.donut_chart.data}
             />
@@ -54,15 +61,19 @@ const SocialListeningTab = (props) => {
               consumerTrackData={
                 socialListingFetchData[0].chart_data.consumer_track.data
               }
-            />
+              />
+
+
+
           </div>
+
+
           <div className="border" >
             <QualitativeInputs
               qualitativeInputData={
                 socialListingFetchData[0].chart_data.qualitative_input.data
               }
             />
-          
             <SocialListeningText />
           </div>
         </div>
