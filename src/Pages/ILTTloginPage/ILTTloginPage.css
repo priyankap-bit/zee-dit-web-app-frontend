@@ -1,0 +1,29 @@
+.login-page{
+    margin-top: 30%;
+    width: 25%;  
+}
+.login{
+    background-image: linear-gradient(to  bottom, rgb(87, 42, 159), rgb(55, 15, 119));
+    color: white;
+    border: 0px;
+    font-size: 8px;
+    padding: 6px;
+    width: 70px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+input.login {
+    margin: auto;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="email"] {
+    margin: 10px 10px;
+}
+input[type="password"] {
+    margin: 0px 10px;
+}
+
