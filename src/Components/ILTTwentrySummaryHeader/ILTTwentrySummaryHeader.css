@@ -2,25 +2,86 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 50px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #D8E3FF
+        /* position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%; */
 }
 
-.ilt20-header-ilt20-text-3 h1 {
-    font-size: 34px;
-}
-
-.ilt20-header-ilt20-logo-2{
-    margin-right: 25px;
+.ilt20-header-div-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ilt20-header-zee-logo-4 {
-    margin-left: 25px;
+    margin-left: 15px;
 }
+
+.ilt20-header-subdiv-left-2 {
+    width: 2px;
+    height: 30px;
+    background: #D8E3FF;
+    margin: 0 15px;
+}
+
+.ilt20-header-subdiv-left-3 {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    color: #333333;
+    opacity: 0.5;
+}
+
+.ilt20-header-div-middle {
+    display: flex;
+}
+
+.ilt20-header-ilt20-text-3 h1 {
+    /* font-size: 34px; */
+    /* font-family: 'Graphik'; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.ilt20-header-ilt20-logo-2 {
+    margin-right: 25px;
+}
+
+
+
 @media only screen and (max-width: 767px) {
-    .ilt20-header-ilt20-text-3 h1{font-size: 25px;}
-    .ilt20-filterbar-navigation{width: 0.5rem!important;}
-    .ilttwenty-navigation-tabs-container,.viewership-navigationtab-ul{padding-left: 0.3rem!important;}
-    ul.navigationtab-ul{padding: 3px!important;}
-    .real-time-container{display: inline!important;}
-    .realtime-update-summary-item{-webkit-box-reflect:none!important;}
- 
+    .ilt20-header-ilt20-text-3 h1 {
+        font-size: 25px;
+    }
+
+    .ilt20-filterbar-navigation {
+        width: 0.5rem !important;
+    }
+
+    .ilttwenty-navigation-tabs-container,
+    .viewership-navigationtab-ul {
+        padding-left: 0.3rem !important;
+    }
+
+    ul.navigationtab-ul {
+        padding: 3px !important;
+    }
+
+    .real-time-container {
+        display: inline !important;
+    }
+
+    .realtime-update-summary-item {
+        -webkit-box-reflect: none !important;
+    }
+
 }

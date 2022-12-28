@@ -1,0 +1,72 @@
+/* #root {
+    margin: 0 auto;
+    display: flex;
+    height: 100vh;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.App {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 80vw;
+} */
+
+.energy-svg {
+    height: 300px;
+    overflow: visible;
+    margin: 0;
+}
+
+.svg-wrap {
+    width: 100%;
+    display: flex;
+    margin: 16px;
+    height: 200px;
+}
+
+.y-axis-svg {
+    overflow: visible;
+}
+
+.x-axis-scroll {
+    overflow-x: scroll;
+    margin-bottom: -150px;
+}
+
+/* width */
+.x-axis-scroll::-webkit-scrollbar {
+    height: 5px;
+    position: relative;
+}
+
+/* Track */
+.x-axis-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+.x-axis-scroll::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 9999px;
+}
+
+/* Handle on hover */
+.x-axis-scroll:hover::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 9999px;
+}
+
+.stacekd-bar-chart-ticks {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    color: #808080;
+}
+
+/* .x-tick line{
+    visibility: hidden;
+} */

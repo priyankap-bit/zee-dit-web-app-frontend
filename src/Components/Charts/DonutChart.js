@@ -1,9 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import * as d3 from "d3v4";
 import ReactWordcloud from "react-wordcloud";
 import './DonutChart.css'
 
 const DonutChart = (props) => {
+
+  const { selectedFilterDate } = props;
+
+  const [selectedFilterDateValue, setSelectedFilterDateValue] = useState(selectedFilterDate);
+
   const words = [
     {
       text: "told",
@@ -526,7 +531,12 @@ const DonutChart = (props) => {
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     // Create dummy data
-    var data = { a: 3, b: 25, c: 30 };
+    // var data = { a: 3, b: 25, c: 30 };
+    var data = {
+      a: Math.random() * 100,
+      b: Math.random() * 100,
+      c: Math.random() * 100
+    };
 
     // set the color scale
     var color = d3
@@ -559,7 +569,7 @@ const DonutChart = (props) => {
       .attr("stroke", "black")
       .style("stroke-width", "2px")
       .style("opacity", 0.7);
-  }, []);
+  }, [selectedFilterDate]);
 
   const options = {
     rotations: 2,

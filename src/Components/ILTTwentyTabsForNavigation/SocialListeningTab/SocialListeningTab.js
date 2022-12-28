@@ -1,4 +1,4 @@
-import { async } from "q";
+// import { async } from "q";
 import React, { useEffect, useState } from "react";
 import ILTTwentySummaryServices from "../../../Services/ILTTwentySummaryServices";
 import DonutChart from "../../Charts/DonutChart";
@@ -6,6 +6,9 @@ import DonutChart from "../../Charts/DonutChart";
 import "./SocialListeningTab.css";
 
 const SocialListeningTab = (props) => {
+
+  const { selectedFilterDate } = props;
+
   const [socialListingFetchData, setSocialListingFetchData] = useState(null);
 
   useEffect(() => {
@@ -68,7 +71,9 @@ const SocialListeningTab = (props) => {
         )}
       </div>
       <div className="social-listening-tile">
-        <DonutChart />
+        <DonutChart
+          selectedFilterDate={selectedFilterDate}
+        />
       </div>
     </div>
   );
