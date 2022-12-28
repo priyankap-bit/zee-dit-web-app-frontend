@@ -4,10 +4,8 @@ import { Link } from "react-router-dom";
 import './ILTTloginPage.css';
 
 const ILTTloginPage = (props) => {
-
-
-
     return (
+        
         <form className='login-page'>
             <input type="email" name="name" placeholder='Email' /> <br />
             <input type="password" name="pass" placeholder='Password' /> <br />
@@ -15,6 +13,7 @@ const ILTTloginPage = (props) => {
             {/* <input className='login' type="submit" value="LOGIN" /> */}
 
         </form>
+
     )
 
 
