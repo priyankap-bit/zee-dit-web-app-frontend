@@ -6,15 +6,14 @@ import ILTTwentySummaryServices from '../../Services/ILTTwentySummaryServices';
 import './ILTTloginPage.css';
 
 const ILTTloginPage = (props) => {
-
-
-
     return (
+        
         <form className='login-page'>
             <input type="email" name="name" placeholder='Email' /> <br />
             <input type="password" name="pass" placeholder='Password' /> <br />
             <input className='login' type="submit" value="LOGIN" />
         </form>
+
     )
 
 

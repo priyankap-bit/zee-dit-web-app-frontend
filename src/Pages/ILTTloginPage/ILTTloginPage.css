@@ -1,12 +1,13 @@
 .login-page{
-    margin-top: 30%;
-    width: 25%;  
+  width: 25%;  
 }
 .login{
+
     background-image: linear-gradient(to  bottom, rgb(87, 42, 159), rgb(55, 15, 119));
     color: white;
     border: 0px;
-    font-size: 8px;
+    font-weight: bold;
+    font-size: 10px;
     padding: 6px;
     width: 70px;
     border-radius: 4px;
@@ -14,16 +15,18 @@
 }
 
 input.login {
-    margin: auto;
+   margin: auto;
     text-align: center;
     display: block;
     margin-top: 10px;
+  
+}
+input[type="email"],input[type="password"]{
+    border: 1px solid #808080;
+    border-radius: 5px;
+    margin: 10px;
+    width: 100%!important;
+    padding: 10px;
 }
 
-input[type="email"] {
-    margin: 10px 10px;
-}
-input[type="password"] {
-    margin: 0px 10px;
-}
 
