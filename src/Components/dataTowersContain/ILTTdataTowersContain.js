@@ -12,12 +12,11 @@ const ILTTdataTowersContain = (props) => {
            <div className='button'>
                 Executive Summary
            </div>
-           <div className='button'>
+           <div className='data-towers'>
+          <div className='button'>
                 Consumer
            </div>
-           <div className='button'>
-                Sports
-           </div>
+          
            <div className='button'>
                 Content
            </div>
@@ -27,7 +26,10 @@ const ILTTdataTowersContain = (props) => {
            <div className='button'>
                 Product
            </div>
-           
+           </div>
+           <div className='button'>
+                Sports
+           </div>
         </div> 
     
     )

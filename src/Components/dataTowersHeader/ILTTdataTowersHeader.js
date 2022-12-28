@@ -11,7 +11,8 @@ const ILTTdataTowersHeader = (props) => {
 
         <div className="head">
             <div className="logo">
-                <img className='logoImg' src='{logo}' alt='logo'/>
+            <img src='/static/images/logos/zee-logo.png' alt='Viewers Logo' className='logo-image' />
+            
             </div>  
 
             <div className='loginUser'>
