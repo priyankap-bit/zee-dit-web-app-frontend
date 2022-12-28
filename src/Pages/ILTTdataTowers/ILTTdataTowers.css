@@ -1,0 +1,15 @@
+.head{
+    display: flex;
+}
+
+.logo{
+    display: flex;
+    height: 50px;
+    width:94%;
+}
+
+.loginUser{
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+}
