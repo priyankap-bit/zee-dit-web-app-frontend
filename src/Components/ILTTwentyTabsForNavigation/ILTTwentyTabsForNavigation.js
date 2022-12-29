@@ -35,6 +35,7 @@ const ILTTwentyTabsForNavigation = (props) => {
                         <ViewershipPerformanceTab selectedFilterDate={selectedFilterDate} /> :
                         <SocialListeningTab selectedFilterDate={selectedFilterDate} />
                 }
+
             </div>
         </div>
     )

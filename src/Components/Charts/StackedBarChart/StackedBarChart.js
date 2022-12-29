@@ -27,6 +27,8 @@ const StackedBarChart = (props) => {
         const { width, height } =
             dimensions || wrapperRef.current.getBoundingClientRect();
 
+        // const height = 140;
+
         const stackGenerator = stack().keys(keys).order(stackOrderAscending);
         const layers = stackGenerator(data);
 

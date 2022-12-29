@@ -1,10 +1,19 @@
 .ilt20-header-container-1 {
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 0px 2rem;
+    box-sizing: border-box;
+    place-content: center space-evenly;
     height: 50px;
     background: #FFFFFF;
     border-bottom: 1px solid #D8E3FF;
+}
+
+.ilt20-header-subcontainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
 }
 
 .ilt20-header-div-left,
@@ -13,6 +22,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.ilt20-header-subcontainer p,
+.ilt20-header-subcontainer h1 {
+    margin: 0 !important;
 }
 
 .ilt20-header-zee-logo-4 {
@@ -36,11 +50,16 @@
     opacity: 0.5;
 }
 
+.ilt20-header-div-middle{
+    padding: 0 14.5rem 0 0;
+}
+
 .ilt20-header-ilt20-text-3 h1 {
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 18px;
     line-height: 20px;
+    letter-spacing: 0.5px;
 }
 
 .ilt20-header-ilt20-logo-2 {
