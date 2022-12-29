@@ -25,8 +25,21 @@
     margin:20px;
 }
 .tile-name{
+    margin-top: 1.5px;
     padding-left: 10px;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
-    line-height: 15px;}
+    line-height: 15px;
+}
+a.sports {
+        color: #212529;
+        text-decoration: none;
+}
+    .tile-name:hover {
+        color: #212529;
+    }
+    .Executive-Summary-tile:hover {
+        border-radius: 2px;
+        background: red;
+    }
