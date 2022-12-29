@@ -41,6 +41,7 @@ a.sports {
         color: #212529;
     }
     .Executive-Summary-tile:hover {
+        color: white;
         border-radius: 2px;
-        background: red;
+        background: rgb(55, 15, 119);
     }
