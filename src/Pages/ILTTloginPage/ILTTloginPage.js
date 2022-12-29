@@ -13,8 +13,8 @@ const ILTTloginPage = (props) => {
             <form className='login-page'>
                 <input type="email" name="name" placeholder='Email' /> <br />
                 <input type="password" name="pass" placeholder='Password' /> <br />
-                {/* <a href={<ILTTdataTowers/>} className="login">sdfsdf</a> */}
-                <input className='login' type="submit" value="LOGIN" />
+                <a href="/" className="login">LOGIN</a>
+                {/* <input className='login' type="submit" value="LOGIN" /> */}
             </form>
         </div>
 
