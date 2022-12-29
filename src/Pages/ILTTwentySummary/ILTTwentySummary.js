@@ -49,8 +49,8 @@ const ILTTwentySummary = (props) => {
                 </div>
                 <div className='exect-summary-main-2'>
                     <ExecutiveSummaryVizContainerWithChartsAndNumbers />
-                    <div className='executive-summary-main-container-partition'></div>
-                    <ExecutiveSummaryVizContainerWithChartsAndNumbers />
+                    {/* <div className='executive-summary-main-container-partition'></div> */}
+                  
                 </div>
 
             </div>
