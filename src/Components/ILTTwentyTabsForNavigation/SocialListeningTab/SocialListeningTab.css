@@ -17,3 +17,42 @@
 @media only screen and (max-width: 767px) {
     .social-listening-tile{display: grid;width: 100%!important;margin: 0px!important;}
 }
+
+.words-cloud{
+    height: 250px;
+    width: 400px;
+    /* border: 1px solid black; */
+    border-radius: 100%;
+    color: #B73864
+}
+
+.border {
+    border: 1px solid black;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+progress.consumer-track::-webkit-progress-bar {background-color: #00C143; width: 100%;}
+progress.consumer-track {background-color: #00C143;}
+/* value: */
+progress.consumer-track::-webkit-progress-value {background-color: #c8e4b4 !important;}
+progress.consumer-track::-moz-progress-bar {background-color: #c8e4b4 !important;}
+progress.consumer-track {color: #c8e4b4;}
+
+.consumer-track{
+    position: relative;
+    bottom: 5px;
+    margin-left: 5px;
+    width: 250px;
+    height: 30px;
+}
+
+
+progress.qualitative-input-chart::-webkit-progress-bar {background-color: #B73864; width: 100%;}
+progress.qualitative-input-chart {background-color: #B73864;}
+/* value: */
+progress.qualitative-input-chart::-webkit-progress-value {background-color: #c8e4b4 !important;}
+progress.qualitative-input-chart::-moz-progress-bar {background-color: #c8e4b4 !important;}
+progress.qualitative-input-chart {color: #c8e4b4;}

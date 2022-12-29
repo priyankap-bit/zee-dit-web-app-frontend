@@ -1,7 +1,7 @@
 import { async } from "q";
 import React, { useEffect, useState } from "react";
 import ILTTwentySummaryServices from "../../Services/ILTTwentySummaryServices";
-import CumulativePerformanceChart from "./CumulativePerformanceChart";
+import CumulativePerformanceChart from "../ExecutiveSummary/CumulativePerformanceChart";
 
 const ExecutiveSummaryDigital = () => {
   const [LineData, setLineData] = useState(null);
