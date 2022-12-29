@@ -41,11 +41,13 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
                         <StackedBarChart />
                         </div>
                     </div>
+             
                     <div className='digital-watchtime'>
+                    {/* <div className='executive-summary-main-container-partition'></div> */}
                     <div class="viewer-numbers">
                         <div className='exact-summary-viz-number'>
-                            <p className='exact-summary-viz-number-entity'>Viewers</p>
-                            <h2 className='exact-summary-viz-number-value'>15.632 M</h2>
+                            <p className='exact-summary-viz-number-entity'>Watch Time</p>
+                            <h2 className='exact-summary-viz-number-value'>201.65 M</h2>
                          </div>
                         <div className='exact-summary-viz-average'>
                             <p className='exact-summary-viz-number-entity'>Last 7days avg.</p>

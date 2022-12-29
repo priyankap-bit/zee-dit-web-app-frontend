@@ -42,7 +42,7 @@
     color: #333333;
 }
 
-exact-summary-viz-number-value {
+.exact-summary-viz-number-value {
     font-weight: 500;
     font-size: 22px;
     line-height: 24px;
@@ -73,5 +73,5 @@ exact-summary-viz-number-value {
 
 /*Priyanka css*/
 .main-excutive-summary{display: block;}
-.digital-viewers,.digital-viewers-stackbarchart,.digital-watchtime,.digital-watchtime-stackedchart{float: left;width: 25%;}
+.digital-viewers,.digital-viewers-stackbarchart,.digital-watchtime,.digital-watchtime-stackedchart{float: left;width: 25%;padding: 20px;padding-top:0px;}
 .exact-summary-viz-number,.exact-summary-viz-average{float: left;}

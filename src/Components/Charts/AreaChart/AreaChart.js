@@ -7,13 +7,13 @@ import { useRef } from 'react';
 
 const AreaChart = (props) => {
 
-    const [LineData] = useState([0, 44, 50, 51, 55, 54, 52, 50, 52, 55, 52, 50, 52, 49, 50, 53, 50, 44, 50, 51, 55, 54, 52, 50, 52, 55, 52, 50, 52, 49, 50, 53, 50, 54, 55, 50, 51, 0]);
+    const [LineData] = useState([ 0,10,15,20,25,30,40,50,60,30,25,20,15,10,0]);
 
     const svgRef = useRef();
 
     useEffect(() => {
         // setting up svg
-        const w = 400;
+        const w = 300;
         const h = 60;
         const svg = d3.select(svgRef.current)
             .attr('width', w)

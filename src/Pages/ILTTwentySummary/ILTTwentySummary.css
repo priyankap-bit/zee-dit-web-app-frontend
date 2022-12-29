@@ -15,9 +15,13 @@
     border-radius: 4px;
   
 }
-
+.digital-watchtime {
+    padding-left: 30px;
+ 
+}
 .exect-summary-main-1 {
-    padding: 10px;
+    padding-top: 10px;
+    padding-left: 28px;
     font-weight: 600;
     font-size: 16px;
     line-height: 18px;
@@ -30,6 +34,7 @@
 }
 
 .executive-summary-main-container-partition {
+    float: left;
     width: 3px;
     /* background-color: #D8D8D8; */
     height: 120px;
