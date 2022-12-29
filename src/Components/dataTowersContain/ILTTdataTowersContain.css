@@ -10,6 +10,7 @@
     /* background-color: aquamarine; */
     background-image: linear-gradient(to  bottom, rgb(139, 87, 223), rgb(74, 11, 176));
     color:white;
+    background-color: red;
 }
 .data-towers {
     display: flex;
