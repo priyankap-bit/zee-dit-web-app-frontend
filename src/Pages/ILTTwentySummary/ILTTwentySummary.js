@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
+import AreaChart from '../../Components/Charts/AreaChart/AreaChart';
+import ExecutiveSummaryVizContainerWithChartsAndNumbers from '../../Components/ExecutiveSummary/ExecutiveSummaryVizContainerWithChartsAndNumbers/ExecutiveSummaryVizContainerWithChartsAndNumbers';
 import ILTTwentrySummaryHeader from '../../Components/ILTTwentrySummaryHeader/ILTTwentrySummaryHeader';
 import ILTTwentyFilterBar from '../../Components/ILTTwentyFilterBar/ILTTwentyFilterBar';
 import ILTTwentyTabsForNavigation from '../../Components/ILTTwentyTabsForNavigation/ILTTwentyTabsForNavigation';
@@ -40,6 +42,18 @@ const ILTTwentySummary = (props) => {
                 // handleNavigationTabClick={handleNavigationTabClick}
                 selectedFilterDate={selectedFilterDate}
             />
+            {/* <AreaChart /> */}
+            <div className='executive-summary-main-container'>
+                <div className='exect-summary-main-1'>
+                    <h2>Digital</h2>
+                </div>
+                <div className='exect-summary-main-2'>
+                    <ExecutiveSummaryVizContainerWithChartsAndNumbers />
+                    <div className='executive-summary-main-container-partition'></div>
+                    <ExecutiveSummaryVizContainerWithChartsAndNumbers />
+                </div>
+
+            </div>
         </div>
     )
 }
