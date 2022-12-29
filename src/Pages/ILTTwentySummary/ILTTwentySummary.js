@@ -32,9 +32,9 @@ const ILTTwentySummary = (props) => {
     return (
         <div className='ilt20-summary-container'>
             <ILTTwentrySummaryHeader />
-            <ILTTwentyFilterBar
+            {/* <ILTTwentyFilterBar
                 handleFilterValueChange={handleFilterValueChange}
-            />
+            /> */}
             <ILTTwentyTabsForNavigation
                 // isNavigationTabActive={isNavigationTabActive}
                 // handleNavigationTabClick={handleNavigationTabClick}

@@ -57,7 +57,7 @@ const DonutChart = (props) => {
       .attr("stroke", "black")
       .style("stroke-width", "2px")
       .style("opacity", 0.7);
-  }, [selectedFilterDate]);
+  }, []);
 
   return (
     <div className="social-listening-title">

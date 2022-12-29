@@ -4,15 +4,12 @@
     justify-content: center;
     height: 50px;
     background: #FFFFFF;
-    border-bottom: 1px solid #D8E3FF
-        /* position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%; */
+    border-bottom: 1px solid #D8E3FF;
 }
 
-.ilt20-header-div-left {
+.ilt20-header-div-left,
+.ilt20-header-div-middle,
+.ilt20-header-div-right {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,13 +36,7 @@
     opacity: 0.5;
 }
 
-.ilt20-header-div-middle {
-    display: flex;
-}
-
 .ilt20-header-ilt20-text-3 h1 {
-    /* font-size: 34px; */
-    /* font-family: 'Graphik'; */
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -55,8 +46,6 @@
 .ilt20-header-ilt20-logo-2 {
     margin-right: 25px;
 }
-
-
 
 @media only screen and (max-width: 767px) {
     .ilt20-header-ilt20-text-3 h1 {
