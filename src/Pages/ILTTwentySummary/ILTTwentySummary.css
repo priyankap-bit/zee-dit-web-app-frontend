@@ -3,42 +3,8 @@
     background: linear-gradient(165.96deg, #FFFFFF 0%, #F2F4FB 100%);
 }
 
-.executive-summary-main-container {
-    margin: 30px;
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: #FFFFFF;
-    border: 1px solid #D8E3FF;
-    box-shadow: 0px 2px 5px #D6DEF8;
-    border-radius: 4px;
-  
-}
+
 .digital-watchtime {
     padding-left: 30px;
  
-}
-.exect-summary-main-1 {
-    padding-top: 10px;
-    padding-left: 28px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 18px;
-    color: #333333;
-}
-
-.exect-summary-main-2 {
-    margin-left: 10px;
-    display: flex;
-}
-
-.executive-summary-main-container-partition {
-    float: left;
-    width: 3px;
-    /* background-color: #D8D8D8; */
-    height: 120px;
-    padding: 0 10px;
-    /* stroke-dasharray: 1; */
-    border-left: 3px dotted #D8D8D8;
 }

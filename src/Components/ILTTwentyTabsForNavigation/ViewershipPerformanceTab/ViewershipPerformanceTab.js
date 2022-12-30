@@ -5,7 +5,7 @@ import './ViewershipPerformanceTab.css';
 
 const ViewershipPerformanceTab = (props) => {
 
-    const [activeTab, setActiveTab] = useState('realtimematchupdate');
+    const [activeTab, setActiveTab] = useState('executivesummary');
 
     const { selectedFilterDate } = props;
 
@@ -30,7 +30,7 @@ const ViewershipPerformanceTab = (props) => {
                             className={activeTab === 'realtimematchupdate' ? 'viewership-navigation-tab-active' : 'viewership-navigation-tab-inactive'}
                             onClick={() => handleOnNavigationTabClick('realtimematchupdate')}
                         >
-                            Real - time Match Update
+                            Live Match Updates
                         </li>
                     </ul>
                 </div>
