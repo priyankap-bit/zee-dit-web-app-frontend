@@ -1,7 +1,7 @@
 .viewership-performance-tab-container {
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .viewership-navigation-tab-inactive {
@@ -30,14 +30,18 @@
 }
 
 .viewership-navigationtab-ul li {
-    margin: 0.3rem 0.5rem   !important;
+    margin: 0.3rem 0rem   !important;
     padding: 0.4rem 3rem;
     cursor: pointer;
 }
+.viewership-navigationtab-ul li:nth-child(2) {
+    margin: 0.3rem 1rem   !important;
+}
+ul.viewership-navigationtab-ul{padding-left: 0px!important;}
 
 .viewership-preformance-summary {
     /* max-width: 1300px; */
-    padding-top: 20px;
+    padding-top: 10px;
     justify-content: center;
     align-items: center;
     
