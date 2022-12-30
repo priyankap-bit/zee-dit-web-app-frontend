@@ -8,7 +8,7 @@ const ILTTloginPage = (props) => {
 
         <div className='login-page-container'>
             <div className='branding-icon'>
-                <img src='/static/images/logos/Branding.png' height={50} alt='Viewers Logo' className='branding-image' />
+                <img src='/static/images/logos/Branding.png' height={70} alt='Viewers Logo' className='branding-image' />
             </div>
             <form className='login-page'>
                 <input type="email" name="name" placeholder='Email' /> <br />

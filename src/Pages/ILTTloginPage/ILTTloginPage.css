@@ -1,4 +1,5 @@
 .login-page {
+    margin-left: 8%;
     width: 25%;
 }
 
@@ -25,11 +26,14 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 100%;
+    height: 550px;
+    z-index: -1;
 }
+
 .login:hover {
-    color: #fff!important;
+    color: #fff !important;
 }
+
 input.login {
     margin: auto;
     text-align: center;
@@ -42,10 +46,11 @@ input[type="email"],
 input[type="password"] {
     border: 1px solid #808080;
     border-radius: 5px;
-    margin: 10px;
+    margin: 7px 5px;
     width: 100% !important;
-    padding: 10px;
+    padding: 5px;
 }
+
 /* input[type="email"]{
     padding-left: 25px;
     background: url("C:\Users\Priyanka Prajapati\Documents\GitHub\DIH\public\static\images\logos\login-icon.png") no-repeat left;
