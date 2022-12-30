@@ -6,17 +6,13 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
 
     return (
         <div className='excutive-summary'>
-            {/* <div>
-                <h1>Digital</h1>
-            </div> */}
-            
-                <div className='main-excutive-summary'>
-                    <div className='digital-viewers'>
-                      <div class="viewer-numbers">
+            <div className='main-excutive-summary'>
+                <div className='digital-viewers'>
+                    <div class="viewer-numbers">
                         <div className='exact-summary-viz-number'>
                             <p className='exact-summary-viz-number-entity'>Viewers</p>
                             <h2 className='exact-summary-viz-number-value'>15.632 M</h2>
-                         </div>
+                        </div>
                         <div className='exact-summary-viz-average'>
                             <p className='exact-summary-viz-number-entity'>Last 7days avg.</p>
                             <h4 className='exact-summary-viz-number-value'>1.2 M</h4>
@@ -27,28 +23,30 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
                                 </svg>
                                 from previous
                             </p>
-                         </div>
-                      </div>
-                      <div className='exact-summary-viz-areachart-container'>
-                        <AreaChart />
-                       </div>
-                       <div className='exact-summary-viz-updateinfo-container'>
-                        <p>Updated as on 13/01/23 Next update expected by 14/01/23</p>
-                       </div>
-                    </div>
-                    <div  className='digital-viewers-stackbarchart'>
-                        <div className='exact-summary-viz-container-right'>
-                        <StackedBarChart />
                         </div>
                     </div>
-             
-                    <div className='digital-watchtime'>
+                    <div className='exact-summary-viz-areachart-container'>
+                        <AreaChart />
+                    </div>
+                    <div className='exact-summary-viz-updateinfo-container'>
+                        <p>Updated as on 13/01/23 Next update expected by 14/01/23</p>
+                    </div>
+                </div>
+                <div className='digital-viewers-stackbarchart'>
+                    <div className='exact-summary-viz-container-right'>
+                        <StackedBarChart />
+                    </div>
+                </div>
+
+                {/* <div className='executive-summary-main-container-partition'></div> */}
+
+                <div className='digital-watchtime'>
                     {/* <div className='executive-summary-main-container-partition'></div> */}
                     <div class="viewer-numbers">
                         <div className='exact-summary-viz-number'>
                             <p className='exact-summary-viz-number-entity'>Watch Time</p>
                             <h2 className='exact-summary-viz-number-value'>201.65 M</h2>
-                         </div>
+                        </div>
                         <div className='exact-summary-viz-average'>
                             <p className='exact-summary-viz-number-entity'>Last 7days avg.</p>
                             <h4 className='exact-summary-viz-number-value'>1.2 M</h4>
@@ -59,23 +57,21 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
                                 </svg>
                                 from previous
                             </p>
-                         </div>
-                      </div>
-                      <div className='exact-summary-viz-areachart-container'>
-                        <AreaChart />
-                       </div>
-                       <div className='exact-summary-viz-updateinfo-container'>
-                        <p>Updated as on 13/01/23 Next update expected by 14/01/23</p>
-                       </div>
-                    </div>
-                    <div className='digital-watchtime-stackedchart'>
-                        <div className='exact-summary-viz-container-right'>
-                        <StackedBarChart />
                         </div>
                     </div>
+                    <div className='exact-summary-viz-areachart-container'>
+                        <AreaChart />
+                    </div>
+                    <div className='exact-summary-viz-updateinfo-container'>
+                        <p>Updated as on 13/01/23 Next update expected by 14/01/23</p>
+                    </div>
                 </div>
-                   
-
+                <div className='digital-watchtime-stackedchart'>
+                    <div className='exact-summary-viz-container-right'>
+                        <StackedBarChart />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

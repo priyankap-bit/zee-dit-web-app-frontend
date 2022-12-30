@@ -30,7 +30,7 @@
 }
 
 .x-axis-scroll {
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
     margin-bottom: -150px;
 }
 

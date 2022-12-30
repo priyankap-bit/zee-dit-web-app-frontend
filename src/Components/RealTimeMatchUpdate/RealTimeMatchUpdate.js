@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import ILTTwentySummaryServices from "../../Services/ILTTwentySummaryServices";
+import LineChart from "../Charts/LineChart/LineChart";
+import LinecharNormal from "../Charts/LineChart";
 import "./RealTimeMatchUpdate.css";
 
 const RealTimeMatchUpdate = (props) => {
@@ -33,7 +35,7 @@ const RealTimeMatchUpdate = (props) => {
     getRealTimeMatchUpdates();
   }, []);
 
-  if(realTimeMatchUpdateSummary.viewers !== null){
+  if (realTimeMatchUpdateSummary.viewers !== null) {
     console.log(realTimeMatchUpdateSummary.viewers[0].yesterday);
     console.log(realTimeMatchUpdateSummary.watchTime[0].yesterday);
     console.log(realTimeMatchUpdateSummary.adImpressions[0].yesterday);
@@ -44,7 +46,7 @@ const RealTimeMatchUpdate = (props) => {
       {realTimeMatchUpdateSummary.viewers !== null &&
         realTimeMatchUpdateSummary.watchTime !== null &&
         realTimeMatchUpdateSummary.adImpressions !== null &&
-        realTimeMatchUpdateSummary.updateDetails !== null &&(
+        realTimeMatchUpdateSummary.updateDetails !== null && (
           <>
             <div className="real-time-container">
               <div class="realtime-update-summary-item">
@@ -96,6 +98,9 @@ const RealTimeMatchUpdate = (props) => {
             </div>
           </>
         )}
+
+      <LineChart />
+      {/* <LinecharNormal /> */}
     </div>
   );
 };
