@@ -19,8 +19,7 @@
 }
 
 .exact-summary-viz-container-right {
-    margin-top: -40px;
-    height: inherit;
+   height: inherit;
 }
 
 .exact-summary-viz-number-container {
@@ -73,5 +72,5 @@
 
 /*Priyanka css*/
 .main-excutive-summary{display: block;}
-.digital-viewers,.digital-viewers-stackbarchart,.digital-watchtime,.digital-watchtime-stackedchart{float: left;width: 25%;padding: 20px;padding-top:0px;}
+.digital-viewers,.digital-viewers-stackbarchart,.digital-watchtime,.digital-watchtime-stackedchart{float: left;width: 25%;padding: 20px;padding-top:0px;padding-bottom: 0px;}
 .exact-summary-viz-number,.exact-summary-viz-average{float: left;}

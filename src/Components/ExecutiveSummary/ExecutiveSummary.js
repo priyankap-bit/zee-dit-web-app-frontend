@@ -8,7 +8,7 @@ const ExecutiveSummary = (props) => {
 
       <div className='executive-summary-main-container'>
         <div className='exect-summary-main-1'>
-          <h2>Digital</h2>
+          <h2 className='Digital'>Digital</h2>
         </div>
         <div className='exect-summary-main-2'>
           <ExecutiveSummaryVizContainerWithChartsAndNumbers />
@@ -17,7 +17,7 @@ const ExecutiveSummary = (props) => {
 
       <div className='executive-summary-main-container'>
         <div className='exect-summary-main-1'>
-          <h2>Digital</h2>
+          <h2 className='Digital'>Linear</h2>
         </div>
         <div className='exect-summary-main-2'>
           <ExecutiveSummaryVizContainerWithChartsAndNumbers />
@@ -26,7 +26,7 @@ const ExecutiveSummary = (props) => {
 
       <div className='executive-summary-main-container'>
         <div className='exect-summary-main-1'>
-          <h2>Digital</h2>
+          <h2 className='Digital'>Combined</h2>
         </div>
         <div className='exect-summary-main-2'>
           <ExecutiveSummaryVizContainerWithChartsAndNumbers />
