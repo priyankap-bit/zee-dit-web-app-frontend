@@ -11,7 +11,8 @@ const ILTTwentrySummaryHeader = (props) => {
                     {/* <div className='ilt20-header-div-left col'> */}
                     {/* ilt20-header-div-left  */}
                     <div className='ilt20-header-subdiv-left-1'>
-                        <p>Home</p>
+                        <a href='/'><img src='/static/images/logos/home-icon.svg' height={15} alt='home-icon' /></a>
+                        {/* <p>Home</p> */}
                     </div>
                     <div className='ilt20-header-zee-logo-4'>
                         <img src='/static/images/logos/ZEE_LOGO.png' height={32.11} alt='Zee Logo' />
