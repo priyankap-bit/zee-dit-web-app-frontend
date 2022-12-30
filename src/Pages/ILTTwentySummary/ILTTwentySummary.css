@@ -20,5 +20,8 @@
     .digital-daywise-and-cumulative {display: inline-block;}
     .digital-viewers-stackbarchart,.digital-watchtime {margin-top: 40px;}
     .exect-summary-main-2{display: inline;}
+    .digital-watchtime {
+        margin-top: 88px;
+    }
     .digital-viewers, .digital-viewers-stackbarchart, .digital-watchtime, .digital-watchtime-stackedchart{float: unset;width:50%;}
 }
