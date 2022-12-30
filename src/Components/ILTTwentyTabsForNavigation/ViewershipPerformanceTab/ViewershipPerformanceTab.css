@@ -5,6 +5,8 @@
 }
 
 .viewership-navigation-tab-inactive {
+    font-family: GraphikSemiBold;
+    letter-spacing: 0.5px;
     background: #E9EFFF;
     border-radius: 4px;
     font-weight: 500;
@@ -15,6 +17,8 @@
 }
 
 .viewership-navigation-tab-active {
+    font-family: GraphikSemiBold;
+    letter-spacing: 0.5px;
     background: linear-gradient(180deg, #7E5AA4 0%, #3E1F76 100%);
     border-radius: 4px;
     color: white;
@@ -30,21 +34,25 @@
 }
 
 .viewership-navigationtab-ul li {
-    margin: 0.3rem 0rem   !important;
+    margin: 0.3rem 0rem !important;
     padding: 0.4rem 3rem;
     cursor: pointer;
 }
+
 .viewership-navigationtab-ul li:nth-child(2) {
-    margin: 0.3rem 1rem   !important;
+    margin: 0.3rem 1rem !important;
 }
-ul.viewership-navigationtab-ul{padding-left: 0px!important;}
+
+ul.viewership-navigationtab-ul {
+    padding-left: 0px !important;
+}
 
 .viewership-preformance-summary {
     /* max-width: 1300px; */
     padding-top: 10px;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 /* @media only screen and (max-width: 767px) {

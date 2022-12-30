@@ -26,7 +26,7 @@ const ILTTwentyTabsForNavigation = (props) => {
                     className={activeTab === 'socialListing' ? 'navigation-tab-active' : 'navigation-tab-inactive'}
                     onClick={() => handleOnNavigationTabClick('socialListing')}
                 >
-                    Social Listening
+                    Social Dashboard
                 </li>
             </ul>
             <div className='ilttwenty-navigation-tabs-data'>

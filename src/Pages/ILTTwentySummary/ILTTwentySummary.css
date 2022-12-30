@@ -1,24 +1,65 @@
 .ilt20-summary-container {
     margin: 0;
     background: linear-gradient(165.96deg, #FFFFFF 0%, #F2F4FB 100%);
+    font-family: GraphikRegular;
 }
 
 
 .digital-watchtime {
     padding-left: 30px;
- 
+
 }
+
 @media only screen and (max-width: 767px) {
-    .ilttwenty-navigation-tabs-container {padding-top: 30px!important;}
-    .ilt20-header-subcontainer{display: block;}
-    .ilt20-header-div-middle{padding: 0px;}
-    .ilt20-header-div-right {float: right;padding-bottom: 20px;margin-top: -22px;}
-    .ilt20-header-div-middle {padding-top: 10px;}
-    .ilt20-header-ilt20-text-3 h1{font-size: 15px;}
-    .ilt20-header-div-middle {display: block;}
+    .ilttwenty-navigation-tabs-container {
+        padding-top: 30px !important;
+    }
+
+    .ilt20-header-subcontainer {
+        display: block;
+    }
+
+    .ilt20-header-div-middle {
+        padding: 0px;
+    }
+
+    .ilt20-header-div-right {
+        float: right;
+        padding-bottom: 20px;
+        margin-top: -22px;
+    }
+
+    .ilt20-header-div-middle {
+        padding-top: 10px;
+    }
+
+    .ilt20-header-ilt20-text-3 h1 {
+        font-size: 15px;
+    }
+
+    .ilt20-header-div-middle {
+        display: block;
+    }
+
     .executive-summary-container,
-    .digital-daywise-and-cumulative {display: inline-block;}
-    .digital-viewers-stackbarchart,.digital-watchtime {margin-top: 40px;}
-    .exect-summary-main-2{display: inline;}
-    .digital-viewers, .digital-viewers-stackbarchart, .digital-watchtime, .digital-watchtime-stackedchart{float: unset;width:50%;}
+    .digital-daywise-and-cumulative {
+        display: inline-block;
+    }
+
+    .digital-viewers-stackbarchart,
+    .digital-watchtime {
+        margin-top: 40px;
+    }
+
+    .exect-summary-main-2 {
+        display: inline;
+    }
+
+    .digital-viewers,
+    .digital-viewers-stackbarchart,
+    .digital-watchtime,
+    .digital-watchtime-stackedchart {
+        float: unset;
+        width: 50%;
+    }
 }
