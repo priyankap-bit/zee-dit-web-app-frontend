@@ -2,14 +2,16 @@
     display: flex;
 }
 
-.logo{
+
+/* .logo{
     display: flex;
     height: 50px;
     width:94%;
-}
+} */
 
 .loginUser{
     display: block;
     margin: auto;
     vertical-align: middle;
 }
+.logo{float: left;}
