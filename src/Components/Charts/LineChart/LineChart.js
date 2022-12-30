@@ -11,9 +11,34 @@ import { useState, useRef, useEffect } from 'react';
 import * as d3 from "d3"
 
 import './LineChart.css';
+import { data } from '../StackedBarChart/data';
 
 const LineChart = (props) => {
-    const [LineData] = useState([0, 22, 15, 20, 25, 30, 40, 50, 60, 30, 25, 20, 15, 10, 0]);
+    const [LineData] = useState(
+        [
+            {
+                name: 'Jan',
+                value: 16
+            },
+            {
+                name: 'Feb',
+                value: 32
+            },
+            {
+                name: 'Mar',
+                value: 7
+            },
+            {
+                name: 'Apr',
+                value: 45
+            },
+            {
+                name: 'May',
+                value: 25
+            },
+            // 16, 32, 7, 45, 25
+        ]
+    );
 
     const svgRef = useRef();
 
@@ -28,17 +53,33 @@ const LineChart = (props) => {
         // .style('border-radius', '9px')
         // .style('margin-top', '50')
         // .style('box-shadow', '0px 0px 14px -2px #cfd5ff');
+
         //setting scaling
-        const xScale = d3.scaleLinear()
-            .domain([0, LineData.length - 1])
-            .range([0, w]);
+        // const xScale = d3.scaleLinear()
+        //     .domain([0, LineData.length - 1])
+        //     .range([0, w]);
+        // const yScale = d3.scaleLinear()
+        //     .domain([0, h])
+        //     .range([h, 0]);
+        // const generateScaledLine = d3.line()
+        //     .x((d, i) => xScale(i))
+        //     .y(yScale)
+
+        const xScale = d3.scaleBand()
+            .domain(data.map(d => d.name))
+            .rangeRound([0, w])
+        // .padding(0.2)
+
         const yScale = d3.scaleLinear()
-            .domain([0, h])
+            .domain(d3.extent(data, d => d.value))
             .range([h, 0]);
+
         const generateScaledLine = d3.line()
-            .x((d, i) => xScale(i))
-            .y(yScale)
-            // .curve(d3.curveCardinal);
+            .x(d => xScale(d.name))
+            .y(d => yScale(d.value));
+
+
+        // .curve(d3.curveCardinal);
         //setting axes
         //setting up data for svg 
         svg.selectAll('.line')
