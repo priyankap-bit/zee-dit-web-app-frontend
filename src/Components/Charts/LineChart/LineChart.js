@@ -11,16 +11,17 @@ import { useState, useRef, useEffect } from 'react';
 import * as d3 from "d3"
 
 import './LineChart.css';
+import { data } from '../StackedBarChart/data';
 
 const LineChart = (props) => {
-    const [LineData] = useState([0, 22, 15, 20, 25, 30, 40, 50, 60, 30, 25, 20, 15, 10, 0]);
+    const [LineData] = useState([0, 10, 95, 120, 25, 30, 40, 50, 120, 85, 25, 20, 75]);
 
     const svgRef = useRef();
 
     useEffect(() => {
         // setting up svg
         const w = 300;
-        const h = 60;
+        const h = 150;
         const svg = d3.select(svgRef.current)
             .attr('width', w)
             .attr('height', h)

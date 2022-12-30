@@ -13,6 +13,28 @@
   src: url('/public/static/fonts/Gotham\ Light.otf');
 }
 
+@font-face {
+  font-family: GraphikRegular;
+  src: url('/public/static/fonts/GraphikRegular.otf');
+}
+
+@font-face {
+  font-family: GraphikBold;
+  src: url('/public/static/fonts/GraphikBold.otf');
+}
+
+
+@font-face {
+  font-family: GraphikSemibold;
+  src: url('/public/static/fonts/GraphikSemibold.otf');
+}
+
+@font-face {
+  font-family: GraphikMedium;
+  src: url('/public/static/fonts/GraphikMedium.otf');
+}
+
+
 
 body {
   margin: 0;
@@ -28,6 +50,12 @@ code {
     monospace;
 }
 
-h1, h2, h3, h4, h5, h6, p{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
 }

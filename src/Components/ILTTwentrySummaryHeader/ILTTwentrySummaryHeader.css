@@ -24,6 +24,16 @@
     justify-content: center;
 }
 
+.ilt20-header-div-right {
+    font-family: 'GraphikRegular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 13px;
+
+    color: #333333;
+}
+
 .ilt20-header-subcontainer p,
 .ilt20-header-subcontainer h1 {
     margin: 0 !important;
@@ -50,16 +60,17 @@
     opacity: 0.5;
 }
 
-.ilt20-header-div-middle{
+.ilt20-header-div-middle {
     padding: 0 14.5rem 0 0;
 }
 
 .ilt20-header-ilt20-text-3 h1 {
+    font-family: GraphikBold;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 18px;
     line-height: 20px;
-    letter-spacing: 0.5px;
+    /* letter-spacing: 0.5px; */
 }
 
 .ilt20-header-ilt20-logo-2 {

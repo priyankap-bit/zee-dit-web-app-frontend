@@ -15,7 +15,7 @@ const RealTimeMatchUpdate = (props) => {
     updateDetails: null,
   });
 
-  const [tempValue, setTempValue] = useState(null);
+  // const [tempValue, setTempValue] = useState(null);
 
   useEffect(() => {
     const getRealTimeMatchUpdates = async () => {
@@ -98,8 +98,95 @@ const RealTimeMatchUpdate = (props) => {
             </div>
           </>
         )}
+      <div className="real-time-match-update-match-name-cont">
+        <div className="real-time-match-update-match-name-active">
+          <div className="match-number-active">
+            <h4>Match 1</h4>
+          </div>
+          <div className="match-icon-container">
+            <div className="team-icon">
+              <img src="/static/images/teams/CSK.png" alt="CKS" height={50} />
+            </div>
+            <div className="team-vs"><h5>VS</h5></div>
+            <div className="team-icon">
+              <img src="/static/images/teams/MI.png" alt="MI" height={50} />
+            </div>
+          </div>
+        </div>
 
-      <LineChart />
+        <div className="real-time-match-update-match-name-inactive">
+          <div className="match-number-inactive">
+            <h4>Match 2</h4>
+          </div>
+          <div className="match-icon-container">
+            <div className="team-icon">
+              <img src="/static/images/teams/CSK.png" alt="CKS" height={50} />
+            </div>
+            <div className="team-vs"><h5>VS</h5></div>
+            <div className="team-icon">
+              <img src="/static/images/teams/MI.png" alt="MI" height={50} />
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div className="real-time-match-update-match-data">
+
+        <div className="real-time-match-update-info-container">
+          <div className="real-time-match-update-info-div">
+            <div className="real-time-match-update-info-title">
+              <p>Viewers</p>
+            </div>
+            <div className="real-time-match-update-info-value">
+              <p>0.3M</p>
+            </div>
+            <div className="real-time-match-update-info-chart">
+              <LineChart />
+            </div>
+          </div>
+
+          <div className="real-time-match-update-info-div">
+            <div className="real-time-match-update-info-title">
+              <p>Watch Time</p>
+            </div>
+            <div className="real-time-match-update-info-value">
+              <p>0.3M</p>
+            </div>
+            <div className="real-time-match-update-info-chart">
+              <LineChart />
+            </div>
+          </div>
+
+          <div className="real-time-match-update-info-div">
+            <div className="real-time-match-update-info-title">
+              <p>Peak Concurrency</p>
+            </div>
+            <div className="real-time-match-update-info-value">
+              <p>0.03M</p>
+            </div>
+            <div className="real-time-match-update-info-chart">
+              <LineChart />
+            </div>
+          </div>
+
+          <div className="real-time-match-update-info-div">
+            <div className="real-time-match-update-info-title">
+              <p>Ad Impressions</p>
+            </div>
+            <div className="real-time-match-update-info-value">
+              <p>0.3M</p>
+            </div>
+            <div className="real-time-match-update-info-chart">
+              <LineChart />
+            </div>
+          </div>
+        </div>
+
+        <div className="real-time-match-update-info-update">
+          <p> Updated as on 21:42:14 13/01/23 Next update expected by 21:57:14 27/01/23</p>
+        </div>
+      </div>
+      {/* <LineChart /> */}
       {/* <LinecharNormal /> */}
     </div>
   );

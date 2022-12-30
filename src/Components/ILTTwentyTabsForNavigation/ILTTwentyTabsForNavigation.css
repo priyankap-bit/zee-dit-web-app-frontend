@@ -6,6 +6,7 @@
 }
 
 .navigation-tab-inactive {
+    font-family: GraphikBold;
     margin: 0 0;
     color: #808080;
     font-weight: 600;
@@ -16,6 +17,7 @@
 }
 
 .navigation-tab-active {
+    font-family: GraphikBold;
     color: #3E1F76;
     font-weight: 600;
     font-size: 14px;
