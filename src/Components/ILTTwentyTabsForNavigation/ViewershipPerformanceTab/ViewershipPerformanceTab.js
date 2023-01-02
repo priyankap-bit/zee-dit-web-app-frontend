@@ -32,6 +32,7 @@ const ViewershipPerformanceTab = (props) => {
                         >
                             Live Match Updates
                         </li>
+                        <li>--- Avg.</li>
                     </ul>
                 </div>
                 {/* <div className='viewership-navigationtab-select-div'>
