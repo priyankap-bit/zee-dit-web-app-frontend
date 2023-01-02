@@ -1,82 +1,96 @@
 .exact-summary-viz-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    /* height: 25%; */
-    height: 140px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  /* height: 25%; */
+  height: 140px;
+  width: 100%;
 }
 
 .exact-summary-viz-container-2 {
-    display: flex;
+  display: flex;
 }
 
 .exact-summary-viz-container-left {
-    display: flex;
-    flex-direction: column;
-    height: inherit;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
 }
 
 .exact-summary-viz-container-right {
-   height: inherit;
+  height: inherit;
 }
 
 .exact-summary-viz-number-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .exact-summary-viz-number {
-    margin: 0 4rem 0 0;
+  margin: 0 4rem 0 0;
 }
 
 .exact-summary-viz-number-entity {
-    margin: 0 !important;
-    padding-bottom: 5px;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 13px;
-    color: #333333;
+  margin: 0 !important;
+  padding-bottom: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+  color: #333333;
 }
 
 .exact-summary-viz-number-value {
-    font-family: GraphikMedium;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 24px;
-    color: #333333;
+  font-family: GraphikMedium;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 24px;
+  color: #333333;
 }
 
 .exact-summary-viz-number-info {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 13px;
-    display: flex;
-    align-items: center;
-    color: #00C48C;
-    letter-spacing: 0.5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  color: #00c48c;
+  letter-spacing: 0.5px;
 }
 
 .exact-summary-viz-number-info svg {
-    margin: 0 3px;
+  margin: 0 3px;
 }
 
 .exact-summary-viz-updateinfo-container p {
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 14px;
-    color: #333333;
-    margin-top: 5px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  color: #333333;
+  margin-top: 5px;
 }
 
 /*Priyanka css*/
-.main-excutive-summary{display: block;}
-.digital-viewers,.digital-viewers-stackbarchart,.digital-watchtime,.digital-watchtime-stackedchart{float: left;width: 25%;padding: 20px;padding-top:0px;padding-bottom: 0px;}
-.exact-summary-viz-number,.exact-summary-viz-average{float: left;}
+.main-excutive-summary {
+  display: block;
+}
+.digital-viewers,
+.digital-viewers-stackbarchart,
+.digital-watchtime,
+.digital-watchtime-stackedchart {
+  float: left;
+  width: 25%;
+  padding: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.exact-summary-viz-number,
+.exact-summary-viz-average {
+  float: left;
+}
 
-.bdr{
-    border-left: 1px dashed gray;
-    padding-left: 10px;
+.bdr {
+  border-left: 2px dashed #dcdcdc;
+  padding-left: 10px;
 }
