@@ -39,7 +39,7 @@ const AreaChart = (props) => {
             .data([LineData])
             .join('path')
             .attr('d', d => generateScaledLine(d))
-            .attr('fill', '#D7BDE2')
+            .attr('fill', 'rgb(148, 94, 210, 0.2)')
             .attr('stroke', '#945ED2')
             .attr('stroke-width', '1px');
             // .attr('fill', '#945EE5')
