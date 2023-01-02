@@ -37,7 +37,9 @@ const ILTTwentrySummaryHeader = (props) => {
                 <div className='ilt20-header-div-right'>
                     {/* <div className='ilt20-header-div-right col'> */}
                     {/* ilt20-header-div-right */}
+                    <img src='/static/images/logos/profile.svg'  className="profile"height={40} alt='profile Logo' />
                     <p>Hello Deepak</p>
+                    <img src='/static/images/logos/logout.svg'className="logout" height={40} alt='logoutLogo' />
                 </div>
             </div>
 
