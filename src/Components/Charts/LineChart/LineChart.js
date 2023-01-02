@@ -1,144 +1,73 @@
-import { useState, useRef, useEffect } from 'react';
-// import {
-//     select,
-//     scaleLinear,
-//     line,
-//     axisBottom,
-//     scaleBand,
-//     extent,
-// } from 'd3';
-
-import * as d3 from "d3"
-
-import './LineChart.css';
-import { data } from '../StackedBarChart/data';
-import { axisBottom, extent, line, scaleBand, scaleLinear, select } from 'd3';
+import React, { useEffect } from "react";
+import * as d3 from "d3v4";
 
 const LineChart = (props) => {
-    const [LineData] = useState([0, 10, 95, 120, 25, 30, 40, 50, 120, 85, 25, 20, 75]);
 
-    const [data] = useState(
-        [
-            { name: 'Jan', value: 30 },
-            { name: 'Feb', value: 10 },
-            { name: 'Mar', value: 50 },
-            { name: 'Apr', value: 20 },
-            { name: 'May', value: 80 },
-            { name: 'Jun', value: 30 },
-            { name: 'July', value: 0 },
-            { name: 'Aug', value: 20 },
-            { name: 'Sep', value: 100 },
-            { name: 'Oct', value: 55 },
-            { name: 'Nov', value: 60 },
-            { name: 'Dec', value: 80 },
-        ],
-    )
+  useEffect(() => {
 
-    const svgRef = useRef();
+    // set the dimensions and margins of the graph
+    var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+      width = 460 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
 
-    // useEffect(() => {
-    //     // setting up svg
-    //     const w = 300;
-    //     const h = 150;
-    //     const svg = d3.select(svgRef.current)
-    //         .attr('width', w)
-    //         .attr('height', h)
-    //     // .style('background', 'white')
-    //     // .style('border-radius', '9px')
-    //     // .style('margin-top', '50')
-    //     // .style('box-shadow', '0px 0px 14px -2px #cfd5ff');
-    //     //setting scaling
-    //     const xScale = d3.scaleLinear()
-    //         .domain([0, LineData.length - 1])
-    //         .range([0, w]);
-    //     const yScale = d3.scaleLinear()
-    //         .domain([0, h])
-    //         .range([h, 0]);
-    //     const generateScaledLine = d3.line()
-    //         .x((d, i) => xScale(i))
-    //         .y(yScale)
-    //     // .curve(d3.curveCardinal);
-    //     //setting axes
-    //     //setting up data for svg 
-    //     svg.selectAll('.line')
-    //         .data([LineData])
-    //         .join('path')
-    //         .attr('d', d => generateScaledLine(d))
-    //         .attr('fill', 'none')
-    //         .attr('stroke', '#945ED2')
-    //         .attr('stroke-width', '1px');
-    //     // .attr('fill', '#945EE5')
-    //     // // .attr('opacity', '0.2')
-    //     // .attr('stroke', '#945ED2')
-    //     // // .attr('opacity', '1')
-    //     // .attr('stroke-width', '2px');
-    // }, [LineData]);
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataLine")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
 
-    useEffect(() => {
+    //Read the data
+    d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv",
 
-        const width = 300, height = 150;
+      // When reading the csv, I must format variables:
+      function (d) {
+        return { date: d3.timeParse("%Y-%m-%d")(d.date), value: d.value }
+      },
 
-        const xScale = scaleBand()
-            .domain(data.map(d => d.name))
-            .rangeRound([0, width])
-            .padding(0.1);
+      // Now I can use this dataset:
+      function (data) {
 
-        const yScale = scaleLinear()
-            .domain(extent(data, d => d.value))
-            .range([height, 0])
-            .nice();
-
-        const xAxis = axisBottom(xScale)
-            .tickSize(-150);
-
-        const lineGenerator = line()
-            .x(d => xScale(d.name))
-            .y(d => yScale(d.value))
-        // .curve(curveMonotoneX);
-
-        const svg = select(svgRef.current)
-            .attr('width', width)
-            .attr('height', height);
-
+        // Add X axis --> it is a date format
+        var x = d3.scaleTime()
+          .domain(d3.extent(data, function (d) { return d.date; }))
+          .range([0, width]);
         svg.append("g")
-            .attr("transform", `translate(0, ${height})`)
-            .call(xAxis)
-            .selectAll('text')
-            .attr("class", "line-chart-ticks");
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
 
-        // Style x-axes
-        svg
-            .select(".domain")
-            .attr("stroke", "#D8D8D8")
-            .attr("stroke-width", "1")
-            .attr("opacity", ".6")
-            .attr("stroke-dasharray", "2");
-
-        svg
-            .selectAll(".tick")
-            .attr("stroke", "#D8D8D8")
-            .attr("stroke-width", "1")
-            .attr("opacity", ".1")
-            .attr("stroke-dasharray", "2");
-
+        // Add Y axis
+        var y = d3.scaleLinear()
+          .domain([0, d3.max(data, function (d) { return 1000; })])
+          .range([height, 0]);
         svg.append("g")
-            .call(d3.axisLeft(yScale));
+          .call(d3.axisLeft(y));
 
-        svg.selectAll('.line')
-            .data([data])
-            .join('path')
-            .attr('d', d => lineGenerator(d))
-            .attr('fill', 'none')
-            .attr('stroke', '#945ED2')
-            .attr('stroke-width', '1px');
-    }, []);
+        // Add the line
+        svg.append("path")
+          .datum(data)
+        //   .attr("fill", "none")
+        //   .attr("stroke", "steelblue")
+        //   .attr("stroke-width", 1.5)
+          .attr('fill', 'none')
+          .attr('stroke', '#945ED2')
+          .attr('stroke-width', '1px')
+          .attr("d", d3.line()
+            .x(function (d) { return x(d.date) })
+            .y(function (d) { return y(d.value) })
+          )
 
-    return (
-        <div className='areachart-container'>
-            <svg ref={svgRef}></svg>
-        </div>
-    )
+      })
 
-}
+  }, []);
+
+  return (
+    <div >
+      <svg id="my_dataLine"></svg>
+    </div>
+  );
+};
 
 export default LineChart;
