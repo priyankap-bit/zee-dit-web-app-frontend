@@ -29,7 +29,7 @@ const SocialListeningTab = (props) => {
 
   return (
     <div className="social-listening-tab-container">
-      {socialListingFetchData !== null && (
+      {/* {socialListingFetchData !== null && (
         <div>
           <div className="social-listening-tile">
             <SocialListeningTotalCards
@@ -51,7 +51,6 @@ const SocialListeningTab = (props) => {
 
           <div className="social-listening-tile" >
 
-            {/* <GroupedBar/> */}
 
             <LineChart />
 
@@ -81,8 +80,7 @@ const SocialListeningTab = (props) => {
             <SocialListeningText />
           </div>
         </div>
-      )}
-      {/* <SocialDashboard /> */}
+      )} */}
       <iframe src="https://external-prod4.sprinklr.com/research/insights/listening/dashboard/630876f8b28bbb4ef3f742e0/tab/0?id=DASHBOARD_630876f8b28bbb4ef3f742e0" title='Social Dashboard' className="socail-listening-iframe"></iframe>
     </div>
   );
