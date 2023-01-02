@@ -12,27 +12,32 @@ const RealTimeMatchUpdate = (props) => {
     viewers: null,
     watchTime: null,
     adImpressions: null,
-    updateDetails: null,
+    peakConcurrency: null,
   });
 
-  // const [tempValue, setTempValue] = useState(null);
+  const [selectedMatch, setSelectedMatch] = useState('matchOne');
+
+  const handleMatchSelectionClick = (matchName, event) => {
+    event.preventDefault();
+    setSelectedMatch(matchName)
+  }
 
   useEffect(() => {
-    const getRealTimeMatchUpdates = async () => {
-      let viewers = await ILTTwentySummaryServices.getViewers(),
-        watchTime = await ILTTwentySummaryServices.getWatchTime(),
-        adImpressions = await ILTTwentySummaryServices.getAdImpressions(),
-        updateDetails = await ILTTwentySummaryServices.getUpdateNextUpdate();
+    // const getRealTimeMatchUpdates = async () => {
+    //   let viewers = await ILTTwentySummaryServices.getViewers(),
+    //     watchTime = await ILTTwentySummaryServices.getWatchTime(),
+    //     adImpressions = await ILTTwentySummaryServices.getAdImpressions(),
+    //     peakConcurrency = await ILTTwentySummaryServices.getPeakConcurrency();
 
-      setRealTimeMatchUpdateSummary({
-        viewers,
-        watchTime,
-        adImpressions,
-        updateDetails
-      });
-    };
+    //   setRealTimeMatchUpdateSummary({
+    //     viewers,
+    //     watchTime,
+    //     adImpressions,
+    //     peakConcurrency
+    //   });
+    // };
 
-    getRealTimeMatchUpdates();
+    // getRealTimeMatchUpdates();
   }, []);
 
   if (realTimeMatchUpdateSummary.viewers !== null) {
@@ -99,7 +104,13 @@ const RealTimeMatchUpdate = (props) => {
           </>
         )}
       <div className="real-time-match-update-match-name-cont">
-        <div className="real-time-match-update-match-name-active">
+
+        <div className={
+          selectedMatch === "matchOne" ?
+            "real-time-match-update-match-name-active" :
+            "real-time-match-update-match-name-inactive"}
+          onClick={event => handleMatchSelectionClick('matchOne', event)}
+        >
           <div className="match-number-active">
             <h4>Match 1</h4>
           </div>
@@ -114,7 +125,12 @@ const RealTimeMatchUpdate = (props) => {
           </div>
         </div>
 
-        <div className="real-time-match-update-match-name-inactive">
+        <div className={
+          selectedMatch !=="matchOne" ?
+            "real-time-match-update-match-name-active" :
+            "real-time-match-update-match-name-inactive"}
+          onClick={event => handleMatchSelectionClick('matchTwo', event)}
+        >
           <div className="match-number-inactive">
             <h4>Match 2</h4>
           </div>
