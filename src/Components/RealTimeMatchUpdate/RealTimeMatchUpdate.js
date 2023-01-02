@@ -3,6 +3,7 @@ import ILTTwentySummaryServices from "../../Services/ILTTwentySummaryServices";
 import LineChart from "../Charts/LineChart/LineChart";
 import LinecharNormal from "../Charts/LineChart";
 import "./RealTimeMatchUpdate.css";
+import LiveMatchUpdates from "../../Services/ILTTwentySummaryServices/LiveMatchUpdates";
 
 const RealTimeMatchUpdate = (props) => {
 
@@ -23,21 +24,24 @@ const RealTimeMatchUpdate = (props) => {
   }
 
   useEffect(() => {
-    // const getRealTimeMatchUpdates = async () => {
-    //   let viewers = await ILTTwentySummaryServices.getViewers(),
-    //     watchTime = await ILTTwentySummaryServices.getWatchTime(),
-    //     adImpressions = await ILTTwentySummaryServices.getAdImpressions(),
-    //     peakConcurrency = await ILTTwentySummaryServices.getPeakConcurrency();
+    const getRealTimeMatchUpdates = async () => {
+      // let viewers = await ILTTwentySummaryServices.getViewers(),
+      //   watchTime = await ILTTwentySummaryServices.getWatchTime(),
+      //   adImpressions = await ILTTwentySummaryServices.getAdImpressions(),
+      //   peakConcurrency = await ILTTwentySummaryServices.getPeakConcurrency();
 
-    //   setRealTimeMatchUpdateSummary({
-    //     viewers,
-    //     watchTime,
-    //     adImpressions,
-    //     peakConcurrency
-    //   });
-    // };
+      // setRealTimeMatchUpdateSummary({
+      //   viewers,
+      //   watchTime,
+      //   adImpressions,
+      //   peakConcurrency
+      // });
 
-    // getRealTimeMatchUpdates();
+      let viewers = await LiveMatchUpdates.getMatchOneViewers();
+      console.log(viewers, viewers);
+    };
+
+    getRealTimeMatchUpdates();
   }, []);
 
   if (realTimeMatchUpdateSummary.viewers !== null) {
@@ -111,14 +115,20 @@ const RealTimeMatchUpdate = (props) => {
             "real-time-match-update-match-name-inactive"}
           onClick={event => handleMatchSelectionClick('matchOne', event)}
         >
-          <div className="match-number-active">
-            <h4>Match 1</h4>
+          <div className={
+            selectedMatch === "matchOne" ?
+              "match-number-active" :
+              "match-number-inactive"}
+          >
+            <p>Match 1</p>
           </div>
           <div className="match-icon-container">
             <div className="team-icon">
               <img src="/static/images/teams/CSK.png" alt="CKS" height={50} />
             </div>
-            <div className="team-vs"><h5>VS</h5></div>
+            <div className="team-vs">
+              <p>VS</p>
+            </div>
             <div className="team-icon">
               <img src="/static/images/teams/MI.png" alt="MI" height={50} />
             </div>
@@ -126,19 +136,25 @@ const RealTimeMatchUpdate = (props) => {
         </div>
 
         <div className={
-          selectedMatch !=="matchOne" ?
+          selectedMatch !== "matchOne" ?
             "real-time-match-update-match-name-active" :
             "real-time-match-update-match-name-inactive"}
           onClick={event => handleMatchSelectionClick('matchTwo', event)}
         >
-          <div className="match-number-inactive">
-            <h4>Match 2</h4>
+          <div className={
+            selectedMatch !== "matchOne" ?
+              "match-number-active" :
+              "match-number-inactive"}
+          >
+            <p>Match 2</p>
           </div>
           <div className="match-icon-container">
             <div className="team-icon">
               <img src="/static/images/teams/CSK.png" alt="CKS" height={50} />
             </div>
-            <div className="team-vs"><h5>VS</h5></div>
+            <div className="team-vs">
+              <p>VS</p>
+            </div>
             <div className="team-icon">
               <img src="/static/images/teams/MI.png" alt="MI" height={50} />
             </div>
