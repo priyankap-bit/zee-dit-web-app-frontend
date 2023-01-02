@@ -8,7 +8,17 @@
     background: #FFFFFF;
     border-bottom: 1px solid #D8E3FF;
 }
-
+img.logout {
+    padding-left: 10px;
+    height: 20px;
+}
+img.profile {
+    padding-right: 10px;
+    height: 30px;
+}
+ol, ul {
+    padding-left: 0rem!important;
+}
 .ilt20-header-subcontainer {
     display: flex;
     justify-content: space-between;
