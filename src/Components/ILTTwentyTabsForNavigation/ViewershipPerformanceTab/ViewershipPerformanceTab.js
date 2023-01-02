@@ -19,7 +19,7 @@ const ViewershipPerformanceTab = (props) => {
   return (
     <div className="viewership-performance-tab-container">
       <div className="viewership-navigationtab-container">
-        <div className="viewership-navigationtab-ul-div">
+        <div className="viewership-navigationtab-ul-div viewership-performance-indicators">
           <ul className="viewership-navigationtab-ul">
             <li
               className={
@@ -41,15 +41,27 @@ const ViewershipPerformanceTab = (props) => {
             >
               Live Match Updates
             </li>
-
+          </ul>
+          <ul className="indicators">
             <li className="viewership-performance-indicator">--- Avg.</li>
-            <li className="viewership-performance-indicator">
+            <li
+              className={
+                activeTab === "executivesummary"
+                  ? "viewership-performance-indicator"
+                  : "display-none"
+              }
+            >
               <label className="indicator-match1"></label>Match 1
             </li>
-            <li className="viewership-performance-indicator">
-              <label className="indicator-match2"></label>Match 2
+            <li
+              className={
+                activeTab === "executivesummary"
+                  ? "viewership-performance-indicator"
+                  : "display-none"
+              }
+            >
+              <label className="indicator-match2 pr-0"></label>Match 2
             </li>
-
           </ul>
         </div>
 

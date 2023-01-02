@@ -59,10 +59,12 @@ ul.viewership-navigationtab-ul {
 } */
 
 .viewership-performance-indicator {
-  padding: 0px 10px !important;
-  position: relative;
-  top: 10px;
-  left: 1000px;
+  padding-left: 20px;
+  list-style-type: none;
+  display: inline-block;
+  /* position: relative; */
+  /* top: 10px; */
+  /* left: 1090px; */
 }
 
 .indicator-match1 {
@@ -77,4 +79,18 @@ ul.viewership-navigationtab-ul {
   width: 12px;
   background-color: #c996eb;
   margin-right: 5px;
+}
+
+.display-none {
+    display: none;
+}
+
+.viewership-performance-indicators {
+    display: flex;
+    justify-content: space-between;
+}
+
+.indicators {
+    position: relative;
+    top: 20px;
 }
