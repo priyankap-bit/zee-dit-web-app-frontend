@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3v4";
 import data from "./data.csv";
+import { useRef } from "react";
 const LineChart = (props) => {
+  const lineChart = useRef();
+  var data1 = [
+    { date: 0, value: 4 },
+    { date: 2, value: 20 },
+    { date: 3, value: 8 },
+    { date: 4, value: 17 },
+  ];
   useEffect(() => {
     // Create 2 datasets
-    var data1 = [
-      { date: 0, value: 4 },
-      { date: 2, value: 20 },
-      { date: 3, value: 8 },
-      { date: 4, value: 17 },
-    ];
+    
 
     // set the dimensions and margins of the graph
     var margin = { top: 10, right: 30, bottom: 30, left: 50 },
@@ -18,7 +21,7 @@ const LineChart = (props) => {
 
     // append the svg object to the body of the page
     var svg = d3
-      .select("#my_dataviz")
+      .select(lineChart.current)
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
@@ -88,11 +91,11 @@ const LineChart = (props) => {
 
     // At the beginning, I run the update function on the first dataset:
     update(data1);
-  }, []);
+  }, [data1]);
 
   return (
     <div>
-      <svg id="my_dataviz"></svg>
+      <svg ref={lineChart}></svg>
     </div>
   );
 };
