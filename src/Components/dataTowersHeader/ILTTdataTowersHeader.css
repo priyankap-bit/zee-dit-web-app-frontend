@@ -1,17 +1,27 @@
 .head{
     display: flex;
 }
-
-
-/* .logo{
-    display: flex;
-    height: 50px;
-    width:94%;
-} */
-
-.loginUser{
-    display: block;
-    margin: auto;
+.loginUser {
+    float: right;
     vertical-align: middle;
+    display: flex;
 }
-.logo{float: left;}
+.logo-datatowers {
+    float: left;
+}
+.data-tower-head {
+    height: 50px;
+    padding: 5px 2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+}
+.username{
+    font-family: 'GothamMedium';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 13px;
+    color: #333333;
+}
