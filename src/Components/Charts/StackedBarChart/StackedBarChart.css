@@ -71,3 +71,8 @@
 /* .x-tick line{
     visibility: hidden;
 } */
+
+.svg-wrap {
+    position: relative;
+    left: 60px;
+}
