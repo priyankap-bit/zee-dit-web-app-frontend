@@ -57,7 +57,7 @@ const AreaChart = (props) => {
             <svg ref={svgRef}></svg>
         </div>
     )
-
+    window.addEventListener('resize', LineData );
 }
 
 export default AreaChart;

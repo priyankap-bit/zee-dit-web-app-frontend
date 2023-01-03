@@ -127,12 +127,13 @@ h2.realtime-update-api {
     border: 1px solid #D8E3FF;
     box-shadow: 0px 2px 5px #D6DEF8;
     border-radius: 4px;
-    height: 270px;
+    height: 290px;
     margin-top: 20px;
     /* margin: 15px; */
 }
 
 .real-time-match-update-info-container {
+    padding-bottom: 15px;
     display: flex;
     /* flex-direction: column; */
     width: 100%;
@@ -178,5 +179,21 @@ h2.realtime-update-api {
     .viewership-navigationtab-ul li {
         font-size: 10px !important;
     }
-
+    .real-time-match-update-match-name-cont{display: block!important;}
+    .real-time-match-update-match-name-inactive{margin-top: 20px!important;margin-left: 0px!important;}
+    .real-time-match-update-match-data,.real-time-match-update-info-container{display: block!important;}
+    .real-time-match-update-info-div{display: block!important;width: auto!important;}
+    .real-time-match-update-match-data{background: none!important;box-shadow: none!important;}
+    .real-time-match-update-info-div {
+        background: #FFFFFF;
+        border: 1px solid #D8E3FF;
+        box-shadow: 0px 2px 5px #d6def8;
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+    .tableau-dashboard {
+        top: 55rem;
+        position: relative;
+        text-align: center;
+    }
 }
