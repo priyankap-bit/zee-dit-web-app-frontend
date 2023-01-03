@@ -1,8 +1,24 @@
+import { useState } from "react";
+import { useEffect } from "react";
+import ExecutiveSummary from "../../../Services/ILTTwentySummaryServices/ExecutiveSummary";
 import AreaChart from "../../Charts/AreaChart/AreaChart";
 import StackedBarChart from "../../Charts/StackedBarChart/StackedBarChart";
 import "./ExecutiveSummaryVizContainerWithChartsAndNumbers.css";
 
 const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
+
+  const [areaChartData, setAreaChartData] = useState(null);
+
+  const getData = async () => {
+    let data = await ExecutiveSummary.getDigitalSummary();
+    console.log('getDigitalSummary', data);
+    setAreaChartData(data.viewers.lastSevenDayData);
+  }
+
+  useEffect(() => {
+    getData();
+  }, [])
+
   return (
     <div className="excutive-summary">
       <div className="main-excutive-summary">
@@ -37,7 +53,11 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
               </div>
             </div>
             <div className="exact-summary-viz-areachart-container">
-              <AreaChart />
+              {
+                areaChartData &&
+                <AreaChart Linedata={areaChartData} />
+              }
+
             </div>
             <div className="exact-summary-viz-updateinfo-container">
               <p>Updated as on 13/01/23 Next update expected by 14/01/23</p>
