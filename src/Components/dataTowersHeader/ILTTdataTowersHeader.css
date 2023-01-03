@@ -2,6 +2,8 @@
     display: flex;
 }
 .loginUser {
+    align-items: center;
+    justify-content: center;
     float: right;
     vertical-align: middle;
     display: flex;
@@ -9,19 +11,47 @@
 .logo-datatowers {
     float: left;
 }
+.Data-towers {
+    
+    padding: 5px 2rem;
+    position: relative;
+    top: 18rem;
+}
+.test {
+    display: flex;
+}
+img.icon:hover {
+    -webkit-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
+}
 .data-tower-head {
     height: 50px;
     padding: 5px 2rem;
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     width: 100%;
     margin: auto;
 }
+img.datatower-image {
+    padding-top: 0px!important;
+    z-index: -1;
+    position: absolute;
+    width: 94%;
+    top: -3px;
+}
 .username{
+    margin-bottom: 0rem!important;
     font-family: 'GothamMedium';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 13px;
     color: #333333;
+}
+@media only screen and (max-width: 767px) {
+    img.datatower-image{width: 90%;}
+    .Executive-Summary-tile{width: 90%!important;}
+    .data-towers{display: block!important;}
+    .Data-towers{top: 0rem!important;}
+    .data-tower-head{padding: 3px!important;}
 }

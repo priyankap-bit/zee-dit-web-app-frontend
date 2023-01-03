@@ -8,10 +8,12 @@ const ILTTdataTowersContain = (props) => {
 
     return (
 
-        <div className="">
+        <div className="Data-towers">
            <div className='Executive-Summary-tile'>
-               <img src='/static/images/logos/Executive-summary-icon.png' height={20} alt='Viewers Logo' className='icon' />
+              <div className='test'>
+               <img src='/static/images/logos/summary.svg' height={20} alt='Viewers Logo' className='icon' />
                <div className="tile-name">Executive Summary</div>
+               </div>
            </div>
            <div className='data-towers'>
           <div className='Executive-Summary-tile'>
@@ -32,10 +34,12 @@ const ILTTdataTowersContain = (props) => {
                <div className="tile-name">Product</div>
            </div>
            </div>
+           <a href='/ilt20-summary' className='sports'>
            <div className='Executive-Summary-tile'>
               <img src='/static/images/logos/Sports-icon.png' height={20} alt='Viewers Logo' className='icon' />
-               <a href='/ilt20-summary' className='sports'><div className="tile-name">Sports</div></a>
+              <div className="tile-name">Sports</div>
            </div>
+           </a>
         </div> 
     
     )
