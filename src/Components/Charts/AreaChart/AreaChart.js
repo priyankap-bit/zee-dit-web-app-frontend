@@ -9,13 +9,13 @@ const AreaChart = (props) => {
 
     // const [LineData] = useState([0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]);
 
-    const { LineData = [0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 0] } = props;
+    const { LineData = [2, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55,40,0] } = props;
 
     const svgRef = useRef();
 
     useEffect(() => {
         // setting up svg
-        const w = 450;
+        const w = 300;
         const h = 60;
         const svg = d3.select(svgRef.current)
             .attr('width', w)
@@ -41,11 +41,11 @@ const AreaChart = (props) => {
             .data([LineData])
             .join('path')
             .attr('d', d => generateScaledLine(d))
-            .attr('fill', 'rgb(148, 94, 210, 0.2)')
+            .attr('fill', 'rgb(148, 94, 210, 0.1)')
             .attr('stroke', '#945ED2')
             .attr('stroke-width', '1px')
             // .attr("d", d3.area().x(d => d).y0(yScale(0)).y1(d => d))
-        // .attr('fill', '#945EE5')
+        // .attr('fill', 'rgb(148, 94, 210, 0.2)')
         // // .attr('opacity', '0.2')
         // .attr('stroke', '#945ED2')
         // // .attr('opacity', '1')
