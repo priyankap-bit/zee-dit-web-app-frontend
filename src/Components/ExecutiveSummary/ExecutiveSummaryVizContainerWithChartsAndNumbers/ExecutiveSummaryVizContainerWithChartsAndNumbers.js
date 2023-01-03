@@ -74,7 +74,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
           <div className="digital-watchtime ">
             <div className="bdr">
               {/* <div className='executive-summary-main-container-partition'></div> */}
-              <div class="viewer-numbers">
+              <div className="viewer-numbers">
                 <div className="exact-summary-viz-number">
                   <p className="exact-summary-viz-number-entity">Watch Time</p>
                   <h2 className="exact-summary-viz-number-value">201.65 M</h2>
@@ -105,7 +105,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
               <div className="exact-summary-viz-areachart-container">
                 <AreaChart />
               </div>
-              <div style={{ height: "20px" }}></div>
+              {/* <div style={{ height: "20px" }}></div> */}
             </div>
           </div>
           <div className="digital-watchtime-stackedchart">
