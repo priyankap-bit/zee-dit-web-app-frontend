@@ -1,6 +1,6 @@
 .login-page {
     position:relative;
-    margin-left: 10%;
+    margin-left: 10.4%;
     width: 20%;
     margin-top: -65px;
 }
@@ -14,7 +14,7 @@
     margin: auto;
     text-align: center;
     display: block;
-    margin-top: 30px;
+    margin-top: 27px;
     background-image: linear-gradient(180deg, #7E5AA4 0%, #3E1F76 100%);
     color: white;
     border: 0px;
@@ -25,7 +25,7 @@
     text-align: center;
 }
 p.forgot-password {
-    margin-top: -4px;
+    margin-top: -5px;
     display: flex;
     align-items: center;
     color: #808080;
@@ -60,29 +60,34 @@ input.login {
 
 input[type="email"],
 input[type="password"] {
-    padding-left: 20px!important;
+    padding-left: 30px!important;
     font-weight: 300;
     font-size: 12px;
     /* line-height: 13px; */
     font-family: 'GothamMedium';
-    border: 1px solid #808080;
-    border-radius: 5px;
-    margin: 4px 5px;
+    border: 1px solid #D8D8D8;
+    border-radius: 4px;
+    margin: 7px 5px;
     width: 100% !important;
     padding: 5px;
 }
-
+input#email:hover,
+input[type="password"]:hover {
+    box-shadow: inset 0px 0px 4px rgb(79 0 119 / 25%);
+    border: 1px solid #3E1F76;
+    border-radius: 4px;
+}
 img.email-image {
     position: absolute;
     bottom: 8px;
-    left: 10px;
-    top: 10px;
+    left: 14px;
+    top: 15px;
 }
 img.password-image {
     position: absolute;
     bottom: 8px;
-    left: 10px;
-    top: 47px;
+    left: 14px;
+    top: 57px;
 }
 /*Media query for mobile*/
 @media only screen and (max-width: 767px) {
@@ -99,8 +104,9 @@ img.password-image {
     .login-page {
         margin-left: 2%;
         width: 30%;
-        margin-top: -65px;
+        margin-top: -113px;
     }
+    .branding-image{ margin-left: 2%;width: -webkit-fill-available;}
 }
 @media only screen and (max-width: 1279px) and (min-width: 1024px){
     .login-page {
@@ -108,5 +114,5 @@ img.password-image {
         width: 30%;
         margin-top: -65px;
     }
-    .branding-image{ padding: 2px;width: -webkit-fill-available;height: auto;}
+    .branding-image{ padding: 2px;height: auto;}
  }
