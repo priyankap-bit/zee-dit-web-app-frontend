@@ -13,16 +13,17 @@
 } */
 
 .energy-svg {
-    height: 300px;
+    height: 170px;
     overflow: visible;
     margin: 0;
 }
 
 .svg-wrap {
     height: 100px;
-    width: 100%;
+    width: 70%;
     display: flex;
-  
+    position: relative;
+    left: 50px;
     /* height: 200px; */
 }
 
@@ -32,7 +33,7 @@
 
 .x-axis-scroll {
     /* overflow-x: scroll; */
-    margin-bottom: -150px;
+    /* margin-bottom: -150px; */
 }
 
 /* width */

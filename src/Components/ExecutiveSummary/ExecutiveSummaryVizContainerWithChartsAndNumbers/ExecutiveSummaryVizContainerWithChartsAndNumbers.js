@@ -14,7 +14,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
     console.log('getDigitalSummary', data);
     setAreaChartData(data.viewers.lastSevenDayData);
   }
-
+  
   useEffect(() => {
     getData();
   }, [])
@@ -33,7 +33,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
                 <p className="exact-summary-viz-number-entity">
                   Last 7days avg.
                 </p>
-                <h4 className="exact-summary-viz-number-value">1.2 M</h4>
+                <h4 className="exact-summary-viz-number-avg-value">1.2 M</h4>
                 <p className="exact-summary-viz-number-info">
                   2%
                   <svg
@@ -54,7 +54,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
             </div>
             <div className="exact-summary-viz-areachart-container">
               {
-                areaChartData &&
+                // areaChartData &&
                 <AreaChart Linedata={areaChartData} />
               }
 
@@ -83,7 +83,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
                   <p className="exact-summary-viz-number-entity">
                     Last 7days avg.
                   </p>
-                  <h4 className="exact-summary-viz-number-value">1.2 M</h4>
+                  <h4 className="exact-summary-viz-number-avg-value">1.2 M</h4>
                   <p className="exact-summary-viz-number-info">
                     2%
                     <svg
