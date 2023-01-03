@@ -9,8 +9,8 @@
 }
 
 .digital-viewers-stackbarchart {
-    /* border-right: 1px dashed #333333; */
-    /* margin-right: 5px; */
+  /* border-right: 1px dashed #333333; */
+  /* margin-right: 5px; */
 }
 
 .exact-summary-viz-container-2 {
@@ -38,10 +38,11 @@
 }
 
 .exact-summary-viz-number-entity {
+  font-family: 'GraphikRegular';
   margin: 0 !important;
   padding-bottom: 5px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 13px;
   color: #333333;
 }
@@ -54,7 +55,16 @@
   color: #333333;
 }
 
+.exact-summary-viz-number-avg-value{
+  font-family: GraphikMedium;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 24px;
+  color: #333333;
+}
+
 .exact-summary-viz-number-info {
+  font-family: 'GraphikRegular';
   font-weight: 400;
   font-size: 12px;
   line-height: 13px;
@@ -69,11 +79,13 @@
 }
 
 .exact-summary-viz-updateinfo-container p {
+  font-family: 'GraphikRegular';
   font-weight: 400;
   font-size: 10px;
   line-height: 14px;
   color: #333333;
   margin-top: 5px;
+  
 }
 
 /*Priyanka css*/
@@ -102,13 +114,43 @@
 }
 
 .excutive-summary {
-  width: 95%;
-}
-/* 
-.executive-summary-digital-viewers {
-  width: 50%;
+  width: 100%;
 }
 
-.executive-summary-digital-watchtime{
-  width: 50%;
-} */
+.executive-summary-digital-viewers {
+  width: 100%;
+}
+
+.executive-summary-digital-watchtime {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1030px) and (max-width: 1366px) {
+  .executive-summary-digital-viewers {
+    width: 90%;
+  }
+
+  .executive-summary-digital-watchtime {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1370px) and (max-width: 1605px) {
+  .executive-summary-digital-viewers {
+    width: 90%;
+  }
+
+  .executive-summary-digital-watchtime {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1607px){
+  .executive-summary-digital-viewers {
+    width: 98%;
+  }
+
+  .executive-summary-digital-watchtime {
+    width: 98%;
+  }
+}

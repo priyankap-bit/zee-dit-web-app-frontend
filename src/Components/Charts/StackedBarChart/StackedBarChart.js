@@ -39,15 +39,15 @@ const StackedBarChart = (props) => {
 
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
-            .range([0, 250])
-            .padding(0.2);
+            .range([0, 400])
+            .padding(0.3);
 
         const yScale = scaleLinear()
             .domain(extent)
             .range([height + 50, 0]);
 
         svg
-            .attr("width", data.length * 50)
+            .attr("width", 'auto')
             .attr("height", height)
             .selectAll(".layer")
             .data(layers)

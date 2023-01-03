@@ -82,15 +82,41 @@ ul.viewership-navigationtab-ul {
 }
 
 .display-none {
-    display: none;
+  display: none;
 }
 
 .viewership-performance-indicators {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .indicators {
-    position: relative;
-    top: 20px;
+  font-family: 'GothamLight';
+  font-size: 13px;
+  position: relative;
+  top: 20px;
+}
+
+.tableau-dashboard a {
+  font-family: 'GraphikRegular';
+  font-size: 15px;
+  text-decoration: none;
+  color: #333333;
+  font-weight: 400;
+  background-color: #e8ebff;
+  padding: 0.3%;
+  border-radius: 4px;
+  z-index: 100 !important;
+}
+
+.tableau-dashboard a:hover {
+  background: linear-gradient(180deg, #7e5aa4 0%, #3e1f76 100%);
+  border-radius: 4px;
+  color: white;
+  z-index: 100 !important;
+}
+
+.tableau-dashboard {
+  text-align: right;
+  height: 35px;
 }
