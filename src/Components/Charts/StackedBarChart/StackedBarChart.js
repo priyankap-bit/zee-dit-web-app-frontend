@@ -27,7 +27,7 @@ const StackedBarChart = (props) => {
         const { width, height } =
             dimensions || wrapperRef.current.getBoundingClientRect();
 
-        // const height = 140;
+        // const height = 100;
 
         const stackGenerator = stack().keys(keys).order(stackOrderAscending);
         const layers = stackGenerator(data);
@@ -39,7 +39,7 @@ const StackedBarChart = (props) => {
 
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
-            .range([0, data.length * 50])
+            .range([0, 250])
             .padding(0.2);
 
         const yScale = scaleLinear()

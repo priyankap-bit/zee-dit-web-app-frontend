@@ -3,6 +3,7 @@ import ILTTwentySummaryServices from "../../Services/ILTTwentySummaryServices";
 import LineChart from "../Charts/LineChart/LineChart";
 import LinecharNormal from "../Charts/LineChart";
 import "./RealTimeMatchUpdate.css";
+import LiveMatchUpdates from "../../Services/ILTTwentySummaryServices/LiveMatchUpdates";
 
 const RealTimeMatchUpdate = (props) => {
 
@@ -12,24 +13,32 @@ const RealTimeMatchUpdate = (props) => {
     viewers: null,
     watchTime: null,
     adImpressions: null,
-    updateDetails: null,
+    peakConcurrency: null,
   });
 
-  // const [tempValue, setTempValue] = useState(null);
+  const [selectedMatch, setSelectedMatch] = useState('matchOne');
+
+  const handleMatchSelectionClick = (matchName, event) => {
+    event.preventDefault();
+    setSelectedMatch(matchName)
+  }
 
   useEffect(() => {
     const getRealTimeMatchUpdates = async () => {
-      let viewers = await ILTTwentySummaryServices.getViewers(),
-        watchTime = await ILTTwentySummaryServices.getWatchTime(),
-        adImpressions = await ILTTwentySummaryServices.getAdImpressions(),
-        updateDetails = await ILTTwentySummaryServices.getUpdateNextUpdate();
+      // let viewers = await ILTTwentySummaryServices.getViewers(),
+      //   watchTime = await ILTTwentySummaryServices.getWatchTime(),
+      //   adImpressions = await ILTTwentySummaryServices.getAdImpressions(),
+      //   peakConcurrency = await ILTTwentySummaryServices.getPeakConcurrency();
 
-      setRealTimeMatchUpdateSummary({
-        viewers,
-        watchTime,
-        adImpressions,
-        updateDetails
-      });
+      // setRealTimeMatchUpdateSummary({
+      //   viewers,
+      //   watchTime,
+      //   adImpressions,
+      //   peakConcurrency
+      // });
+
+      let viewers = await LiveMatchUpdates.getMatchOneViewers();
+      console.log(viewers, viewers);
     };
 
     getRealTimeMatchUpdates();
@@ -99,30 +108,53 @@ const RealTimeMatchUpdate = (props) => {
           </>
         )}
       <div className="real-time-match-update-match-name-cont">
-        <div className="real-time-match-update-match-name-active">
-          <div className="match-number-active">
-            <h4>Match 1</h4>
+
+        <div className={
+          selectedMatch === "matchOne" ?
+            "real-time-match-update-match-name-active" :
+            "real-time-match-update-match-name-inactive"}
+          onClick={event => handleMatchSelectionClick('matchOne', event)}
+        >
+          <div className={
+            selectedMatch === "matchOne" ?
+              "match-number-active" :
+              "match-number-inactive"}
+          >
+            <p>Match 1</p>
           </div>
           <div className="match-icon-container">
             <div className="team-icon">
               <img src="/static/images/teams/CSK.png" alt="CKS" height={50} />
             </div>
-            <div className="team-vs"><h5>VS</h5></div>
+            <div className="team-vs">
+              <p>VS</p>
+            </div>
             <div className="team-icon">
               <img src="/static/images/teams/MI.png" alt="MI" height={50} />
             </div>
           </div>
         </div>
 
-        <div className="real-time-match-update-match-name-inactive">
-          <div className="match-number-inactive">
-            <h4>Match 2</h4>
+        <div className={
+          selectedMatch !== "matchOne" ?
+            "real-time-match-update-match-name-active" :
+            "real-time-match-update-match-name-inactive"}
+          onClick={event => handleMatchSelectionClick('matchTwo', event)}
+        >
+          <div className={
+            selectedMatch !== "matchOne" ?
+              "match-number-active" :
+              "match-number-inactive"}
+          >
+            <p>Match 2</p>
           </div>
           <div className="match-icon-container">
             <div className="team-icon">
               <img src="/static/images/teams/CSK.png" alt="CKS" height={50} />
             </div>
-            <div className="team-vs"><h5>VS</h5></div>
+            <div className="team-vs">
+              <p>VS</p>
+            </div>
             <div className="team-icon">
               <img src="/static/images/teams/MI.png" alt="MI" height={50} />
             </div>

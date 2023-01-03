@@ -8,6 +8,11 @@
   width: 100%;
 }
 
+.digital-viewers-stackbarchart {
+    border-right: 1px dashed #333333;
+    /* margin-right: 5px; */
+}
+
 .exact-summary-viz-container-2 {
   display: flex;
 }
