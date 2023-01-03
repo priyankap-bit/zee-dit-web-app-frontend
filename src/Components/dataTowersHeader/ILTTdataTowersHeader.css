@@ -48,6 +48,9 @@ img.datatower-image {
     line-height: 13px;
     color: #333333;
 }
+.tile-name:hover {
+    color: #fff;
+}
 @media only screen and (max-width: 767px) {
     img.datatower-image{width: 90%;}
     .Executive-Summary-tile{width: 90%!important;}

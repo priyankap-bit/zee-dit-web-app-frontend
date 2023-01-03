@@ -37,11 +37,13 @@ a.sports {
         color: #212529;
         text-decoration: none;
 }
+
     .tile-name:hover {
-        color: #212529;
+        color: #fff!important;
     }
     .Executive-Summary-tile:hover {
+        fill: #fff;
         color: white;
         border-radius: 2px;
-        background: rgb(55, 15, 119);
+        background:linear-gradient(180deg, #7E5AA4 0%, #3E1F76 100%);
     }
