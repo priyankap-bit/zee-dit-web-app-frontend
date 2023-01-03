@@ -200,3 +200,13 @@ img.executive-summary-linear-image {
     width: 79%;
   }
 }
+@media only screen and (max-width: 1440px) and (min-width: 1366px){
+.areachart-container svg {
+  width: 300px !important;
+}
+}
+@media only screen and (max-width: 1365px) and (min-width: 1280px){ 
+  .areachart-container svg {
+    width: 300px !important;
+  }
+}
