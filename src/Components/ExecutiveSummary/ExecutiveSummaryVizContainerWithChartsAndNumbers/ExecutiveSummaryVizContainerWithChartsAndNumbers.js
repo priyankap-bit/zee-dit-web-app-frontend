@@ -6,7 +6,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
   return (
     <div className="excutive-summary">
       <div className="main-excutive-summary">
-        <div >
+        <div className="">
           <div className="digital-viewers">
             <div class="viewer-numbers">
               <div className="exact-summary-viz-number">
@@ -50,7 +50,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
           </div>
         </div>
         {/* <div className='executive-summary-main-container-partition'></div> */}
-        <div>
+        <div className="">
           <div className="digital-watchtime ">
             <div className="bdr">
               {/* <div className='executive-summary-main-container-partition'></div> */}
