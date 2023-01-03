@@ -32,9 +32,11 @@
   align-items: flex-start;
   justify-content: center;
 }
-
+.digital-watchtime-stackedchart {
+  padding-left: 7rem!important;
+}
 .exact-summary-viz-number {
-  margin: 0 4rem 0 0;
+  margin: 0 2rem 0 0;
 }
 
 .exact-summary-viz-number-entity {

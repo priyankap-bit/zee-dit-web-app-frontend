@@ -39,7 +39,7 @@ const StackedBarChart = (props) => {
 
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
-            .range([0, 250])
+            .range([0, 300])
             .padding(0.3);
 
         const yScale = scaleLinear()
@@ -111,7 +111,7 @@ const StackedBarChart = (props) => {
     return (
         <div ref={wrapperRef} className="svg-wrap">
             <div>
-                <svg ref={yAxisRef} className="y-axis-svg" width="1">
+                <svg ref={yAxisRef} className="y-axis-svg" width="10">
                     <g className="y-axis" />
                 </svg>
             </div>
