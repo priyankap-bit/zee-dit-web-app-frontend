@@ -120,3 +120,15 @@ ul.viewership-navigationtab-ul {
   text-align: right;
   height: 35px;
 }
+
+/* ---------------mobile media query--------------- */
+
+@media only screen and (min-width: 320px) and (max-width: 767px){
+  .viewership-performance-indicators {
+    display: block;
+    text-align: center;
+}
+.indicators {
+  text-align: end;
+}
+}

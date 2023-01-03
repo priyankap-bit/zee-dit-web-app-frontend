@@ -1,71 +1,98 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3v4";
-
+import data from "./data.csv";
 const LineChart = (props) => {
-
   useEffect(() => {
+    // Create 2 datasets
+    var data1 = [
+      { date: 0, value: 4 },
+      { date: 2, value: 20 },
+      { date: 3, value: 8 },
+      { date: 4, value: 17 },
+    ];
 
     // set the dimensions and margins of the graph
-    var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+    var margin = { top: 10, right: 30, bottom: 30, left: 50 },
       width = 300 - margin.left - margin.right,
       height = 150 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
-    var svg = d3.select("#my_dataLine")
+    var svg = d3
+      .select("#my_dataviz")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
-      .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    //Read the data
-    d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv",
+    // Initialise a X axis:
+    var x = d3.scaleLinear().range([0, width]);
+    var xAxis = d3.axisBottom().scale(x);
+    svg
+      .append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .attr("class", "myXaxis");
 
-      // When reading the csv, I must format variables:
-      function (d) {
-        return { date: d3.timeParse("%Y-%m-%d")(d.date), value: d.value }
-      },
+    // Initialize an Y axis
+    var y = d3.scaleLinear().range([height, 0]);
+    var yAxis = d3.axisLeft().scale(y);
+    svg.append("g").attr("class", "myYaxis");
 
-      // Now I can use this dataset:
-      function (data) {
+    // Create a function that takes a dataset as input and update the plot:
+    function update(data) {
+      // Create the X axis:
+      x.domain([
+        0,
+        d3.max(data, function (d) {
+          return d.date;
+        }),
+      ]);
+      svg.selectAll(".myXaxis").call(xAxis);
 
-        // Add X axis --> it is a date format
-        var x = d3.scaleTime()
-          .domain(d3.extent(data, function (d) { return d.date; }))
-          .range([0, width]);
-        svg.append("g")
-          .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(x));
+      // create the Y axis
+      y.domain([
+        0,
+        d3.max(data, function (d) {
+          return d.value;
+        }),
+      ]);
+      svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
 
-        // Add Y axis
-        var y = d3.scaleLinear()
-          .domain([0, d3.max(data, function (d) { return 1000; })])
-          .range([height, 0]);
-        svg.append("g")
-          .call(d3.axisLeft(y));
+      // Create a update selection: bind to the new data
+      var u = svg.selectAll(".lineTest").data([data], function (d) {
+        return d.date;
+      });
 
-        // Add the line
-        svg.append("path")
-          .datum(data)
-        //   .attr("fill", "none")
-        //   .attr("stroke", "steelblue")
-        //   .attr("stroke-width", 1.5)
-          .attr('fill', 'none')
-          .attr('stroke', '#945ED2')
-          .attr('stroke-width', '1px')
-          .attr("d", d3.line()
-            .x(function (d) { return x(d.date) })
-            .y(function (d) { return y(d.value) })
-          )
+      // Updata the line
+      u.enter()
+        .append("path")
+        .attr("class", "lineTest")
+        .merge(u)
+        .transition()
+        .duration(3000)
+        .attr(
+          "d",
+          d3
+            .line()
+            .x(function (d) {
+              return x(d.date);
+            })
+            .y(function (d) {
+              return y(d.value);
+            })
+        )
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-width", 2.5);
+    }
 
-      })
-
+    // At the beginning, I run the update function on the first dataset:
+    update(data1);
   }, []);
 
   return (
-    <div >
-      <svg id="my_dataLine"></svg>
+    <div>
+      <svg id="my_dataviz"></svg>
     </div>
   );
 };
