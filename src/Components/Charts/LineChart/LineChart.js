@@ -82,8 +82,8 @@ const LineChart = (props) => {
             })
         )
         .attr("fill", "none")
-        .attr("stroke", "steelblue")
-        .attr("stroke-width", 2.5);
+        .attr("stroke", "#945ED2")
+        .attr("stroke-width", 1.32592);
     }
 
     // At the beginning, I run the update function on the first dataset:

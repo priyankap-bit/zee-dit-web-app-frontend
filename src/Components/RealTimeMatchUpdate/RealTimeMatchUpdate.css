@@ -53,7 +53,7 @@ h2.realtime-update-api {
     box-shadow: 0px 2px 5px #D6DEF8;
     border-radius: 4px;
     width: 100%;
-    margin: 0 10px;
+    margin: 0 0px;
     cursor: pointer;
 }
 
@@ -116,9 +116,10 @@ h2.realtime-update-api {
 }
 
 .real-time-match-update-match-data {
+    margin: 2px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 99.5%;
     background: #FFFFFF;
     border: 1px solid #D8E3FF;
     box-shadow: 0px 2px 5px #D6DEF8;
