@@ -1,24 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import ExecutiveSummary from "../../../Services/ILTTwentySummaryServices/ExecutiveSummary";
 import AreaChart from "../../Charts/AreaChart/AreaChart";
 import StackedBarChart from "../../Charts/StackedBarChart/StackedBarChart";
 import "./ExecutiveSummaryVizContainerWithChartsAndNumbers.css";
 //
 const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
-
-  const [areaChartData, setAreaChartData] = useState(null);
-
-  const getData = async () => {
-    let data = await ExecutiveSummary.getDigitalSummary();
-    console.log('getDigitalSummary', data);
-    setAreaChartData(data.viewers.lastSevenDayData);
-  }
+  const {digitalData} = props;
   
-  useEffect(() => {
-    getData();
-  }, [])
-
+  console.log('hashbahsb',digitalData);
   return (
     <div className="excutive-summary">
       <div className="main-excutive-summary">
@@ -26,8 +15,8 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
           <div className="digital-viewers">
             <div class="viewer-numbers">
               <div className="exact-summary-viz-number">
-                <p className="exact-summary-viz-number-entity">Viewers</p>
-                <h2 className="exact-summary-viz-number-value">15.632 M</h2>
+                <p className="exact-summary-viz-number-entity">{digitalData.viewers.title}</p>
+                <h2 className="exact-summary-viz-number-value">{digitalData.viewers.totalViewers}</h2>
               </div>
               <div className="exact-summary-viz-average">
                 <p className="exact-summary-viz-number-entity">
@@ -53,10 +42,9 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
               </div>
             </div>
             <div className="exact-summary-viz-areachart-container">
-              {
-                // areaChartData &&
-                <AreaChart Linedata={areaChartData} />
-              }
+              
+                <AreaChart areaChartData = {digitalData.viewers.areaChartData}/>
+            
 
             </div>
             <div className="exact-summary-viz-updateinfo-container">
@@ -76,8 +64,8 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
               {/* <div className='executive-summary-main-container-partition'></div> */}
               <div className="viewer-numbers">
                 <div className="exact-summary-viz-number">
-                  <p className="exact-summary-viz-number-entity">Watch Time</p>
-                  <h2 className="exact-summary-viz-number-value">201.65 M</h2>
+                  <p className="exact-summary-viz-number-entity">{digitalData.watchTime.title}</p>
+                  <h2 className="exact-summary-viz-number-value">{digitalData.watchTime.totalWatchTime}</h2>
                 </div>
                 <div className="exact-summary-viz-average">
                   <p className="exact-summary-viz-number-entity">
@@ -115,6 +103,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

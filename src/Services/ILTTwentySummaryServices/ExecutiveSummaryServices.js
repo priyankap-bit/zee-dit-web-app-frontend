@@ -12,5 +12,16 @@ export default {
             console.error(error);
             throw (error);
         }
+    },
+
+    getLinearSummary: async function () {
+        try {
+            const response = await axios.get(baseURL + 'linear')
+            return response.data;
+        }
+        catch (error) {
+            console.error(error);
+            throw (error);
+        }
     }
 }
