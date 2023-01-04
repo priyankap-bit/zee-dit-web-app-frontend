@@ -24,8 +24,20 @@ const StackedBarChart = (props) => {
 
         const svg = select(svgRef.current);
         const yAxisSvg = select(yAxisRef.current);
-        const { width, height } =
-            dimensions || wrapperRef.current.getBoundingClientRect();
+        // const { width, height } =
+        //     dimensions || wrapperRef.current.getBoundingClientRect();
+
+        const { width, height } = wrapperRef.current.getBoundingClientRect();
+
+        const maxBarWidth = 35;
+        const svg_height = 100;
+        const svg_width = svg.node().getBoundingClientRect().width;
+        let bar_width = Math.round((svg_width - 60) / data.length);
+
+        if (bar_width > maxBarWidth)
+            bar_width = maxBarWidth;
+
+        const spacing = 0.20 * bar_width;
 
         // const height = 100;
 
@@ -40,11 +52,18 @@ const StackedBarChart = (props) => {
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
             .range([0, 300])
-            .padding(0.3);
+            .padding(0.27);
+        // const xScale = scaleBand()
+        //     .domain(data.map(d => d.key))
+        //     .range([0, svg_height])
+        //     .padding(0.27);
 
         const yScale = scaleLinear()
             .domain(extent)
             .range([height + 50, 0]);
+        // const yScale = scaleLinear()
+        //     .domain(extent)
+        //     .range([svg_height, 0]);
 
         svg
             // .attr("width", 'auto')
@@ -69,6 +88,30 @@ const StackedBarChart = (props) => {
                     return 0;
                 }
             });
+
+        // svg
+        //     // .attr("width", 'auto')
+        //     .attr("width", data.length * 10)
+        //     .attr("height", height)
+        //     .selectAll(".layer")
+        //     .data(layers)
+        //     .join("g")
+        //     .attr("class", "layer")
+        //     .attr("fill", (layer) => colors[layer.key])
+        //     .selectAll("rect")
+        //     .data((layer) => layer)
+        //     .join("rect")
+        //     .attr("class", "data-bar")
+        //     .attr("x", (sequence) => xScale(sequence.data.key))
+        //     .attr("width", bar_width - spacing)
+        //     .attr("y", (sequence) => yScale(sequence[1]))
+        //     .attr("height", (sequence) => {
+        //         if (!isNaN(sequence[0]) && !isNaN(sequence[1])) {
+        //             return yScale(sequence[0]) - yScale(sequence[1]);
+        //         } else {
+        //             return 0;
+        //         }
+        //     });
 
         const xAxis = axisBottom(xScale)
             .tickSize(0);

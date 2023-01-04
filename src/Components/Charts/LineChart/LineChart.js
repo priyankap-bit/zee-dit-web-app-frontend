@@ -5,14 +5,14 @@ import { useRef } from "react";
 const LineChart = (props) => {
   const lineChart = useRef();
   var data1 = [
-    { date: 0, value: 4 },
+    { date: 0, value: 2 },
     { date: 2, value: 20 },
     { date: 3, value: 8 },
     { date: 4, value: 17 },
   ];
   useEffect(() => {
     // Create 2 datasets
-    
+
 
     // set the dimensions and margins of the graph
     var margin = { top: 10, right: 30, bottom: 30, left: 50 },
@@ -30,7 +30,7 @@ const LineChart = (props) => {
 
     // Initialise a X axis:
     var x = d3.scaleLinear().range([0, width]);
-    var xAxis = d3.axisBottom().scale(x);
+    var xAxis = d3.axisBottom().scale(x).tickSize(-height)
     svg
       .append("g")
       .attr("transform", "translate(0," + height + ")")
@@ -38,7 +38,7 @@ const LineChart = (props) => {
 
     // Initialize an Y axis
     var y = d3.scaleLinear().range([height, 0]);
-    var yAxis = d3.axisLeft().scale(y);
+    var yAxis = d3.axisLeft().scale(y).ticks(1).tickSize(0);
     svg.append("g").attr("class", "myYaxis");
 
     // Create a function that takes a dataset as input and update the plot:
@@ -60,6 +60,49 @@ const LineChart = (props) => {
         }),
       ]);
       svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
+
+      svg
+        .select(".myXaxis")
+        // .attr("transform", `translate(0, ${height + 50})`)
+        .call(xAxis)
+        .selectAll("text")
+        .attr("class", "stacekd-bar-chart-ticks");
+
+      svg
+        .select(".domain")
+        .attr("stroke", "#D8D8D8")
+        .attr("stroke-width", "1")
+        .attr("opacity", ".1")
+        .attr("stroke-dasharray", "2");
+
+      // svg
+      //   .selectAll(".tick")
+      //   .attr("stroke", "#D8D8D8")
+      //   .attr("stroke-width", "1")
+      //   .attr("opacity", ".2")
+      //   .attr("stroke-dasharray", "2");
+
+      svg
+        .selectAll(".tick")
+        .attr("stroke", "#D8D8D8")
+        .attr("stroke-width", "1")
+        .attr("opacity", ".2")
+        .attr("stroke-dasharray", "2");
+
+      // svg
+      //   .select(".y-axis")
+      //   .attr("height", height)
+      //   .call(yAxis)
+      //   .selectAll("text")
+      //   .attr("class", "stacekd-bar-chart-ticks");
+
+      svg
+        .select(".myYaxis")
+        .selectAll(".domain")
+        .attr("stroke", "#D8D8D8")
+        .attr("stroke-width", "1")
+        .attr("opacity", ".1")
+        .attr("stroke-dasharray", "1");
 
       // Create a update selection: bind to the new data
       var u = svg.selectAll(".lineTest").data([data], function (d) {

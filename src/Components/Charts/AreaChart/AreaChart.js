@@ -15,7 +15,7 @@ const AreaChart = (props) => {
 
     useEffect(() => {
         // setting up svg
-        const w = 300;
+        const w = 330;
         const h = 60;
         const svg = d3.select(svgRef.current)
             .attr('width', w)

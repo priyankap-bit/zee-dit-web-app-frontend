@@ -32,9 +32,11 @@
   align-items: flex-start;
   justify-content: center;
 }
+
 .digital-watchtime-stackedchart {
-  padding-left: 7rem!important;
+  padding-left: 5rem !important;
 }
+
 .exact-summary-viz-number {
   margin: 0 2rem 0 0;
 }
@@ -57,7 +59,7 @@
   color: #333333;
 }
 
-.exact-summary-viz-number-avg-value{
+.exact-summary-viz-number-avg-value {
   font-family: GraphikMedium;
   font-weight: 500;
   font-size: 17px;
@@ -87,24 +89,34 @@
   line-height: 14px;
   color: #333333;
   margin-top: 5px;
-  
+
 }
 
 /*Priyanka css*/
 .main-excutive-summary {
-  display: block;
+  display: block
 }
+
 .digital-viewers,
-.digital-viewers-stackbarchart,
-.digital-watchtime,
-.digital-watchtime-stackedchart {
+.digital-watchtime {
   float: left;
-  width: 25%;
+  width: 26%;
   padding: 20px;
   padding-left: 10px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
+
+.digital-viewers-stackbarchart,
+.digital-watchtime-stackedchart {
+  float: left;
+  width: 24%;
+  padding: 20px;
+  padding-left: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 .exact-summary-viz-number,
 .exact-summary-viz-average {
   float: left;
@@ -127,7 +139,7 @@
   width: 100%;
 }
 
-.viewer-numbers{
+.viewer-numbers {
   display: flex;
 }
 
@@ -151,7 +163,7 @@
   }
 }
 
-@media only screen and (min-width: 1607px){
+@media only screen and (min-width: 1607px) {
   .executive-summary-digital-viewers {
     width: 98%;
   }
@@ -160,4 +172,3 @@
     width: 98%;
   }
 }
-
