@@ -17,7 +17,7 @@ const RealTimeMatchUpdate = (props) => {
   });
 
   const [selectedMatch, setSelectedMatch] = useState('matchOne');
-
+  
   const handleMatchSelectionClick = (matchName, event) => {
     event.preventDefault();
     setSelectedMatch(matchName)

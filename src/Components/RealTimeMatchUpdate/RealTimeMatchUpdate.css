@@ -180,10 +180,13 @@ h2.realtime-update-api {
         font-size: 10px !important;
     }
     .real-time-match-update-match-name-cont{display: flex!important;}
-    .real-time-match-update-match-name-inactive{margin-top: 20px!important;margin-left: 0px!important;}
+    .real-time-match-update-match-name-inactive{margin: 10px 0px 10px 0px;}
+    .real-time-match-update-match-name-active {margin: 10px 0px 10px 0px;}
     .real-time-match-update-match-data,.real-time-match-update-info-container{display: block!important;}
     .real-time-match-update-info-div{display: block!important;width: auto!important;}
     .real-time-match-update-match-data{background: none!important;box-shadow: none!important;}
+    .real-time-match-update-match-name-cont{display: block!important;} 
+    .indicators ul {margin-bottom: 0px !important;}
     .real-time-match-update-info-div {
         background: #FFFFFF;
         border: 1px solid #D8E3FF;
