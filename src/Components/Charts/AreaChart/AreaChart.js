@@ -41,7 +41,7 @@ const AreaChart = (props) => {
             .data([LineData])
             .join('path')
             .attr('d', d => generateScaledLine(d))
-            .attr('fill', 'rgb(148, 94, 210, 0.2)')
+            .attr('fill', 'rgb(148, 94, 210, 0.1)')
             .attr('stroke', '#945ED2')
             .attr('stroke-width', '1px')
             // .attr("d", d3.area().x(d => d).y0(yScale(0)).y1(d => d))

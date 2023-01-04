@@ -46,7 +46,7 @@
   margin: 0 !important;
   padding-bottom: 5px;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 13px;
   color: #333333;
 }
@@ -123,8 +123,9 @@
 }
 
 .bdr {
+  height: 156px ;
   border-left: 2px dashed #dcdcdc;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .excutive-summary {
