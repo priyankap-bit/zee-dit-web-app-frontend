@@ -84,7 +84,7 @@ const ViewershipPerformanceTab = (props) => {
         )}
       </div>
       <div className="tableau-dashboard">
-        <a href="#">
+        <a href="http://pulse.zeeconnect.in/#/site/Zee5India/workbooks/1152/views" target="_blank" >
           Detailed Tableau Dashboard &nbsp;
           <svg
             style={{verticalAlign: 'sub'}}
