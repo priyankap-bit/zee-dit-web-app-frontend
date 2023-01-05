@@ -64,9 +64,11 @@
     stroke: #333333;
 }
 
-@media only screen and (max-width: 1440px) and (min-width: 1366px){
-    .svg-wrap {
-        position: relative;
-        left: 42px;
-    }
+.x-label {
+    color: #808080;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 11px;
+    font-family: GothamLight;
+    cursor: pointer;
 }

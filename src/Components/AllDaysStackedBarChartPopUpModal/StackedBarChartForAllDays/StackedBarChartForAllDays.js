@@ -13,18 +13,23 @@ import {
     axisTop,
 } from "d3";
 
-import useResizeObserver from "./useResizeObserver";
+import useResizeObserver from "../../Charts/StackedBarChart/useResizeObserver";
 
 import {
-    data, keys, colors
+    data,
+    keys, colors
 } from "./data";
-import "./StackedBarChart.css";
 
-const StackedBarChart = (props) => {
+import './StackedBarChartForAllDays.css';
+
+const StackedBarChartForAllDays = (props) => {
+
     const svgRef = useRef();
     const yAxisRef = useRef();
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
+
+    // const { dimensions } = props;
 
     useEffect(() => {
 
@@ -35,17 +40,9 @@ const StackedBarChart = (props) => {
 
         const { width, height } = wrapperRef.current.getBoundingClientRect();
 
-        // const maxBarWidth = 35;
-        // const svg_height = 100;
-        const svg_width = svg.node().getBoundingClientRect().width;
-        let bar_width = Math.round((svg_width - 60) / data.length);
+        // console.log(width, height);
 
-        // if (bar_width > maxBarWidth)
-        //     bar_width = maxBarWidth;
-
-        // const spacing = 0.20 * bar_width;
-
-        // const height = 100;
+        // let width = 800, height = 400;
 
         const stackGenerator = stack().keys(keys).order(stackOrderAscending);
         const layers = stackGenerator(data);
@@ -57,12 +54,12 @@ const StackedBarChart = (props) => {
 
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
-            .range([0, 300])
-            .padding(0.27);
+            .range([0, width -90])
+            .padding(0.3);
 
         const yScale = scaleLinear()
             .domain(extent)
-            .range([height + 50, 0]);
+            .range([400, 0]);
 
         svg
             .attr("width", data.length * 10)
@@ -97,15 +94,13 @@ const StackedBarChart = (props) => {
 
         svg
             .select(".x-axis")
-            .attr("transform", `translate(0, ${height + 50})`)
+            .attr("transform", `translate(0, ${height + 300})`)
             .call(xAxis)
             .selectAll("text")
             .attr("class", "stacekd-bar-chart-ticks");
 
         svg
             .select(".x-axis-top")
-            // .select(".x-axis")
-            // .attr("transform", `translate(0, ${5})`)
             .call(xAxisTop)
             .selectAll("text")
             .attr("class", "stacekd-bar-chart-ticks");
@@ -115,12 +110,13 @@ const StackedBarChart = (props) => {
             .attr("stroke", "#D8D8D8")
             .attr("stroke-width", "1")
             .attr("opacity", ".6")
-            .style("stroke-dasharray", ("3, 3"))
+            .attr("stroke-dasharray", "2");
 
         const yAxis = axisLeft(yScale)
+            // .tickSize(-1450)
             .tickSize(0)
-            .ticks(2)
-            .tickValues([0, 120, 80]);
+            .ticks(11)
+            .tickValues([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
 
         yAxisSvg
             .select(".y-axis")
@@ -136,9 +132,16 @@ const StackedBarChart = (props) => {
             .attr("opacity", ".6")
             .attr("stroke-dasharray", "2");
 
+        yAxisSvg
+            .selectAll('tick')
+            .attr("stroke", "#D8D8D8")
+            .attr("stroke-width", "1")
+            .attr("opacity", ".6")
+            .attr("stroke-dasharray", "2");
+
         let x2 = scaleOrdinal()
             .domain(data.map(d => d.key))
-            .range([0, 300]);
+            .range([0, 1350]);
 
         const averageline = line()
             .x(function (d, i) {
@@ -152,39 +155,38 @@ const StackedBarChart = (props) => {
             .attr("stroke-width", "1")
             .attr("d", averageline);
 
-        svg.append("text")
-            .attr("class", "x-label")
-            .attr("text-anchor", "end")
-            .attr("x", width)
-            .attr("y", -5)
-            .text("Max")
-            .on("click", () => {
-                console.log("max clicked");
-            })
+        // svg.append("text")
+        //     .attr("class", "x-label")
+        //     .attr("text-anchor", "end")
+        //     .attr("x", width)
+        //     .attr("y", -5)
+        //     .text("Max")
+        //     .on("click", () => {
+        //         console.log("max clicked");
+        //     })
 
     }, [dimensions, colors, data, keys]);
 
     return (
 
-        <div>
-            <div ref={wrapperRef} className="svg-wrap">
-                <div>
-                    <svg ref={yAxisRef} className="y-axis-svg" width="10">
-                        <g className="y-axis" />
-                    </svg>
-                </div>
-                <div className="x-axis-scroll">
+        <div ref={wrapperRef} className="svg-wrap">
+            <div>
+                <svg ref={yAxisRef} className="y-axis-svg" width="10">
+                    <g className="y-axis" />
+                </svg>
+            </div>
+            <div className="x-axis-scroll">
 
-                    <svg className="energy-svg" ref={svgRef}>
-                        <g className="x-axis" />
-                        <g className="x-axis-top" />
-                    </svg>
-                </div>
+                <svg className="energy-svg" ref={svgRef}>
+                    <g className="x-axis" />
+                    <g className="x-axis-top" />
+                </svg>
             </div>
         </div>
 
     )
 
+
 }
 
-export default StackedBarChart;
+export default StackedBarChartForAllDays;

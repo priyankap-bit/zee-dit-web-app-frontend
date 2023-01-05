@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import AllDaysStackedBarChartPopUpModal from "../../AllDaysStackedBarChartPopUpModal/AllDaysStackedBarChartPopUpModal";
 import AreaChart from "../../Charts/AreaChart/AreaChart";
 import StackedBarChart from "../../Charts/StackedBarChart/StackedBarChart";
 import "./ExecutiveSummaryVizContainerWithChartsAndNumbers.css";
@@ -7,10 +8,13 @@ import "./ExecutiveSummaryVizContainerWithChartsAndNumbers.css";
 const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
   const { digitalData } = props;
 
+  const [activeClass, setActiveClass] = useState(false);
+
   console.log('hashbahsb', digitalData);
   // console.log('hashbahsb',linearData);
   return (
     <div className="excutive-summary">
+      <AllDaysStackedBarChartPopUpModal />
       <div className="main-excutive-summary">
         <div className="executive-summary-digital-viewers">
           <div className="digital-viewers">
