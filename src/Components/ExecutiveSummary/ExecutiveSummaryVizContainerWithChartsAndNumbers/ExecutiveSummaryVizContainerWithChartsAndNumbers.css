@@ -225,3 +225,13 @@
   right: 37px;
 } */
 }
+
+@media only screen and (max-width: 767px){
+  .bdr{
+    border: none;
+    padding-left: 0px;
+  }
+  .exact-summary-viz-number-info{
+    width: 125px;
+  }
+}

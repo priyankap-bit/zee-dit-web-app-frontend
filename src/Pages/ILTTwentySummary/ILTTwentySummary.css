@@ -80,6 +80,8 @@
 
     .digital-watchtime {
         margin-top: 88px;
+        position: relative;
+        right: 12px;
     }
 
     .digital-watchtime-stackedchart {
