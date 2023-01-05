@@ -34,11 +34,20 @@
     }
     .viewership-performance-indicators {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
+    }
+    .executive-summary-main-container{
+        margin: 10px!important;
+    }
+    .digital-watchtime-stackedchart {
+        margin-left: -33px !important;
+    
     }
 }
 
 @media only screen and (max-width: 767px) {
+    
+   
     .ilttwenty-navigation-tabs-container {
         padding-top: 30px !important;
     }
