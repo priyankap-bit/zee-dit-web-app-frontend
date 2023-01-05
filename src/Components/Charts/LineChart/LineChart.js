@@ -114,7 +114,7 @@ const LineChart = (props) => {
         .x(function (d, i) {
           return x2(d.date) + i;
         })
-        .y(function (d, i) { return y(10); });
+        .y(function (d, i) { return y(500); });
 
       svg.append("path")
         .datum(data)
