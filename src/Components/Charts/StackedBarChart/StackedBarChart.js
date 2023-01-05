@@ -10,14 +10,11 @@ import {
     stackOrderAscending,
     line,
     scaleOrdinal,
-    axisTop,
 } from "d3";
 
 import useResizeObserver from "./useResizeObserver";
 
-import {
-    data, keys, colors
-} from "./data";
+import { data, keys, colors } from "./data";
 import "./StackedBarChart.css";
 
 const StackedBarChart = (props) => {
@@ -35,15 +32,15 @@ const StackedBarChart = (props) => {
 
         const { width, height } = wrapperRef.current.getBoundingClientRect();
 
-        // const maxBarWidth = 35;
-        // const svg_height = 100;
+        const maxBarWidth = 35;
+        const svg_height = 100;
         const svg_width = svg.node().getBoundingClientRect().width;
         let bar_width = Math.round((svg_width - 60) / data.length);
 
-        // if (bar_width > maxBarWidth)
-        //     bar_width = maxBarWidth;
+        if (bar_width > maxBarWidth)
+            bar_width = maxBarWidth;
 
-        // const spacing = 0.20 * bar_width;
+        const spacing = 0.20 * bar_width;
 
         // const height = 100;
 
@@ -59,10 +56,17 @@ const StackedBarChart = (props) => {
             .domain(data.map(d => d.key))
             .range([0, 300])
             .padding(0.27);
+        // const xScale = scaleBand()
+        //     .domain(data.map(d => d.key))
+        //     .range([0, svg_height])
+        //     .padding(0.27);
 
         const yScale = scaleLinear()
             .domain(extent)
             .range([height + 50, 0]);
+        // const yScale = scaleLinear()
+        //     .domain(extent)
+        //     .range([svg_height, 0]);
 
         svg
             .attr("width", data.length * 10)
@@ -90,11 +94,6 @@ const StackedBarChart = (props) => {
         const xAxis = axisBottom(xScale)
             .tickSize(0);
 
-        const xAxisTop = axisTop(xScale)
-            .tickSize(0)
-            .ticks(0)
-            .tickValues([]);
-
         svg
             .select(".x-axis")
             .attr("transform", `translate(0, ${height + 50})`)
@@ -103,15 +102,7 @@ const StackedBarChart = (props) => {
             .attr("class", "stacekd-bar-chart-ticks");
 
         svg
-            .select(".x-axis-top")
-            // .select(".x-axis")
-            // .attr("transform", `translate(0, ${5})`)
-            .call(xAxisTop)
-            .selectAll("text")
-            .attr("class", "stacekd-bar-chart-ticks");
-
-        svg
-            .selectAll(".domain")
+            .select(".domain")
             .attr("stroke", "#D8D8D8")
             .attr("stroke-width", "1")
             .attr("opacity", ".6")
@@ -152,37 +143,21 @@ const StackedBarChart = (props) => {
             .attr("stroke-width", "1")
             .attr("d", averageline);
 
-        svg.append("text")
-            .attr("class", "x-label")
-            .attr("text-anchor", "end")
-            .attr("x", width)
-            .attr("y", -5)
-            .text("Max")
-            .on("click", () => {
-                console.log("max clicked");
-            })
-
     }, [dimensions, colors, data, keys]);
 
     return (
-
-        <div>
-            <div ref={wrapperRef} className="svg-wrap">
-                <div>
-                    <svg ref={yAxisRef} className="y-axis-svg" width="10">
-                        <g className="y-axis" />
-                    </svg>
-                </div>
-                <div className="x-axis-scroll">
-
-                    <svg className="energy-svg" ref={svgRef}>
-                        <g className="x-axis" />
-                        <g className="x-axis-top" />
-                    </svg>
-                </div>
+        <div ref={wrapperRef} className="svg-wrap">
+            <div>
+                <svg ref={yAxisRef} className="y-axis-svg" width="10">
+                    <g className="y-axis" />
+                </svg>
+            </div>
+            <div className="x-axis-scroll">
+                <svg className="energy-svg" ref={svgRef}>
+                    <g className="x-axis" />
+                </svg>
             </div>
         </div>
-
     )
 
 }

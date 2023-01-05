@@ -68,13 +68,7 @@ const AreaChart = (props) => {
                 .attr('fill', 'rgb(148, 94, 210, 0.1)')
                 .attr('stroke', '#945ED2')
                 .attr('stroke-width', '1px')
-                .on('mouseover', (d) => {
-                    tooltip.transition().duration(200).style('opacity', 0.9);
-                    tooltip.html(`Frequency: <span>${d.frequency}</span>`)
-                      .style('left', `${d3.event.layerX}px`)
-                      .style('top', `${(d3.event.layerY - 28)}px`);
-                  })
-                  .on('mouseout', () => tooltip.transition().duration(500).style('opacity', 0));
+             
               
             // .attr("d", d3.area().x(d => d).y0(yScale(0)).y1(d => d))
             // .attr('fill', 'rgb(148, 94, 210, 0.2)')
