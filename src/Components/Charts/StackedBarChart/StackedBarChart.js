@@ -106,7 +106,7 @@ const StackedBarChart = (props) => {
             .attr("stroke", "#D8D8D8")
             .attr("stroke-width", "1")
             .attr("opacity", ".6")
-            .attr("stroke-dasharray", "2");
+            .style("stroke-dasharray", ("3, 3"))
 
         const yAxis = axisLeft(yScale)
             .tickSize(0)

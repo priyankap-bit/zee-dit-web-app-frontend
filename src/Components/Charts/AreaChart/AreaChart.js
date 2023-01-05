@@ -29,7 +29,7 @@ const AreaChart = (props) => {
 
     // const LineData = useState([0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 0]);
 
-    const { LineData = [0, 111100, 150, 120200, 203700, 1000, 1500, 2000, 2045, 2500] } = props;
+    const { LineData = [0, 111100, 1500000, 12020000, 203700, 1000000, 1500, 20000, 20405, 2500] } = props;
 
     const svgRef = useRef();
 
@@ -68,6 +68,14 @@ const AreaChart = (props) => {
                 .attr('fill', 'rgb(148, 94, 210, 0.1)')
                 .attr('stroke', '#945ED2')
                 .attr('stroke-width', '1px')
+                .on('mouseover', (d) => {
+                    tooltip.transition().duration(200).style('opacity', 0.9);
+                    tooltip.html(`Frequency: <span>${d.frequency}</span>`)
+                      .style('left', `${d3.event.layerX}px`)
+                      .style('top', `${(d3.event.layerY - 28)}px`);
+                  })
+                  .on('mouseout', () => tooltip.transition().duration(500).style('opacity', 0));
+              
             // .attr("d", d3.area().x(d => d).y0(yScale(0)).y1(d => d))
             // .attr('fill', 'rgb(148, 94, 210, 0.2)')
             // // .attr('opacity', '0.2')
