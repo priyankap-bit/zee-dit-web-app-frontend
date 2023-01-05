@@ -63,3 +63,12 @@
 .line {
     stroke: #333333;
 }
+
+.x-label {
+    color: #808080;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 11px;
+    font-family: GothamLight;
+    cursor: pointer;
+}
