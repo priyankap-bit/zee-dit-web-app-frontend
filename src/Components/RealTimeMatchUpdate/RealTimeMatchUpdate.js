@@ -214,7 +214,6 @@ const RealTimeMatchUpdate = (props) => {
               <LineChart />
             </div>
           </div>
-
           </div>
         </div>
 

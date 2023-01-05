@@ -127,7 +127,7 @@ h2.realtime-update-api {
     border: 1px solid #D8E3FF;
     box-shadow: 0px 2px 5px #D6DEF8;
     border-radius: 4px;
-    height: 290px;
+    height: auto;
     margin-top: 20px;
     /* margin: 15px; */
 }
