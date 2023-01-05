@@ -6,15 +6,30 @@ import './AreaChart.css';
 import { useRef } from 'react';
 
 const AreaChart = (props) => {
+    const {areaChartData} = props
+    var LineData = [];
+    LineData.unshift(0)
+    areaChartData && areaChartData.forEach(element => {
+        if(element !== null){
+            LineData.push(element)
+        }
+        
+    });
 
-    // const [LineData] = useState([0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]);
+    // console.log(areaChartData);
 
-    const { LineData = [2, 1000, 15, 20, 2500, 30, 35, 40, 45, 500, 55, 4000, 0] } = props;
+    // const LineData = useState([0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 0]);
+
+    // const { LineData = [2, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55,40,0] } = props;
 
     const svgRef = useRef();
 
     useEffect(() => {
         // setting up svg
+        
+        if(LineData.length > 0){
+            console.log(LineData);
+            LineData.push(0);
         const w = 330;
         const h = 60;
         const svg = d3.select(svgRef.current)
@@ -50,6 +65,7 @@ const AreaChart = (props) => {
         // .attr('stroke', '#945ED2')
         // // .attr('opacity', '1')
         // .attr('stroke-width', '2px');
+    }
     }, [LineData]);
 
     return (
