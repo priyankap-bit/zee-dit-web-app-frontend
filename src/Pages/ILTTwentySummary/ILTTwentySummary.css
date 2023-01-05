@@ -20,6 +20,7 @@
     .digital-watchtime {
         padding-left: 0px;
     }
+    
 }
 
 @media only screen and (max-width: 1023px) and (min-width: 768px){
@@ -30,7 +31,7 @@
     .viewer-numbers {
         width: 70%!important;
         display: flex;
-        padding-top: 10px;
+        padding-top: 0px;
     }
     .viewership-performance-indicators {
         display: flex;
@@ -43,8 +44,18 @@
         margin-left: -33px !important;
     
     }
+    .bdr {border-top: 2px dashed #dcdcdc;    padding-top: 10px;border-left: none;}
 }
-
+@media only screen and (max-width: 1279px) and (min-width: 1024px){
+    .digital-viewers, .digital-watchtime{ width: 52%;}
+    .digital-watchtime {
+        padding-left: 0px;
+        padding-top: 12px;
+        padding-bottom: 10px!important;
+    }
+    .digital-watchtime-stackedchart{padding-left: 1rem!important;    padding-top: 4px!important;}
+    .bdr {border-top: 2px dashed #dcdcdc;    padding-top: 10px;border-left: none;}
+}
 @media only screen and (max-width: 767px) {
     
    

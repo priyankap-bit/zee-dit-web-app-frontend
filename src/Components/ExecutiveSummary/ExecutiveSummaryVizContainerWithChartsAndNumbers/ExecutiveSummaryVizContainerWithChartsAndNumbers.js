@@ -97,10 +97,12 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
               {/* <div style={{ height: "20px" }}></div> */}
             </div>
           </div>
+          <div className="bdr1">
           <div className="digital-watchtime-stackedchart">
             <div className="exact-summary-viz-container-right">
               <StackedBarChart />
             </div>
+          </div>
           </div>
         </div>
       </div>
