@@ -8,10 +8,13 @@ import {
     max,
     scaleLinear,
     stackOrderAscending,
+    line,
+    scaleOrdinal,
 } from "d3";
-import useResizeObserver from "./useResizeObserver";
-import { data, keys, colors } from "./data";
 
+import useResizeObserver from "./useResizeObserver";
+
+import { data, keys, colors } from "./data";
 import "./StackedBarChart.css";
 
 const StackedBarChart = (props) => {
@@ -66,7 +69,6 @@ const StackedBarChart = (props) => {
         //     .range([svg_height, 0]);
 
         svg
-            // .attr("width", 'auto')
             .attr("width", data.length * 10)
             .attr("height", height)
             .selectAll(".layer")
@@ -88,30 +90,6 @@ const StackedBarChart = (props) => {
                     return 0;
                 }
             });
-
-        // svg
-        //     // .attr("width", 'auto')
-        //     .attr("width", data.length * 10)
-        //     .attr("height", height)
-        //     .selectAll(".layer")
-        //     .data(layers)
-        //     .join("g")
-        //     .attr("class", "layer")
-        //     .attr("fill", (layer) => colors[layer.key])
-        //     .selectAll("rect")
-        //     .data((layer) => layer)
-        //     .join("rect")
-        //     .attr("class", "data-bar")
-        //     .attr("x", (sequence) => xScale(sequence.data.key))
-        //     .attr("width", bar_width - spacing)
-        //     .attr("y", (sequence) => yScale(sequence[1]))
-        //     .attr("height", (sequence) => {
-        //         if (!isNaN(sequence[0]) && !isNaN(sequence[1])) {
-        //             return yScale(sequence[0]) - yScale(sequence[1]);
-        //         } else {
-        //             return 0;
-        //         }
-        //     });
 
         const xAxis = axisBottom(xScale)
             .tickSize(0);
@@ -148,6 +126,22 @@ const StackedBarChart = (props) => {
             .attr("stroke-width", "1")
             .attr("opacity", ".6")
             .attr("stroke-dasharray", "2");
+
+        let x2 = scaleOrdinal()
+            .domain(data.map(d => d.key))
+            .range([0, 300]);
+
+        const averageline = line()
+            .x(function (d, i) {
+                return x2(d.key) + i;
+            })
+            .y(function (d, i) { return yScale(80); });
+
+        svg.append("path")
+            .datum(data)
+            .attr("class", "line")
+            .attr("stroke-width", "1")
+            .attr("d", averageline);
 
     }, [dimensions, colors, data, keys]);
 

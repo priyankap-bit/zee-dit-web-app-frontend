@@ -9,7 +9,7 @@ const AreaChart = (props) => {
 
     // const [LineData] = useState([0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]);
 
-    const { LineData = [2, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55,40,0] } = props;
+    const { LineData = [2, 1000, 15, 20, 2500, 30, 35, 40, 45, 500, 55, 4000, 0] } = props;
 
     const svgRef = useRef();
 
@@ -29,7 +29,7 @@ const AreaChart = (props) => {
             .domain([0, LineData.length - 1])
             .range([0, w]);
         const yScale = d3.scaleLinear()
-            .domain([0, h])
+            .domain([0, d3.max(LineData, data => data)])
             .range([h, 0]);
         const generateScaledLine = d3.line()
             .x((d, i) => xScale(i))
@@ -44,7 +44,7 @@ const AreaChart = (props) => {
             .attr('fill', 'rgb(148, 94, 210, 0.1)')
             .attr('stroke', '#945ED2')
             .attr('stroke-width', '1px')
-            // .attr("d", d3.area().x(d => d).y0(yScale(0)).y1(d => d))
+        // .attr("d", d3.area().x(d => d).y0(yScale(0)).y1(d => d))
         // .attr('fill', 'rgb(148, 94, 210, 0.2)')
         // // .attr('opacity', '0.2')
         // .attr('stroke', '#945ED2')
@@ -57,7 +57,7 @@ const AreaChart = (props) => {
             <svg ref={svgRef}></svg>
         </div>
     )
-    window.addEventListener('resize', LineData );
+    window.addEventListener('resize', LineData);
 }
 
 export default AreaChart;

@@ -1,17 +1,3 @@
-/* #root {
-    margin: 0 auto;
-    display: flex;
-    height: 100vh;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.App {
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 80vw;
-} */
-
 .energy-svg {
     /* height: 170px; */
     height: 300px;
@@ -21,12 +7,10 @@
 
 .svg-wrap {
     height: 100px;
-    /* width: 70%; */
     width: 100%;
     display: flex;
     position: relative;
     left: 50px;
-    /* height: 200px; */
 }
 
 .y-axis-svg {
@@ -71,11 +55,11 @@
     color: #808080;
 }
 
-/* .x-tick line{
-    visibility: hidden;
-} */
-
 .svg-wrap {
     position: relative;
     left: 40px;
+}
+
+.line {
+    stroke: #333333;
 }

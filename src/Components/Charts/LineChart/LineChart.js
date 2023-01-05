@@ -6,9 +6,9 @@ const LineChart = (props) => {
   const lineChart = useRef();
   var data1 = [
     { date: 0, value: 2 },
-    { date: 2, value: 20 },
-    { date: 3, value: 8 },
-    { date: 4, value: 17 },
+    { date: 2, value: 2000 },
+    { date: 3, value: 800 },
+    { date: 4, value: 1700 },
   ];
   useEffect(() => {
     // Create 2 datasets
@@ -37,7 +37,9 @@ const LineChart = (props) => {
       .attr("class", "myXaxis");
 
     // Initialize an Y axis
-    var y = d3.scaleLinear().range([height, 0]);
+    var y = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d.value)])
+    .range([height, 0]);
     var yAxis = d3.axisLeft().scale(y).ticks(1).tickSize(0);
     svg.append("g").attr("class", "myYaxis");
 
@@ -103,6 +105,22 @@ const LineChart = (props) => {
         .attr("stroke-width", "1")
         .attr("opacity", ".1")
         .attr("stroke-dasharray", "1");
+
+      let x2 = d3.scaleOrdinal()
+        .domain(data.map(d => d.key))
+        .range([0, 300]);
+
+      const line = d3.line()
+        .x(function (d, i) {
+          return x2(d.date) + i;
+        })
+        .y(function (d, i) { return y(10); });
+
+      svg.append("path")
+        .datum(data)
+        .attr("class", "line")
+        .attr("stroke-width", "1")
+        .attr("d", line);
 
       // Create a update selection: bind to the new data
       var u = svg.selectAll(".lineTest").data([data], function (d) {
