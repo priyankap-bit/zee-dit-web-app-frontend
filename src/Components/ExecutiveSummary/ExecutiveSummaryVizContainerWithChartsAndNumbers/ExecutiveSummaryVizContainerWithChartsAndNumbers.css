@@ -172,7 +172,7 @@
 
   .main-excutive-summary {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 
   .viewer-numbers {
