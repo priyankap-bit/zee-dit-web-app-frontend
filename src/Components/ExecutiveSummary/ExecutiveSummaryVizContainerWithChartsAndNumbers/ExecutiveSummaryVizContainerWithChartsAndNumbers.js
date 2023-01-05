@@ -8,6 +8,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
   const {digitalData} = props;
   
   console.log('hashbahsb',digitalData);
+  // console.log('hashbahsb',linearData);
   return (
     <div className="excutive-summary">
       <div className="main-excutive-summary">
@@ -91,7 +92,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
                 </div>
               </div>
               <div className="exact-summary-viz-areachart-container">
-                <AreaChart />
+                <AreaChart areaChartData = {digitalData.watchTime.areaChartData}/>
               </div>
               {/* <div style={{ height: "20px" }}></div> */}
             </div>
