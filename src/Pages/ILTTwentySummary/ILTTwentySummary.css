@@ -27,6 +27,15 @@
         position: relative;
         right: 47px;
     }
+    .viewer-numbers {
+        width: 70%!important;
+        display: flex;
+        padding-top: 10px;
+    }
+    .viewership-performance-indicators {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -84,7 +93,7 @@
 
     .digital-watchtime-stackedchart {
         margin-top: 40px;
-        margin-left: -101px;
+        margin-left: -120px;
     }
 
     .executive-summary-main-container {
