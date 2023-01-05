@@ -1,0 +1,9 @@
+.tooltip-area{
+    z-index: 100;
+    background-color: black;
+}
+
+.tooltip-area__text{
+    z-index: 100;
+    background-color: black;
+}

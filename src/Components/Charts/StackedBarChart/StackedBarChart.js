@@ -26,6 +26,8 @@ const StackedBarChart = (props) => {
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
 
+    const { handleActiveClassName } = props;
+
     useEffect(() => {
 
         const svg = select(svgRef.current);
@@ -153,14 +155,29 @@ const StackedBarChart = (props) => {
             .attr("d", averageline);
 
         svg.append("text")
-            .attr("class", "x-label")
+            .attr("class", "x-label-7days")
+            .attr("text-anchor", "end")
+            .attr("x", width - 35)
+            .attr("y", -5)
+            .text("Last 7 Days");
+
+        svg.append("text")
+            .attr("class", "x-label-7days")
+            .attr("text-anchor", "end")
+            .attr("x", width - 27)
+            .attr("y", -5)
+            .text("|");
+
+        svg.append("text")
+            .attr("class", "x-label-max")
             .attr("text-anchor", "end")
             .attr("x", width)
             .attr("y", -5)
             .text("Max")
             .on("click", () => {
-                console.log("max clicked");
-            })
+                // console.log("max clicked");
+                handleActiveClassName(true);
+            });
 
     }, [dimensions, colors, data, keys]);
 

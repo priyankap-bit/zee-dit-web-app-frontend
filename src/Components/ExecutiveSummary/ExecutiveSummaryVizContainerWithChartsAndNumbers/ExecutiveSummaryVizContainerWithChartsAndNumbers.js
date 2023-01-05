@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import AllDaysStackedBarChartPopUpModal from "../../AllDaysStackedBarChartPopUpModal/AllDaysStackedBarChartPopUpModal";
 import AreaChart from "../../Charts/AreaChart/AreaChart";
 import StackedBarChart from "../../Charts/StackedBarChart/StackedBarChart";
@@ -10,11 +9,20 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
 
   const [activeClass, setActiveClass] = useState(false);
 
+  const handleActiveClassName = (flag) => setActiveClass(flag);
+
   console.log('hashbahsb', digitalData);
   // console.log('hashbahsb',linearData);
   return (
     <div className="excutive-summary">
-      <AllDaysStackedBarChartPopUpModal />
+      <AllDaysStackedBarChartPopUpModal
+        className={
+          activeClass ?
+            "all-days-stkd-bar-chart-pop-up-mdl-cnt-vsbl" :
+            "all-days-stkd-bar-chart-pop-up-mdl-cnt-invsbl"
+        }
+        handleActiveClassName={handleActiveClassName}
+      />
       <div className="main-excutive-summary">
         <div className="executive-summary-digital-viewers">
           <div className="digital-viewers">
@@ -58,7 +66,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
           </div>
           <div className="digital-viewers-stackbarchart">
             <div className="exact-summary-viz-container-right">
-              <StackedBarChart />
+              <StackedBarChart handleActiveClassName={handleActiveClassName} />
             </div>
           </div>
         </div>
@@ -103,7 +111,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
           </div>
           <div className="digital-watchtime-stackedchart">
             <div className="exact-summary-viz-container-right">
-              <StackedBarChart />
+              <StackedBarChart handleActiveClassName={handleActiveClassName} />
             </div>
           </div>
         </div>

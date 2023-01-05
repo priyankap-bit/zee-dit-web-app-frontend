@@ -11,6 +11,7 @@ import {
     line,
     scaleOrdinal,
     axisTop,
+    pointer,
 } from "d3";
 
 import useResizeObserver from "../../Charts/StackedBarChart/useResizeObserver";
@@ -54,7 +55,7 @@ const StackedBarChartForAllDays = (props) => {
 
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
-            .range([0, width -90])
+            .range([0, width - 90])
             .padding(0.3);
 
         const yScale = scaleLinear()
@@ -155,6 +156,37 @@ const StackedBarChartForAllDays = (props) => {
             .attr("stroke-width", "1")
             .attr("d", averageline);
 
+        var tooltip = select('.tooltip-area')
+            .style('opacity', 0);
+
+        const mouseover = (event, d) => {
+            tooltip.style("opacity", 1);
+            console.log('mouseover');
+        };
+
+        const mouseleave = (event, d) => {
+            tooltip.style('opacity', 0);
+            console.log('mouseleave');
+        }
+
+        const mousemove = (event, d) => {
+
+            console.log("event", "d", event.target.__data__.data.matchOne, event.target.__data__.data.matchTwo);
+            const text = select('.tooltip-area__text');
+            text.text(`MatchOne: ${event.target.__data__.data.matchOne}, MatchTwo:${event.target.__data__.data.matchTwo}`);
+            const [x, y] = pointer(event);
+
+            tooltip
+                .attr('transform', `translate(${x}, ${y})`);
+
+            console.log('mousemove');
+        };
+
+        svg
+            .on("mousemove", mousemove)
+            .on("mouseleave", mouseleave)
+            .on("mouseover", mouseover);
+
         // svg.append("text")
         //     .attr("class", "x-label")
         //     .attr("text-anchor", "end")
@@ -180,6 +212,9 @@ const StackedBarChartForAllDays = (props) => {
                 <svg className="energy-svg" ref={svgRef}>
                     <g className="x-axis" />
                     <g className="x-axis-top" />
+                    <g className="tooltip-area">
+                        <text className="tooltip-area__text">aas</text>
+                    </g>
                 </svg>
             </div>
         </div>
