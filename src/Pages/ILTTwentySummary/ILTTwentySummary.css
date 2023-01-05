@@ -10,6 +10,25 @@
 
 }
 
+@media only screen and (max-width: 1440px) and (min-width: 1366px) {
+    .digital-watchtime {
+        padding-left: 80px;
+    }
+}
+
+@media only screen and (min-width: 1030px) and (max-width: 1366px) {
+    .digital-watchtime {
+        padding-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 768px){
+    .digital-watchtime {
+        position: relative;
+        right: 47px;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .ilttwenty-navigation-tabs-container {
         padding-top: 30px !important;
@@ -45,16 +64,38 @@
     }
 
     .executive-summary-container,
-    .digital-daywise-and-cumulative {display: inline-block;}
-    .digital-viewers-stackbarchart,.digital-watchtime {margin-top: 40px;margin-left: -33px;}
-    .exect-summary-main-2{display: inline;}
+    .digital-daywise-and-cumulative {
+        display: inline-block;
+    }
+
+    .digital-viewers-stackbarchart,
+    .digital-watchtime {
+        margin-top: 40px;
+        margin-left: -33px;
+    }
+
+    .exect-summary-main-2 {
+        display: inline;
+    }
+
     .digital-watchtime {
         margin-top: 88px;
     }
+
     .digital-watchtime-stackedchart {
         margin-top: 40px;
         margin-left: -101px;
     }
-    .executive-summary-main-container{height: 54rem!important;}
-    .digital-viewers, .digital-viewers-stackbarchart, .digital-watchtime, .digital-watchtime-stackedchart{float: unset;width:50%;}
+
+    .executive-summary-main-container {
+        height: 54rem !important;
+    }
+
+    .digital-viewers,
+    .digital-viewers-stackbarchart,
+    .digital-watchtime,
+    .digital-watchtime-stackedchart {
+        float: unset;
+        width: 50%;
+    }
 }

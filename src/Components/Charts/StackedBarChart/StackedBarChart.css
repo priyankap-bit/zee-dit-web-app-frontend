@@ -63,3 +63,10 @@
 .line {
     stroke: #333333;
 }
+
+@media only screen and (max-width: 1440px) and (min-width: 1366px){
+    .svg-wrap {
+        position: relative;
+        left: 42px;
+    }
+}

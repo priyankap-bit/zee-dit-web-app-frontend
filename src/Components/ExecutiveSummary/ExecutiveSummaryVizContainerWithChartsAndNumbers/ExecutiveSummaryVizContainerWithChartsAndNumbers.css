@@ -34,7 +34,7 @@
 }
 
 .digital-watchtime-stackedchart {
-  padding-left: 5rem !important;
+  padding-left: 6rem !important;
 }
 
 .exact-summary-viz-number {
@@ -125,7 +125,7 @@
 .bdr {
   height: 156px;
   border-left: 2px dashed #dcdcdc;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .excutive-summary {
@@ -160,7 +160,7 @@
 
 @media only screen and (min-width: 1030px) and (max-width: 1366px) {
   .executive-summary-digital-viewers {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: flex-start;
     width: 100%;
@@ -208,4 +208,20 @@
 }
 @media only screen and (max-width: 1023px) and (min-width: 768px){
 .digital-viewers, .digital-watchtime{width: auto!important;}
+.digital-watchtime-stackedchart {
+  padding-left: 0px !important;
+}
+.digital-watchtime{
+  padding-bottom: 10px;
+}
+
+.bdr{
+  border: none;
+  padding-left: 0px;
+}
+
+/* .exact-summary-viz-container-right{
+  position: relative;
+  right: 37px;
+} */
 }
