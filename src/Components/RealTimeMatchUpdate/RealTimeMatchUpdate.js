@@ -165,7 +165,6 @@ const RealTimeMatchUpdate = (props) => {
       <div className="real-time-match-update-match-data">
 
         <div className="real-time-match-update-info-container">
-          <div>
           <div className="real-time-match-update-info-div">
             <div className="real-time-match-update-info-title">
               <p>Viewers</p>
@@ -189,8 +188,7 @@ const RealTimeMatchUpdate = (props) => {
               <LineChart />
             </div>
           </div>
-          </div>
-          <div>
+
           <div className="real-time-match-update-info-div">
             <div className="real-time-match-update-info-title">
               <p>Peak Concurrency</p>
@@ -213,7 +211,6 @@ const RealTimeMatchUpdate = (props) => {
             <div className="real-time-match-update-info-chart">
               <LineChart />
             </div>
-          </div>
           </div>
         </div>
 
