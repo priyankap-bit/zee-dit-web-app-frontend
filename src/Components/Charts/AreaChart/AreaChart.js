@@ -8,20 +8,20 @@ import { useRef } from 'react';
 const AreaChart = (props) => {
     const { areaChartData } = props
     console.log('areaChartData', areaChartData);
-    var LineData = [];
-    LineData.unshift(0)
-    areaChartData && areaChartData.forEach(element => {
-        if (element !== null) {
-            LineData.push(element)
-        }
+    // var LineData = [];
+    // LineData.unshift(0)
+    // areaChartData && areaChartData.forEach(element => {
+    //     if (element !== null) {
+    //         LineData.push(element)
+    //     }
 
-    });
+    // });
 
     // console.log(areaChartData);
 
     // const LineData = useState([0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 0]);
 
-    // const { LineData = [2, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55,40,0] } = props;
+    const { LineData = [0, 111100, 150, 120200, 202700, 1000, 1500, 2000, 2045, 2500] } = props;
 
     const svgRef = useRef();
 
