@@ -41,7 +41,7 @@ const ViewershipPerformanceTab = (props) => {
               onClick={() => handleOnNavigationTabClick("realtimematchupdate")}
               style={{ alignSelf: "center" }}
             >
-              Live Match Updates
+             Match Updates
             </li>
           </ul>
           <ul className="indicators">
