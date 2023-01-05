@@ -5,9 +5,9 @@ import StackedBarChart from "../../Charts/StackedBarChart/StackedBarChart";
 import "./ExecutiveSummaryVizContainerWithChartsAndNumbers.css";
 //
 const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
-  const {digitalData} = props;
-  
-  console.log('hashbahsb',digitalData);
+  const { digitalData } = props;
+
+  console.log('hashbahsb', digitalData);
   // console.log('hashbahsb',linearData);
   return (
     <div className="excutive-summary">
@@ -43,9 +43,9 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
               </div>
             </div>
             <div className="exact-summary-viz-areachart-container">
-              
-                <AreaChart areaChartData = {digitalData.viewers.areaChartData}/>
-            
+              {console.log('digitalData.viewers.areaChartData', digitalData.viewers.areaChartData)}
+              <AreaChart areaChartData={digitalData.viewers.areaChartData} />
+
 
             </div>
             <div className="exact-summary-viz-updateinfo-container">
@@ -92,7 +92,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
                 </div>
               </div>
               <div className="exact-summary-viz-areachart-container">
-                <AreaChart areaChartData = {digitalData.watchTime.areaChartData}/>
+                <AreaChart areaChartData={digitalData.watchTime.areaChartData} />
               </div>
               {/* <div style={{ height: "20px" }}></div> */}
             </div>
