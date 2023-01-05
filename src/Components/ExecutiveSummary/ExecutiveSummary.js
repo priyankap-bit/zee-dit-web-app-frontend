@@ -18,7 +18,7 @@ const ExecutiveSummary = (props) => {
   useEffect(() => {
     getData();
   }, [])
-  console.log('linearDatalinearDatalinearData', linearData);
+  // console.log('linearDatalinearDatalinearData', linearData);
   return (
     <div className='executive-summary-container'>
 
