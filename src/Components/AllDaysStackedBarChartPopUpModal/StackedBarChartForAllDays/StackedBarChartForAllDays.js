@@ -14,8 +14,6 @@ import {
     pointer,
 } from "d3";
 
-// import * as d3 from 'd3';
-
 import useResizeObserver from "../../Charts/StackedBarChart/useResizeObserver";
 
 import {
@@ -38,14 +36,16 @@ const StackedBarChartForAllDays = (props) => {
 
         const svg = select(svgRef.current);
         const yAxisSvg = select(yAxisRef.current);
+
+        const everything = svg.selectAll("*");
+        everything.remove();
+        // yAxisSvg.selectAll("*").remove();
         // const { width, height } =
         //     dimensions || wrapperRef.current.getBoundingClientRect();
 
         const { width, height } = wrapperRef.current.getBoundingClientRect();
 
-        // console.log(width, height);
-
-        // let width = 800, height = 400;
+        console.log(width, height);
 
         const stackGenerator = stack().keys(keys).order(stackOrderAscending);
         const layers = stackGenerator(data);
@@ -62,7 +62,7 @@ const StackedBarChartForAllDays = (props) => {
 
         const yScale = scaleLinear()
             .domain(extent)
-            .range([400, 0]);
+            .range([height - 70, 0]);
 
         svg
             .attr("width", data.length * 10)
@@ -97,7 +97,7 @@ const StackedBarChartForAllDays = (props) => {
 
         svg
             .select(".x-axis")
-            .attr("transform", `translate(0, ${height + 300})`)
+            .attr("transform", `translate(0, ${height})`)
             .call(xAxis)
             .selectAll("text")
             .attr("class", "stacekd-bar-chart-ticks");
@@ -144,7 +144,7 @@ const StackedBarChartForAllDays = (props) => {
 
         let x2 = scaleOrdinal()
             .domain(data.map(d => d.key))
-            .range([0, 1350]);
+            .range([0, width - 120]);
 
         const averageline = line()
             .x(function (d, i) {
@@ -158,66 +158,26 @@ const StackedBarChartForAllDays = (props) => {
             .attr("stroke-width", "1")
             .attr("d", averageline);
 
-        // var tooltip = select('.tooltip-area')
-        //     .style('opacity', 0);
-
-        // const mouseover = (event, d) => {
-        //     tooltip.style("opacity", 1);
-        //     console.log('mouseover');
-        // };
-
-        // const mouseleave = (event, d) => {
-        //     tooltip.style('opacity', 0);
-        //     console.log('mouseleave');
-        // }
-
-        // const mousemove = (event, d) => {
-
-        //     console.log("event", "d", event.target.__data__.data.matchOne, event.target.__data__.data.matchTwo);
-        //     const text = select('.tooltip-area__text');
-        //     text.text(`MatchOne: ${event.target.__data__.data.matchOne}, MatchTwo:${event.target.__data__.data.matchTwo}`);
-        //     const [x, y] = pointer(event);
-
-        //     tooltip
-        //         .attr('transform', `translate(${x}, ${y})`);
-
-        //     console.log('mousemove');
-        // };
-
         var Tooltip = select(wrapperRef.current)
             .append("div")
             .style("opacity", 0)
-            .attr("class", "tooltip")
-        // .style("background-color", "white")
-        // .style("border", "solid")
-        // .style("border-width", "2px")
-        // .style("border-radius", "5px")
-        // .style("padding", "5px");
+            .attr("class", "tooltip");
+
+        Tooltip.selectAll("*").remove();
 
         var mouseover = function (d) {
             Tooltip
                 .style("opacity", 1)
-            // d3.select(this)
-            // .style("stroke", "black")
-            // .style("opacity", 0.5)
         }
 
-        const tootTipHtml = `<div><p>Date: event.target.__data__.data.key</p><p>Date: {event.target.__data__.data.key}</p></div>`;
+        const tootTipHtml = (event) => `<div><p>Date: ${event.target.__data__.data.key}</p><p>Match 1: ${event.target.__data__.data.matchOne}</p><p>Match 2: ${event.target.__data__.data.matchTwo}</p></div>`;
 
         var mousemove = function (event, d) {
             Tooltip
                 // .text("Date: " + event.target.__data__.data.key + " " + "Match 1: " + event.target.__data__.data.matchOne + "\n" + "Match 2: " + event.target.__data__.data.matchTwo)
-                .html(tootTipHtml)
-                // .text("Anant")
-                // .style("left", (pointer(this)[0] + 70) + "px")
-                // .style("top", (pointer(this)[1]) + "px")
-                .style("top", event.pageY - 150 + "px")
+                .html(tootTipHtml(event))
+                .style("top", event.pageY - 180 + "px")
                 .style("left", event.pageX - 400 + "px")
-            console.log(event);
-            // const [x, y] = pointer(event);
-
-            // Tooltip
-            //     .attr('transform', `translate(${x}, ${y})`);
         }
         var mouseleave = function (d) {
             Tooltip
@@ -227,32 +187,17 @@ const StackedBarChartForAllDays = (props) => {
                 .style("opacity", 1)
         }
 
-        // var mouseenter = function (event, d) {
-        //     select(this).attr("opacity", 0.5);
-        // }
-
         svg
             .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)
             .on("mouseover", mouseover)
-        // .on("mouseenter", mouseenter);
-
-        // svg.append("text")
-        //     .attr("class", "x-label")
-        //     .attr("text-anchor", "end")
-        //     .attr("x", width)
-        //     .attr("y", -5)
-        //     .text("Max")
-        //     .on("click", () => {
-        //         console.log("max clicked");
-        //     })
 
     }, [dimensions, colors, data, keys]);
 
     return (
 
         <div className="stacked-bar-chart-cont">
-            <div ref={wrapperRef} className="svg-wrap">
+            <div ref={wrapperRef} className="svg-wrap-all-days-stacked-bar-chart">
                 <div>
                     <svg ref={yAxisRef} className="y-axis-svg" width="10">
                         <g className="y-axis" />
