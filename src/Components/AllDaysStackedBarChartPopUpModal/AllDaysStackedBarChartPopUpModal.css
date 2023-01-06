@@ -1,0 +1,109 @@
+.all-days-stkd-bar-chart-pop-up-mdl-cnt-vsbl {
+    position: absolute;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 98.92vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.15);
+    inset: 0px;
+    opacity: 1;
+    visibility: visible;
+    z-index: 105;
+    transition: all 0.2s ease-in-out 0s;
+    /* overflow: hidden; */
+}
+
+.all-days-stkd-bar-chart-pop-up-mdl-cnt-invsbl {
+    position: absolute;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.5);
+    inset: 0px;
+    visibility: hidden;
+    z-index: 105;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+.all-days-stkd-bar-chart-pop-up-mdl-vsbl {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 95vw;
+    height: 70vh;
+    max-height: 100vh;
+    max-width: 100vw;
+    margin: 16px;
+    position: relative;
+    border-radius: 4px;
+    transform: scale(1);
+    transition: all 0.5s ease-in-out 0s;
+}
+
+.all-days-stkd-bar-chart-pop-up-mdl-invsbl {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 600px;
+    height: 550px;
+    max-height: 100vh;
+    max-width: 100vw;
+    margin: 16px;
+    position: relative;
+    border-radius: 4px;
+    transform: scale(0);
+    transition: all 0.5s ease-in-out 0s;
+}
+
+.all-days-stkd-bar-chart-pop-up-mdl-vsbl-title {
+    display: flex;
+}
+
+.all-days-stkd-bar-chart-pop-up-mdl-vsbl-info-cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.all-days-stkd-bar-chart-pop-up-mdl-vsbl-title {
+    margin: 20px;
+    font-weight: 600;
+}
+
+.all-days-stkd-bar-chart-pop-up-mdl-legends {
+    justify-self: flex-end;
+    margin-right: 25px;
+}
+
+.viewership-performance-indicator {
+    padding-left: 20px;
+    list-style-type: none;
+    display: inline-block;
+    /* font-weight: 600; */
+}
+
+.viewership-performance-indicator-close {
+    padding-left: 20px;
+    list-style-type: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.close-icon {
+    vertical-align: middle;
+    display: flex;
+    color: #333333;
+    transition: all 0.1s ease-in-out 0s;
+    width: 16px;
+    height: 16px;
+    /* margin-top: 1px; */
+}

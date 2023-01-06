@@ -54,7 +54,7 @@
 .exact-summary-viz-number-value {
   font-family: GraphikMedium;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 26px;
   line-height: 24px;
   color: #333333;
 }
@@ -224,6 +224,12 @@
   position: relative;
   right: 37px;
 } */
+}
+@media only screen and (max-width: 1279px) and (min-width: 1024px){ 
+  .viewer-numbers {
+    display: flex;
+    justify-content: space-around!important;
+}
 }
 
 @media only screen and (max-width: 767px){

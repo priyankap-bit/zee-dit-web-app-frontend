@@ -29,7 +29,7 @@ const AreaChart = (props) => {
 
     // const LineData = useState([0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 0]);
 
-    const { LineData = [0, 111100, 150, 120200, 203700, 1000, 1500, 2000, 2045, 2500] } = props;
+    const { LineData = [0, 111100, 120200, 203700, 333345, 422500,550000, 670008, 750150] } = props;
 
     const svgRef = useRef();
 
@@ -68,6 +68,8 @@ const AreaChart = (props) => {
                 .attr('fill', 'rgb(148, 94, 210, 0.1)')
                 .attr('stroke', '#945ED2')
                 .attr('stroke-width', '1px')
+             
+              
             // .attr("d", d3.area().x(d => d).y0(yScale(0)).y1(d => d))
             // .attr('fill', 'rgb(148, 94, 210, 0.2)')
             // // .attr('opacity', '0.2')
