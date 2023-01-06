@@ -13,7 +13,7 @@
 }
 .viewer-numbers {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .digital-viewers-stackbarchart {
   /* border-right: 1px dashed #333333; */
