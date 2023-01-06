@@ -19,6 +19,8 @@
 }
 
 .Executive-Summary-tile {
+    text-decoration: none;
+    color: #212529;
     padding: 20px;
     display: flex;
     width: 20%;

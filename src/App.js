@@ -7,6 +7,7 @@ import ILTTdataTowers from './Pages/ILTTdataTowers/ILTTdataTowers';
 
 import ILTTloginPage from './Pages/ILTTloginPage/ILTTloginPage';
 import Product from './Pages/ProductPage/Product';
+import ExecutiveSummaryContent from './Components/ExecutiveSummary/ExecutiveSummaryContent/ExecutiveSummaryContent';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path='/login' element={<ILTTloginPage />} />
           <Route path='/ilt20-summary' element={<ILTTwentySummary />} />
           <Route path='/product' element={<Product />}/>
+          <Route path='/executive-summary' element={<ExecutiveSummary} />
+          <Route path='/executive-summary-content' element={<ExecutiveSummaryContent />}/>
         </Routes>
       </BrowserRouter>
     </div>
