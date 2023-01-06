@@ -14,7 +14,7 @@ import {
     pointer,
 } from "d3";
 
-import * as d3 from 'd3';
+// import * as d3 from 'd3';
 
 import useResizeObserver from "../../Charts/StackedBarChart/useResizeObserver";
 
@@ -158,68 +158,84 @@ const StackedBarChartForAllDays = (props) => {
             .attr("stroke-width", "1")
             .attr("d", averageline);
 
-        var tooltip = select('.tooltip-area')
-            .style('opacity', 0);
+        // var tooltip = select('.tooltip-area')
+        //     .style('opacity', 0);
 
-        const mouseover = (event, d) => {
-            tooltip.style("opacity", 1);
-            console.log('mouseover');
-        };
+        // const mouseover = (event, d) => {
+        //     tooltip.style("opacity", 1);
+        //     console.log('mouseover');
+        // };
 
-        const mouseleave = (event, d) => {
-            tooltip.style('opacity', 0);
-            console.log('mouseleave');
+        // const mouseleave = (event, d) => {
+        //     tooltip.style('opacity', 0);
+        //     console.log('mouseleave');
+        // }
+
+        // const mousemove = (event, d) => {
+
+        //     console.log("event", "d", event.target.__data__.data.matchOne, event.target.__data__.data.matchTwo);
+        //     const text = select('.tooltip-area__text');
+        //     text.text(`MatchOne: ${event.target.__data__.data.matchOne}, MatchTwo:${event.target.__data__.data.matchTwo}`);
+        //     const [x, y] = pointer(event);
+
+        //     tooltip
+        //         .attr('transform', `translate(${x}, ${y})`);
+
+        //     console.log('mousemove');
+        // };
+
+        var Tooltip = select(wrapperRef.current)
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip")
+        // .style("background-color", "white")
+        // .style("border", "solid")
+        // .style("border-width", "2px")
+        // .style("border-radius", "5px")
+        // .style("padding", "5px");
+
+        var mouseover = function (d) {
+            Tooltip
+                .style("opacity", 1)
+            // d3.select(this)
+            // .style("stroke", "black")
+            // .style("opacity", 0.5)
         }
 
-        const mousemove = (event, d) => {
+        const tootTipHtml = `<div><p>Date: event.target.__data__.data.key</p><p>Date: {event.target.__data__.data.key}</p></div>`;
 
-            console.log("event", "d", event.target.__data__.data.matchOne, event.target.__data__.data.matchTwo);
-            const text = select('.tooltip-area__text');
-            text.text(`MatchOne: ${event.target.__data__.data.matchOne}, MatchTwo:${event.target.__data__.data.matchTwo}`);
-            const [x, y] = pointer(event);
+        var mousemove = function (event, d) {
+            Tooltip
+                // .text("Date: " + event.target.__data__.data.key + " " + "Match 1: " + event.target.__data__.data.matchOne + "\n" + "Match 2: " + event.target.__data__.data.matchTwo)
+                .html(tootTipHtml)
+                // .text("Anant")
+                // .style("left", (pointer(this)[0] + 70) + "px")
+                // .style("top", (pointer(this)[1]) + "px")
+                .style("top", event.pageY - 150 + "px")
+                .style("left", event.pageX - 400 + "px")
+            console.log(event);
+            // const [x, y] = pointer(event);
 
-            tooltip
-                .attr('transform', `translate(${x}, ${y})`);
+            // Tooltip
+            //     .attr('transform', `translate(${x}, ${y})`);
+        }
+        var mouseleave = function (d) {
+            Tooltip
+                .style("opacity", 0)
+            select(this)
+                .style("stroke", "none")
+                .style("opacity", 1)
+        }
 
-            console.log('mousemove');
-        };
-
-        // var Tooltip = svg
-        //     .append("div")
-        //     .style("opacity", 0)
-        //     .attr("class", "tooltip")
-        //     .style("background-color", "white")
-        //     .style("border", "solid")
-        //     .style("border-width", "2px")
-        //     .style("border-radius", "5px")
-        //     .style("padding", "5px")
-
-        // // Three function that change the tooltip when user hover / move / leave a cell
-        // var mouseover = function (d) {
-        //     Tooltip
-        //         .style("opacity", 1)
-        //     select(this)
-        //         .style("stroke", "black")
-        //         .style("opacity", 1)
-        // }
-        // var mousemove = function (d) {
-        //     Tooltip
-        //         .html("The exact value of<br>this cell is: " + d.matchOne)
-        //         .style("left", (select(this)[0] + 70) + "px")
-        //         .style("top", (select(this)[1]) + "px")
-        // }
-        // var mouseleave = function (d) {
-        //     Tooltip
-        //         .style("opacity", 0)
-        //     select(this)
-        //         .style("stroke", "none")
-        //         .style("opacity", 0.8)
+        // var mouseenter = function (event, d) {
+        //     select(this).attr("opacity", 0.5);
         // }
 
         svg
             .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)
-            .on("mouseover", mouseover);
+            .on("mouseover", mouseover)
+        // .on("mouseenter", mouseenter);
 
         // svg.append("text")
         //     .attr("class", "x-label")
@@ -235,21 +251,23 @@ const StackedBarChartForAllDays = (props) => {
 
     return (
 
-        <div ref={wrapperRef} className="svg-wrap">
-            <div>
-                <svg ref={yAxisRef} className="y-axis-svg" width="10">
-                    <g className="y-axis" />
-                </svg>
-            </div>
-            <div className="x-axis-scroll">
+        <div className="stacked-bar-chart-cont">
+            <div ref={wrapperRef} className="svg-wrap">
+                <div>
+                    <svg ref={yAxisRef} className="y-axis-svg" width="10">
+                        <g className="y-axis" />
+                    </svg>
+                </div>
+                <div className="x-axis-scroll">
 
-                <svg className="energy-svg" ref={svgRef}>
-                    <g className="x-axis" />
-                    <g className="x-axis-top" />
-                    <g className="tooltip-area">
-                        <text className="tooltip-area__text">aas</text>
-                    </g>
-                </svg>
+                    <svg className="energy-svg" ref={svgRef}>
+                        <g className="x-axis" />
+                        <g className="x-axis-top" />
+                        <g className="tooltip-area">
+                            <text className="tooltip-area__text"></text>
+                        </g>
+                    </svg>
+                </div>
             </div>
         </div>
 

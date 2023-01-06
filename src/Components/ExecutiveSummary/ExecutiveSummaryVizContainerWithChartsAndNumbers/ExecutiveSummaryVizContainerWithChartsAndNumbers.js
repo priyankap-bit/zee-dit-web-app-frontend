@@ -111,7 +111,10 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
           </div>
           <div className="digital-watchtime-stackedchart">
             <div className="exact-summary-viz-container-right">
-              <StackedBarChart handleActiveClassName={handleActiveClassName} />
+              <StackedBarChart
+                handleActiveClassName={handleActiveClassName}
+                marginForRightChart={65}
+              />
             </div>
           </div>
         </div>
