@@ -105,10 +105,10 @@ const BubbleChart = () => {
             .attr("transform", d => `translate(${d.x},${d.y})`);
 
         leaf.append("circle")
-            .attr("stroke", stroke)
+            .attr("stroke", '#945ED2')
             .attr("stroke-width", strokeWidth)
             .attr("stroke-opacity", strokeOpacity)
-            .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
+            .attr("fill", 'rgb(148, 94, 210, 0.1)')
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r);
 
