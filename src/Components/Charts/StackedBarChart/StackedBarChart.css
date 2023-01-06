@@ -61,7 +61,7 @@
 }
 
 .line {
-    stroke: #333333;
+    stroke: rgb(148, 94, 210);
 }
 
 .x-label-max {
@@ -80,4 +80,9 @@
     line-height: 11px;
     font-family: GothamLight;
     cursor: pointer;
+}
+
+.barchart-title{
+    font-size: 10px;
+    font-family: 'Open Sans';
 }
