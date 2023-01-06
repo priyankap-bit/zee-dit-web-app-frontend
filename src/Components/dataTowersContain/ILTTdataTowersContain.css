@@ -1,31 +1,34 @@
-.button{
+.button {
     width: 20%;
     box-shadow: 0px 0px 13px 5px #0000001f;
     text-align: center;
     height: 60px;
-    margin:20px;
+    margin: 20px;
 }
 
-.button:hover{
+.button:hover {
     /* background-color: aquamarine; */
-    background-image: linear-gradient(to  bottom, rgb(139, 87, 223), rgb(74, 11, 176));
-    color:white;
+    background-image: linear-gradient(to bottom, rgb(139, 87, 223), rgb(74, 11, 176));
+    color: white;
 
 }
+
 .data-towers {
-  
+
     display: flex;
 }
-.Executive-Summary-tile{
+
+.Executive-Summary-tile {
     padding: 20px;
-    display: flex; 
+    display: flex;
     width: 20%;
     box-shadow: 0px 0px 13px 5px #0000001f;
     text-align: center;
     height: 60px;
-    margin:20px;
+    margin: 20px;
 }
-.tile-name{
+
+.tile-name {
     margin-top: 1.5px;
     padding-left: 10px;
     font-style: normal;
@@ -33,17 +36,24 @@
     font-size: 14px;
     line-height: 15px;
 }
+
 a.sports {
-        color: #212529;
-        text-decoration: none;
+    color: #212529;
+    text-decoration: none;
 }
 
-    .tile-name:hover {
-        color: #fff!important;
-    }
-    .Executive-Summary-tile:hover {
-        fill: #fff;
-        color: white;
-        border-radius: 2px;
-        background:linear-gradient(180deg, #7E5AA4 0%, #3E1F76 100%);
-    }
+a.product {
+    color: #212529;
+    text-decoration: none;
+}
+
+.tile-name:hover {
+    color: #fff !important;
+}
+
+.Executive-Summary-tile:hover {
+    fill: #fff;
+    color: white;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #7E5AA4 0%, #3E1F76 100%);
+}
