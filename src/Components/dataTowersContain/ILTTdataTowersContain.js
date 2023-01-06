@@ -29,10 +29,10 @@ const ILTTdataTowersContain = (props) => {
               <img src='/static/images/logos/Customer-icon.png' height={20} alt='Viewers Logo' className='icon' />
                <div className="tile-name">Customer</div>
            </div>
-           <div className='Executive-Summary-tile'>
+           <a href='/product' className='Executive-Summary-tile product'>
               <img src='/static/images/logos/Product-icon.png' height={20} alt='Viewers Logo' className='icon' />
                <div className="tile-name">Product</div>
-           </div>
+           </a>
            </div>
            <a href='/ilt20-summary' className='sports'>
            <div className='Executive-Summary-tile'>
