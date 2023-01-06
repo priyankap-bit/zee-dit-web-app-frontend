@@ -14,6 +14,8 @@ import {
     pointer,
 } from "d3";
 
+import * as d3 from 'd3';
+
 import useResizeObserver from "../../Charts/StackedBarChart/useResizeObserver";
 
 import {
@@ -181,6 +183,38 @@ const StackedBarChartForAllDays = (props) => {
 
             console.log('mousemove');
         };
+
+        // var Tooltip = svg
+        //     .append("div")
+        //     .style("opacity", 0)
+        //     .attr("class", "tooltip")
+        //     .style("background-color", "white")
+        //     .style("border", "solid")
+        //     .style("border-width", "2px")
+        //     .style("border-radius", "5px")
+        //     .style("padding", "5px")
+
+        // // Three function that change the tooltip when user hover / move / leave a cell
+        // var mouseover = function (d) {
+        //     Tooltip
+        //         .style("opacity", 1)
+        //     select(this)
+        //         .style("stroke", "black")
+        //         .style("opacity", 1)
+        // }
+        // var mousemove = function (d) {
+        //     Tooltip
+        //         .html("The exact value of<br>this cell is: " + d.matchOne)
+        //         .style("left", (select(this)[0] + 70) + "px")
+        //         .style("top", (select(this)[1]) + "px")
+        // }
+        // var mouseleave = function (d) {
+        //     Tooltip
+        //         .style("opacity", 0)
+        //     select(this)
+        //         .style("stroke", "none")
+        //         .style("opacity", 0.8)
+        // }
 
         svg
             .on("mousemove", mousemove)
