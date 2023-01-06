@@ -1,3 +1,8 @@
+.stacked-bar-chart-cont {
+    width: 100%;
+    height: 100%;
+}
+
 .tooltip-area {
     z-index: 100;
     background-color: black;
@@ -13,6 +18,13 @@
     border: 1px solid #D8E3FF;
     border-radius: 5px;
     position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center
 
     /* position: relative;
     display: inline-block;
@@ -29,10 +41,24 @@
     z-index: 100; */
 }
 
-.tooltip{
-    color: aqua;
+.svg-wrap-all-days-stacked-bar-chart {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+    left: 40px;
+}
+
+.tooltip p {
+    color: #333333;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .tooltip-matchOne {
     color: black;
+}
+
+.tooltip-title {
+    color: red;
 }
