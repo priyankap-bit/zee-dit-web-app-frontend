@@ -8,7 +8,8 @@
   width: 100%;
 }
 .exact-summary-viz-average {
-  margin-left: -24px!important;
+  /* margin-left: -10px!important; */
+  margin-left: 40px;
 }
 .viewer-numbers {
   display: flex;
@@ -55,6 +56,7 @@
   font-size: 12px;
   line-height: 13px;
   color: #333333;
+  width: 150%;
 }
 
 .exact-summary-viz-number-value {
@@ -81,7 +83,8 @@
   display: flex;
   align-items: center;
   color: #00c48c;
-  letter-spacing: 0.5px;
+  width: 150%;
+  /* letter-spacing: 0.5px; */
 }
 
 .exact-summary-viz-number-info svg {
