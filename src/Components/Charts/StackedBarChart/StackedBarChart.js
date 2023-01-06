@@ -33,9 +33,9 @@ const StackedBarChart = (props) => {
         // const { width, height } =
         //     dimensions || wrapperRef.current.getBoundingClientRect();
         var range = 300;
-        if(isMobile){
-            range = 270;
-        } 
+        // if(isMobile){
+        //     range = 270;
+        // } 
         const { width, height } = wrapperRef.current.getBoundingClientRect();
 
         const maxBarWidth = 35;

@@ -7,7 +7,13 @@
   height: 140px;
   width: 100%;
 }
-
+.exact-summary-viz-average {
+  margin-left: -24px!important;
+}
+.viewer-numbers {
+  display: flex;
+  justify-content: space-between;
+}
 .digital-viewers-stackbarchart {
   /* border-right: 1px dashed #333333; */
   /* margin-right: 5px; */
