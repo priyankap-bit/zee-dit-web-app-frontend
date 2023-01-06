@@ -24,7 +24,7 @@ const StackedBarChart = (props) => {
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
 
-    const { handleActiveClassName } = props;
+    const { handleActiveClassName, marginForRightChart = 0 } = props;
 
     useEffect(() => {
 
@@ -162,21 +162,21 @@ const StackedBarChart = (props) => {
         svg.append("text")
             .attr("class", "x-label-7days")
             .attr("text-anchor", "end")
-            .attr("x", width - 35)
+            .attr("x", width - 35 + marginForRightChart)
             .attr("y", -5)
             .text("Last 7 Days");
 
         svg.append("text")
             .attr("class", "x-label-7days")
             .attr("text-anchor", "end")
-            .attr("x", width - 27)
+            .attr("x", width - 27 + marginForRightChart)
             .attr("y", -5)
             .text("|");
 
         svg.append("text")
             .attr("class", "x-label-max")
             .attr("text-anchor", "end")
-            .attr("x", width)
+            .attr("x", width + marginForRightChart)
             .attr("y", -5)
             .text("Max")
             .on("click", () => {

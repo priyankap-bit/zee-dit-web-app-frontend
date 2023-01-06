@@ -1,9 +1,38 @@
-.tooltip-area{
+.tooltip-area {
     z-index: 100;
     background-color: black;
 }
 
-.tooltip-area__text{
+.tooltip-area__text {
     z-index: 100;
     background-color: black;
+}
+
+.tooltip {
+    background: #FFFFFF;
+    border: 1px solid #D8E3FF;
+    border-radius: 5px;
+    position: relative;
+
+    /* position: relative;
+    display: inline-block;
+    background-color: black;
+    padding: 10px;
+    border-width: 2px;
+    border-color: white;
+    border-radius: 5px;
+    fill-opacity: 100;
+    font-family: "Robot Mono", sans-serif;
+    color: whitesmoke;
+    padding: 1rem;
+    font-size: 15px;
+    z-index: 100; */
+}
+
+.tooltip{
+    color: aqua;
+}
+
+.tooltip-matchOne {
+    color: black;
 }
