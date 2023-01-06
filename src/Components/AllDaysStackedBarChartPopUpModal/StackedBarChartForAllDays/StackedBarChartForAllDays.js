@@ -187,37 +187,31 @@ const StackedBarChartForAllDays = (props) => {
             .on("mouseleave", mouseleave)
             .on("mouseover", mouseover);
 
-        // svg.append("text")
-        //     .attr("class", "x-label")
-        //     .attr("text-anchor", "end")
-        //     .attr("x", width)
-        //     .attr("y", -5)
-        //     .text("Max")
-        //     .on("click", () => {
-        //         console.log("max clicked");
-        //     })
-
     }, [dimensions, colors, data, keys]);
 
     return (
 
-        <div ref={wrapperRef} className="svg-wrap">
-            <div>
-                <svg ref={yAxisRef} className="y-axis-svg" width="10">
-                    <g className="y-axis" />
-                </svg>
-            </div>
-            <div className="x-axis-scroll">
+        <div className="stacked-bar-chart-cont">
+            <div ref={wrapperRef} className="svg-wrap">
+                <div>
+                    <svg ref={yAxisRef} className="y-axis-svg" width="10">
+                        <g className="y-axis" />
+                    </svg>
+                </div>
+                <div className="x-axis-scroll">
 
-                <svg className="energy-svg" ref={svgRef}>
-                    <g className="x-axis" />
-                    <g className="x-axis-top" />
-                    <g className="tooltip-area">
-                        <text className="tooltip-area__text">aas</text>
-                    </g>
-                </svg>
+                    <svg className="energy-svg" ref={svgRef}>
+                        <g className="x-axis" />
+                        <g className="x-axis-top" />
+                        <g className="tooltip-area">
+                            <text className="tooltip-area__text">aas</text>
+                        </g>
+                    </svg>
+                </div>
             </div>
         </div>
+
+
 
     )
 
