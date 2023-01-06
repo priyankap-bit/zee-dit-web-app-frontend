@@ -13,7 +13,7 @@ const AllDaysStackedBarChartPopUpModal = (props) => {
         height: null,
     });
 
-    const { className = "all-days-stkd-bar-chart-pop-up-mdl-cnt-invsbl" } = props;
+    const { handleActiveClassName, className = "all-days-stkd-bar-chart-pop-up-mdl-cnt-invsbl" } = props;
 
     useEffect(() => {
         let elem = document.getElementById('all-days-stkd-bar-chart-pop-up-mdl');
@@ -53,6 +53,8 @@ const AllDaysStackedBarChartPopUpModal = (props) => {
                                     let div = document.getElementById('all-days-stkd-bar-chart-pop-up-mdl-cnt');
                                     div.classList.remove('all-days-stkd-bar-chart-pop-up-mdl-cnt-vsbl');
                                     div.classList.add('all-days-stkd-bar-chart-pop-up-mdl-cnt-invsbl');
+                                    handleActiveClassName(false);
+                                    // div.classList.
                                 }}
 
                             >
