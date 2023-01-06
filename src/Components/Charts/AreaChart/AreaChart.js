@@ -29,7 +29,7 @@ const AreaChart = (props) => {
 
     // const LineData = useState([0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 0]);
 
-    const { LineData = [0, 111100, 1500000, 12020000, 203700, 1000000, 1500, 20000, 20405, 2500] } = props;
+    const { LineData = [0, 111100, 120200, 203700, 333345, 422500,550000, 670008, 750150] } = props;
 
     const svgRef = useRef();
 
