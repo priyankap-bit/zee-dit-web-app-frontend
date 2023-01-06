@@ -16,6 +16,7 @@ import useResizeObserver from "./useResizeObserver";
 
 import { data, keys, colors } from "./data";
 import "./StackedBarChart.css";
+import { useMediaQuery } from "@material-ui/core";
 
 const StackedBarChart = (props) => {
     const svgRef = useRef();
@@ -23,13 +24,19 @@ const StackedBarChart = (props) => {
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
 
+    const isMobile = useMediaQuery('(max-width: 768px)')
+    
+
     useEffect(() => {
 
         const svg = select(svgRef.current);
         const yAxisSvg = select(yAxisRef.current);
         // const { width, height } =
         //     dimensions || wrapperRef.current.getBoundingClientRect();
-
+        var range = 300;
+        if(isMobile){
+            range = 270;
+        } 
         const { width, height } = wrapperRef.current.getBoundingClientRect();
 
         const maxBarWidth = 35;
@@ -54,7 +61,7 @@ const StackedBarChart = (props) => {
 
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
-            .range([0, 300])
+            .range([0, range])
             .padding(0.27);
         // const xScale = scaleBand()
         //     .domain(data.map(d => d.key))
