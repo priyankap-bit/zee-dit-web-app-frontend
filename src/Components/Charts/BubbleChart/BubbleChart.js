@@ -2,6 +2,7 @@ import React from "react";
 import * as d3 from 'd3';
 import './BubbleChart.css'
 import { useEffect } from "react";
+import { drag, dragDisable, dragEnable } from "d3";
 const BubbleChart = (props) => {
     const { files } = props
 
@@ -65,15 +66,15 @@ const BubbleChart = (props) => {
             .padding(padding)
             (d3.hierarchy({ children: I })
                 .sum(i => V[i]));
-
+        console.log(root);
         const svg = d3.select("#bubbleChart")
             .attr("width", width)
             .attr("height", height)
             .attr("viewBox", [-marginLeft, -marginTop, width, height])
             .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
             .attr("fill", "currentColor")
-            .attr("font-size", 15)
-            .attr("font-family", "sans-serif")
+            .attr("font-size", 12)
+            .attr("font-family", "GothamLight")
             .attr("text-anchor", "middle");
 
         const leaf = svg.selectAll("a")
@@ -81,7 +82,10 @@ const BubbleChart = (props) => {
             .join("a")
             .attr("xlink:href", link == null ? null : (d, i) => link(D[d.data], i, data))
             .attr("target", link == null ? null : linkTarget)
-            .attr("transform", d => `translate(${d.x},${d.y})`);
+            // .transition()
+            // .duration(2000)
+            .attr("transform", d => `translate(${d.x},${d.y})`)
+
 
         leaf.append("circle")
             .attr("stroke", '#945ED2')
@@ -95,7 +99,7 @@ const BubbleChart = (props) => {
             .attr("class", "tooltip-title")
             .text(d => T[d.data])
             .style("stroke", "none")
-            .attr('font-size', '20px')
+            .attr('font-size', '10px')
 
         if (L) {
             // A unique identifier for clip paths (to avoid conflicts).
