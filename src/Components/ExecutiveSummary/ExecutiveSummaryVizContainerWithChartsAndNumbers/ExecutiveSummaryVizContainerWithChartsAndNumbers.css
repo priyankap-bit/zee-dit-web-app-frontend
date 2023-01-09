@@ -13,7 +13,7 @@
 }
 .viewer-numbers {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .digital-viewers-stackbarchart {
   /* border-right: 1px dashed #333333; */
@@ -131,6 +131,7 @@
   float: left;
 }
 
+
 .bdr {
   height: 156px;
   border-left: 2px dashed #dcdcdc;
@@ -190,7 +191,7 @@
     align-self: flex-start;
   }
 
-  .exact-summary-viz-areachart-container{
+  .exact-summary-viz-areachart-container {
     width: 50%;
     align-self: flex-end;
   }

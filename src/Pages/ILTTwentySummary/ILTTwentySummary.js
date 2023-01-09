@@ -33,7 +33,7 @@ const ILTTwentySummary = (props) => {
 
     return (
         <div className='ilt20-summary-container'>
-            <ILTTwentrySummaryHeader />
+            <ILTTwentrySummaryHeader header= "International League T20"/>
             {/* <ILTTwentyFilterBar
                 handleFilterValueChange={handleFilterValueChange}
             /> */}

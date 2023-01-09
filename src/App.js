@@ -4,9 +4,10 @@ import './App.css';
 import StackedBarChart from './Components/Charts/StackedBarChart/StackedBarChart';
 import ILTTwentySummary from './Pages/ILTTwentySummary/ILTTwentySummary';
 import ILTTdataTowers from './Pages/ILTTdataTowers/ILTTdataTowers';
-
 import ILTTloginPage from './Pages/ILTTloginPage/ILTTloginPage';
 import Product from './Pages/ProductPage/Product';
+import ExecutiveSummaryContent from './Components/ExecutiveSummaryTab/ExecutiveSummaryContent/ExecutiveSummaryContent';
+import ExecutiveSummaryTab from './Components/ExecutiveSummaryTab/ExecutiveSummaryTab';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path='/login' element={<ILTTloginPage />} />
           <Route path='/ilt20-summary' element={<ILTTwentySummary />} />
           <Route path='/product' element={<Product />}/>
+          <Route path='/executive-summary' element={<ExecutiveSummaryTab />} />
+          <Route path='/executive-summary-content' element={<ExecutiveSummaryContent />}/>
         </Routes>
       </BrowserRouter>
     </div>

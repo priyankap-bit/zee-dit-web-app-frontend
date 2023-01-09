@@ -1,7 +1,7 @@
 import './ILTTwentrySummaryHeader.css';
 
 const ILTTwentrySummaryHeader = (props) => {
-
+    const {header} = props
     return (
         <div className='ilt20-header-container-1'>
             {/* <div className='ilt20-header-container-1 row align-items-center'> */}
@@ -30,7 +30,7 @@ const ILTTwentrySummaryHeader = (props) => {
                     {/* <div className='ilt20-header-div-middle col'> */}
                     {/* ilt20-header-div-middle */}
                     <div className='ilt20-header-ilt20-text-3'>
-                        <h1>International League T20</h1>
+                        <h1>{header}</h1>
                     </div>
                 </div>
 

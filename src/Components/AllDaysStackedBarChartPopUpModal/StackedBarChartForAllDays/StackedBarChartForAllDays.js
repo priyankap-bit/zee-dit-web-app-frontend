@@ -36,14 +36,16 @@ const StackedBarChartForAllDays = (props) => {
 
         const svg = select(svgRef.current);
         const yAxisSvg = select(yAxisRef.current);
+
+        const everything = svg.selectAll("*");
+        everything.remove();
+        // yAxisSvg.selectAll("*").remove();
         // const { width, height } =
         //     dimensions || wrapperRef.current.getBoundingClientRect();
 
         const { width, height } = wrapperRef.current.getBoundingClientRect();
 
-        // console.log(width, height);
-
-        // let width = 800, height = 400;
+        console.log(width, height);
 
         const stackGenerator = stack().keys(keys).order(stackOrderAscending);
         const layers = stackGenerator(data);
@@ -60,7 +62,7 @@ const StackedBarChartForAllDays = (props) => {
 
         const yScale = scaleLinear()
             .domain(extent)
-            .range([400, 0]);
+            .range([height - 70, 0]);
 
         svg
             .attr("width", data.length * 10)
@@ -95,7 +97,7 @@ const StackedBarChartForAllDays = (props) => {
 
         svg
             .select(".x-axis")
-            .attr("transform", `translate(0, ${height + 300})`)
+            .attr("transform", `translate(0, ${height})`)
             .call(xAxis)
             .selectAll("text")
             .attr("class", "stacekd-bar-chart-ticks");
@@ -142,7 +144,7 @@ const StackedBarChartForAllDays = (props) => {
 
         let x2 = scaleOrdinal()
             .domain(data.map(d => d.key))
-            .range([0, 1350]);
+            .range([0, width - 120]);
 
         const averageline = line()
             .x(function (d, i) {
@@ -156,43 +158,46 @@ const StackedBarChartForAllDays = (props) => {
             .attr("stroke-width", "1")
             .attr("d", averageline);
 
-        var tooltip = select('.tooltip-area')
-            .style('opacity', 0);
+        var Tooltip = select(wrapperRef.current)
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip");
 
-        const mouseover = (event, d) => {
-            tooltip.style("opacity", 1);
-            console.log('mouseover');
-        };
+        Tooltip.selectAll("*").remove();
 
-        const mouseleave = (event, d) => {
-            tooltip.style('opacity', 0);
-            console.log('mouseleave');
+        var mouseover = function (d) {
+            Tooltip
+                .style("opacity", 1)
         }
 
-        const mousemove = (event, d) => {
+        const tootTipHtml = (event) => `<div><p>Date: ${event.target.__data__.data.key}</p><p>Match 1: ${event.target.__data__.data.matchOne}</p><p>Match 2: ${event.target.__data__.data.matchTwo}</p></div>`;
 
-            console.log("event", "d", event.target.__data__.data.matchOne, event.target.__data__.data.matchTwo);
-            const text = select('.tooltip-area__text');
-            text.text(`MatchOne: ${event.target.__data__.data.matchOne}, MatchTwo:${event.target.__data__.data.matchTwo}`);
-            const [x, y] = pointer(event);
-
-            tooltip
-                .attr('transform', `translate(${x}, ${y})`);
-
-            console.log('mousemove');
-        };
+        var mousemove = function (event, d) {
+            Tooltip
+                // .text("Date: " + event.target.__data__.data.key + " " + "Match 1: " + event.target.__data__.data.matchOne + "\n" + "Match 2: " + event.target.__data__.data.matchTwo)
+                .html(tootTipHtml(event))
+                .style("top", event.pageY - 180 + "px")
+                .style("left", event.pageX - 400 + "px")
+        }
+        var mouseleave = function (d) {
+            Tooltip
+                .style("opacity", 0)
+            select(this)
+                .style("stroke", "none")
+                .style("opacity", 1)
+        }
 
         svg
             .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)
-            .on("mouseover", mouseover);
+            .on("mouseover", mouseover)
 
     }, [dimensions, colors, data, keys]);
 
     return (
 
         <div className="stacked-bar-chart-cont">
-            <div ref={wrapperRef} className="svg-wrap">
+            <div ref={wrapperRef} className="svg-wrap-all-days-stacked-bar-chart">
                 <div>
                     <svg ref={yAxisRef} className="y-axis-svg" width="10">
                         <g className="y-axis" />
@@ -204,7 +209,7 @@ const StackedBarChartForAllDays = (props) => {
                         <g className="x-axis" />
                         <g className="x-axis-top" />
                         <g className="tooltip-area">
-                            <text className="tooltip-area__text">aas</text>
+                            <text className="tooltip-area__text"></text>
                         </g>
                     </svg>
                 </div>

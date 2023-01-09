@@ -10,7 +10,7 @@
     width: 100%;
     display: flex;
     position: relative;
-    left: 50px;
+    left: 40px;
 }
 
 .y-axis-svg {
@@ -55,13 +55,8 @@
     color: #808080;
 }
 
-.svg-wrap {
-    position: relative;
-    left: 40px;
-}
-
 .line {
-    stroke: #333333;
+    stroke:rgb(148, 94, 210);
 }
 
 .x-label-max {
@@ -80,4 +75,43 @@
     line-height: 11px;
     font-family: GothamLight;
     cursor: pointer;
+}
+
+.tooltip-stacked-bar-chart {
+    background: #FFFFFF;
+    border: 1px solid #D8E3FF;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    padding: 0 10px;
+    /* margin: ; */
+}
+
+.tooltip-stacked-bar-chart p {
+    font-weight: 400;
+    color: #333333;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.tooltip-area-stcked-barchart {
+    z-index: 100;
+    background-color: black;
+}
+
+.tooltip-area__text-stcked-barchart {
+    z-index: 100;
+    background-color: black;
+}
+
+.line {
+    background: red;
+    color: red;
 }
