@@ -53,7 +53,7 @@ const BubbleChart = (props) => {
         groups = G && new d3.InternSet(groups);
 
         // Construct scales.
-        const color = G && d3.scaleOrdinal(groups, colors);
+        // const color = G && d3.scaleOrdinal(groups, colors);
 
         // Compute labels and titles.
         const L = label == null ? null : d3.map(data, label);
@@ -117,7 +117,7 @@ const BubbleChart = (props) => {
                 .text(d => d);
         }
 
-        return Object.assign(svg.node(), { scales: { color } });
+        // return Object.assign(svg.node(), { scales: { color } });
     }
 
     return (
