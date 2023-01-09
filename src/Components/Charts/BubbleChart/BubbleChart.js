@@ -6,7 +6,7 @@ import { drag, dragDisable, dragEnable, scaleLinear, ticks } from "d3";
 const BubbleChart = (props) => {
     const { files } = props
     const width = window.innerWidth;
-    
+
 
     useEffect(() => {
         const chart = BubbleChart(files, {
@@ -78,7 +78,7 @@ const BubbleChart = (props) => {
             .attr("font-size", 10)
             .attr("font-family", "GothamLight")
             .attr("text-anchor", "middle")
-            
+
         const leaf = svg.selectAll("a")
             .data(root.leaves())
             .join("a")
@@ -86,9 +86,9 @@ const BubbleChart = (props) => {
             .attr("target", link == null ? null : linkTarget)
 
 
-        leaf.transition().duration(1500).attr("transform", d => `translate(${d.x},${d.y})`).ease(d3.easeBounce)
+        leaf.transition().duration(3500).attr("transform", d => `translate(${d.x},${d.y})`).ease(d3.easeBounce)
 
-        leaf.append("circle")
+        const circle = leaf.append("circle")
             .attr("stroke", '#945ED2')
             .attr("stroke-width", strokeWidth)
             .attr("stroke-opacity", strokeOpacity)
@@ -120,7 +120,7 @@ const BubbleChart = (props) => {
                 .attr("y", (d, i, D) => `${i - D.length / 2 + 0.85}em`)
                 .attr("fill-opacity", (d, i, D) => i === D.length - 1 ? 0.7 : null)
                 .text(d => d);
-            
+
         }
 
         // return Object.assign(svg.node(), { scales: { color } });
