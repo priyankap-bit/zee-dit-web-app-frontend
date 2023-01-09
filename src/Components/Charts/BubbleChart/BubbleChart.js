@@ -2,28 +2,8 @@ import React from "react";
 import * as d3 from 'd3';
 import './BubbleChart.css'
 import { useEffect } from "react";
-const BubbleChart = () => {
-    const files = [
-        // {id: "flare", value: 10},
-        // {id: "flare.analytics", value: 15},
-        // {id: "flare.analytics.cluster", value: 10},
-        { id: "Mithai", value: 427.3 },
-        { id: "Tere Bina Jiya Jaye Na", value: 400.65 },
-        { id: "Bhagya Lakshmi", value: 491.58 },
-        { id: "Kum Kum Bhagya", value: 437.68 },
-        { id: "Kundli Bhagya", value: 589.70 },
-        { id: "meet", value: 439.94 },
-        { id: "LinkDistance", value: 391 },
-        { id: "MaxFlowMinCut", value: 391 },
-        { id: "ShortestPaths", value: 437 },
-        { id: " SpanningTree", value: 1000 },
-        // {id: "flare.analytics.optimization", value: null},
-        // {id: "flare.analytics.optimization.AspectRatioBanker", value: 7074},
-        // {id: "flare.animate", value: null},
-        // {id: "flare.animate.Easing", value: 17010},
-        // {id: "flare.animate.FunctionSequence", value: 5842},
-        // {id: "flare.animate.interpolate", value: null},
-    ]
+const BubbleChart = (props) => {
+    const {files} = props
 
     useEffect(() => {
         const chart = BubbleChart(files, {

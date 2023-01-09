@@ -3,34 +3,23 @@
     color: #212529;
     background: #E9EFFF;
     border-radius: 4px;
-    text-align: center;
-    width: 282px;
+    width: 24%;
     height: 30px;
-    display: grid;
-    /* justify-items: center; */
-    align-items: center;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 15px;
-}
-
-.executive-summary-tab:hover {
-    background: linear-gradient(180deg, #7E5AA4 0%, #3E1F76 100%);
-    border-radius: 4px;
-    color: #FFFFFF;
+    cursor: pointer;
 }
 
 .executive-summary-active-tab{
     background: linear-gradient(180deg, #7E5AA4 0%, #3E1F76 100%);
     border-radius: 4px;
     color: #FFFFFF;
-    width: 282px;
+    width: 24%;
     height: 30px;
     border: none;
+    cursor: pointer;
 }
 
-.executive-summary-tab-div {
-    
-}
