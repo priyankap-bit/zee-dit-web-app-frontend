@@ -2,28 +2,11 @@ import React from "react";
 import * as d3 from 'd3';
 import './BubbleChart.css'
 import { useEffect } from "react";
-const BubbleChart = () => {
-    const files = [
-        // {id: "flare", value: 10},
-        // {id: "flare.analytics", value: 15},
-        // {id: "flare.analytics.cluster", value: 10},
-        { id: "Mithai", value: 427.3 },
-        { id: "Tere Bina Jiya Jaye Na", value: 400.65 },
-        { id: "Bhagya Lakshmi", value: 491.58 },
-        { id: "Kum Kum Bhagya", value: 437.68 },
-        { id: "Kundli Bhagya", value: 589.70 },
-        { id: "meet", value: 439.94 },
-        { id: "LinkDistance", value: 391 },
-        { id: "MaxFlowMinCut", value: 391 },
-        { id: "ShortestPaths", value: 437 },
-        { id: " SpanningTree", value: 1000 },
-        // {id: "flare.analytics.optimization", value: null},
-        // {id: "flare.analytics.optimization.AspectRatioBanker", value: 7074},
-        // {id: "flare.animate", value: null},
-        // {id: "flare.animate.Easing", value: 17010},
-        // {id: "flare.animate.FunctionSequence", value: 5842},
-        // {id: "flare.animate.interpolate", value: null},
-    ]
+import { drag, dragDisable, dragEnable, scaleLinear, ticks } from "d3";
+const BubbleChart = (props) => {
+    const { files } = props
+    const width = window.innerWidth;
+    
 
     useEffect(() => {
         const chart = BubbleChart(files, {
@@ -31,11 +14,10 @@ const BubbleChart = () => {
             value: d => d.value,
             group: d => d.id.split(".")[1],
             title: d => `${d.id}\n${d.value}`,
+            width: width
             // link: d => `https://github.com/prefuse/Flare/blob/master/flare/src/${d.id.replace(/\./g, "/")}.as`,
         })
     }, [files])
-
-
 
     // Copyright 2021 Observable, Inc.
     // Released under the ISC license.
@@ -48,8 +30,8 @@ const BubbleChart = () => {
         title, // given d in data, returns text to show on hover
         link, // given a node d, its link (if any)
         linkTarget = "_blank", // the target attribute for links, if any
-        width = 650, // outer width, in pixels
-        height = 600, // outer height, in pixels
+        width = width, // outer width, in pixels
+        height = 500, // outer height, in pixels
         padding = 3, // padding between circles
         margin = 1, // default margins
         marginTop = margin, // top margin, in pixels
@@ -69,13 +51,12 @@ const BubbleChart = () => {
         const V = d3.map(data, value);
         const G = group == null ? null : d3.map(data, group);
         const I = d3.range(V.length).filter(i => V[i] > 0);
-
         // Unique the groups.
         if (G && groups === undefined) groups = I.map(i => G[i]);
         groups = G && new d3.InternSet(groups);
 
         // Construct scales.
-        const color = G && d3.scaleOrdinal(groups, colors);
+        // const color = G && d3.scaleOrdinal(groups, colors);
 
         // Compute labels and titles.
         const L = label == null ? null : d3.map(data, label);
@@ -84,7 +65,7 @@ const BubbleChart = () => {
         // Compute layout: create a 1-deep hierarchy, and pack it.
         const root = d3.pack()
             .size([width - marginLeft - marginRight, height - marginTop - marginBottom])
-            .padding(padding)
+            .padding(padding + 5)
             (d3.hierarchy({ children: I })
                 .sum(i => V[i]));
 
@@ -94,16 +75,18 @@ const BubbleChart = () => {
             .attr("viewBox", [-marginLeft, -marginTop, width, height])
             .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
             .attr("fill", "currentColor")
-            .attr("font-size", 15)
-            .attr("font-family", "sans-serif")
-            .attr("text-anchor", "middle");
-
+            .attr("font-size", 10)
+            .attr("font-family", "GothamLight")
+            .attr("text-anchor", "middle")
+            
         const leaf = svg.selectAll("a")
             .data(root.leaves())
             .join("a")
             .attr("xlink:href", link == null ? null : (d, i) => link(D[d.data], i, data))
             .attr("target", link == null ? null : linkTarget)
-            .attr("transform", d => `translate(${d.x},${d.y})`);
+
+
+        leaf.transition().duration(1500).attr("transform", d => `translate(${d.x},${d.y})`).ease(d3.easeBounce)
 
         leaf.append("circle")
             .attr("stroke", '#945ED2')
@@ -117,7 +100,7 @@ const BubbleChart = () => {
             .attr("class", "tooltip-title")
             .text(d => T[d.data])
             .style("stroke", "none")
-            .attr('font-size', '20px')
+            .attr('font-size', '10px')
 
         if (L) {
             // A unique identifier for clip paths (to avoid conflicts).
@@ -137,13 +120,14 @@ const BubbleChart = () => {
                 .attr("y", (d, i, D) => `${i - D.length / 2 + 0.85}em`)
                 .attr("fill-opacity", (d, i, D) => i === D.length - 1 ? 0.7 : null)
                 .text(d => d);
+            
         }
 
-        return Object.assign(svg.node(), { scales: { color } });
+        // return Object.assign(svg.node(), { scales: { color } });
     }
 
     return (
-        <div>
+        <div className="bubble-chart-div">
             <svg id='bubbleChart'></svg>
         </div>
     )

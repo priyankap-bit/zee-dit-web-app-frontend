@@ -45,7 +45,7 @@ const ViewershipPerformanceTab = (props) => {
             </li>
           </ul>
           <ul className="indicators">
-            <li className="viewership-performance-indicator">--- Avg.</li>
+            <li className="viewership-performance-indicator">Avg.</li>
             <li
               className={
                 activeTab === "executivesummary"

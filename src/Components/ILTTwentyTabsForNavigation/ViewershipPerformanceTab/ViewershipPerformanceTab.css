@@ -132,3 +132,14 @@ ul.viewership-navigationtab-ul {
   text-align: end;
 }
 }
+
+li.viewership-performance-indicator:before {
+  content: " ";
+  display: block;
+  height: 2px;
+  width: 19px;
+  position: absolute;
+  top: 38%;
+  left: 0;
+  background: #945ED2;
+}
