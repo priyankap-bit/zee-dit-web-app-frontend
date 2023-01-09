@@ -30,18 +30,17 @@ const AreaChart = (props) => {
         // setting up svg
 
         if (LineData.length > 0) {
-            console.log(LineData);
+            // console.log(LineData);
             LineData.push(0);
             const w = 330;
             const h = 60;
             const svg = d3.select(svgRef.current)
                 .attr('width', w)
-                .attr('height', h)
-            // .style('background', 'white')
-            // .style('border-radius', '9px')
-            // .style('margin-top', '50')
-            // .style('box-shadow', '0px 0px 14px -2px #cfd5ff');
-            //setting scaling
+                .attr('height', h);
+
+            const everything = svg.selectAll("*");
+            everything.remove();
+
             const xScale = d3.scaleLinear()
                 .domain([0, LineData.length - 1])
                 .range([0, w]);
@@ -52,6 +51,7 @@ const AreaChart = (props) => {
                 .x((d, i) => xScale(i))
                 .y(yScale)
                 .curve(d3.curveCardinal);
+
             //setting axes
             //setting up data for svg 
             svg.selectAll('.line')
@@ -61,16 +61,10 @@ const AreaChart = (props) => {
                 .attr('fill', 'rgb(148, 94, 210, 0.1)')
                 .attr('stroke', '#945ED2')
                 .attr('stroke-width', '1px')
-            // .attr("d", d3.area().x(d => d).y0(yScale(0)).y1(d => d))
-            // .attr('fill', 'rgb(148, 94, 210, 0.2)')
-            // // .attr('opacity', '0.2')
-            // .attr('stroke', '#945ED2')
-            // // .attr('opacity', '1')
-            // .attr('stroke-width', '2px');
 
             var Tooltip =
-                // svg
-                d3.select(wrapperRef.current)
+                svg
+                    // d3.select(wrapperRef.current)
                     .append("div")
                     .style("opacity", 0)
                     .attr("class", "tooltip-area-chart");
@@ -109,12 +103,11 @@ const AreaChart = (props) => {
 
     return (
         <div className='areachart-container' ref={wrapperRef.current}>
-            <div>
-                <svg ref={svgRef}></svg>
+            <svg ref={svgRef}>
                 <g className="tooltip-area-area-chart">
                     <text className="tooltip-area__text-area-chart"></text>
                 </g>
-            </div>
+            </svg>
         </div>
     )
     // window.addEventListener('resize', LineData);
