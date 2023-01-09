@@ -11,6 +11,7 @@ import {
     line,
     scaleOrdinal,
     axisTop,
+    pointer,
 } from "d3";
 
 import useResizeObserver from "./useResizeObserver";
@@ -26,28 +27,60 @@ const StackedBarChart = (props) => {
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
 
-    const { handleActiveClassName, xAxisToolTipDifference, yAxisToolTipDifference = 170, marginForRightChart = 0 } = props;
+    const {
+        handleActiveClassName,
+        // xAxisToolTipDifference,
+        // yAxisToolTipDifference = 170,
+        marginForRightChart = 0
+    } = props;
 
     useEffect(() => {
 
         const svg = select(svgRef.current);
-        const yAxisSvg = select(yAxisRef.current);
-        // const { width, height } =
-        //     dimensions || wrapperRef.current.getBoundingClientRect();
 
         const { width, height } = wrapperRef.current.getBoundingClientRect();
 
-        // const maxBarWidth = 35;
-        // const svg_height = 100;
-        const svg_width = svg.node().getBoundingClientRect().width;
-        let bar_width = Math.round((svg_width - 60) / data.length);
+        let chartNumberDimensions;
 
-        // if (bar_width > maxBarWidth)
-        //     bar_width = maxBarWidth;
+        if (window.innerWidth > 1024) {
+            chartNumberDimensions = {
+                sevenDays: width - 35 + marginForRightChart,
+                divider: width - 27 + marginForRightChart,
+                max: width + marginForRightChart,
+            }
+        } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+            if (marginForRightChart)
+                chartNumberDimensions = {
+                    sevenDays: width + 10 + marginForRightChart,
+                    divider: width + 20 + marginForRightChart,
+                    max: width + 45 + marginForRightChart
+                }
+            else
+                chartNumberDimensions = {
+                    sevenDays: width + 90,
+                    divider: width + 98,
+                    max: width + 125
+                }
+        } else if (window.innerWidth < 768) {
+            if (marginForRightChart)
+                chartNumberDimensions = {
+                    sevenDays: width + 110 + marginForRightChart,
+                    divider: width + 125 + marginForRightChart,
+                    max: width + 150 + marginForRightChart
+                }
+            else
+                chartNumberDimensions = {
+                    sevenDays: width + 90,
+                    divider: width + 98,
+                    max: width + 125
+                }
+        }
 
-        // const spacing = 0.20 * bar_width;
+        // const everything = svg.selectAll("*");
+        // everything.remove();
 
-        // const height = 100;
+        const yAxisSvg = select(yAxisRef.current);
+
 
         const stackGenerator = stack().keys(keys).order(stackOrderAscending);
         const layers = stackGenerator(data);
@@ -88,6 +121,8 @@ const StackedBarChart = (props) => {
                     return 0;
                 }
             });
+        // .style("stroke", "none")
+        // .style("opacity", 0.5);
 
         const xAxis = axisBottom(xScale)
             .tickSize(0);
@@ -106,8 +141,6 @@ const StackedBarChart = (props) => {
 
         svg
             .select(".x-axis-top")
-            // .select(".x-axis")
-            // .attr("transform", `translate(0, ${5})`)
             .call(xAxisTop)
             .selectAll("text")
             .attr("class", "stacekd-bar-chart-ticks");
@@ -158,25 +191,28 @@ const StackedBarChart = (props) => {
         svg.append("text")
             .attr("class", "x-label-7days")
             .attr("text-anchor", "end")
-            .attr("x", width - 35 + marginForRightChart)
+            .attr("x", chartNumberDimensions.sevenDays)
             .attr("y", -5)
             .text("Last 7 Days");
 
         svg.append("text")
             .attr("class", "x-label-7days")
             .attr("text-anchor", "end")
-            .attr("x", width - 27 + marginForRightChart)
+            // .attr("x", width - 27 + marginForRightChart)
+            // .attr("y", -5)
+            .attr("x", chartNumberDimensions.divider)
             .attr("y", -5)
             .text("|");
 
         svg.append("text")
             .attr("class", "x-label-max")
             .attr("text-anchor", "end")
-            .attr("x", width + marginForRightChart)
+            // .attr("x", width + marginForRightChart)
+            // .attr("y", -5)
+            .attr("x", chartNumberDimensions.max)
             .attr("y", -5)
             .text("Max")
             .on("click", () => {
-                // console.log("max clicked");
                 handleActiveClassName(true);
             });
 
@@ -187,24 +223,36 @@ const StackedBarChart = (props) => {
 
         Tooltip.selectAll("*").remove();
 
-        var mouseover = function (d) {
+        var mouseover = function (event, d) {
+
+            console.log("event in mouseover", event);
+
             Tooltip
+                .transition()
+                .duration(200)
                 .style("opacity", 1)
+
+            pointer(event)
+                // .style("stroke", "black")
+                .attr("opacity", 1)
+                .attr("transform", "scale3d(2,2,2)");
         }
 
         const tootTipHtml = (event) => `<div><p>Date: ${event.target.__data__.data.key}</p><p>Match 1: ${event.target.__data__.data.matchOne}</p><p>Match 2: ${event.target.__data__.data.matchTwo}</p></div>`;
 
         var mousemove = function (event, d) {
+            console.log('mouse Move on tooltip', event);
             Tooltip
-                // .text("Date: " + event.target.__data__.data.key + " " + "Match 1: " + event.target.__data__.data.matchOne + "\n" + "Match 2: " + event.target.__data__.data.matchTwo)
                 .html(tootTipHtml(event))
-                .style("top", event.pageY - yAxisToolTipDifference + "px")
-                .style("left", event.pageX - xAxisToolTipDifference + "px")
+                .style("top", (pointer(event)[1]) + "px")
+                .style("left", (pointer(event)[0] - 50) + "px");
         }
-        var mouseleave = function (d) {
+        var mouseleave = function (event, d) {
             Tooltip
+                .transition()
+                .duration(200)
                 .style("opacity", 0)
-            select(this)
+            pointer(event)
                 .style("stroke", "none")
                 .style("opacity", 1)
         }
@@ -230,10 +278,11 @@ const StackedBarChart = (props) => {
                     <svg className="energy-svg" ref={svgRef}>
                         <g className="x-axis" />
                         <g className="x-axis-top" />
-                        <g className="tooltip-area-stcked-barchart">
-                            <text className="tooltip-area__text-stcked-barchart"></text>
-                        </g>
+
                     </svg>
+                    <g className="tooltip-area-stcked-barchart">
+                        <text className="tooltip-area__text-stcked-barchart"></text>
+                    </g>
                 </div>
             </div>
         </div>
