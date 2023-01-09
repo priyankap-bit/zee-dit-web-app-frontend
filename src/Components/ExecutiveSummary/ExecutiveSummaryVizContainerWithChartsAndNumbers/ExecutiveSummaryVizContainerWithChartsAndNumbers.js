@@ -66,7 +66,10 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
           </div>
           <div className="digital-viewers-stackbarchart">
             <div className="exact-summary-viz-container-right">
-              <StackedBarChart handleActiveClassName={handleActiveClassName} />
+              <StackedBarChart
+                handleActiveClassName={handleActiveClassName}
+                xAxisToolTipDifference={480}
+              />
             </div>
           </div>
         </div>
@@ -115,6 +118,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
               <StackedBarChart
                 handleActiveClassName={handleActiveClassName}
                 marginForRightChart={65}
+                xAxisToolTipDifference={1200}
               />
             </div>
           </div>
