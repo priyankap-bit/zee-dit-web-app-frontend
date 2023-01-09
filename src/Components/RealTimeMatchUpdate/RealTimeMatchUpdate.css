@@ -145,7 +145,7 @@ h2.realtime-update-api {
     display: flex;
     flex-direction: column;
     width: 25%;
-    height: 250px;
+    /* height: 250px; */
     border-right: 1px dashed #AFC5FD;
 }
 
