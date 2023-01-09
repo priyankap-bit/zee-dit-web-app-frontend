@@ -56,7 +56,7 @@
 }
 
 .line {
-    stroke:rgb(148, 94, 210);
+    stroke: rgb(148, 94, 210);
 }
 
 .x-label-max {
@@ -109,17 +109,4 @@
 .tooltip-area__text-stcked-barchart {
     z-index: 100;
     background-color: black;
-}
-
-.line {
-    background: red;
-    color: red;
-}
-
-.chart-label{
-    font-family: GothamLight;
-    font-size: 10px;
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 11px;
 }

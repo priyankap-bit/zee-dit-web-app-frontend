@@ -6,6 +6,7 @@
 .tooltip-area {
     z-index: 100;
     background-color: black;
+    position: absolute;
 }
 
 .tooltip-area__text {

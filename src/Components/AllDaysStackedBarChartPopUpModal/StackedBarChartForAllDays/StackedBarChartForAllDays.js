@@ -216,6 +216,8 @@ const StackedBarChartForAllDays = (props) => {
             </div>
         </div>
 
+
+
     )
 
 
