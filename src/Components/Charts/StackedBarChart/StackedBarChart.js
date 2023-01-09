@@ -26,7 +26,7 @@ const StackedBarChart = (props) => {
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
 
-    const { handleActiveClassName, marginForRightChart = 0 } = props;
+    const { handleActiveClassName, xAxisToolTipDifference, yAxisToolTipDifference = 170, marginForRightChart = 0 } = props;
 
     useEffect(() => {
 
@@ -179,6 +179,40 @@ const StackedBarChart = (props) => {
                 handleActiveClassName(true);
             });
 
+        var Tooltip = select(wrapperRef.current)
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip-stacked-bar-chart");
+
+        Tooltip.selectAll("*").remove();
+
+        var mouseover = function (d) {
+            Tooltip
+                .style("opacity", 1)
+        }
+
+        const tootTipHtml = (event) => `<div><p>Date: ${event.target.__data__.data.key}</p><p>Match 1: ${event.target.__data__.data.matchOne}</p><p>Match 2: ${event.target.__data__.data.matchTwo}</p></div>`;
+
+        var mousemove = function (event, d) {
+            Tooltip
+                // .text("Date: " + event.target.__data__.data.key + " " + "Match 1: " + event.target.__data__.data.matchOne + "\n" + "Match 2: " + event.target.__data__.data.matchTwo)
+                .html(tootTipHtml(event))
+                .style("top", event.pageY - yAxisToolTipDifference + "px")
+                .style("left", event.pageX - xAxisToolTipDifference + "px")
+        }
+        var mouseleave = function (d) {
+            Tooltip
+                .style("opacity", 0)
+            select(this)
+                .style("stroke", "none")
+                .style("opacity", 1)
+        }
+
+        svg
+            .on("mousemove", mousemove)
+            .on("mouseleave", mouseleave)
+            .on("mouseover", mouseover)
+
     }, [dimensions, colors, data, keys]);
 
     return (
@@ -195,6 +229,9 @@ const StackedBarChart = (props) => {
                     <svg className="energy-svg" ref={svgRef}>
                         <g className="x-axis" />
                         <g className="x-axis-top" />
+                        <g className="tooltip-area-stcked-barchart">
+                            <text className="tooltip-area__text-stcked-barchart"></text>
+                        </g>
                     </svg>
                 </div>
             </div>

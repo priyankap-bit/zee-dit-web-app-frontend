@@ -6,7 +6,7 @@ import './AreaChart.css';
 import { useRef } from 'react';
 
 const AreaChart = (props) => {
-    const { areaChartData } = props
+    const { areaChartData, yAxisToolTipDifference = 300, xAxisToolTipDifference = 0 } = props
     console.log('areaChartData', areaChartData);
     // var LineData = [];
     // LineData.unshift(0)
@@ -21,9 +21,10 @@ const AreaChart = (props) => {
 
     // const LineData = useState([0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 0]);
 
-    const { LineData = [0, 111100, 120200, 203700, 333345, 422500,550000, 670008, 750150] } = props;
+    const { LineData = [0, 111100, 120200, 203700, 333345, 422500, 550000, 670008, 750150] } = props;
 
     const svgRef = useRef();
+    const wrapperRef = useRef();
 
     useEffect(() => {
         // setting up svg
@@ -66,15 +67,57 @@ const AreaChart = (props) => {
             // .attr('stroke', '#945ED2')
             // // .attr('opacity', '1')
             // .attr('stroke-width', '2px');
+
+            var Tooltip =
+                // svg
+                d3.select(wrapperRef.current)
+                    .append("div")
+                    .style("opacity", 0)
+                    .attr("class", "tooltip-area-chart");
+
+            Tooltip.selectAll("*").remove();
+
+            var mouseover = function (d) {
+                Tooltip
+                    .style("opacity", 1)
+            }
+
+            const tootTipHtml = (event) => `<div><p>ABC</p></div>`;
+
+            var mousemove = function (event, d) {
+                console.log(event);
+                Tooltip
+                    // .text("Date: " + event.target.__data__.data.key + " " + "Match 1: " + event.target.__data__.data.matchOne + "\n" + "Match 2: " + event.target.__data__.data.matchTwo)
+                    .html(tootTipHtml(event))
+                    .style("top", event.pageY - yAxisToolTipDifference + "px")
+                    .style("left", event.pageX - xAxisToolTipDifference + "px")
+            }
+            var mouseleave = function (d) {
+                Tooltip
+                    .style("opacity", 0)
+                d3.select(this)
+                    .style("stroke", "none")
+                    .style("opacity", 1)
+            }
+
+            svg
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave)
+                .on("mouseover", mouseover)
         }
     }, [LineData]);
 
     return (
-        <div className='areachart-container'>
-            <svg ref={svgRef}></svg>
+        <div className='areachart-container' ref={wrapperRef.current}>
+            <div>
+                <svg ref={svgRef}></svg>
+                <g className="tooltip-area-area-chart">
+                    <text className="tooltip-area__text-area-chart"></text>
+                </g>
+            </div>
         </div>
     )
-    window.addEventListener('resize', LineData);
+    // window.addEventListener('resize', LineData);
 }
 
 export default AreaChart;
