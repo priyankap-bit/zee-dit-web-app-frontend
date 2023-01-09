@@ -251,3 +251,18 @@
     width: 125px;
   }
 }
+
+
+@media only screen and (max-device-width: 845px) and (min-device-width: 390px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: landscape){
+  .digital-watchtime {
+    position: relative!important;
+    right: 25rem!important;
+    top: 5rem!important;
+}
+.digital-watchtime-stackedchart {
+  position: relative!important;
+  top: -87px!important;
+  left: 23rem!important;
+  margin-left: 0px!important;
+}
+}

@@ -41,7 +41,7 @@
         margin: 10px!important;
     }
     .digital-watchtime-stackedchart {
-        margin-left: -33px !important;
+        margin-left: -33px;
     
     }
     .bdr {border-top: 2px dashed #dcdcdc;    padding-top: 10px;border-left: none;}
