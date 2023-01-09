@@ -13,7 +13,7 @@ const ExecutiveSummaryTab = () => {
             </div>
             <div className="d-flex justify-content-around mt-3 w-100">
                 <button className="executive-summary-tab">Consumer</button>
-                <button className="executive-summary-tab" onClick={() => setActiveTab('content')}>Content</button>
+                <button className= {activeTab === 'content' ? ('executive-summary-active-tab'):("executive-summary-tab")}  onClick={() => setActiveTab('content')}>Content</button>
                 <button className="executive-summary-tab">Customer</button>
                 <button className="executive-summary-tab">Product</button>
             </div>
