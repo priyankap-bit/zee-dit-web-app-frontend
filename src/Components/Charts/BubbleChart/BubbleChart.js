@@ -1,5 +1,6 @@
 import React from "react";
 import * as d3 from 'd3';
+import './BubbleChart.css'
 import { useEffect } from "react";
 const BubbleChart = () => {
     const files = [
@@ -12,10 +13,10 @@ const BubbleChart = () => {
         { id: "Kum Kum Bhagya", value: 437.68 },
         { id: "Kundli Bhagya", value: 589.70 },
         { id: "meet", value: 439.94 },
-        { id: "flare.analytics.graph.LinkDistance", value: 391 },
-        { id: "flare.analytics.graph.MaxFlowMinCut", value: 391 },
-        { id: "flare.analytics.graph.ShortestPaths", value: 437 },
-        { id: "flare.analytics.graph.SpanningTree", value: 1000 },
+        { id: "LinkDistance", value: 391 },
+        { id: "MaxFlowMinCut", value: 391 },
+        { id: "ShortestPaths", value: 437 },
+        { id: " SpanningTree", value: 1000 },
         // {id: "flare.analytics.optimization", value: null},
         // {id: "flare.analytics.optimization.AspectRatioBanker", value: 7074},
         // {id: "flare.animate", value: null},
@@ -113,7 +114,10 @@ const BubbleChart = () => {
             .attr("r", d => d.r);
 
         if (T) leaf.append("title")
-            .text(d => T[d.data]);
+            .attr("class", "tooltip-title")
+            .text(d => T[d.data])
+            .style("stroke", "none")
+            .attr('font-size', '20px')
 
         if (L) {
             // A unique identifier for clip paths (to avoid conflicts).
