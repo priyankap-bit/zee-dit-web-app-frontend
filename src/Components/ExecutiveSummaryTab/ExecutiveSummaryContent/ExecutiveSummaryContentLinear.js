@@ -10,7 +10,7 @@ const ExecutiveSummaryContentLinear = () => {
         { id: "Bhagya Lakshmi", value: 491.58 },
         { id: "Kum Kum Bhagya", value: 437.68 },
         { id: "Kundli Bhagya", value: 589.70 },
-        { id: "meet", value: 439.94 },
+        { id: "Meet", value: 439.94 },
         { id: "LinkDistance", value: 391 },
         { id: "MaxFlowMinCut", value: 391 },
         { id: "ShortestPaths", value: 437 },
