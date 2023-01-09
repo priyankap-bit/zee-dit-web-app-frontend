@@ -23,11 +23,11 @@ const ExecutiveSummaryContentLinear = () => {
         // {id: "flare.animate.interpolate", value: null},
     ]
 
-    if(activeTab === 'top-10'){
-        
+    if (activeTab === 'top-10') {
+
     }
 
-    if(activeTab === 'bottom-10'){
+    if (activeTab === 'bottom-10') {
 
     }
 
@@ -36,10 +36,10 @@ const ExecutiveSummaryContentLinear = () => {
             <div className="executive-summary-content-linear-tabs">
                 <button className={activeTab === 'all-content' ? ("executive-summary-content-linear-actve-tab") : ("executive-summary-content-linear")} onClick={() => setActiveTab('all-content')}>All Content</button>
                 <button className={activeTab === 'top-10' ? ("executive-summary-content-linear-actve-tab") : ("executive-summary-content-linear")} onClick={() => setActiveTab('top-10')}>Top 10</button>
-                <button className={activeTab === 'bottom-10' ? ("executive-summary-content-linear-actve-tab bdr-none") : ("executive-summary-content-linear bdr-none")} onClick={() => setActiveTab('bottom-10')}>Bottom 10</button>
+                <button className={activeTab === 'bottom-10' ? ("executive-summary-content-linear-actve-tab") : ("executive-summary-content-linear bdr-none")} onClick={() => setActiveTab('bottom-10')}>Bottom 10</button>
             </div>
             <div>
-                <BubbleChart files = {files}/>
+                <BubbleChart files={files} />
             </div>
         </div>
     )

@@ -1,9 +1,17 @@
+.executive-summary-tabs{
+    display: flex;
+    justify-content: space-around;
+    width: 98%;
+    margin: auto;
+    margin-top: 10px;
+}
+
 .executive-summary-tab {
     border: none;
     color: #212529;
     background: #E9EFFF;
     border-radius: 4px;
-    width: 24%;
+    width: 24.4%;
     height: 30px;
     font-size: 14px;
     font-style: normal;

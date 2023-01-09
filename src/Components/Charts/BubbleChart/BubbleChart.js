@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import './BubbleChart.css'
 import { useEffect } from "react";
 const BubbleChart = (props) => {
-    const {files} = props
+    const { files } = props
 
     useEffect(() => {
         const chart = BubbleChart(files, {
@@ -14,8 +14,6 @@ const BubbleChart = (props) => {
             // link: d => `https://github.com/prefuse/Flare/blob/master/flare/src/${d.id.replace(/\./g, "/")}.as`,
         })
     }, [files])
-
-
 
     // Copyright 2021 Observable, Inc.
     // Released under the ISC license.
