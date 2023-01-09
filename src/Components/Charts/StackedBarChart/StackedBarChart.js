@@ -151,6 +151,7 @@ const StackedBarChart = (props) => {
         svg.append("path")
             .datum(data)
             .attr("class", "line")
+            .attr('fill', ' red')
             .attr("stroke-width", "1")
             .attr("d", averageline);
 
