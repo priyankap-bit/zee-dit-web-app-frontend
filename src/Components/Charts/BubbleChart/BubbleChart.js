@@ -2,7 +2,7 @@ import React from "react";
 import * as d3 from 'd3';
 import './BubbleChart.css'
 import { useEffect } from "react";
-import { drag, dragDisable, dragEnable } from "d3";
+import { drag, dragDisable, dragEnable, scaleLinear, ticks } from "d3";
 const BubbleChart = (props) => {
     const { files } = props
     const width = window.innerWidth;
@@ -46,13 +46,11 @@ const BubbleChart = (props) => {
         strokeWidth, // the stroke width around the bubbles, if any
         strokeOpacity, // the stroke opacity around the bubbles, if any
     } = {}) {
-        console.log(width);
         // Compute the values.
         const D = d3.map(data, d => d);
         const V = d3.map(data, value);
         const G = group == null ? null : d3.map(data, group);
         const I = d3.range(V.length).filter(i => V[i] > 0);
-        console.log(I);
         // Unique the groups.
         if (G && groups === undefined) groups = I.map(i => G[i]);
         groups = G && new d3.InternSet(groups);
@@ -67,9 +65,9 @@ const BubbleChart = (props) => {
         // Compute layout: create a 1-deep hierarchy, and pack it.
         const root = d3.pack()
             .size([width - marginLeft - marginRight, height - marginTop - marginBottom])
-            .padding(padding +10)
+            .padding(padding + 5)
             (d3.hierarchy({ children: I })
-                .sum(i => V[i] ));
+                .sum(i => V[i]));
 
         const svg = d3.select("#bubbleChart")
             .attr("width", width)
@@ -79,8 +77,8 @@ const BubbleChart = (props) => {
             .attr("fill", "currentColor")
             .attr("font-size", 10)
             .attr("font-family", "GothamLight")
-            .attr("text-anchor", "middle");
-
+            .attr("text-anchor", "middle")
+            
         const leaf = svg.selectAll("a")
             .data(root.leaves())
             .join("a")
@@ -88,7 +86,7 @@ const BubbleChart = (props) => {
             .attr("target", link == null ? null : linkTarget)
 
 
-        leaf.transition().duration(1500).attr("transform", d => `translate(${d.x},${d.y})`)
+        leaf.transition().duration(1500).attr("transform", d => `translate(${d.x},${d.y})`).ease(d3.easeBounce)
 
         leaf.append("circle")
             .attr("stroke", '#945ED2')
@@ -122,6 +120,7 @@ const BubbleChart = (props) => {
                 .attr("y", (d, i, D) => `${i - D.length / 2 + 0.85}em`)
                 .attr("fill-opacity", (d, i, D) => i === D.length - 1 ? 0.7 : null)
                 .text(d => d);
+            
         }
 
         // return Object.assign(svg.node(), { scales: { color } });
