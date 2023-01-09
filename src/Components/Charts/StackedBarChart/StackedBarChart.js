@@ -73,7 +73,7 @@ const StackedBarChart = (props) => {
             // .attr
             // .attr("y", 0)
             // .attr("dy", ".75em")
-            .text("Viewers in Mn.");
+            .text("Viewers in Min.");
 
         svg
             .attr("width", data.length * 10)
