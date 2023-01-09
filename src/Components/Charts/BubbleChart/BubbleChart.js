@@ -27,8 +27,8 @@ const BubbleChart = (props) => {
         title, // given d in data, returns text to show on hover
         link, // given a node d, its link (if any)
         linkTarget = "_blank", // the target attribute for links, if any
-        width = 650, // outer width, in pixels
-        height = 600, // outer height, in pixels
+        width = 600, // outer width, in pixels
+        height = 500, // outer height, in pixels
         padding = 3, // padding between circles
         margin = 1, // default margins
         marginTop = margin, // top margin, in pixels
@@ -82,11 +82,9 @@ const BubbleChart = (props) => {
             .join("a")
             .attr("xlink:href", link == null ? null : (d, i) => link(D[d.data], i, data))
             .attr("target", link == null ? null : linkTarget)
-            // .transition()
-            // .duration(2000)
-            .attr("transform", d => `translate(${d.x},${d.y})`)
+            
 
-
+        leaf.transition().duration(500).attr("transform", d => `translate(${d.x},${d.y})`)
         leaf.append("circle")
             .attr("stroke", '#945ED2')
             .attr("stroke-width", strokeWidth)
