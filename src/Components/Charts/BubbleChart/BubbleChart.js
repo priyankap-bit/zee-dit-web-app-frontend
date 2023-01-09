@@ -94,8 +94,30 @@ const BubbleChart = (props) => {
             .attr("stroke-opacity", strokeOpacity)
             .attr("fill", 'rgb(148, 94, 210, 0.1)')
             .attr("fill-opacity", fillOpacity)
-            .attr("r", d => d.r);
-
+            .attr("r", d => d.r)
+            .on('mouseover', function(d, i) {
+                d3.select(this).transition()
+                  .duration(1000)
+                  .ease(d3.easeBounce)
+                  .attr("r", 50)
+                  .style("fill", "orange");
+            
+              leaf.filter(function(e) {
+                    return e.rank === d.rank;
+                  }).transition()
+                  .duration(1000)
+                  .ease(d3.easeBounce)
+                  .attr("font-size", "10px")
+              })
+              .on('mouseout', function(d, i) {
+                d3.select(this).transition()
+                  .style("opacity", 0.3)
+                  .attr("r", 50)
+                  .style("fill", "blue");
+                leaf.filter(function(e) {
+                  return e.rank === d.rank;
+                }).attr("font-size", "10px")
+              })
         if (T) leaf.append("title")
             .attr("class", "tooltip-title")
             .text(d => T[d.data])
