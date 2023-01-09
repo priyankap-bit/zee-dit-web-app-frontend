@@ -39,7 +39,7 @@ const LineChart = (props) => {
     // Initialize an Y axis
     var y = d3.scaleLinear()
       .domain([0, d3.max(data, d => d.value)])
-    .range([height, 0]);
+      .range([height, 0]);
     var yAxis = d3.axisLeft().scale(y).ticks(1).tickSize(0);
     svg.append("g").attr("class", "myYaxis");
 
@@ -61,7 +61,10 @@ const LineChart = (props) => {
           return d.value;
         }),
       ]);
-      svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
+      svg.selectAll(".myYaxis")
+        // .transition()
+        // .duration(3000)
+        .call(yAxis);
 
       svg
         .select(".myXaxis")
@@ -132,8 +135,8 @@ const LineChart = (props) => {
         .append("path")
         .attr("class", "lineTest")
         .merge(u)
-        .transition()
-        .duration(3000)
+        // .transition()
+        // .duration(3000)
         .attr(
           "d",
           d3
@@ -148,6 +151,73 @@ const LineChart = (props) => {
         .attr("fill", "none")
         .attr("stroke", "#945ED2")
         .attr("stroke-width", 1.32592);
+
+      // var Tooltip = d3.select(lineChart.current)
+      //   .append("div")
+      //   .style("opacity", 0)
+      //   .attr("class", "tooltip");
+
+      // // Tooltip.selectAll("*").remove();
+
+      // var mouseover = function (d) {
+      //   Tooltip
+      //     .style("opacity", 1)
+      // }
+
+      // const tootTipHtml = (event) => `<div><p>Data</p></div>`;
+
+      // var mousemove = function (event, d) {
+      //   Tooltip
+      //     .html(tootTipHtml(event))
+      //     .style("top", (d3.mouse(this)[1]) + "px")
+      //     .style("left", (d3.mouse(this)[0] - 50) + "px")
+      // }
+      // var mouseleave = function (d) {
+      //   Tooltip
+      //     .style("opacity", 0)
+      //   // d3.select(this)
+      //   //   .style("stroke", "none")
+      //   //   .style("opacity", 1)
+      // }
+
+      var Tooltip = d3.select(lineChart.current)
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip-line-chart")
+        .style("background-color", "black")
+        .style("border", "solid")
+        .style("border-width", "2px")
+        .style("border-radius", "5px")
+        .style("padding", "5px")
+
+      // Three function that change the tooltip when user hover / move / leave a cell
+      var mouseover = function (d) {
+        Tooltip
+          .transition()
+          .duration(300)
+          .style("opacity", 1)
+        d3.select(this)
+          .style("stroke", "black")
+          .style("opacity", 1)
+      }
+      var mousemove = function (d) {
+        Tooltip
+          .html("The exact value of<br>this cell is: " + "d.value")
+          .style("left", (d3.mouse(this)[0] + 70) + "px")
+          .style("top", (d3.mouse(this)[1]) + "px")
+      }
+      var mouseleave = function (d) {
+        Tooltip
+          .style("opacity", 0)
+        d3.select(this)
+          .style("stroke", "none")
+          .style("opacity", 0.8)
+      }
+
+      svg
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
+        .on("mouseover", mouseover)
     }
 
     // At the beginning, I run the update function on the first dataset:
@@ -156,7 +226,11 @@ const LineChart = (props) => {
 
   return (
     <div>
-      <svg ref={lineChart}></svg>
+      <svg ref={lineChart}>
+        <g className="tooltip-area-line-chart">
+          <text className="tooltip-area__text"></text>
+        </g>
+      </svg>
     </div>
   );
 };

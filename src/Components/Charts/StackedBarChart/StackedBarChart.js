@@ -29,8 +29,6 @@ const StackedBarChart = (props) => {
 
     const {
         handleActiveClassName,
-        // xAxisToolTipDifference,
-        // yAxisToolTipDifference = 170,
         marginForRightChart = 0
     } = props;
 
@@ -120,9 +118,9 @@ const StackedBarChart = (props) => {
                 } else {
                     return 0;
                 }
-            });
-        // .style("stroke", "none")
-        // .style("opacity", 0.5);
+            })
+            // .style("stroke", "none")
+            .style("opacity", 1);
 
         const xAxis = axisBottom(xScale)
             .tickSize(0);
@@ -219,23 +217,18 @@ const StackedBarChart = (props) => {
         var Tooltip = select(wrapperRef.current)
             .append("div")
             .style("opacity", 0)
-            .attr("class", "tooltip-stacked-bar-chart");
+            .attr("class", marginForRightChart ? "tooltip-stacked-bar-chart-right" : "tooltip-stacked-bar-chart");
 
         Tooltip.selectAll("*").remove();
 
         var mouseover = function (event, d) {
 
-            console.log("event in mouseover", event);
+            // console.log("event in mouseover", event);
 
             Tooltip
                 .transition()
                 .duration(200)
                 .style("opacity", 1)
-
-            pointer(event)
-                // .style("stroke", "black")
-                .attr("opacity", 1)
-                .attr("transform", "scale3d(2,2,2)");
         }
 
         const tootTipHtml = (event) => `<div><p>Date: ${event.target.__data__.data.key}</p><p>Match 1: ${event.target.__data__.data.matchOne}</p><p>Match 2: ${event.target.__data__.data.matchTwo}</p></div>`;
@@ -251,10 +244,14 @@ const StackedBarChart = (props) => {
             Tooltip
                 .transition()
                 .duration(200)
-                .style("opacity", 0)
-            pointer(event)
-                .style("stroke", "none")
-                .style("opacity", 1)
+                .style("opacity", 0);
+
+            select(this.node())
+                .transition()
+                .duration(200)
+                // .style("stroke", "black")
+                .style("opacity", 0.7)
+                .style("transform", "scale3d(1,1,1)");
         }
 
         svg
@@ -267,22 +264,23 @@ const StackedBarChart = (props) => {
     return (
 
         <div>
-            <div ref={wrapperRef} className="svg-wrap">
-                <div>
-                    <svg ref={yAxisRef} className="y-axis-svg" width="10">
-                        <g className="y-axis" />
-                    </svg>
-                </div>
-                <div className="x-axis-scroll">
+            <div className="stacked-barchart-sub-div">
+                <div ref={wrapperRef} className="svg-wrap">
+                    <div>
+                        <svg ref={yAxisRef} className="y-axis-svg" width="10">
+                            <g className="y-axis" />
+                        </svg>
+                    </div>
 
-                    <svg className="energy-svg" ref={svgRef}>
-                        <g className="x-axis" />
-                        <g className="x-axis-top" />
-
-                    </svg>
-                    <g className="tooltip-area-stcked-barchart">
-                        <text className="tooltip-area__text-stcked-barchart"></text>
-                    </g>
+                    <div className="x-axis-scroll">
+                        <svg className="energy-svg" ref={svgRef}>
+                            <g className="x-axis" />
+                            <g className="x-axis-top" />
+                            <g className="tooltip-area-stcked-barchart">
+                                <text className="tooltip-area__text-stcked-barchart"></text>
+                            </g>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>

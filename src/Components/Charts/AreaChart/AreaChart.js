@@ -63,8 +63,8 @@ const AreaChart = (props) => {
                 .attr('stroke-width', '1px')
 
             var Tooltip =
-                svg
-                    // d3.select(wrapperRef.current)
+                // svg
+                d3.select(wrapperRef.current)
                     .append("div")
                     .style("opacity", 0)
                     .attr("class", "tooltip-area-chart");

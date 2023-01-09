@@ -30,8 +30,6 @@ const StackedBarChartForAllDays = (props) => {
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
 
-    // const { dimensions } = props;
-
     useEffect(() => {
 
         const svg = select(svgRef.current);
@@ -39,13 +37,8 @@ const StackedBarChartForAllDays = (props) => {
 
         const everything = svg.selectAll("*");
         everything.remove();
-        // yAxisSvg.selectAll("*").remove();
-        // const { width, height } =
-        //     dimensions || wrapperRef.current.getBoundingClientRect();
 
         const { width, height } = wrapperRef.current.getBoundingClientRect();
-
-        console.log(width, height);
 
         const stackGenerator = stack().keys(keys).order(stackOrderAscending);
         const layers = stackGenerator(data);
@@ -116,7 +109,6 @@ const StackedBarChartForAllDays = (props) => {
             .attr("stroke-dasharray", "2");
 
         const yAxis = axisLeft(yScale)
-            // .tickSize(-1450)
             .tickSize(0)
             .ticks(11)
             .tickValues([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
@@ -174,7 +166,6 @@ const StackedBarChartForAllDays = (props) => {
 
         var mousemove = function (event, d) {
             Tooltip
-                // .text("Date: " + event.target.__data__.data.key + " " + "Match 1: " + event.target.__data__.data.matchOne + "\n" + "Match 2: " + event.target.__data__.data.matchTwo)
                 .html(tootTipHtml(event))
                 .style("top", event.pageY - 180 + "px")
                 .style("left", event.pageX - 400 + "px")
