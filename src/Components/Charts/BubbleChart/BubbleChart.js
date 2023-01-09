@@ -84,7 +84,7 @@ const BubbleChart = (props) => {
             .attr("target", link == null ? null : linkTarget)
             
 
-        leaf.transition().duration(500).attr("transform", d => `translate(${d.x},${d.y})`)
+        leaf.transition().duration(1000).attr("transform", d => `translate(${d.x},${d.y})`)
         leaf.append("circle")
             .attr("stroke", '#945ED2')
             .attr("stroke-width", strokeWidth)
