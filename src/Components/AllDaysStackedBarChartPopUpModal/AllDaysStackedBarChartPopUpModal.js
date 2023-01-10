@@ -36,7 +36,7 @@ const AllDaysStackedBarChartPopUpModal = (props) => {
                     <p className='all-days-stkd-bar-chart-pop-up-mdl-vsbl-title'>Digital</p>
                     <div className='all-days-stkd-bar-chart-pop-up-mdl-legends'>
                         <ul className="indicators">
-                            <li className="viewership-performance-indicator">--- Avg.</li>
+                            <li className="viewership-performance-indicator">Avg.</li>
                             <li
                                 className="viewership-performance-indicator"
                             >
