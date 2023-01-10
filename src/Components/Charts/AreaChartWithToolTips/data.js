@@ -1,7 +1,7 @@
 
 const areaChartWithToolTipsData = [
     {
-        date: "1900-01-01T00:00:00.000Z",
+        date: "2011-07-01T19:15:28Z",
         population: 76094000
     },
     {
