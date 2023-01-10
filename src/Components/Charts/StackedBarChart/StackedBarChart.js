@@ -97,14 +97,7 @@ const StackedBarChart = (props) => {
             .domain(extent)
             .range([height + 50, 0]);
 
-        svg.append("text")
-            .attr("class", "chart-label")
-            .attr("text-anchor", "start")
-            .attr('fill', '#808080')
-            // .attr
-            // .attr("y", 0)
-            // .attr("dy", ".75em")
-            .text("Viewers in Min.");
+      
 
         svg
             .attr("width", data.length * 10)
@@ -194,7 +187,15 @@ const StackedBarChart = (props) => {
             .attr('fill', ' red')
             .attr("stroke-width", "1")
             .attr("d", averageline);
-
+        svg.append("text")
+            .attr("class", "chart-label")
+            .attr("text-anchor", "start")
+            .attr('fill', '#808080')
+            .attr("y", -5)
+            // .attr
+            // .attr("y", 0)
+            // .attr("dy", ".75em")
+            .text("Viewers in Mn.");
         svg.append("text")
             .attr("class", "x-label-7days")
             .attr("text-anchor", "end")

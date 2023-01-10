@@ -28,9 +28,9 @@ const LineChart = (props) => {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    const bounds = svg
-      .append("g")
-      .style("transform", `translate(${margin.left}px,${margin.top}px)`);
+    // const bounds = svg
+    //   .append("g")
+    //   .style("transform", `translate(${margin.left}px,${margin.top}px)`);
 
     // Initialise a X axis:
     var x = d3.scaleLinear().range([0, width]);
@@ -102,11 +102,11 @@ const LineChart = (props) => {
         .attr("opacity", ".1")
         .attr("stroke-dasharray", "1");
 
-      const listeningRect = bounds
-        .append("rect")
-        .attr("class", "listening-rect")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom);
+      // const listeningRect = bounds
+      //   .append("rect")
+      //   .attr("class", "listening-rect")
+      //   .attr("width", width + margin.left + margin.right)
+      //   .attr("height", height + margin.top + margin.bottom);
       // .on("mousemove", onMouseMove)
       // .on("mouseleave", onMouseLeave);
 
