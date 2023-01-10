@@ -2,12 +2,14 @@ import React from "react";
 import * as d3 from 'd3';
 import './BubbleChart.css'
 import { useEffect } from "react";
-import { drag, dragDisable, dragEnable, scaleLinear, ticks } from "d3";
+import { drag, dragDisable, dragEnable, forceY, scaleLinear, ticks } from "d3";
 const BubbleChart = (props) => {
     const { files } = props
     const width = window.innerWidth;
+    
+    
 
-
+    
     useEffect(() => {
         const chart = BubbleChart(files, {
             label: d => [...d.id.split(".").pop().split(/(?=[A-Z][a-z])/g), d.value].join("\n"),
@@ -61,8 +63,37 @@ const BubbleChart = (props) => {
         // Compute labels and titles.
         const L = label == null ? null : d3.map(data, label);
         const T = title === undefined ? L : title == null ? null : d3.map(data, title);
-
+        var xCenter = [100, 300, 500];
+        function ticked() {
+            var u = d3.select('svg g')
+                .selectAll('circle')
+                .data(data)
+                .join('circle')
+                .attr('r', function(d) {
+                    return d.radius;
+                })
+                .style('fill', function(d) {
+                    // return colorScale[d.category];
+                })
+                .attr('cx', function(d) {
+                    return d.x;
+                })
+                .attr('cy', function(d) {
+                    return d.y;
+                });
+        }
+        
         // Compute layout: create a 1-deep hierarchy, and pack it.
+        var simulation = d3.forceSimulation(data)
+        .force('charge', d3.forceManyBody().strength(5))
+        .force('x', d3.forceX().x(function(d) {
+            return xCenter[d.category];
+        }))
+        .force('collision', d3.forceCollide().radius(function(d) {
+            return d.radius;
+        }))
+        .on('tick', ticked);
+
         const root = d3.pack()
             .size([width - marginLeft - marginRight, height - marginTop - marginBottom])
             .padding(padding + 5)
@@ -85,9 +116,8 @@ const BubbleChart = (props) => {
             .attr("xlink:href", link == null ? null : (d, i) => link(D[d.data], i, data))
             .attr("target", link == null ? null : linkTarget)
 
-
-        leaf.transition().duration(3500).attr("transform", d => `translate(${d.x},${d.y})`).ease(d3.easeBounce)
-
+        const trans = leaf.attr("transform", 'translate(750, 200)')
+        trans.transition().duration(1000).attr("transform", d => `translate(${d.x},${d.y})`)
         const circle = leaf.append("circle")
             .attr("stroke", '#945ED2')
             .attr("stroke-width", strokeWidth)
@@ -95,33 +125,39 @@ const BubbleChart = (props) => {
             .attr("fill", 'rgb(148, 94, 210, 0.1)')
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
-            .on('mouseover', function(d, i) {
-                d3.select(this).transition()
-                  .duration(1000)
-                  .ease(d3.easeBounce)
-                  .attr("r", 50)
-                  .style("fill", "orange");
-            
-              leaf.filter(function(e) {
+            .style("cursor", "pointer")
+            .on('click', function (d, i) {
+                d3.select(this)
+                    // .transition()
+                    // .duration(1000)
+                    .attr("stroke-width", 5)
+                    // .ease(d3.easeBounce)
+                    // .attr("r", 50)
+                    // .style("fill", "orange");
+
+                leaf.filter(function (e) {
                     return e.rank === d.rank;
-                  }).transition()
-                  .duration(1000)
-                  .ease(d3.easeBounce)
-                  .attr("font-size", "10px")
-              })
-              .on('mouseout', function(d, i) {
-                d3.select(this).transition()
-                  .style("opacity", 0.3)
-                  .attr("r", 50)
-                  .style("fill", "blue");
-                leaf.filter(function(e) {
-                  return e.rank === d.rank;
-                }).attr("font-size", "10px")
-              })
+                }).transition()
+                    .duration(1000)
+                    .ease(d3.easeBounce)    
+                    .attr("font-size", "10px")
+            })
+            .on('mouseout', function (d, i) {
+                d3.select(this)
+                // .transition()
+                .attr("stroke-width", strokeWidth)
+                //     .style("opacity", 0.3)
+                //     .attr("r", 50)
+                //     .style("fill", "blue");
+                // leaf.filter(function (e) {
+                //     return e.rank === d.rank;
+                // }).attr("font-size", "10px")
+            })
+        
         if (T) leaf.append("title")
             .attr("class", "tooltip-title")
             .text(d => T[d.data])
-            .style("stroke", "none")
+            .style("stroke", "black")
             .attr('font-size', '10px')
 
         if (L) {
@@ -133,11 +169,12 @@ const BubbleChart = (props) => {
                 .append("circle")
                 .attr("r", d => d.r);
 
-            leaf.append("text")
+            const text = leaf.append("text")
                 //   .attr("clip-path", d => `url(${new URL(`#${uid}-clip-${d.data}`, location)})`)
                 .selectAll("tspan")
                 .data(d => `${L[d.data]}`.split(/\n/g))
                 .join("tspan")
+                .style("cursor", "pointer")
                 .attr("x", 0)
                 .attr("y", (d, i, D) => `${i - D.length / 2 + 0.85}em`)
                 .attr("fill-opacity", (d, i, D) => i === D.length - 1 ? 0.7 : null)
@@ -150,7 +187,9 @@ const BubbleChart = (props) => {
 
     return (
         <div className="bubble-chart-div">
-            <svg id='bubbleChart'></svg>
+            <svg id='bubbleChart'>
+
+            </svg>
         </div>
     )
 }
