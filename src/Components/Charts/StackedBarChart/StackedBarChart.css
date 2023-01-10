@@ -1,18 +1,5 @@
-/* #root {
-    margin: 0 auto;
-    display: flex;
-    height: 100vh;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.App {
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 80vw;
-} */
-
 .energy-svg {
+    /* height: 170px; */
     height: 300px;
     overflow: visible;
     margin: 0;
@@ -22,8 +9,8 @@
     height: 100px;
     width: 100%;
     display: flex;
-  
-    /* height: 200px; */
+    position: relative;
+    left: 40px;
 }
 
 .y-axis-svg {
@@ -32,7 +19,7 @@
 
 .x-axis-scroll {
     /* overflow-x: scroll; */
-    margin-bottom: -150px;
+    /* margin-bottom: -150px; */
 }
 
 /* width */
@@ -68,6 +55,86 @@
     color: #808080;
 }
 
-/* .x-tick line{
-    visibility: hidden;
-} */
+.line {
+    stroke: rgb(148, 94, 210);
+}
+
+.x-label-max {
+    color: #808080;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 11px;
+    font-family: GothamLight;
+    cursor: pointer;
+}
+
+.x-label-7days {
+    color: #3E1F76;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 11px;
+    font-family: GothamLight;
+    cursor: pointer;
+}
+
+.tooltip-stacked-bar-chart {
+    background: #FFFFFF;
+    border: 1px solid #D8E3FF;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    padding: 0 5px;
+    /* width: 140%; */
+    /* margin: ; */
+}
+
+.tooltip-stacked-bar-chart-right {
+    background: #FFFFFF;
+    border: 1px solid #D8E3FF;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    padding: 0 4px;
+    /* width: 110%; */
+}
+
+.tooltip-stacked-bar-chart p,
+.tooltip-stacked-bar-chart-right p {
+    font-weight: 400;
+    color: #333333;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.tooltip-area-stcked-barchart {
+    z-index: 100;
+    background-color: black;
+}
+
+.tooltip-area__text-stcked-barchart {
+    z-index: 100;
+    background-color: black;
+}
+text.chart-label {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 11px;
+    font-family: GothamLight;
+    cursor: pointer;
+
+}
+

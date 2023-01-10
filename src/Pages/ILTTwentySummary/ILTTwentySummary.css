@@ -1,16 +1,64 @@
 .ilt20-summary-container {
     margin: 0;
-    background: linear-gradient(165.96deg, #FFFFFF 0%, #F2F4FB 100%);
+    /* background: linear-gradient(165.96deg, #FFFFFF 0%, #F2F4FB 100%); */
     font-family: 'GothamMedium';
 }
 
 
 .digital-watchtime {
-    padding-left: 30px;
+    padding-left: 56px;
 
 }
 
+@media only screen and (max-width: 1440px) and (min-width: 1366px) {
+    .digital-watchtime {
+        padding-left: 80px;
+    }
+}
+
+@media only screen and (min-width: 1030px) and (max-width: 1366px) {
+    .digital-watchtime {
+        padding-left: 0px;
+    }
+    
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 768px){
+    .digital-watchtime {
+        position: relative;
+        right: 47px;
+    }
+    .viewer-numbers {
+        width: 70%!important;
+        display: flex;
+        padding-top: 0px;
+    }
+    .viewership-performance-indicators {
+        display: flex;
+        justify-content: space-around;
+    }
+    .executive-summary-main-container{
+        margin: 10px!important;
+    }
+    .digital-watchtime-stackedchart {
+        margin-left: -33px;
+    
+    }
+    .bdr {border-top: 2px dashed #dcdcdc;    padding-top: 10px;border-left: none;}
+}
+@media only screen and (max-width: 1279px) and (min-width: 1024px){
+    .digital-viewers, .digital-watchtime{ width: 52%;}
+    .digital-watchtime {
+        padding-left: 0px;
+        padding-top: 12px;
+        padding-bottom: 10px!important;
+    }
+    .digital-watchtime-stackedchart{padding-left: 1rem!important;    padding-top:15px!important;}
+    .bdr {border-top: 2px dashed #dcdcdc;    padding-top: 10px;border-left: none;}
+}
 @media only screen and (max-width: 767px) {
+    
+   
     .ilttwenty-navigation-tabs-container {
         padding-top: 30px !important;
     }
@@ -26,16 +74,18 @@
     .ilt20-header-div-right {
         float: right;
         padding-bottom: 20px;
-        margin-top: -22px;
+        position: absolute;
+        right: 10px;
+        /* margin-top: -22px; */
     }
 
     .ilt20-header-div-middle {
-        padding-top: 10px;
+        padding-top: 17px;
     }
 
     .ilt20-header-ilt20-text-3 h1 {
         font-family: 'GothamMedium';
-        font-size: 15px;
+        font-size: 12px;
     }
 
     .ilt20-header-div-middle {
@@ -43,11 +93,40 @@
     }
 
     .executive-summary-container,
-    .digital-daywise-and-cumulative {display: inline-block;}
-    .digital-viewers-stackbarchart,.digital-watchtime {margin-top: 40px;}
-    .exect-summary-main-2{display: inline;}
+    .digital-daywise-and-cumulative {
+        display: inline-block;
+    }
+
+    .digital-viewers-stackbarchart,
+    .digital-watchtime {
+        margin-top: 40px;
+        margin-left: -33px;
+    }
+
+    .exect-summary-main-2 {
+        display: inline;
+    }
+
     .digital-watchtime {
         margin-top: 88px;
+        position: relative;
+        right: 12px;
     }
-    .digital-viewers, .digital-viewers-stackbarchart, .digital-watchtime, .digital-watchtime-stackedchart{float: unset;width:50%;}
+
+    .digital-watchtime-stackedchart {
+        margin-top: 40px;
+        margin-left: -120px;
+    }
+
+    .executive-summary-main-container {
+        height: 54rem !important;
+    }
+
+    .digital-viewers,
+    .digital-viewers-stackbarchart,
+    .digital-watchtime,
+    .digital-watchtime-stackedchart {
+        float: unset;
+        width: 50%;
+    }
 }

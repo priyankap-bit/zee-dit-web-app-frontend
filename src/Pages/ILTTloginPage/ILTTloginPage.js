@@ -8,13 +8,18 @@ const ILTTloginPage = (props) => {
 
         <div className='login-page-container'>
             <div className='branding-icon'>
-                <img src='/static/images/logos/Branding.png' height={70} alt='Viewers Logo' className='branding-image' />
+                <img src='/static/images/logos/branding-withtagline.svg' height={70} alt='Viewers Logo' className='branding-image' />
+                {/* <div className='tagline'>Extraordinary Together</div> */}
             </div>
+          
             <form className='login-page'>
-                <input type="email" name="name" placeholder='Email' /> <br />
-                <input type="password" name="pass" placeholder='Password' /> <br />
+                <img src='/static/images/logos/login-email.svg' alt='Viewers Logo' className='email-image' />
+                <input type="email" name="name" id="email" placeholder='Email' /> <br />
+                <img src='/static/images/logos/password.svg' alt='Viewers Logo' className='password-image' />
+                <input type="password" name="pass" id="pass" placeholder='Password' /> <br />
+                <p className='forgot-password'>Forgot password?</p>
                 <a href="/" className="login">LOGIN</a>
-                {/* <input className='login' type="submit" value="LOGIN" /> */}
+                
             </form>
         </div>
 

@@ -1,98 +1,273 @@
 .exact-summary-viz-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    /* height: 25%; */
-    height: 140px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  /* height: 25%; */
+  height: 140px;
+  width: 100%;
 }
-
+.exact-summary-viz-average {
+  /* margin-left: -10px!important; */
+  margin-left: 40px;
+}
+.viewer-numbers {
+  display: flex;
+  /* justify-content: space-between; */
+}
 .digital-viewers-stackbarchart {
-    border-right: 1px dashed #333333;
-    /* margin-right: 5px; */
+  /* border-right: 1px dashed #333333; */
+  /* margin-right: 5px; */
 }
 
 .exact-summary-viz-container-2 {
-    display: flex;
+  display: flex;
 }
 
 .exact-summary-viz-container-left {
-    display: flex;
-    flex-direction: column;
-    height: inherit;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
 }
 
 .exact-summary-viz-container-right {
-    height: inherit;
+  height: inherit;
 }
 
 .exact-summary-viz-number-container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.digital-watchtime-stackedchart {
+  padding-left: 6rem !important;
 }
 
 .exact-summary-viz-number {
-    margin: 0 4rem 0 0;
+  margin: 0 2rem 0 0;
 }
 
 .exact-summary-viz-number-entity {
-    margin: 0 !important;
-    padding-bottom: 5px;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 13px;
-    color: #333333;
+  font-family: 'GraphikRegular';
+  margin: 0 !important;
+  padding-bottom: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+  color: #333333;
+  width: 150%;
 }
 
 .exact-summary-viz-number-value {
-    font-family: GraphikMedium;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 24px;
-    color: #333333;
+  font-family: GraphikMedium;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 24px;
+  color: #333333;
+}
+
+.exact-summary-viz-number-avg-value {
+  font-family: GraphikMedium;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 24px;
+  color: #333333;
 }
 
 .exact-summary-viz-number-info {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 13px;
-    display: flex;
-    align-items: center;
-    color: #00C48C;
-    letter-spacing: 0.5px;
+  font-family: 'GraphikRegular';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  color: #00c48c;
+  width: 150%;
+  /* letter-spacing: 0.5px; */
 }
 
 .exact-summary-viz-number-info svg {
-    margin: 0 3px;
+  margin: 0 3px;
 }
 
 .exact-summary-viz-updateinfo-container p {
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 14px;
-    color: #333333;
-    margin-top: 5px;
+  font-family: 'GraphikRegular';
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  color: #333333;
+  margin-bottom: 2px;
+  margin-top: 12px;
 }
 
 /*Priyanka css*/
 .main-excutive-summary {
-    display: block;
+  display: block
 }
 
 .digital-viewers,
+.digital-watchtime {
+  float: left;
+  width: 26%;
+  padding: 20px;
+  padding-left: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 .digital-viewers-stackbarchart,
-.digital-watchtime,
 .digital-watchtime-stackedchart {
-    float: left;
-    width: 25%;
-    padding: 20px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+  float: left;
+  width: 24%;
+  padding: 20px;
+  padding-left: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .exact-summary-viz-number,
 .exact-summary-viz-average {
-    float: left;
+  float: left;
+}
+
+
+.bdr {
+  height: 156px;
+  border-left: 2px dashed #dcdcdc;
+  padding-left: 10px;
+}
+
+.excutive-summary {
+  width: 100%;
+}
+
+.executive-summary-digital-viewers {
+  width: 100%;
+}
+
+.executive-summary-digital-watchtime {
+  width: 100%;
+}
+
+.viewer-numbers {
+  display: flex;
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1366px) {
+  .digital-watchtime-stackedchart {
+    padding-left: 3.8rem !important;
+  }
+
+  .executive-summary-digital-viewers {
+    width: 90%;
+  }
+
+  .executive-summary-digital-watchtime {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1030px) and (max-width: 1366px) {
+  .executive-summary-digital-viewers {
+    /* display: flex; */
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .executive-summary-digital-watchtime {
+    width: 100%;
+  }
+
+  .main-excutive-summary {
+    display: flex;
+    /* flex-direction: column; */
+  }
+
+  .viewer-numbers {
+    display: flex;
+    width: 50%;
+    align-self: flex-start;
+  }
+
+  .exact-summary-viz-areachart-container {
+    width: 50%;
+    align-self: flex-end;
+  }
+}
+
+@media only screen and (min-width: 1370px) and (max-width: 1605px) {
+  .executive-summary-digital-viewers {
+    width: 90%;
+  }
+
+  .executive-summary-digital-watchtime {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1607px) {
+  .executive-summary-digital-viewers {
+    width: 98%;
+  }
+
+  .executive-summary-digital-watchtime {
+    width: 98%;
+  }
+}
+@media only screen and (max-width: 1023px) and (min-width: 768px){
+.digital-viewers, .digital-watchtime{width: auto!important;}
+.digital-watchtime-stackedchart {
+  padding-left: 0px !important;
+}
+.digital-watchtime{
+  padding-bottom: 30px;
+  padding-top: 15px;
+}
+
+.digital-watchtime-stackedchart{
+  padding-top:35px;
+}
+
+.bdr{
+  border: none;
+  padding-left: 0px;
+}
+
+/* .exact-summary-viz-container-right{
+  position: relative;
+  right: 37px;
+} */
+}
+@media only screen and (max-width: 1279px) and (min-width: 1024px){ 
+  .viewer-numbers {
+    display: flex;
+    justify-content: space-around!important;
+}
+}
+
+@media only screen and (max-width: 767px){
+  .bdr{
+    border: none;
+    padding-left: 0px;
+  }
+  .exact-summary-viz-number-info{
+    width: 125px;
+  }
+}
+
+
+@media only screen and (max-device-width: 845px) and (min-device-width: 390px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: landscape){
+  .digital-watchtime {
+    position: relative!important;
+    right: 25rem!important;
+    top: 5rem!important;
+}
+.digital-watchtime-stackedchart {
+  position: relative!important;
+  top: -87px!important;
+  left: 23rem!important;
+  margin-left: 0px!important;
+}
 }

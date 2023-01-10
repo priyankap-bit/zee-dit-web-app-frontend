@@ -17,7 +17,7 @@ const RealTimeMatchUpdate = (props) => {
   });
 
   const [selectedMatch, setSelectedMatch] = useState('matchOne');
-
+  
   const handleMatchSelectionClick = (matchName, event) => {
     event.preventDefault();
     setSelectedMatch(matchName)
@@ -124,13 +124,13 @@ const RealTimeMatchUpdate = (props) => {
           </div>
           <div className="match-icon-container">
             <div className="team-icon">
-              <img src="/static/images/teams/CSK.png" alt="CKS" height={50} />
+              <img src="/static/images/teams/Super-kings-icon.svg" alt="CKS" className="team-logo" height={50} />
             </div>
             <div className="team-vs">
               <p>VS</p>
             </div>
             <div className="team-icon">
-              <img src="/static/images/teams/MI.png" alt="MI" height={50} />
+              <img src="/static/images/teams/match-mi-logo.svg" alt="MI"  className="team-logo" height={50} />
             </div>
           </div>
         </div>
@@ -150,13 +150,13 @@ const RealTimeMatchUpdate = (props) => {
           </div>
           <div className="match-icon-container">
             <div className="team-icon">
-              <img src="/static/images/teams/CSK.png" alt="CKS" height={50} />
+              <img src="/static/images/teams/match-logo.svg" alt="CKS" className="team-logo" height={50} />
             </div>
             <div className="team-vs">
               <p>VS</p>
             </div>
             <div className="team-icon">
-              <img src="/static/images/teams/MI.png" alt="MI" height={50} />
+              <img src="/static/images/teams/Kings-lcon.svg" alt="MI" className="team-logo" height={50} />
             </div>
           </div>
         </div>

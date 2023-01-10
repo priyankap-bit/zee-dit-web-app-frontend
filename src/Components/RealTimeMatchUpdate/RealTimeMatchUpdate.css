@@ -53,7 +53,7 @@ h2.realtime-update-api {
     box-shadow: 0px 2px 5px #D6DEF8;
     border-radius: 4px;
     width: 100%;
-    margin: 0 10px;
+    margin: 0 2px;
     cursor: pointer;
 }
 
@@ -67,7 +67,7 @@ h2.realtime-update-api {
     box-shadow: 0px 2px 5px #D6DEF8;
     border-radius: 4px;
     width: 100%;
-    margin: 0 10px;
+    margin: 0 2px;
     cursor: pointer;
 }
 
@@ -103,7 +103,7 @@ h2.realtime-update-api {
 }
 
 .team-icon {
-    border: 1px solid #D8E3FF;
+    /* border: 1px solid #D8E3FF; */
     border-radius: 50%;
     padding: 1.5rem;
     margin: 0 1.5rem;
@@ -115,20 +115,27 @@ h2.realtime-update-api {
     line-height: 18px;
 }
 
+.team-logo {
+    height: 50px;
+    width: 50px;
+}
+
 .real-time-match-update-match-data {
+    margin: 2px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 99.5%;
     background: #FFFFFF;
     border: 1px solid #D8E3FF;
     box-shadow: 0px 2px 5px #D6DEF8;
     border-radius: 4px;
-    height: 270px;
+    height: auto;
     margin-top: 20px;
     /* margin: 15px; */
 }
 
 .real-time-match-update-info-container {
+    padding-bottom: 15px;
     display: flex;
     /* flex-direction: column; */
     width: 100%;
@@ -138,7 +145,7 @@ h2.realtime-update-api {
     display: flex;
     flex-direction: column;
     width: 25%;
-    height: 250px;
+    /* height: 250px; */
     border-right: 1px dashed #AFC5FD;
 }
 
@@ -165,6 +172,7 @@ h2.realtime-update-api {
     line-height: 14px;
     color: #333333;
     padding: 0 10px;
+    margin-bottom: 0rem!important;
 }
 
 @media only screen and (max-width: 767px) {
@@ -175,4 +183,79 @@ h2.realtime-update-api {
         font-size: 10px !important;
     }
 
+    .real-time-match-update-match-name-cont {
+        display: flex !important;
+    }
+
+    .real-time-match-update-match-name-inactive {
+        margin: 10px 0px 10px 0px;
+    }
+
+    .real-time-match-update-match-name-active {
+        margin: 10px 0px 10px 0px;
+    }
+
+    .real-time-match-update-match-data,
+    .real-time-match-update-info-container {
+        display: block !important;
+    }
+
+    .real-time-match-update-info-div {
+        display: block !important;
+        width: auto !important;
+    }
+
+    .real-time-match-update-match-data {
+        background: none !important;
+        box-shadow: none !important;
+    }
+
+    .real-time-match-update-match-name-cont {
+        display: block !important;
+    }
+
+    .indicators ul {
+        margin-bottom: 0px !important;
+    }
+
+    .real-time-match-update-info-div {
+        background: #FFFFFF;
+        border: 1px solid #D8E3FF;
+        box-shadow: 0px 2px 5px #d6def8;
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+
+    .tableau-dashboard {
+        top: 1rem;
+        position: relative;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+    .ilt20-header-div-middle {
+        padding: 0 0rem 0 0 !important;
+    }
+
+    .real-time-match-update-info-container {
+        display: grid;
+        grid-template-columns: 400px 400px;
+    }
+
+    .real-time-match-update-info-div{
+        border-right: none;
+    }
+}
+
+@media only screen and (max-width: 1249px) and (min-width: 1024px) {
+    .real-time-match-update-info-container {
+        display: grid!important;
+        grid-template-columns: 400px 400px!important;
+        justify-content: space-around ;
+    }
+    /* .real-time-match-update-info-div{display: grid!important;} */
+    .real-time-match-update-info-div{
+        border-right: none;
+    }
 }

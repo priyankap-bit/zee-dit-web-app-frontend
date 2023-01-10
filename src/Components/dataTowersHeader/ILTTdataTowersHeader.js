@@ -10,13 +10,16 @@ const ILTTdataTowersHeader = (props) => {
     return (
 
         <div className="data-tower-head">
-            <div className="logo">
+            <div className="logo-datatowers">
                 <img src='/static/images/logos/zee-logo.png' height={30} alt='Viewers Logo' className='logo-image' />
-               
             </div>
-            
+            <div className="logo-datatowers">
+                <img src='/static/images/logos/background-image-final.png' alt='Viewers Logo' className='datatower-image' />
+            </div>
             <div className='loginUser'>
-                <p>Hello Deepak,</p>
+            <img src='/static/images/logos/profile.svg'  className="profile"height={40} alt='profile Logo' />
+            <p className='username'>Hello Deepak</p>
+            <img src='/static/images/logos/logout.svg'className="logout" height={40} alt='logoutLogo' />
             </div>
         </div>
 

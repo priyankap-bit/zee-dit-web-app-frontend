@@ -25,7 +25,7 @@ const SocialListeningTab = (props) => {
     };
     fetchData();
   }, []);
-  console.log(socialListingFetchData);
+  // console.log(socialListingFetchData);
 
   return (
     <div className="social-listening-tab-container">

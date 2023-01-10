@@ -7,3 +7,46 @@
     text-align: center;
     color: #333333;
 }
+
+.tooltip-line-chart {
+    background: #FFFFFF;
+    border: 1px solid #D8E3FF;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.tooltip-area {
+    z-index: 100;
+    background-color: black;
+    position: absolute;
+}
+
+.tooltip-area__text {
+    z-index: 100;
+    background-color: black;
+}
+
+.tooltip-line-chart p {
+    font-weight: 400;
+    color: #333333;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.tooltip-area-line-chart {
+    z-index: 100;
+    background-color: black;
+}
+
+.tooltip-area__text-line-chart {
+    z-index: 100;
+    background-color: black;
+}

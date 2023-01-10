@@ -1,0 +1,23 @@
+.executive-summary-content-tab {
+    width: 34%;
+}
+
+.executive-summary-content-tabs {
+    margin: auto;
+    width: 97%;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #D8E3FF;
+    height: 30px;
+    padding: 0%;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+div.executive-summary-content-active-tab {
+    border-bottom: 3px solid #402177;
+    width: 34%;
+    cursor: pointer;
+}
