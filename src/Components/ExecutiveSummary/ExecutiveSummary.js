@@ -20,7 +20,6 @@ const ExecutiveSummary = (props) => {
   }, [])
   // console.log('linearDatalinearDatalinearData', linearData);
   return (
-    <div className='test'> test
     <div className='executive-summary-container'>
 
       {digitalData &&
@@ -53,7 +52,7 @@ const ExecutiveSummary = (props) => {
       </div>
       </>
 }
-</div>
+
     </div>
   )
 
