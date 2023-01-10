@@ -1,7 +1,7 @@
 import axios from "axios";
 import { async } from "q";
 
-const baseURL = 'http://20.219.91.228:5000';
+const baseURL = 'http://20.219.91.228/';
 // const baseURLProd = 'http://20.219.91.228:5000';
 
 export default {

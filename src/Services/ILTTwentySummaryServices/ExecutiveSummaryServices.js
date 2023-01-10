@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = 'http://localhost:5000/';
+const baseURL = 'http://20.219.91.228/';
 
 export default {
     getDigitalSummary: async function () {
