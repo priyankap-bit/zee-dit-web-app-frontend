@@ -5,7 +5,8 @@ import axios from "axios";
 export default {
     getDigitalSummary: async function () {
         try {
-            const response = await axios.get('digital')
+            // const response = await axios.get('digital')
+            const response = await fetch('digital');
             return response.data;
         }
         catch (error) {
