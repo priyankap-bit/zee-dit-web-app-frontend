@@ -219,6 +219,7 @@ const LineChart = (props) => {
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
         .on("mouseover", mouseover)
+
     }
 
     // At the beginning, I run the update function on the first dataset:
