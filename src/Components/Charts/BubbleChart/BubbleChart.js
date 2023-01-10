@@ -63,36 +63,6 @@ const BubbleChart = (props) => {
         // Compute labels and titles.
         const L = label == null ? null : d3.map(data, label);
         const T = title === undefined ? L : title == null ? null : d3.map(data, title);
-        var xCenter = [100, 300, 500];
-        function ticked() {
-            var u = d3.select('svg g')
-                .selectAll('circle')
-                .data(data)
-                .join('circle')
-                .attr('r', function(d) {
-                    return d.radius;
-                })
-                .style('fill', function(d) {
-                    // return colorScale[d.category];
-                })
-                .attr('cx', function(d) {
-                    return d.x;
-                })
-                .attr('cy', function(d) {
-                    return d.y;
-                });
-        }
-        
-        // Compute layout: create a 1-deep hierarchy, and pack it.
-        var simulation = d3.forceSimulation(data)
-        .force('charge', d3.forceManyBody().strength(5))
-        .force('x', d3.forceX().x(function(d) {
-            return xCenter[d.category];
-        }))
-        .force('collision', d3.forceCollide().radius(function(d) {
-            return d.radius;
-        }))
-        .on('tick', ticked);
 
         const root = d3.pack()
             .size([width - marginLeft - marginRight, height - marginTop - marginBottom])
@@ -116,7 +86,7 @@ const BubbleChart = (props) => {
             .attr("xlink:href", link == null ? null : (d, i) => link(D[d.data], i, data))
             .attr("target", link == null ? null : linkTarget)
 
-        const trans = leaf.attr("transform", 'translate(750, 200)')
+        const trans = leaf.attr("transform", 'translate(770, 200)')
         trans.transition().duration(1000).attr("transform", d => `translate(${d.x},${d.y})`)
         const circle = leaf.append("circle")
             .attr("stroke", '#945ED2')
@@ -128,24 +98,24 @@ const BubbleChart = (props) => {
             .style("cursor", "pointer")
             .on('click', function (d, i) {
                 d3.select(this)
+                    .attr("stroke-width", 5)
                     // .transition()
                     // .duration(1000)
-                    .attr("stroke-width", 5)
                     // .ease(d3.easeBounce)
                     // .attr("r", 50)
                     // .style("fill", "orange");
 
-                leaf.filter(function (e) {
-                    return e.rank === d.rank;
-                }).transition()
-                    .duration(1000)
-                    .ease(d3.easeBounce)    
-                    .attr("font-size", "10px")
+                // leaf.filter(function (e) {
+                //     return e.rank === d.rank;
+                // }).transition()
+                //     .duration(1000)
+                //     .ease(d3.easeBounce)    
+                //     .attr("font-size", "10px")
             })
             .on('mouseout', function (d, i) {
                 d3.select(this)
-                // .transition()
                 .attr("stroke-width", strokeWidth)
+                // .transition()
                 //     .style("opacity", 0.3)
                 //     .attr("r", 50)
                 //     .style("fill", "blue");
