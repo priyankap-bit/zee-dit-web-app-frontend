@@ -28,9 +28,9 @@ const LineChart = (props) => {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    const bounds = svg
-      .append("g")
-      .style("transform", `translate(${margin.left}px,${margin.top}px)`);
+    // const bounds = svg
+    //   .append("g")
+    //   .style("transform", `translate(${margin.left}px,${margin.top}px)`);
 
     // Initialise a X axis:
     var x = d3.scaleLinear().range([0, width]);
@@ -102,11 +102,11 @@ const LineChart = (props) => {
         .attr("opacity", ".1")
         .attr("stroke-dasharray", "1");
 
-      const listeningRect = bounds
-        .append("rect")
-        .attr("class", "listening-rect")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom);
+      // const listeningRect = bounds
+      //   .append("rect")
+      //   .attr("class", "listening-rect")
+      //   .attr("width", width + margin.left + margin.right)
+      //   .attr("height", height + margin.top + margin.bottom);
       // .on("mousemove", onMouseMove)
       // .on("mouseleave", onMouseLeave);
 
@@ -153,67 +153,67 @@ const LineChart = (props) => {
         .attr("stroke", "#945ED2")
         .attr("stroke-width", 1.32592);
 
-      // var Tooltip = d3.select(lineChart.current)
-      //   .append("div")
-      //   .style("opacity", 0)
-      //   .attr("class", "tooltip");
-
-      // // Tooltip.selectAll("*").remove();
-
-      // var mouseover = function (d) {
-      //   Tooltip
-      //     .style("opacity", 1)
-      // }
-
-      // const tootTipHtml = (event) => `<div><p>Data</p></div>`;
-
-      // var mousemove = function (event, d) {
-      //   Tooltip
-      //     .html(tootTipHtml(event))
-      //     .style("top", (d3.mouse(this)[1]) + "px")
-      //     .style("left", (d3.mouse(this)[0] - 50) + "px")
-      // }
-      // var mouseleave = function (d) {
-      //   Tooltip
-      //     .style("opacity", 0)
-      //   // d3.select(this)
-      //   //   .style("stroke", "none")
-      //   //   .style("opacity", 1)
-      // }
-
       var Tooltip = d3.select(lineChart.current)
         .append("div")
         .style("opacity", 0)
-        .attr("class", "tooltip-line-chart")
-        .style("background-color", "black")
-        .style("border", "solid")
-        .style("border-width", "2px")
-        .style("border-radius", "5px")
-        .style("padding", "5px")
+        .attr("class", "tooltip");
 
-      // Three function that change the tooltip when user hover / move / leave a cell
+      // Tooltip.selectAll("*").remove();
+
       var mouseover = function (d) {
         Tooltip
-          .transition()
-          .duration(300)
-          .style("opacity", 1)
-        d3.select(this)
-          .style("stroke", "black")
           .style("opacity", 1)
       }
-      var mousemove = function (d) {
+
+      const tootTipHtml = (event) => `<div><p>Data</p></div>`;
+
+      var mousemove = function (event, d) {
         Tooltip
-          .html("The exact value of<br>this cell is: " + "d.value")
-          .style("left", (d3.mouse(this)[0] + 70) + "px")
+          .html(tootTipHtml(event))
           .style("top", (d3.mouse(this)[1]) + "px")
+          .style("left", (d3.mouse(this)[0] - 50) + "px")
       }
       var mouseleave = function (d) {
         Tooltip
           .style("opacity", 0)
-        d3.select(this)
-          .style("stroke", "none")
-          .style("opacity", 0.8)
+        // d3.select(this)
+        //   .style("stroke", "none")
+        //   .style("opacity", 1)
       }
+
+      // var Tooltip = d3.select(lineChart.current)
+      //   .append("div")
+      //   .style("opacity", 0)
+      //   // .attr("class", "tooltip-line-chart")
+      //   // .style("background-color", "black")
+      //   // .style("border", "solid")
+      //   // .style("border-width", "2px")
+      //   // .style("border-radius", "5px")
+      //   // .style("padding", "5px")
+
+      // // Three function that change the tooltip when user hover / move / leave a cell
+      // var mouseover = function (d) {
+      //   Tooltip
+      //     .transition()
+      //     .duration(300)
+      //     .style("opacity", 1)
+      //   d3.select(this)
+      //     .style("stroke", "black")
+      //     .style("opacity", 1)
+      // }
+      // var mousemove = function (d) {
+      //   Tooltip
+      //     .html("The exact value of<br>this cell is: " + "d.value")
+      //     .style("left", (d3.mouse(this)[0] + 70) + "px")
+      //     .style("top", (d3.mouse(this)[1]) + "px")
+      // }
+      // var mouseleave = function (d) {
+      //   Tooltip
+      //     .style("opacity", 0)
+      //   d3.select(this)
+      //     .style("stroke", "none")
+      //     .style("opacity", 0.8)
+      // }
 
       svg
         .on("mousemove", mousemove)
