@@ -28,6 +28,10 @@ const LineChart = (props) => {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+    const bounds = svg
+      .append("g")
+      .style("transform", `translate(${margin.left}px,${margin.top}px)`);
+
     // Initialise a X axis:
     var x = d3.scaleLinear().range([0, width]);
     var xAxis = d3.axisBottom().scale(x).tickSize(-height)
@@ -40,6 +44,9 @@ const LineChart = (props) => {
     var y = d3.scaleLinear()
       .domain([0, d3.max(data, d => d.value)])
       .range([height, 0]);
+
+    // console.log('y(100)', y(100));
+
     var yAxis = d3.axisLeft().scale(y).ticks(1).tickSize(0);
     svg.append("g").attr("class", "myYaxis");
 
@@ -80,26 +87,12 @@ const LineChart = (props) => {
         .attr("opacity", ".1")
         .attr("stroke-dasharray", "2");
 
-      // svg
-      //   .selectAll(".tick")
-      //   .attr("stroke", "#D8D8D8")
-      //   .attr("stroke-width", "1")
-      //   .attr("opacity", ".2")
-      //   .attr("stroke-dasharray", "2");
-
       svg
         .selectAll(".tick")
         .attr("stroke", "#D8D8D8")
         .attr("stroke-width", "1")
         .attr("opacity", ".2")
         .attr("stroke-dasharray", "2");
-
-      // svg
-      //   .select(".y-axis")
-      //   .attr("height", height)
-      //   .call(yAxis)
-      //   .selectAll("text")
-      //   .attr("class", "stacekd-bar-chart-ticks");
 
       svg
         .select(".myYaxis")
@@ -108,6 +101,14 @@ const LineChart = (props) => {
         .attr("stroke-width", "1")
         .attr("opacity", ".1")
         .attr("stroke-dasharray", "1");
+
+      const listeningRect = bounds
+        .append("rect")
+        .attr("class", "listening-rect")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom);
+      // .on("mousemove", onMouseMove)
+      // .on("mouseleave", onMouseLeave);
 
       let x2 = d3.scaleOrdinal()
         .domain(data.map(d => d.key))
