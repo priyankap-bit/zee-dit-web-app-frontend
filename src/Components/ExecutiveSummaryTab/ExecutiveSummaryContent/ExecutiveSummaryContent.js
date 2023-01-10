@@ -3,6 +3,7 @@ import "./ExecutiveSummaryContent.css"
 import { useState } from "react";
 import BubbleChart from "../../Charts/BubbleChart/BubbleChart";
 import ExecutiveSummaryContentLinear from "./ExecutiveSummaryContentLinear";
+import ExecutiveSummaryContentOtt from "./ExecutiveSummaryContentOtt";
 
 const ExecutiveSummaryContent = () => {
     const [activeTab, setActiveTab] = useState('linear');
@@ -17,6 +18,7 @@ const ExecutiveSummaryContent = () => {
 
             <div>
                 {activeTab === 'linear' && <ExecutiveSummaryContentLinear />}
+                {activeTab === 'ott' && <ExecutiveSummaryContentOtt />}
             </div>
         </div>
     )

@@ -157,6 +157,7 @@ const AreaChart = (props) => {
 
     useEffect(() => {
         // setting up svg
+
         if (LineData.length > 0) {
             // console.log(LineData);
             LineData.push(0);
@@ -207,12 +208,14 @@ const AreaChart = (props) => {
             const tootTipHtml = (event) => `<div><p>ABC</p></div>`;
 
             var mousemove = function (event, d) {
-                console.log(event);
+                console.log('event on mouse move', event);
                 Tooltip
-                    // .text("Date: " + event.target.__data__.data.key + " " + "Match 1: " + event.target.__data__.data.matchOne + "\n" + "Match 2: " + event.target.__data__.data.matchTwo)
-                    .html(tootTipHtml(event))
+                    .text("Date: " + event.target.__data__.data.key + " " + "Match 1: " + event.target.__data__.data.matchOne + "\n" + "Match 2: " + event.target.__data__.data.matchTwo)
+                    // .html(tootTipHtml(event))
                     .style("top", event.pageY + "px")
                     .style("left", event.pageX + "px")
+
+                // const mouse = d3.pointer(d3.eve)
             }
             var mouseleave = function (d) {
                 Tooltip
@@ -221,6 +224,26 @@ const AreaChart = (props) => {
                     .style("stroke", "none")
                     .style("opacity", 1)
             }
+
+            svg
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave)
+                .on("mouseover", mouseover)
+        }
+
+        // const height = 60, width = 330;
+
+        // const svg = d3.select(svgRef.current)
+        //     .attr('width', width)
+        //     .attr('height', height);
+
+        // const xScale = d3.scaleTime()
+        //     .domain(d3.extent(areaChartData, d => d.date))
+        //     .range([0, width]);
+
+        // const yScale = d3.scaleLinear()
+        //     .domain([0, d3.max(areaChartData, d => d.population)])
+        //     .range([height, 0]);
 
             svg
                 .on("mousemove", mousemove)
