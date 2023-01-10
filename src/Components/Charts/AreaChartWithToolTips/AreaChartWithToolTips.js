@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
 import * as d3 from 'd3v4';
-import * as d3v2 from 'd3';
 
 import './AreaChartWithToolTips.css';
 import areaChartWithToolTipsData from './data';
@@ -15,17 +14,19 @@ const AreaChartWithToolTips = (props) => {
     const temp = data.map(d => {
         // let dateParser = d3.timeParse("%d/%m/%Y");
         return {
-            date: d3.timeParse("%d/%m/%Y")(d.date),
+            date: d3.timeFormat("%d/%m/%Y")(new Date(d.date)),
             population: d.population
         }
     })
 
     useEffect(() => {
 
-        console.log("Data in area chart with tooltips", data[0].date);
-        console.log(d3.timeParse("%d/%m/%Y")(data[0].date))
+        // console.log("Data in area chart with tooltips", data[0].date);
+        // console.log(d3.timeParse("%d/%m/%Y")(data[0].date))
+        console.log(d3.timeParse("%d/%m/%Y")(new Date(data[0].date)));
 
-        // console.log(temp);
+        console.log(temp);
+
 
         const width = 100, height = 500;
 
