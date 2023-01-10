@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-import * as d3 from "d3v4";
-// import * as d3 from "d3";
+// import * as d3 from "d3v4";
+import * as d3 from "d3";
 
 import './AreaChart.css';
 import { useRef } from 'react';
@@ -228,116 +228,15 @@ const AreaChart = (props) => {
                 .on("mouseover", mouseover)
         }
 
-        // const height = 60, width = 330;
-
-        // const svg = d3.select(svgRef.current)
-        //     .attr('width', width)
-        //     .attr('height', height);
-
-        // // console.log('data', data);
-
-        // const xScale = d3.scaleTime()
-        //     .domain(d3.extent(data, d => d.date))
-        //     .range([0, width]);
-
-        // const xAxis = d3.axisBottom()
-        //     .scale(xScale);
-
-        // // svg.append('g')
-        // //     .attr('transform', `translate(0, ${height})`)
-        // //     .call(xAxis);
-
-        // const yScale = d3.scaleLinear()
-        //     .domain([0, d3.max(data, d => d.population)])
-        //     .range([height, 0]);
-
-        // const area = d3.area()
-        //     .x(d => xScale(d.date))
-        //     .y1(d => yScale(d.population))
-        //     .y0(yScale(0));
-
-        // svg.append('path')
-        //     .attr('d', area(data))
-        //     .attr('stroke', 'rgb(148, 94, 210)')
-        //     .attr('stroke-width', '1px')
-        //     .attr('fill', 'rgba(148, 94, 210, 0.1)');
-
-        // svg.append('line').classed('hoverLine', true)
-        // svg.append('circle').classed('hoverPoint', true);
-        // svg.append("text").classed('hoverText', true);
-
-        // svg.append('rect')
-        //     .attr('fill', 'transparent')
-        //     .attr('x', 0)
-        //     .attr('y', 0)
-        //     .attr('width', width)
-        //     .attr('height', height);
-
-        // svg.on('mousemove', mouseMove);
-
-        // function mouseMove(event) {
-        //     d3.event.preventDefault();
-        //     const mouse = d3.mouse(d3.event.target);
-        //     const [
-        //         xCoord,
-        //         yCoord,
-        //     ] = mouse;
-
-        //     const mouseDate = xScale.invert(xCoord);
-        //     const mouseDateSnap = d3.timeYear.floor(mouseDate);
-
-        //     if (xScale(mouseDateSnap) < 0 ||
-        //         xScale(mouseDateSnap) > width) {
-        //         return;
-        //     }
-
-        //     const bisectDate = d3.bisector(d => d.date).right;
-        //     const xIndex = bisectDate(data, mouseDateSnap, 1);
-
-        //     // console.log('xIndex', xIndex);
-
-        //     const mousePopulation = data[xIndex - 1].population;
-
-        //     // svg.selectAll('.hoverLine')
-        //     //     .attr('x1', xScale(mouseDateSnap))
-        //     //     .attr('y1', 0)
-        //     //     .attr('x2', xScale(mouseDateSnap))
-        //     //     .attr('y2', height)
-        //     //     .attr('stroke', '#147F90')
-        //     //     .attr('fill', '#A6E8F2')
-        //     //     ;
-
-        //     // svg.selectAll('.hoverPoint')
-        //     //     .attr('cx', xScale(mouseDateSnap))
-        //     //     .attr('cy', yScale(mousePopulation))
-        //     //     .attr('r', '7')
-        //     //     .attr('fill', '#147F90')
-        //     //     ;
-
-        //     const isLessThanHalf = xIndex > data.length / 2;
-        //     const hoverTextX = isLessThanHalf ? '-0.75em' : '0.75em';
-        //     const hoverTextAnchor = isLessThanHalf ? 'end' : 'start';
-
-        //     // svg.selectAll('.hoverText')
-        //     //     .attr('x', xScale(mouseDateSnap))
-        //     //     .attr('y', yScale(mousePopulation))
-        //     //     .attr('dx', hoverTextX)
-        //     //     .attr('dy', '-1.25em')
-        //     //     .style('text-anchor', hoverTextAnchor)
-        //     //     .text(d3.format('.5s')(mousePopulation));
-
-
-
-
     }, [LineData]);
 
     return (
         <div className='areachart-container' ref={wrapperRef.current}>
             <div>
                 <svg ref={svgRef}></svg>
-                {/* <g className="tooltip-area-area-chart">
-                    <text className="tooltip-area__text-area-chart">ABC</text>
-                </g> */}
+                <g className="tooltip-area-area-chart">
+                    <text className="tooltip-area__text-area-chart"></text>
+                </g>
             </div>
         </div>
     )
