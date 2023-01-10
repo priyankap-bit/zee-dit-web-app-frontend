@@ -100,7 +100,7 @@ const BubbleChart = (props) => {
                   .duration(1000)
                   .ease(d3.easeBounce)
                   .attr("r", 50)
-                  .style("fill", "orange");
+                  .style("fill", "#3E1F76");
             
               leaf.filter(function(e) {
                     return e.rank === d.rank;
@@ -113,7 +113,7 @@ const BubbleChart = (props) => {
                 d3.select(this).transition()
                   .style("opacity", 0.3)
                   .attr("r", 50)
-                  .style("fill", "blue");
+                  .style("fill", "rgb(148, 94, 210)");
                 leaf.filter(function(e) {
                   return e.rank === d.rank;
                 }).attr("font-size", "10px")
