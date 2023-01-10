@@ -86,8 +86,13 @@ const BubbleChart = (props) => {
             .attr("xlink:href", link == null ? null : (d, i) => link(D[d.data], i, data))
             .attr("target", link == null ? null : linkTarget)
 
-        const trans = leaf.attr("transform", 'translate(770, 200)')
-        trans.transition().duration(1000).attr("transform", d => `translate(${d.x},${d.y})`)
+        const trans = leaf
+        .attr("transform", 'translate(770, 200)')
+        // .attr("transform", d => `translate(${d.x}, 200)`)
+        
+        trans.transition()
+        .duration(1000)
+        .attr("transform", d => `translate(${d.x},${d.y})`)
         const circle = leaf.append("circle")
             .attr("stroke", '#945ED2')
             .attr("stroke-width", strokeWidth)
