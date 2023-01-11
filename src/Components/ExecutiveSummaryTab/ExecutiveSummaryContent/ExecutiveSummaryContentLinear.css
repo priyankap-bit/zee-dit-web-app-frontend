@@ -4,15 +4,28 @@
 }
 
 .executive-summary-content-linear {
+    font-family: 'GothamBold';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    color: #333333;
     border: none;
     background: #E9EFFF;
-    color: black;
+ 
     width: 100px;
     height: 30px;
     border-right: 1px solid #B4C8FF;
 }
 
 .executive-summary-content-linear-actve-tab {
+    font-family: 'GothamBold';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
     border: none;
     background: none;
     background: linear-gradient(180deg, #7E5AA4 0%, #3E1F76 100%);

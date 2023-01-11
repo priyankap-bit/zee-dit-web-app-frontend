@@ -1,4 +1,11 @@
 .executive-summary-content-tab {
+    font-family: 'GothamBold';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    color: #808080;
     width: 34%;
 }
 
@@ -17,6 +24,12 @@
 }
 
 div.executive-summary-content-active-tab {
+    font-family: 'GothamBold';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 15px;
+    color: #3E1F76;
     border-bottom: 3px solid #402177;
     width: 34%;
     cursor: pointer;
