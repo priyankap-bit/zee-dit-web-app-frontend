@@ -40,7 +40,7 @@ const LineChart = (props) => {
           .call(d3.axisBottom(x));
 
         // Add Y axis
-        var y = d3.scaleLinear()
+        var y = d3.scale.Linear()
           .domain([0, d3.max(data, function (d) { return +d.value; })])
           .range([height, 0]);
         svg.append("g")
