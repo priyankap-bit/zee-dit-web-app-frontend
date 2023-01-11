@@ -4,7 +4,7 @@ import { useState } from "react";
 import BubbleChart from "../../Charts/BubbleChart/BubbleChart";
 import ExecutiveSummaryContentLinear from "./ExecutiveSummaryContentLinear";
 import ExecutiveSummaryContentOtt from "./ExecutiveSummaryContentOtt";
-import LinearBarchart from "../../Charts/LinearBarchart/LinearBarchart";
+// import LinearBarchart from "../../Charts/LinearBarchart/LinearBarchart";
 
 const ExecutiveSummaryContent = () => {
     const [activeTab, setActiveTab] = useState('linear');
@@ -18,7 +18,7 @@ const ExecutiveSummaryContent = () => {
 
             <div>
                 {activeTab === 'linear' && <ExecutiveSummaryContentLinear /> }
-                {activeTab === 'linear' &&  <LinearBarchart/> }
+                {/* {activeTab === 'linear' &&  <LinearBarchart/> } */}
                 {activeTab === 'ott' && <ExecutiveSummaryContentOtt />}
             </div>
         </div>
