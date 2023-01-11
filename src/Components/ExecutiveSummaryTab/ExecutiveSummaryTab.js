@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import './ExecutiveSummaryTab.css'
 import ILTTwentrySummaryHeader from "../ILTTwentrySummaryHeader/ILTTwentrySummaryHeader";
 import ExecutiveSummaryContent from "./ExecutiveSummaryContent/ExecutiveSummaryContent";
+import ExecutiveSummaryProduct from "./ExecutiveSummaryProduct/ExecutiveSummaryProduct";
+
 
 const ExecutiveSummaryTab = () => {
     const [activeTab, setActiveTab] = useState(null);
