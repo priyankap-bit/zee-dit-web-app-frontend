@@ -4,6 +4,7 @@ import { useState } from "react";
 import BubbleChart from "../../Charts/BubbleChart/BubbleChart";
 import TreeChart from "../../Charts/TreeChart/Treechart";
 import ExecutiveSummaryContentOtt from "./ExecutiveSummaryContentOtt";
+
 // import LinearBarchart from "../../Charts/LinearBarchart/LinearBarchart";
 
 const ExecutiveSummaryContent = () => {
@@ -17,13 +18,9 @@ const ExecutiveSummaryContent = () => {
             </div>
 
             <div>
-<<<<<<< Updated upstream
-                {activeTab === 'linear' && <ExecutiveSummaryContentLinear /> }
                 {/* {activeTab === 'linear' &&  <LinearBarchart/> } */}
-=======
                 {activeTab === 'linear' && <TreeChart /> }
->>>>>>> Stashed changes
-                {activeTab === 'ott' && <ExecutiveSummaryContentOtt />}
+
             </div>
         </div>
     )
