@@ -5,10 +5,12 @@ import * as d3 from 'd3';
 import { transition } from 'd3-transition';
 import { scaleLinear } from 'd3-scale';
 
-const FrontBar = () => {
+const FrontBar = (props) => {
+
+    const {data} = props
+    // const data = 100
     const ref = useRef();
 
-    const data = 300;
     const width = 200;
 
     const total = 500;
@@ -43,7 +45,7 @@ const FrontBar = () => {
             .range([0, width])
             
         const node = ref.current;
-        d3.select(node)
+        d3.select('.expenditure-bar-group')
             .append('rect')
             .attr('class', 'bar')
             .attr('x', 0)
@@ -53,7 +55,7 @@ const FrontBar = () => {
             .attr('width', 0)
             .attr('height', barHeight);
 
-        d3.select(node)
+        d3.select('.expenditure-bar-group')
             .append('text')
             .attr('class', 'amount')
             .attr('x', 0)
@@ -61,7 +63,7 @@ const FrontBar = () => {
             .attr('dx', -10)
             .attr('dy', 2)
         //   const { data, xScale } = props;
-        const t = transition().duration(300);
+        const t = transition().duration(100);
 
         d3.select('.bar')
             .transition(t).attr('width', xScale(data)).attr('fill', '#C996EB');
@@ -87,8 +89,10 @@ const FrontBar = () => {
                 <div>
                     {/* <button onClick={this.handleOnClick}>Randomize Data</button> */}
                     <svg
-                        width={width + margin.left + margin.right}
-                        height={svgHeight}
+                        width='200'
+                        height='90'
+                        style={{verticalAlign: 'top'}}
+                        className='m-5'
                     >
                         <g transform={`translate(${margin.left}, ${margin.top})`}>
                             <g className="budget-bar-group">
