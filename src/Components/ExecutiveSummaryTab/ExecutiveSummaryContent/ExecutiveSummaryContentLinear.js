@@ -34,15 +34,18 @@ const ExecutiveSummaryContentLinear = () => {
 
     for (let i = 0; i < sortedFiles.length; i++) {
         if (i < 10) {
-            top10files.push(sortedFiles[i])
+            bottom10files.push(sortedFiles[i])
         }
     }
     for (let i = sortedFiles.length - 1; i > 0; i--) {
         count += 1;
         if (count <= 10) {
-            bottom10files.push(sortedFiles[i])
+            top10files.push(sortedFiles[i])
         }
     }
+
+    console.log(top10files);
+    console.log('bottom10files',bottom10files);
 
     return (
         <div>
