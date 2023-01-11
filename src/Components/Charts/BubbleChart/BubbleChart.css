@@ -5,3 +5,17 @@ text {
     font-weight: 800;
     font-size: 11px;
 }
+.bubble-indicators {
+    color: #808080;
+    font-family: 'GothamMedium';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 11px;
+    position: absolute;
+    left: 1rem;
+    top: 14rem;
+}
+img.xxk {
+    padding-left: 5px;
+    padding-right: 5px;
+}

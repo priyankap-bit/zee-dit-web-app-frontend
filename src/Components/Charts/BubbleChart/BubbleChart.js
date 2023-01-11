@@ -6,10 +6,6 @@ import { drag, dragDisable, dragEnable, forceY, scaleLinear, ticks } from "d3";
 const BubbleChart = (props) => {
     const { files } = props
     const width = window.innerWidth;
-    
-    
-
-    
     useEffect(() => {
         const chart = BubbleChart(files, {
             label: d => [...d.id.split(".").pop().split(/(?=[A-Z][a-z])/g), d.value].join("\n"),
@@ -162,9 +158,21 @@ const BubbleChart = (props) => {
 
     return (
         <div className="bubble-chart-div">
-            <svg id='bubbleChart'>
-
-            </svg>
+            <div className="bubble-indicators">
+             Bubble size represents Reach
+             <div className="indicators">
+             <img src="/static/images/logos/xxk.svg"  className="xxk"  alt="Viewers Logo"/> 
+              xxk 
+              <img src="/static/images/logos/xxk-2.svg"  className="xxk"  alt="Viewers Logo"/> 
+              xxk 
+              <img src="/static/images/logos/xxk-3.svg"  className="xxk"  alt="Viewers Logo"/> 
+              xxk 
+              <img src="/static/images/logos/xxk-4.svg"  className="xxk"  alt="Viewers Logo"/> 
+              xxk 
+             </div>
+             
+            </div>
+            <svg id='bubbleChart'></svg>
         </div>
     )
 }
