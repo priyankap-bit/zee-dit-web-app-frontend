@@ -83,12 +83,12 @@ const BubbleChart = (props) => {
             .attr("target", link == null ? null : linkTarget)
 
         const trans = leaf
-        .attr("transform", 'translate(770, 200)')
+            .attr("transform", 'translate(770, 200)')
         // .attr("transform", d => `translate(${d.x}, 200)`)
-        
+
         trans.transition()
-        .duration(1000)
-        .attr("transform", d => `translate(${d.x},${d.y})`)
+            .duration(1000)
+            .attr("transform", d => `translate(${d.x},${d.y})`)
         const circle = leaf.append("circle")
             .attr("stroke", '#945ED2')
             .attr("stroke-width", strokeWidth)
@@ -100,11 +100,11 @@ const BubbleChart = (props) => {
             .on('click', function (d, i) {
                 d3.select(this)
                     .attr("stroke-width", 5)
-                    // .transition()
-                    // .duration(1000)
-                    // .ease(d3.easeBounce)
-                    // .attr("r", 50)
-                    // .style("fill", "orange");
+                // .transition()
+                // .duration(1000)
+                // .ease(d3.easeBounce)
+                // .attr("r", 50)
+                // .style("fill", "orange");
 
                 // leaf.filter(function (e) {
                 //     return e.rank === d.rank;
@@ -115,7 +115,7 @@ const BubbleChart = (props) => {
             })
             .on('mouseout', function (d, i) {
                 d3.select(this)
-                .attr("stroke-width", strokeWidth)
+                    .attr("stroke-width", strokeWidth)
                 // .transition()
                 //     .style("opacity", 0.3)
                 //     .attr("r", 50)
@@ -124,7 +124,7 @@ const BubbleChart = (props) => {
                 //     return e.rank === d.rank;
                 // }).attr("font-size", "10px")
             })
-        
+
         if (T) leaf.append("title")
             .attr("class", "tooltip-title")
             .text(d => T[d.data])
