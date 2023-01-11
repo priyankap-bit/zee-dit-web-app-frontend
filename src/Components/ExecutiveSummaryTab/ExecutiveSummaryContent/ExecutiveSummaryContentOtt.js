@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BubbleChart from "../../Charts/BubbleChart/BubbleChart";
+import * as d3 from 'd3';
 
 const ExecutiveSummaryContentOtt = () => {
 
@@ -22,11 +23,15 @@ const ExecutiveSummaryContentOtt = () => {
         {id: "interpolate", value: 300},
     ]
 
+    useEffect(() => {
+        const defs = d3.select('bubble-img-svg').append('g')
+    }, [])
+
 
     return (
         <div id="chart">
             <BubbleChart files={files} />
-            <svg height={500} width={800}>
+            {/* <svg className='bubble-img-svg' height={500} width={800}>
                 <defs>
                     <marker id='arrw' viewBox="0 -5 10 10" refX='0' refY='0' markerWidth='12' markerHeight='12' orient='auto'>
                         <path d="M0,-5L10,0"></path>
@@ -49,10 +54,15 @@ const ExecutiveSummaryContentOtt = () => {
                     </linearGradient>
 
                     <pattern id='jon-snow' height='100%' width='100%' patternContentUnits='objectBoundingBox'>
-                        <image height='1' width='1' preserveAspectRatio='none'  ></image>
+                        <image id='image-chart' height='500' width='500' preserveAspectRatio='none' xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="https://html.com/wp-content/uploads/very-large-flamingo.jpg"></image>
                     </pattern>
-                </defs>
-            </svg>
+                </defs> 
+                <circle cx='100' cy='100' r='40' fill='red'></circle>
+                <circle cx='300' cy='100' r='40' fill='url(yellow)'></circle>
+                <rect x='200' y='200' width='100' height='100' fill='url(https://themepack.me/i/c/749x467/media/g/2137/dark-galaxy-theme-jy8.jpg)'></rect>
+                <circle cx='400' cy='100' r='50' fill='url(https://themepack.me/i/c/749x467/media/g/2137/dark-galaxy-theme-jy8.jpg)'></circle>
+                <circle cx='500' cy='100' r='30' fill='url(https://themepack.me/i/c/749x467/media/g/2137/dark-galaxy-theme-jy8.jpg)'></circle>
+            </svg> */}
         </div>
     )
 }
