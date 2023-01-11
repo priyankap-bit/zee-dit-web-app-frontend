@@ -15,9 +15,11 @@ const ExecutiveSummaryTab = () => {
                 <button className="executive-summary-tab">Consumer</button>
                 <button className={activeTab === 'content' ? ('executive-summary-active-tab') : ("executive-summary-tab")} onClick={() => setActiveTab('content')}>Content</button>
                 <button className="executive-summary-tab">Customer</button>
-                <button className="executive-summary-tab">Product</button>
+                <button className={activeTab === 'product' ? ('executive-summary-active-tab') : ("executive-summary-tab")} onClick={() => setActiveTab('product')}>Product</button>
             </div>
             {activeTab === 'content' && <ExecutiveSummaryContent />}
+            {activeTab === 'product' && <ExecutiveSummaryProduct />}
+
         </div>
     )
 }
