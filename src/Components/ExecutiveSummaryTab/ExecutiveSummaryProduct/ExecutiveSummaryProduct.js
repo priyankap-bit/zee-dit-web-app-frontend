@@ -17,12 +17,7 @@ const ExecutiveSummaryContent = () => {
             </div>
 
             <div>
-<<<<<<< Updated upstream
-                {activeTab === 'linear' && <ExecutiveSummaryContentLinear /> }
-                {/* {activeTab === 'linear' &&  <LinearBarchart/> } */}
-=======
                 {activeTab === 'linear' && <TreeChart /> }
->>>>>>> Stashed changes
                 {activeTab === 'ott' && <ExecutiveSummaryContentOtt />}
             </div>
         </div>
