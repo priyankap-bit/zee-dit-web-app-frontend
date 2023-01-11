@@ -57,7 +57,7 @@ const ExecutiveSummaryContentLinearContents = () => {
                     <p>Kundli Bhagya</p>
                     <FrontBar data={100} total={total} />
                     <FrontBar data={300} total={total} />
-                    <FrontBar data={200} total={total} />
+                    <FrontBar data={280} total={total} />
                     <FrontBar data={300} total={total} />
                     <FrontBar data={420} total={total} />
                 </div>
