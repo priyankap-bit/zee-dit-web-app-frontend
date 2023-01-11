@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import './ExecutiveSummaryContentLinear.css'
 import BubbleChart from "../../Charts/BubbleChart/BubbleChart";
+import FrontBar from "../../Charts/BubbleChart/LinearBarchart/FrontBar";
+import ExecutiveSummaryContentLinearContents from "./ExecutiveSummaryContentLinearContents";
 
 const ExecutiveSummaryContentLinear = () => {
     const [activeTab, setActiveTab] = useState('all-content')
@@ -45,7 +47,7 @@ const ExecutiveSummaryContentLinear = () => {
     }
 
     console.log(top10files);
-    console.log('bottom10files',bottom10files);
+    console.log('bottom10files', bottom10files);
 
     return (
         <div>
@@ -55,11 +57,17 @@ const ExecutiveSummaryContentLinear = () => {
                 <button className={activeTab === 'bottom-10' ? ("executive-summary-content-linear-actve-tab") : ("executive-summary-content-linear bdr-none")} onClick={() => setActiveTab('bottom-10')}>Bottom 10</button>
             </div>
             <div>
-                {activeTab === 'all-content' && <BubbleChart files={sortedFiles} />}
+                {activeTab === 'all-content' &&
+                    <div>
+                        <BubbleChart files={sortedFiles} />
+                        <ExecutiveSummaryContentLinearContents />
+                    </div>
+
+                }
                 {activeTab === 'top-10' && <BubbleChart files={top10files} />}
                 {activeTab === 'bottom-10' && <BubbleChart files={bottom10files} />}
             </div>
-            
+
         </div>
     )
 }

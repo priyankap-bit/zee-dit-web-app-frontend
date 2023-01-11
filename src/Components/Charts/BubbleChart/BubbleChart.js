@@ -62,7 +62,7 @@ const BubbleChart = (props) => {
 
         const root = d3.pack()
             .size([width - marginLeft - marginRight, height - marginTop - marginBottom])
-            .padding(padding + 5)
+            .padding(padding)
             (d3.hierarchy({ children: I })
                 .sum(i => V[i]));
 
@@ -173,6 +173,9 @@ const BubbleChart = (props) => {
              
             </div>
             <svg id='bubbleChart'></svg>
+            <div>
+                
+            </div>
         </div>
     )
 }
