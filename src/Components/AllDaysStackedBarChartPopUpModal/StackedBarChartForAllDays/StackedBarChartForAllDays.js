@@ -14,7 +14,7 @@ import {
     pointer,
 } from "d3";
 
-import useResizeObserver from "../../Charts/StackedBarChart/useResizeObserver";
+// import useResizeObserver from "../../Charts/StackedBarChart/useResizeObserver";
 
 import {
     data,
@@ -28,7 +28,7 @@ const StackedBarChartForAllDays = (props) => {
     const svgRef = useRef();
     const yAxisRef = useRef();
     const wrapperRef = useRef();
-    const dimensions = useResizeObserver(wrapperRef);
+    // const dimensions = useResizeObserver(wrapperRef);
 
     useEffect(() => {
 
@@ -183,7 +183,7 @@ const StackedBarChartForAllDays = (props) => {
             .on("mouseleave", mouseleave)
             .on("mouseover", mouseover)
 
-    }, [dimensions, colors, data, keys]);
+    }, [colors, data, keys]);
 
     return (
 

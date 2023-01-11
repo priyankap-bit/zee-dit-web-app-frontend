@@ -11,30 +11,23 @@ const AreaChartWithToolTips = (props) => {
 
     const [data, setData] = useState(areaChartWithToolTipsData);
 
-    let preParedData = data.map(d => {
-        return {
-            date: new Date(d.date),
-            population: d.population
-        }
-    });
-
-    const setPreparedData = async () => {
-        await setData(preParedData)
-    }
-
     useEffect(() => {
 
-        setPreparedData();
+        const width = 330, height = 70;
 
-        const width = 1000, height = 500;
+        // const { width, height } = svgRef.current.getBoundingClientRect();
 
-        const margin = { top: 40, right: 20, bottom: 20, left: 40 };
+        console.log('areaChartWithToolTipsData dimensions', width, height);
+
+        // const margin = { top: 40, right: 20, bottom: 20, left: 40 };
+        const margin = { top: 0, right: 0, bottom: 0, left: 0 };
 
         const svg = d3.select(svgRef.current)
             .attr("width", width)
             .attr("height", height);
 
         const xExtent = d3.extent(data, d => d.date);
+
         const xScale = d3.scaleTime()
             .domain(xExtent)
             .range([margin.left, width - margin.right]);
@@ -96,8 +89,6 @@ const AreaChartWithToolTips = (props) => {
                 yCoord,
             ] = mouse;
 
-            console.log('xCoord', xCoord);
-
             const mouseDate = xScale.invert(xCoord);
             const mouseDateSnap = d3.timeYear.floor(mouseDate);
 
@@ -110,8 +101,6 @@ const AreaChartWithToolTips = (props) => {
             const xIndex = bisectDate(data, mouseDateSnap, 1);
             const mousePopulation = data[xIndex - 1].population;
 
-            // console.log('mouseDateSnap', mouseDateSnap, 'mouseDate', mouseDate);
-
             svg.selectAll('.hoverLine')
                 .attr('x1', xScale(mouseDateSnap))
                 .attr('y1', margin.top)
@@ -123,7 +112,7 @@ const AreaChartWithToolTips = (props) => {
             svg.selectAll('.hoverPoint')
                 .attr('cx', xScale(mouseDateSnap))
                 .attr('cy', yScale(mousePopulation))
-                .attr('r', '7')
+                .attr('r', '5')
                 .attr('fill', 'rgb(148, 94, 210)');
 
             const isLessThanHalf = xIndex > data.length / 2;
@@ -137,16 +126,13 @@ const AreaChartWithToolTips = (props) => {
                 .attr('dy', '-1.25em')
                 .style('text-anchor', hoverTextAnchor)
                 .text(d3.format('.5s')(mousePopulation));
-
         }
 
     }, []);
 
     return (
         <div className='area-chart-with-tooltips-container'>
-            <div>
-                <svg ref={svgRef}></svg>
-            </div>
+            <svg ref={svgRef}></svg>
         </div>
     )
 }
