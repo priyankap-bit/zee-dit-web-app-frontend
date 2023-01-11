@@ -26,4 +26,6 @@ function App() {
   );
 }
 
+// https://observablehq.com/@elishaterada/simple-area-chart-with-tooltip
+
 export default App;

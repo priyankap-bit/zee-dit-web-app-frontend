@@ -59,7 +59,7 @@ useEffect(() => {
     .domain([0, max])
     .range([0, width - margin*2 - labelWidth]);
   
-  xAxis = d3.axisBottom(linear)
+  xAxis = d3.axisBottom()
     .scale(scale)
     .tickSize(-height + 2*margin + axisMargin)
     .orient("bottom");
@@ -104,7 +104,5 @@ useEffect(() => {
     )
 
 }
-
-https://observablehq.com/@elishaterada/simple-area-chart-with-tooltip
 
 export default LinearBarchart;
