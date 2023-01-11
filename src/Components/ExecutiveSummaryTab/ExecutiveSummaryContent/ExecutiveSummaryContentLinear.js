@@ -58,7 +58,10 @@ const ExecutiveSummaryContentLinear = () => {
             </div>
             <div>
                 {activeTab === 'all-content' &&
-                    <div>
+                    <div style={{
+                        display: 'grid',
+                        justifyItems: 'center'
+                    }}>
                         <BubbleChart files={sortedFiles} />
                         <ExecutiveSummaryContentLinearContents />
                     </div>

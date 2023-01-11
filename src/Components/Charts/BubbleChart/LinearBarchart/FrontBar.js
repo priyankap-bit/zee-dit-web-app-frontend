@@ -7,13 +7,10 @@ import { scaleLinear } from 'd3-scale';
 
 const FrontBar = (props) => {
 
-    const {data} = props
-    // const data = 100
+    const { data, total } = props
     const ref = useRef();
 
     const width = 200;
-
-    const total = 500;
 
     const margin = {
         top: 45,
@@ -22,19 +19,12 @@ const FrontBar = (props) => {
         left: 0,
     };
 
-    const barHeight = 37;
+    const barHeight = 20;
     const svgHeight = 140;
 
     // const parentWidth = 500;
 
-
-
     // const height = svgHeight - margin.top - margin.bottom;
-
-
-
-
-
 
     // const { xScale, barHeight } = props;
 
@@ -43,82 +33,70 @@ const FrontBar = (props) => {
         const xScale = scaleLinear()
             .domain([0, total])
             .range([0, width])
-            
+
         const node = ref.current;
-        d3.select('.expenditure-bar-group')
+        d3.select(node)
             .append('rect')
             .attr('class', 'bar')
-            .attr('x', 0)
-            .attr('y', 0)
-            .attr('rx', 4)
-            .attr('ry', 4)
-            .attr('width', 0)
-            .attr('height', barHeight);
+            // .attr('x', 0)
+            // .attr('y', 0)
+            // .attr('rx', 4)
+            // .attr('ry', 4)
+            .attr('width', xScale(data))
+            .attr('fill', '#C996EB')
+            .attr('height', 20);
 
-        d3.select('.expenditure-bar-group')
+        d3.select(node)
             .append('text')
             .attr('class', 'amount')
-            .attr('x', 0)
-            .attr('y', barHeight)
-            .attr('dx', -10)
-            .attr('dy', 2)
+            .attr('y', 14)
+            .attr('x', 10)
+            .text(data);
+
+        // // .attr('y', barHeight)
+        // .attr('dx', -10)
+        // .attr('dy', 2)
         //   const { data, xScale } = props;
         const t = transition().duration(100);
 
-        d3.select('.bar')
-            .transition(t).attr('width', xScale(data)).attr('fill', '#C996EB');
+        // d3.select('.bar')
+        //     .transition(t).attr('width', xScale(data));
 
         d3.select('.amount')
             .transition(t)
-            .attr('x', xScale(30))
-            .attr('y', 20)
-            .text(data);
+        // .attr('x', xScale(30))
+
     }, [])
-
-
-
-
-
-
-
 
     return (
         <>
-
-            <div>
-                <div>
-                    {/* <button onClick={this.handleOnClick}>Randomize Data</button> */}
-                    <svg
-                        width='200'
-                        height='90'
-                        style={{verticalAlign: 'top'}}
-                        className='m-5'
-                    >
-                        <g transform={`translate(${margin.left}, ${margin.top})`}>
-                            <g className="budget-bar-group">
-                                <rect x="0" y="0" width={width} height={barHeight} rx="0" ry="0" opacity="0.2" />
-                                <text x={width} y="32" dy="-10" dx="-30">
-                                    {total}
-                                </text>
-                                {/* <text x={width} y="0" dy="-30" dx="-55">
-                                    (Total)
-                                </text> */}
-                            </g>
-                            {/* <FrontBar
+            <svg
+                id={data}
+                width='200'
+                height='20'
+                style={{ verticalAlign: 'top' }}
+                className='mx-3'
+            >
+                <g >
+                    <g className="budget-bar-group">
+                        <rect x="0" y="0" width={width} height={barHeight} rx="0" ry="0" opacity="0.2" />
+                        <text x={width} y="32" dy="-18" dx="-30">
+                            {total}
+                        </text>
+                    </g>
+                    {/* <FrontBar
                                 // {...{
                                 //     xScale,
                                 //     barHeight,
                                 //     data,
                                 // }}
                             /> */}
-                            <g
-                                ref={ref}
-                                className="expenditure-bar-group"
-                            />
-                        </g>
-                    </svg>
-                </div>
-            </div>
+                    <g
+                        ref={ref}
+                        className="expenditure-bar-group"
+                    />
+                </g>
+            </svg>
         </>
     )
 }
