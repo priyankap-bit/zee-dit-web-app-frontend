@@ -57,24 +57,22 @@ const ExecutiveSummaryContentLinear = () => {
                 <button className={activeTab === 'bottom-10' ? ("executive-summary-content-linear-actve-tab") : ("executive-summary-content-linear bdr-none")} onClick={() => setActiveTab('bottom-10')}>Bottom 10</button>
             </div>
             <div>
-                {activeTab === 'all-content' &&
-                    <div style={{
-                        display: 'grid',
-                        justifyItems: 'center'
-                    }}>
-                        <BubbleChart files={sortedFiles} />
-                        <ExecutiveSummaryContentLinearContents />
-                    </div>
+                {activeTab === 'all-content' && <div className="executive-summary-content-linear-filter">
+                    <BubbleChart files={sortedFiles} />
+                    <ExecutiveSummaryContentLinearContents />
+                </div>
 
                 }
-                {activeTab === 'top-10' && <>
+                {activeTab === 'top-10' && <div className="executive-summary-content-linear-filter">
                     <BubbleChart files={top10files} />
                     <ExecutiveSummaryContentLinearContents />
-                </>}
-                {activeTab === 'bottom-10' && <>
+                </div>
+                }
+                {activeTab === 'bottom-10' && <div className="executive-summary-content-linear-filter">
                     <BubbleChart files={bottom10files} />
                     <ExecutiveSummaryContentLinearContents />
-                </>}
+                </div>
+                }
             </div>
 
         </div>
