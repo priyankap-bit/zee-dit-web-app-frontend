@@ -128,8 +128,8 @@ const BubbleChart = (props) => {
         if (T) leaf.append("title")
             .attr("class", "tooltip-title")
             .text(d => T[d.data])
-            // .style("stroke", "black")
-            // .attr('font-size', '15px')
+        // .style("stroke", "black")
+        // .attr('font-size', '15px')
 
         if (L) {
             // A unique identifier for clip paths (to avoid conflicts).
@@ -159,22 +159,22 @@ const BubbleChart = (props) => {
     return (
         <div className="bubble-chart-div">
             <div className="bubble-indicators">
-             Bubble size represents Reach
-             <div className="indicators">
-             <img src="/static/images/logos/xxk.svg"  className="xxk"  alt="Viewers Logo"/> 
-              xxk 
-              <img src="/static/images/logos/xxk-2.svg"  className="xxk"  alt="Viewers Logo"/> 
-              xxk 
-              <img src="/static/images/logos/xxk-3.svg"  className="xxk"  alt="Viewers Logo"/> 
-              xxk 
-              <img src="/static/images/logos/xxk-4.svg"  className="xxk"  alt="Viewers Logo"/> 
-              xxk 
-             </div>
-             
+                Bubble size represents Reach
+                <div className="indicators">
+                    <img src="/static/images/logos/xxk.svg" className="xxk" alt="Viewers Logo" />
+                    xxk
+                    <img src="/static/images/logos/xxk-2.svg" className="xxk" alt="Viewers Logo" />
+                    xxk
+                    <img src="/static/images/logos/xxk-3.svg" className="xxk" alt="Viewers Logo" />
+                    xxk
+                    <img src="/static/images/logos/xxk-4.svg" className="xxk" alt="Viewers Logo" />
+                    xxk
+                </div>
+
             </div>
             <svg id='bubbleChart'></svg>
             <div>
-                
+
             </div>
         </div>
     )
