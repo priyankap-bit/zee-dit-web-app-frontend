@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import * as d3 from "d3v4";
+// var htmlContent = require('../TreeChart/Tree.html');
+import * as d3 from "d3";
 
 const TreeChart = (props) => {
 
-  useEffect(() => {
-
-    var margin = {
+    
+	var margin = {
         top: 20,
         right: 120,
         bottom: 20,
@@ -777,20 +777,19 @@ const TreeChart = (props) => {
         rectW = 60,
         rectH = 30;
     
-    var tree1 = d3.layout.tree().nodeSize([70, 40]);
+    var tree = d3.layout.tree().nodeSize([70, 40]);
     var diagonal = d3.svg.diagonal()
         .projection(function (d) {
         return [d.x + rectW / 2, d.y + rectH / 2];
     });
     
-
-
     var svg = d3.select("#body").append("svg").attr("width", 1000).attr("height", 1000)
-        .call( d3.behavior.zoom().scaleExtent([1,3]).on("zoom", redraw)).append("g")
+        .call(d3.behavior.zoom().scaleExtent([1,3]).on("zoom", redraw)).append("g")
         .attr("transform", "translate(" + 350 + "," + 20 + ")");
     
     //necessary so that zoom knows where to zoom and unzoom from
-   
+    // zm.translate([350, 20]);
+    
     root.x0 = 0;
     root.y0 = height / 2;
     
@@ -810,8 +809,8 @@ const TreeChart = (props) => {
     function update(source) {
     
         // Compute the new tree layout.
-        var nodes = tree1.nodes(root).reverse(),
-            links = tree1.links(nodes);
+        var nodes = tree.nodes(root).reverse(),
+            links = tree.links(nodes);
     
         // Normalize for fixed-depth.
         nodes.forEach(function (d) {
@@ -955,14 +954,11 @@ const TreeChart = (props) => {
           "translate(" + d3.event.translate + ")"
           + " scale(" + d3.event.scale + ")");
     }
-    
-  }, []);
 
   return (
     
     <div>
-        <div> Tree chart </div>
-        <div id="body"></div>
+       <div id="body"></div>
     </div>
   );
 

@@ -36,6 +36,14 @@
       "react-app/jest"
     ]
   },
+  "modules": {
+    "loaders": [
+      { 
+        "test": "/.html$/", 
+        "loader": "html-loader"
+       }
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -48,5 +56,12 @@
       "last 1 safari version"
     ]
   },
+<<<<<<< Updated upstream
   "proxy": "http://localhost:5000/"
 }
+=======
+  "devDependencies": {
+    "html-loader": "^4.2.0"
+  }
+}
+>>>>>>> Stashed changes
