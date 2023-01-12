@@ -18,6 +18,7 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    /* overflow-x: scroll; */
     /* padding-right: 0.8%; */
 }
 
@@ -73,4 +74,8 @@
     font-size: 12px;
     /* line-height: 10px; */
     margin: 10px 0px;
+}
+
+.exe-sum-lin-con-h-lbr{
+    display: block;
 }

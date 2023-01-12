@@ -18,8 +18,8 @@ const ExecutiveSummaryContentLinearContents = () => {
                         <th className="executive-summary-content-linear-contents-t-shows-header">Shows</th>
                         <th className="executive-summary-content-linear-contents-t-header">Reach ‘000</th>
                         <th className="executive-summary-content-linear-contents-t-header">GRP</th>
-                        <th className="executive-summary-content-linear-contents-t-header">Reach %(Acquisition)</th>
-                        <th className="executive-summary-content-linear-contents-t-header">TSV(M min.) (Engagement)</th>
+                        <th className="executive-summary-content-linear-contents-t-header">Reach %<span className="exe-sum-lin-con-h-lbr">(Acquisition)</span></th>
+                        <th className="executive-summary-content-linear-contents-t-header">TSV<span className="exe-sum-lin-con-h-lbr">(M min.) (Engagement)</span></th>
                         <th className="executive-summary-content-linear-contents-t-header">GRP Adbreak</th>
                     </tr>
                 </thead>
