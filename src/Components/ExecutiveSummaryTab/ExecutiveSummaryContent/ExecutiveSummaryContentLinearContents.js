@@ -33,7 +33,7 @@ const ExecutiveSummaryContentLinearContents = () => {
                         <td><FrontBar data={420} total={total} /></td>
                     </tr>
                     <tr className="executive-summary-content-linear-contents-t-body-rows">
-                        <td>Bhagya lakshm</td>
+                        <td>Bhagya Lakshmi</td>
                         <td><FrontBar data={220} total={total} /></td>
                         <td><FrontBar data={340} total={total} /></td>
                         <td><FrontBar data={290} total={total} /></td>
@@ -41,7 +41,7 @@ const ExecutiveSummaryContentLinearContents = () => {
                         <td><FrontBar data={320} total={total} /></td>
                     </tr>
                     <tr className="executive-summary-content-linear-contents-t-body-rows">
-                        <td>Kundli Bhagya</td>
+                        <td>Kumkum Bhagya</td>
                         <td><FrontBar data={100} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={200} total={total} /></td>
@@ -49,7 +49,7 @@ const ExecutiveSummaryContentLinearContents = () => {
                         <td><FrontBar data={420} total={total} /></td>
                     </tr>
                     <tr className="executive-summary-content-linear-contents-t-body-rows">
-                        <td>Kundli Bhagya</td>
+                        <td>Meet</td>
                         <td><FrontBar data={100} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={200} total={total} /></td>
@@ -57,7 +57,7 @@ const ExecutiveSummaryContentLinearContents = () => {
                         <td><FrontBar data={420} total={total} /></td>
                     </tr>
                     <tr className="executive-summary-content-linear-contents-t-body-rows">
-                        <td>Kundli Bhagya</td>
+                        <td>Radha Mohan</td>
                         <td><FrontBar data={100} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={200} total={total} /></td>
@@ -65,7 +65,7 @@ const ExecutiveSummaryContentLinearContents = () => {
                         <td><FrontBar data={420} total={total} /></td>
                     </tr>
                     <tr className="executive-summary-content-linear-contents-t-body-rows">
-                        <td>Kundli Bhagya</td>
+                        <td>Mithai</td>
                         <td><FrontBar data={100} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={200} total={total} /></td>
