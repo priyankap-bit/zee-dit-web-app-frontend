@@ -3,7 +3,6 @@ import * as d3 from 'd3';
 import './BubbleChart.css'
 import { useEffect } from "react";
 import { drag, dragDisable, dragEnable, forceY, scaleLinear, ticks } from "d3";
-
 const BubbleChart = (props) => {
     const { files } = props
     const width = window.innerWidth;
