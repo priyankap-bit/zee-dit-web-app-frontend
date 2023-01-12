@@ -1,4 +1,5 @@
 .executive-summary-content-linear-contents {
+    font-family: GothamLight;
     background: #FFFFFF;
     width: 97%;
     display: grid;
@@ -21,11 +22,18 @@
 }
 
 .executive-summary-content-linear-contents-header {
+    font-family: GothamMedium;
     width: 31.7%;
     margin-left: 1.5%;
     height: 24px;
     text-align: center;
     background-color: #E5E7FA;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 10px;
+    display: grid;
+    align-content: center;
 }
 
 .executive-summary-content-linear-contents-header:nth-last-child(1) {
@@ -39,7 +47,12 @@
 }
 
 .executive-summary-content-linear-contents-t-shows-header {
+    font-family: GothamMedium;
     width: 22%;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 10px;
 }
 
 .executive-summary-content-linear-contents-t-header {
@@ -47,5 +60,13 @@
 }
 
 .executive-summary-content-linear-contents-t-headers {
-    /* width: 10%; */
+    font-family: GothamMedium;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 10px;
+    /* padding: 90px 0px; */
+}
+
+.executive-summary-content-linear-contents-t-body-rows {
+    background-color: #fff4fc;
 }
