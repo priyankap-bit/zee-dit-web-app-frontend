@@ -12,18 +12,18 @@ const ExecutiveSummaryContentLinearContents = () => {
                 <h6 className="executive-summary-content-linear-contents-header">Impact on Consumer Journey</h6>
                 <h6 className="executive-summary-content-linear-contents-header">Impact on Monetization</h6>
             </div>
-            <table className="">
-                <thead className="">
+            <table className="executive-summary-content-linear-contents-table">
+                <thead className="executive-summary-content-linear-contents-t-headers">
                     <tr>
-                        <th>Shows</th>
-                        <th>Reach ‘000</th>
-                        <th>GRP</th>
-                        <th>Reach %(Acquisition)</th>
-                        <th>TSV(M min.) (Engagement)</th>
-                        <th>GRP Adbreak</th>
+                        <th className="executive-summary-content-linear-contents-t-shows-header">Shows</th>
+                        <th className="executive-summary-content-linear-contents-t-header">Reach ‘000</th>
+                        <th className="executive-summary-content-linear-contents-t-header">GRP</th>
+                        <th className="executive-summary-content-linear-contents-t-header">Reach %(Acquisition)</th>
+                        <th className="executive-summary-content-linear-contents-t-header">TSV(M min.) (Engagement)</th>
+                        <th className="executive-summary-content-linear-contents-t-header">GRP Adbreak</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="executive-summary-content-linear-contents-t-body">
                     <tr>
                         <td>Kundli Bhagya</td>
                         <td><FrontBar data={100} total={total} /></td>
