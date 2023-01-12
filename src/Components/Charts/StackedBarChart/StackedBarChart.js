@@ -36,13 +36,13 @@ const StackedBarChart = (props) => {
 
         const svg = select(svgRef.current);
 
-        // const { width, height } = wrapperRef.current.getBoundingClientRect();
+        let { width, height } = wrapperRef.current.getBoundingClientRect();
 
-        const width = 300, height = 70;
+        // const width = 300, height = 80;
 
         let chartNumberDimensions;
 
-        if (window.innerWidth > 1024) {
+        if (window.innerWidth > 1024 && window.innerWidth < 1366) {
             chartNumberDimensions = {
                 sevenDays: width - 35 + marginForRightChart,
                 divider: width - 27 + marginForRightChart,
