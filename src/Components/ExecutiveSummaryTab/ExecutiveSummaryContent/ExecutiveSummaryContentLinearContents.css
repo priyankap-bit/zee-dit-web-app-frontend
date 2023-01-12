@@ -2,7 +2,9 @@
     background: #FFFFFF;
     width: 97%;
     display: grid;
-    justify-content: center;
+    padding: 0px 1%;
+    padding-top: 1.5%;
+    /* justify-items: center; */
     border: 1px solid #D8E3FF;
     box-shadow: 0px 2px 5px #D6DEF8;
     border-radius: 4px;
@@ -10,18 +12,37 @@
 
 .executive-summary-content-linear-contents-headers {
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: flex-end;
     width: 100%;
+    /* padding-right: 0.8%; */
 }
 
 .executive-summary-content-linear-contents-header {
-    width: 30%;
-    margin: 0.5%;
+    width: 31.7%;
+    margin-left: 1.5%;
     height: 24px;
     text-align: center;
     background-color: #E5E7FA;
 }
 
-.executive-summary-content-linear-contents-header:nth-last-child(3) {
+.executive-summary-content-linear-contents-header:nth-last-child(1) {
     width: 15%;
+}
+
+.executive-summary-content-linear-contents-table {
+    /* margin: 20px; */
+    /* margin: auto; */
+    /* width: 98%; */
+}
+
+.executive-summary-content-linear-contents-t-shows-header {
+    width: 22%;
+}
+
+.executive-summary-content-linear-contents-t-header {
+    width: 17%;
+}
+
+.executive-summary-content-linear-contents-t-headers {
+    /* width: 10%; */
 }

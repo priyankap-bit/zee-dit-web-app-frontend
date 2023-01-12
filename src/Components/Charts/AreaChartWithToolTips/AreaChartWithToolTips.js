@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
 import * as d3 from 'd3v4';
-import * as d3v2 from "d3";
 
 import './AreaChartWithToolTips.css';
 import areaChartWithToolTipsData from './data';
@@ -12,29 +11,23 @@ const AreaChartWithToolTips = (props) => {
 
     const [data, setData] = useState(areaChartWithToolTipsData);
 
-    let preParedData = data.map(d => {
-        // let dateParser = d3.timeParse("%d/%m/%Y");
-        return {
-            date: new Date(d.date),
-            population: d.population
-        }
-    })
-
     useEffect(() => {
 
-        setData(preParedData);
+        const width = 330, height = 70;
 
-        console.log(data);
+        // const { width, height } = svgRef.current.getBoundingClientRect();
 
-        const width = 100, height = 500;
+        console.log('areaChartWithToolTipsData dimensions', width, height);
 
-        const margin = { top: 40, right: 20, bottom: 20, left: 40 };
+        // const margin = { top: 40, right: 20, bottom: 20, left: 40 };
+        const margin = { top: 0, right: 0, bottom: 0, left: 0 };
 
         const svg = d3.select(svgRef.current)
             .attr("width", width)
             .attr("height", height);
 
         const xExtent = d3.extent(data, d => d.date);
+
         const xScale = d3.scaleTime()
             .domain(xExtent)
             .range([margin.left, width - margin.right]);
@@ -52,24 +45,120 @@ const AreaChartWithToolTips = (props) => {
 
         svg.append('path')
             .attr('d', area(data))
-            .attr('stroke', '#147F90')
-            .attr('stroke-width', '2px')
-            .attr('fill', '#A6E8F2');
+            .attr('stroke', 'rgb(148, 94, 210)')
+            .attr('stroke-width', '1px')
+            .attr('fill', 'rgba(148, 94, 210, 0.1)');
 
-        const xAxis = d3.axisBottom()
-            .scale(xScale);
-        const xAxisTranslate = height - margin.bottom;
+        // console.log(data);
+
+        // const xAxis = d3.axisBottom()
+        //     .scale(xScale);
+        // const xAxisTranslate = height - margin.bottom;
+
+        // svg.append('g')
+        //     .attr('transform', `translate(0, ${xAxisTranslate})`)
+        //     .call(xAxis);
+
+        // const yAxis = d3.axisLeft()
+        //     .scale(yScale);
+
+        // svg.append('g')
+        //     .attr('transform', `translate(${margin.left}, 0)`)
+        //     .call(yAxis);
+
+        svg.append('line').classed('hoverLine', true)
+        svg.append('circle').classed('hoverPoint', true);
+        svg.append("text").classed('hoverText', true);
+
+        svg.append('rect')
+            .attr('fill', 'transparent')
+            .attr('x', 0)
+            .attr('y', 0)
+            .attr('width', width)
+            .attr('height', height);
+
+        svg.on('mousemove', mouseMove);
+
+        svg.on('mouseover', mouseOver);
+        svg.on('mousemove', mouseMove);
+        svg.on('mouseout', mouseOut);
+
+        function mouseOver(event) {
+            svg.selectAll('.hoverLine')
+                .style('visibility', 'visible');
+
+            svg.selectAll('.hoverPoint')
+                .style('visibility', 'visible');
+
+            svg.selectAll('.hoverText')
+                .style('visibility', 'visible');
+        }
+
+        function mouseMove(event) {
+
+            d3.event.preventDefault();
+
+            const mouse = d3.mouse(d3.event.target);
+            const [
+                xCoord,
+                // yCoord,
+            ] = mouse;
+
+            const mouseDate = xScale.invert(xCoord);
+            const mouseDateSnap = d3.timeYear.floor(mouseDate);
+
+            if (xScale(mouseDateSnap) < margin.left ||
+                xScale(mouseDateSnap) > width - margin.right) {
+                return;
+            }
+
+            const bisectDate = d3.bisector(d => d.date).right;
+            const xIndex = bisectDate(data, mouseDateSnap, 1);
+            const mousePopulation = data[xIndex - 1].population;
+
+            svg.selectAll('.hoverLine')
+                .attr('x1', xScale(mouseDateSnap))
+                .attr('y1', margin.top)
+                .attr('x2', xScale(mouseDateSnap))
+                .attr('y2', height - margin.bottom)
+                .attr('stroke', 'rgb(148, 94, 210)')
+                .attr('fill', 'rgb(148, 94, 210)');
+
+            svg.selectAll('.hoverPoint')
+                .attr('cx', xScale(mouseDateSnap))
+                .attr('cy', yScale(mousePopulation))
+                .attr('r', '5')
+                .attr('fill', 'rgb(148, 94, 210)');
+
+            const isLessThanHalf = xIndex > data.length / 2;
+            const hoverTextX = isLessThanHalf ? '-0.75em' : '0.75em';
+            const hoverTextAnchor = isLessThanHalf ? 'end' : 'start';
+
+            svg.selectAll('.hoverText')
+                .attr('x', xScale(mouseDateSnap))
+                .attr('y', yScale(mousePopulation))
+                .attr('dx', hoverTextX)
+                .attr('dy', '-1.25em')
+                .style('text-anchor', hoverTextAnchor)
+                .text(d3.format('.5s')(mousePopulation));
+        }
+
+        function mouseOut(event) {
+            svg.selectAll('.hoverLine')
+                .style('visibility', 'hidden');
+
+            svg.selectAll('.hoverPoint')
+                .style('visibility', 'hidden');
+
+            svg.selectAll('.hoverText')
+                .style('visibility', 'hidden');
+        }
 
     }, []);
 
     return (
         <div className='area-chart-with-tooltips-container'>
-            <div>
-                <svg ref={svgRef}></svg>
-                {/* <g className="tooltip-area-area-chart">
-                    <text className="tooltip-area__text-area-chart"></text>
-                </g> */}
-            </div>
+            <svg ref={svgRef}></svg>
         </div>
     )
 }

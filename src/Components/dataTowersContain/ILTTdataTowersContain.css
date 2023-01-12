@@ -53,7 +53,7 @@ a.product {
     color: #fff !important;
 }
 
-.Executive-Summary-tile:hover {
+.Executive-Summary-tile:hover  {
     fill: #fff;
     color: white;
     border-radius: 2px;

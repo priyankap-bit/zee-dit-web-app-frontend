@@ -15,8 +15,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route index element={<ILTTdataTowers />} />
-          <Route path='/login' element={<ILTTloginPage />} />
+          <Route index element={<ILTTloginPage />} />
+          <Route path='/home' element={<ILTTdataTowers />} />
           <Route path='/ilt20-summary' element={<ILTTwentySummary />} />
           <Route path='/product' element={<Product />} />
           <Route path='/executive-summary' element={<ExecutiveSummaryTab />} />
