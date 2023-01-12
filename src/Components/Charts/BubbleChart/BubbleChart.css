@@ -22,3 +22,8 @@ img.xxk {
 /* tbody, td, tfoot, th, thead, tr{
     padding-bottom: 5px;
 } */
+@media only screen and (max-width: 767px) {
+    .bubble-indicators{
+        margin-top: 20px;
+    }
+}
