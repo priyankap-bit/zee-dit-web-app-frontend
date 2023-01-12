@@ -2,7 +2,7 @@ import React from "react";
 import "./ExecutiveSummaryContent.css"
 import { useState } from "react";
 import BubbleChart from "../../Charts/BubbleChart/BubbleChart";
-import TreeChart from "../../Charts/TreeChart/Treechart";
+// import TreeChart from "../../Charts/TreeChart/Treechart";
 import ExecutiveSummaryContentOtt from "./ExecutiveSummaryContentOtt";
 
 // import LinearBarchart from "../../Charts/LinearBarchart/LinearBarchart";
@@ -19,7 +19,7 @@ const ExecutiveSummaryContent = () => {
 
             <div>
                 {/* {activeTab === 'linear' &&  <LinearBarchart/> } */}
-                {activeTab === 'linear' && <TreeChart /> }
+                {/* {activeTab === 'linear' && <TreeChart /> } */}
 
             </div>
         </div>

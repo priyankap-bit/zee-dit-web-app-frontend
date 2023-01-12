@@ -45,6 +45,11 @@
     border: none;
 }
 
+.executive-summary-content-linear-filter{
+    display: grid;
+    justify-items: center;
+}
+
 @media only screen and (max-width: 767px) {
     .executive-summary-content-linear-tabs{
         text-align: center;

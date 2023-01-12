@@ -91,6 +91,7 @@ ul.viewership-navigationtab-ul {
 }
 
 .indicators {
+  left: -2px;
   font-family: 'GothamLight';
   font-size: 13px;
   position: relative;

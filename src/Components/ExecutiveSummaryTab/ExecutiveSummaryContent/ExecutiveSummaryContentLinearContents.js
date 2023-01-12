@@ -18,13 +18,13 @@ const ExecutiveSummaryContentLinearContents = () => {
                         <th className="executive-summary-content-linear-contents-t-shows-header">Shows</th>
                         <th className="executive-summary-content-linear-contents-t-header">Reach ‘000</th>
                         <th className="executive-summary-content-linear-contents-t-header">GRP</th>
-                        <th className="executive-summary-content-linear-contents-t-header">Reach %(Acquisition)</th>
-                        <th className="executive-summary-content-linear-contents-t-header">TSV(M min.) (Engagement)</th>
+                        <th className="executive-summary-content-linear-contents-t-header">Reach %<span className="exe-sum-lin-con-h-lbr">(Acquisition)</span></th>
+                        <th className="executive-summary-content-linear-contents-t-header">TSV<span className="exe-sum-lin-con-h-lbr">(M min.) (Engagement)</span></th>
                         <th className="executive-summary-content-linear-contents-t-header">GRP Adbreak</th>
                     </tr>
                 </thead>
                 <tbody className="executive-summary-content-linear-contents-t-body">
-                    <tr>
+                    <tr className="executive-summary-content-linear-contents-t-body-rows">
                         <td>Kundli Bhagya</td>
                         <td><FrontBar data={100} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
@@ -32,40 +32,40 @@ const ExecutiveSummaryContentLinearContents = () => {
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={420} total={total} /></td>
                     </tr>
-                    <tr>
-                        <td>Bhagya lakshm</td>
+                    <tr className="executive-summary-content-linear-contents-t-body-rows">
+                        <td>Bhagya Lakshmi</td>
                         <td><FrontBar data={220} total={total} /></td>
                         <td><FrontBar data={340} total={total} /></td>
                         <td><FrontBar data={290} total={total} /></td>
                         <td><FrontBar data={320} total={total} /></td>
                         <td><FrontBar data={320} total={total} /></td>
                     </tr>
-                    <tr>
-                        <td>Kundli Bhagya</td>
+                    <tr className="executive-summary-content-linear-contents-t-body-rows">
+                        <td>Kumkum Bhagya</td>
                         <td><FrontBar data={100} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={200} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={420} total={total} /></td>
                     </tr>
-                    <tr>
-                        <td>Kundli Bhagya</td>
+                    <tr className="executive-summary-content-linear-contents-t-body-rows">
+                        <td>Meet</td>
                         <td><FrontBar data={100} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={200} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={420} total={total} /></td>
                     </tr>
-                    <tr>
-                        <td>Kundli Bhagya</td>
+                    <tr className="executive-summary-content-linear-contents-t-body-rows">
+                        <td>Radha Mohan</td>
                         <td><FrontBar data={100} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={200} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={420} total={total} /></td>
                     </tr>
-                    <tr>
-                        <td>Kundli Bhagya</td>
+                    <tr className="executive-summary-content-linear-contents-t-body-rows">
+                        <td>Mithai</td>
                         <td><FrontBar data={100} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
                         <td><FrontBar data={200} total={total} /></td>
