@@ -10,7 +10,7 @@ const FrontBar = (props) => {
     const { data, total } = props
     const ref = useRef();
 
-    const width = 200;
+    const width = 215;
 
     const margin = {
         top: 45,
@@ -72,10 +72,10 @@ const FrontBar = (props) => {
         <>
             <svg
                 id={data}
-                width='200'
+                width={width}
                 height='20'
                 style={{ verticalAlign: 'top' }}
-                className='mx-3'
+                // className='mx-3'
             >
                 <g >
                     <g className="budget-bar-group">
