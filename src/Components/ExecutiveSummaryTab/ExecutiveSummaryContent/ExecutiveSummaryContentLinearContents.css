@@ -64,9 +64,13 @@
     font-style: normal;
     font-size: 12px;
     line-height: 10px;
-    /* padding: 90px 0px; */
 }
 
 .executive-summary-content-linear-contents-t-body-rows {
     background-color: #fff4fc;
+    font-family: GothamMedium;
+    font-style: normal;
+    font-size: 12px;
+    /* line-height: 10px; */
+    margin: 10px 0px;
 }

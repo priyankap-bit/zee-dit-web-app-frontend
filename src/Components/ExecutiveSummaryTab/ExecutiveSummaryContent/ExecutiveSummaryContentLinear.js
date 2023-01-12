@@ -67,8 +67,14 @@ const ExecutiveSummaryContentLinear = () => {
                     </div>
 
                 }
-                {activeTab === 'top-10' && <BubbleChart files={top10files} />}
-                {activeTab === 'bottom-10' && <BubbleChart files={bottom10files} />}
+                {activeTab === 'top-10' && <>
+                    <BubbleChart files={top10files} />
+                    <ExecutiveSummaryContentLinearContents />
+                </>}
+                {activeTab === 'bottom-10' && <>
+                    <BubbleChart files={bottom10files} />
+                    <ExecutiveSummaryContentLinearContents />
+                </>}
             </div>
 
         </div>
