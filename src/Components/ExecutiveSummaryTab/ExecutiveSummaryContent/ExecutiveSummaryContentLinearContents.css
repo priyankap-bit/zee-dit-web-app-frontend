@@ -12,7 +12,13 @@
     border-radius: 4px;
     position: relative;
     bottom: 5px;
-    Overflow-x:scroll;
+    
+}
+@media only screen and (max-width: 1366px) {
+    .executive-summary-content-linear-contents{
+        Overflow-x:scroll;
+    }
+    
 }
 
 .executive-summary-content-linear-contents-headers {
@@ -56,6 +62,7 @@
     font-weight: 500;
     line-height: 10px;
     padding: 15px 0px;
+    padding-left: 7px;
 }
 
 .executive-summary-content-linear-contents-t-header {
@@ -79,6 +86,27 @@
 }
 
 .exe-sum-lin-con-h-lbr{
-    padding-top: 5px;
+    padding-top: 2px;
     display: block;
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1366px) {
+    .executive-summary-content-linear-contents-header:nth-last-child(1) {
+        width: 15.8%;
+    }
+    .executive-summary-content-linear-contents-header {
+        margin-left: 1.1%;
+        width: 32.5%;
+    }
+   
+}
+
+@media only screen and (max-width: 1366px) {
+    .executive-summary-content-linear-contents-header:nth-last-child(1) {
+        width: 18.5%;
+    }
+    .executive-summary-content-linear-contents-header {
+        margin-left: 0.7%;
+        width: 37.5%;
+    }
 }
