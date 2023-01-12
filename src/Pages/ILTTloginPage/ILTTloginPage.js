@@ -18,7 +18,7 @@ const ILTTloginPage = (props) => {
                 <img src='/static/images/logos/password.svg' alt='Viewers Logo' className='password-image' />
                 <input type="password" name="pass" id="pass" placeholder='Password' /> <br />
                 <p className='forgot-password'>Forgot password?</p>
-                <a href="/" className="login">LOGIN</a>
+                <a href="/home" className="login">LOGIN</a>
                 
             </form>
         </div>

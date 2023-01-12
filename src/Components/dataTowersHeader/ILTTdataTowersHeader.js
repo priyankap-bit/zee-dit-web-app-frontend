@@ -17,9 +17,9 @@ const ILTTdataTowersHeader = (props) => {
                 <img src='/static/images/logos/background-image-final.png' alt='Viewers Logo' className='datatower-image' />
             </div>
             <div className='loginUser'>
-            <img src='/static/images/logos/profile.svg'  className="profile"height={40} alt='profile Logo' />
-            <p className='username'>Hello Deepak</p>
-            <img src='/static/images/logos/logout.svg'className="logout" height={40} alt='logoutLogo' />
+                <img src='/static/images/logos/profile.svg' className="profile" height={40} alt='profile Logo' />
+                <p className='username'>Hello Deepak</p>
+                <img src='/static/images/logos/logout.svg' className="logout" height={40} alt='logoutLogo' />
             </div>
         </div>
 
