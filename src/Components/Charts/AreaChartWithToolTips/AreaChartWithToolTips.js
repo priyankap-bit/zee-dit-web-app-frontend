@@ -25,6 +25,7 @@ const AreaChartWithToolTips = (props) => {
         const svg = d3.select(svgRef.current)
             .attr("width", width)
             .attr("height", height);
+            // .attr("viewBox", `0 0 70 300`)
 
         const xExtent = d3.extent(data, d => d.date);
 
