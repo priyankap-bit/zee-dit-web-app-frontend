@@ -79,6 +79,21 @@ const AreaChartWithToolTips = (props) => {
 
         svg.on('mousemove', mouseMove);
 
+        svg.on('mouseover', mouseOver);
+        svg.on('mousemove', mouseMove);
+        svg.on('mouseout', mouseOut);
+
+        function mouseOver(event) {
+            svg.selectAll('.hoverLine')
+                .style('visibility', 'visible');
+
+            svg.selectAll('.hoverPoint')
+                .style('visibility', 'visible');
+
+            svg.selectAll('.hoverText')
+                .style('visibility', 'visible');
+        }
+
         function mouseMove(event) {
 
             d3.event.preventDefault();
@@ -86,7 +101,7 @@ const AreaChartWithToolTips = (props) => {
             const mouse = d3.mouse(d3.event.target);
             const [
                 xCoord,
-                yCoord,
+                // yCoord,
             ] = mouse;
 
             const mouseDate = xScale.invert(xCoord);
@@ -126,6 +141,17 @@ const AreaChartWithToolTips = (props) => {
                 .attr('dy', '-1.25em')
                 .style('text-anchor', hoverTextAnchor)
                 .text(d3.format('.5s')(mousePopulation));
+        }
+
+        function mouseOut(event) {
+            svg.selectAll('.hoverLine')
+                .style('visibility', 'hidden');
+
+            svg.selectAll('.hoverPoint')
+                .style('visibility', 'hidden');
+
+            svg.selectAll('.hoverText')
+                .style('visibility', 'hidden');
         }
 
     }, []);
