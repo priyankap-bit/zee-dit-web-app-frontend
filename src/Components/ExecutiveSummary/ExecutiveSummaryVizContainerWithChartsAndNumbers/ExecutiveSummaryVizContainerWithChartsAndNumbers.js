@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import AllDaysStackedBarChartPopUpModal from "../../AllDaysStackedBarChartPopUpModal/AllDaysStackedBarChartPopUpModal";
 import AreaChart from "../../Charts/AreaChart/AreaChart";
-// import AreaChartWithToolTips from "../../Charts/AreaChartWithToolTips/AreaChartWithToolTips";
+import AreaChartWithToolTips from "../../Charts/AreaChartWithToolTips/AreaChartWithToolTips";
 import StackedBarChart from "../../Charts/StackedBarChart/StackedBarChart";
 import "./ExecutiveSummaryVizContainerWithChartsAndNumbers.css";
 //
@@ -54,8 +54,8 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
               </div>
             </div>
             <div className="exact-summary-viz-areachart-container">
-              <AreaChart areaChartData={digitalData.viewers.areaChartData} />
-              {/* <AreaChartWithToolTips /> */}
+              {/* <AreaChart areaChartData={digitalData.viewers.areaChartData} /> */}
+              <AreaChartWithToolTips />
 
             </div>
             <div className="exact-summary-viz-updateinfo-container">
@@ -105,7 +105,8 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
                 </div>
               </div>
               <div className="exact-summary-viz-areachart-container">
-                <AreaChart areaChartData={digitalData.watchTime.areaChartData} />
+                {/* <AreaChart areaChartData={digitalData.watchTime.areaChartData} /> */}
+                <AreaChartWithToolTips />
               </div>
               {/* <div style={{ height: "20px" }}></div> */}
             </div>
