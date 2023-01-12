@@ -2,12 +2,15 @@
     background: #FFFFFF;
     width: 97%;
     display: grid;
-    padding: 0px 1%;
-    padding-top: 1.5%;
+    padding: 0.3% 1%;
+    padding-top: 1.2%;
+    /* margin-bottom: 1%; */
     /* justify-items: center; */
     border: 1px solid #D8E3FF;
     box-shadow: 0px 2px 5px #D6DEF8;
     border-radius: 4px;
+    position: relative;
+    bottom: 50px;
 }
 
 .executive-summary-content-linear-contents-headers {
