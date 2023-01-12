@@ -12,56 +12,68 @@ const ExecutiveSummaryContentLinearContents = () => {
                 <h6 className="executive-summary-content-linear-contents-header">Impact on Consumer Journey</h6>
                 <h6 className="executive-summary-content-linear-contents-header">Impact on Monetization</h6>
             </div>
-            <div className="d-flex">
-                <p className="mx-5">Shows</p>
-                <p className="mx-5">Reach ‘000</p>
-                <p className="mx-5">GRP</p>
-                <p className="mx-5">Reach %(Acquisition)</p>
-                <p className="mx-5">TSV(M min.) (Engagement)</p>
-                <p className="mx-5">GRP Adbreak</p>
-            </div>
-            <div>
-                <div className="d-flex">
-                    <p>Kundli Bhagya</p>
-                    <FrontBar data={100} total={total} />
-                    <FrontBar data={300} total={total} />
-                    <FrontBar data={200} total={total} />
-                    <FrontBar data={300} total={total} />
-                    <FrontBar data={420} total={total} />
-                </div>
-                <div className="d-flex">
-                    <p>Bhagya lakshm</p>
-                    <FrontBar data={220} total={total} />
-                    <FrontBar data={340} total={total} />
-                    <FrontBar data={290} total={total} />
-                    <FrontBar data={320} total={total} />
-                    <FrontBar data={320} total={total} />
-                </div>
-                <div className="d-flex">
-                    <p>Kundli Bhagya</p>
-                    <FrontBar data={100} total={total} />
-                    <FrontBar data={300} total={total} />
-                    <FrontBar data={200} total={total} />
-                    <FrontBar data={300} total={total} />
-                    <FrontBar data={420} total={total} />
-                </div>
-                <div className="d-flex">
-                    <p>Kundli Bhagya</p>
-                    <FrontBar data={220} total={total} />
-                    <FrontBar data={340} total={total} />
-                    <FrontBar data={290} total={total} />
-                    <FrontBar data={320} total={total} />
-                    <FrontBar data={320} total={total} />
-                </div>
-                <div className="d-flex">
-                    <p>Kundli Bhagya</p>
-                    <FrontBar data={100} total={total} />
-                    <FrontBar data={300} total={total} />
-                    <FrontBar data={280} total={total} />
-                    <FrontBar data={300} total={total} />
-                    <FrontBar data={420} total={total} />
-                </div>
-            </div>
+            <table className="">
+                <thead className="">
+                    <tr>
+                        <th>Shows</th>
+                        <th>Reach ‘000</th>
+                        <th>GRP</th>
+                        <th>Reach %(Acquisition)</th>
+                        <th>TSV(M min.) (Engagement)</th>
+                        <th>GRP Adbreak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kundli Bhagya</td>
+                        <td><FrontBar data={100} total={total} /></td>
+                        <td><FrontBar data={300} total={total} /></td>
+                        <td><FrontBar data={200} total={total} /></td>
+                        <td><FrontBar data={300} total={total} /></td>
+                        <td><FrontBar data={420} total={total} /></td>
+                    </tr>
+                    <tr>
+                        <td>Bhagya lakshm</td>
+                        <td><FrontBar data={220} total={total} /></td>
+                        <td><FrontBar data={340} total={total} /></td>
+                        <td><FrontBar data={290} total={total} /></td>
+                        <td><FrontBar data={320} total={total} /></td>
+                        <td><FrontBar data={320} total={total} /></td>
+                    </tr>
+                    <tr>
+                        <td>Kundli Bhagya</td>
+                        <td><FrontBar data={100} total={total} /></td>
+                        <td><FrontBar data={300} total={total} /></td>
+                        <td><FrontBar data={200} total={total} /></td>
+                        <td><FrontBar data={300} total={total} /></td>
+                        <td><FrontBar data={420} total={total} /></td>
+                    </tr>
+                    <tr>
+                        <td>Kundli Bhagya</td>
+                        <td><FrontBar data={100} total={total} /></td>
+                        <td><FrontBar data={300} total={total} /></td>
+                        <td><FrontBar data={200} total={total} /></td>
+                        <td><FrontBar data={300} total={total} /></td>
+                        <td><FrontBar data={420} total={total} /></td>
+                    </tr>
+                    <tr>
+                        <td>Kundli Bhagya</td>
+                        <td><FrontBar data={100} total={total} /></td>
+                        <td><FrontBar data={300} total={total} /></td>
+                        <td><FrontBar data={200} total={total} /></td>
+                        <td><FrontBar data={300} total={total} /></td>
+                        <td><FrontBar data={420} total={total} /></td>
+                    </tr>
+                    <tr>
+                        <td>Kundli Bhagya</td>
+                        <td><FrontBar data={100} total={total} /></td>
+                        <td><FrontBar data={300} total={total} /></td>
+                        <td><FrontBar data={200} total={total} /></td>
+                        <td><FrontBar data={300} total={total} /></td>
+                        <td><FrontBar data={420} total={total} /></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     )
 }
