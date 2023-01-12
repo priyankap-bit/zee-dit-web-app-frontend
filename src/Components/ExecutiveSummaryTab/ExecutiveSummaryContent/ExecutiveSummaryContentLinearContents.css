@@ -82,3 +82,12 @@
     padding-top: 5px;
     display: block;
 }
+td:nth-child(1){
+    padding-left: 10px;
+}
+table {
+    border-collapse: unset!important;
+    border-spacing: 0 0.5em;
+    caption-side: bottom!important;
+    
+}
