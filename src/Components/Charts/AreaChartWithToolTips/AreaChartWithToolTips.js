@@ -17,8 +17,6 @@ const AreaChartWithToolTips = (props) => {
 
         // const { width, height } = svgRef.current.getBoundingClientRect();
 
-        console.log('areaChartWithToolTipsData dimensions', width, height);
-
         // const margin = { top: 40, right: 20, bottom: 20, left: 40 };
         const margin = { top: 0, right: 0, bottom: 0, left: 0 };
 

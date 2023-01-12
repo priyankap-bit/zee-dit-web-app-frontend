@@ -17,10 +17,6 @@ const AllDaysStackedBarChartPopUpModal = (props) => {
 
     useEffect(() => {
         let elem = document.getElementById('all-days-stkd-bar-chart-pop-up-mdl');
-        console.log(elem.clientHeight, elem.clientWidth);
-        // let resize = new ResizeObserver(() => { console.log('called') });
-        // resize.observe(elem);
-        // console.log(resize.observe(elem));
 
         setPopUpDimensions({
             width: elem.clientWidth,
