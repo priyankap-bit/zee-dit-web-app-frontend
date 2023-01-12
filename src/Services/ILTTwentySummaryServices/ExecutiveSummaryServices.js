@@ -1,11 +1,13 @@
 import axios from "axios";
 
-const baseURL = 'http://localhost:5000/';
+// const baseURL = 'http://20.219.91.228:5000/';
 
 export default {
     getDigitalSummary: async function () {
         try {
-            const response = await axios.get(baseURL + 'digital')
+            const response = await axios.get('digital');
+            console.log('response of axios in digital', response);
+            // const response = await fetch('digital');
             return response.data;
         }
         catch (error) {
@@ -16,7 +18,7 @@ export default {
 
     getLinearSummary: async function () {
         try {
-            const response = await axios.get(baseURL + 'linear')
+            const response = await axios.get('linear')
             return response.data;
         }
         catch (error) {

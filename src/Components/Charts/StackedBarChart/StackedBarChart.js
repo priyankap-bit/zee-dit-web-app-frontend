@@ -79,7 +79,6 @@ const StackedBarChart = (props) => {
 
         const yAxisSvg = select(yAxisRef.current);
 
-
         const stackGenerator = stack().keys(keys).order(stackOrderAscending);
         const layers = stackGenerator(data);
 
@@ -96,8 +95,6 @@ const StackedBarChart = (props) => {
         const yScale = scaleLinear()
             .domain(extent)
             .range([height + 50, 0]);
-
-      
 
         svg
             .attr("width", data.length * 10)
@@ -195,7 +192,7 @@ const StackedBarChart = (props) => {
             // .attr
             // .attr("y", 0)
             // .attr("dy", ".75em")
-            .text("Viewers in Mn.");
+            .text(marginForRightChart ? "Watch Time in Mn." : "Viewers in Mn.");
         svg.append("text")
             .attr("class", "x-label-7days")
             .attr("text-anchor", "end")

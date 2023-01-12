@@ -1,7 +1,8 @@
 import axios from "axios";
 import { async } from "q";
 
-const baseURL = 'http://localhost:5000/';
+const baseURL = 'http://20.219.91.228:5000/';
+// const baseURLProd = 'http://20.219.91.228:5000';
 
 export default {
 
@@ -33,75 +34,75 @@ export default {
         }
     },
     getLinearReachApi: async function () {
-        try{
+        try {
             const response = await axios.get(baseURL + 'linearReachApi')
             return response.data
-        }catch(error){
+        } catch (error) {
             console.log(error);
-            throw(error);
+            throw (error);
         }
     },
-    getLinearWatchTime: async() => {
-        try{
+    getLinearWatchTime: async () => {
+        try {
             const response = await axios.get(baseURL + 'linearWatchTimeApi')
             return response.data
-        }catch(error){
+        } catch (error) {
             console.log(error);
-            throw(error)
+            throw (error)
         }
     },
-    getLinearUpdateDates: async() => {
-        try{
+    getLinearUpdateDates: async () => {
+        try {
             const response = await axios.get(baseURL + 'executiveupdateapi')
             return response.data
-        }catch(error){
+        } catch (error) {
             console.log(error);
-            throw(error)
+            throw (error)
         }
     },
-    getDigitalViewers: async() => {
-        try{
+    getDigitalViewers: async () => {
+        try {
             const response = await axios.get(baseURL + 'ottViewersApi')
             return response.data
-        }catch(error){
+        } catch (error) {
             console.log(error);
-            throw(error)
+            throw (error)
         }
     },
-    getDigitalWatchTime: async() => {
-        try{
+    getDigitalWatchTime: async () => {
+        try {
             const response = await axios.get(baseURL + 'ottWatchTimeApi')
             return response.data
-        }catch(error){
+        } catch (error) {
             console.log(error);
-            throw(error)
+            throw (error)
         }
     },
-    getSocialListening: async() => {
-        try{
+    getSocialListening: async () => {
+        try {
             const response = await axios.get(baseURL + 'sociallisteningapi')
             return response.data
-        }catch(error){
+        } catch (error) {
             console.log(error);
-            throw(error)
+            throw (error)
         }
     },
-    getCumulativePerformanceData: async() => {
-        try{
+    getCumulativePerformanceData: async () => {
+        try {
             const response = await axios.get(baseURL + 'ottGraphApi')
             return response.data
-        }catch(error){
+        } catch (error) {
             console.log(error);
-            throw(error)
+            throw (error)
         }
     },
     getUpdateNextUpdate: async () => {
-        try{
+        try {
             const response = await axios.get(baseURL + 'update-next-update');
             return response.data
-        }catch(error){
+        } catch (error) {
             console.log(error);
-            throw(error)
+            throw (error)
         }
     }
 

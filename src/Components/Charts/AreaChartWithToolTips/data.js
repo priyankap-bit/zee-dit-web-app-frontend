@@ -1,5 +1,5 @@
 
-const data = [
+const areaChartWithToolTipsData = [
     {
         date: "1900-01-01T00:00:00.000Z",
         population: 76094000
@@ -402,4 +402,17 @@ const data = [
     }
 ]
 
-export default data;
+let preParedData;
+
+function prepareData() {
+    preParedData = areaChartWithToolTipsData.map(d => {
+        return {
+            date: new Date(d.date),
+            population: d.population
+        }
+    });
+}
+
+prepareData();
+
+export default preParedData;
