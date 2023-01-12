@@ -24,7 +24,7 @@ const ExecutiveSummaryContentLinearContents = () => {
                     </tr>
                 </thead>
                 <tbody className="executive-summary-content-linear-contents-t-body">
-                    <tr>
+                    <tr className="executive-summary-content-linear-contents-t-body-rows">
                         <td>Kundli Bhagya</td>
                         <td><FrontBar data={100} total={total} /></td>
                         <td><FrontBar data={300} total={total} /></td>
