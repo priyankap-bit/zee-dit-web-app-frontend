@@ -90,6 +90,16 @@
     display: block;
 }
 
+td:nth-child(1){
+    padding-left: 10px;
+}
+table {
+    border-collapse: unset!important;
+    border-spacing: 0 0.5em;
+    caption-side: bottom!important;
+    
+}
+
 @media only screen and (max-width: 1440px) and (min-width: 1366px) {
     .executive-summary-content-linear-contents-header:nth-last-child(1) {
         width: 15.8%;
@@ -109,4 +119,5 @@
         margin-left: 0.7%;
         width: 37.5%;
     }
+
 }
