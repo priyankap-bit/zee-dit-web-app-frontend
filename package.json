@@ -15,7 +15,7 @@
     "d3v4": "^4.2.2",
     "font-awesome": "^4.7.0",
     "react": "^18.2.0",
-    "react-d3-tree": "^3.4.2",
+    "react-d3-tree": "^3.5.0",
     "react-dom": "^18.2.0",
     "react-horizontal-stacked-bar-chart": "^8.15.2",
     "react-router-dom": "^6.6.1",
@@ -38,10 +38,10 @@
   },
   "modules": {
     "loaders": [
-      { 
-        "test": "/.html$/", 
+      {
+        "test": "/.html$/",
         "loader": "html-loader"
-       }
+      }
     ]
   },
   "browserslist": {
