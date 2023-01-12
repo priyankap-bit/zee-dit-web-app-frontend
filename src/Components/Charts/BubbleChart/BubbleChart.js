@@ -128,8 +128,8 @@ const BubbleChart = (props) => {
         if (T) leaf.append("title")
             .attr("class", "tooltip-title")
             .text(d => T[d.data])
-            .style("stroke", "black")
-            .attr('font-size', '10px')
+            // .style("stroke", "black")
+            // .attr('font-size', '15px')
 
         if (L) {
             // A unique identifier for clip paths (to avoid conflicts).
