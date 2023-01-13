@@ -69,7 +69,7 @@ const LineChartWithToolTip = (props) => {
             .x(function (d, i) {
                 return x2(d.date) + i;
             })
-            .y(function (d, i) { return yScale(37584000); });
+            .y(function (d, i) { return yScale(37584); });
 
         svg.append("path")
             .datum(data)
