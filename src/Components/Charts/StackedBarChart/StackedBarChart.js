@@ -26,30 +26,14 @@ const StackedBarChart = (props) => {
     const yAxisRef = useRef();
     const wrapperRef = useRef();
 
-    // const [windowDimensions, setWindowDimensions] = useState({
-    //     width: window.innerWidth,
-    //     height: window.innerHeight,
-    // });
-
     const [chartDimensions, setChartDimensions] = useState({
         width: 300,
         height: 90,
     });
-    // const dimensions = useResizeObserver(wrapperRef);
-
-    // const {
-    //     handleActiveClassName,
-    //     marginForRightChart = 0
-    // } = props;
 
     const drawStackedBarChart = useCallback(() => {
 
-        // console.log('windowDimensions', windowDimensions);
-
-        // const svgRef = useRef();
-        // const yAxisRef = useRef();
-        // const wrapperRef = useRef();
-        // const dimensions = useResizeObserver(wrapperRef);
+        console.log('windowDimensions');
 
         const {
             handleActiveClassName,
@@ -129,7 +113,7 @@ const StackedBarChart = (props) => {
 
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
-            .range([0, 300])
+            .range([0, chartDimensions.width])
             .padding(0.27);
 
         const yScale = scaleLinear()
@@ -137,7 +121,7 @@ const StackedBarChart = (props) => {
             .range([height + 50, 0]);
 
         svg
-            .attr("width", data.length * 10)
+            .attr("width", chartDimensions.width)
             .attr("height", height)
             .selectAll(".layer")
             .data(layers)
