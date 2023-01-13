@@ -20,23 +20,34 @@ import {
     data, keys, colors
 } from "./data";
 import "./StackedBarChart.css";
+import { useMediaQuery } from "@material-ui/core";
 
 const StackedBarChart = (props) => {
     const svgRef = useRef();
     const yAxisRef = useRef();
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
+    const width1366 = useMediaQuery('(max-width:1366px)');
+    console.log(width1366);
+
+    var width = 300;
+    var height = 100;
+
+    if(width1366){
+        width = 260;
+    }
 
     const {
         handleActiveClassName,
         marginForRightChart = 0
     } = props;
 
+
     useEffect(() => {
 
         const svg = select(svgRef.current);
 
-        const { width, height } = wrapperRef.current.getBoundingClientRect();
+        // const { width, height } = wrapperRef.current.getBoundingClientRect();
 
         let chartNumberDimensions;
 
@@ -89,7 +100,7 @@ const StackedBarChart = (props) => {
 
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
-            .range([0, 300])
+            .range([0, width])
             .padding(0.27);
 
         const yScale = scaleLinear()
@@ -266,7 +277,7 @@ const StackedBarChart = (props) => {
             .on("mouseleave", mouseleave)
             .on("mouseover", mouseover)
 
-    }, [dimensions, colors, data, keys]);
+    }, [dimensions, colors, data, keys, width]);
 
     return (
 
