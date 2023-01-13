@@ -17,14 +17,13 @@ const AreaChartWithToolTips = (props) => {
 
         // const { width, height } = svgRef.current.getBoundingClientRect();
 
-        console.log('areaChartWithToolTipsData dimensions', width, height);
-
         // const margin = { top: 40, right: 20, bottom: 20, left: 40 };
         const margin = { top: 0, right: 0, bottom: 0, left: 0 };
 
         const svg = d3.select(svgRef.current)
             .attr("width", width)
             .attr("height", height);
+        // .attr("viewBox", `0 0 70 300`)
 
         const xExtent = d3.extent(data, d => d.date);
 
@@ -48,6 +47,21 @@ const AreaChartWithToolTips = (props) => {
             .attr('stroke', 'rgb(148, 94, 210)')
             .attr('stroke-width', '1px')
             .attr('fill', 'rgba(148, 94, 210, 0.1)');
+
+        // const lineGenerator = d3
+        //     .line()
+        //     .x((d) => xScale(d.date))
+        //     .y((d) => yScale(d.population));
+        // //.curve(d3.curveBasis);
+
+        // // 7. Convert X and Y into Path
+
+        // const line = svg
+        //     .append("path")
+        //     .attr("d", lineGenerator(data))
+        //     .attr("fill", "none")
+        //     .attr("stroke", "rgb(148, 94, 210)")
+        //     .attr("stroke-width", 1);
 
         // console.log(data);
 
@@ -76,8 +90,6 @@ const AreaChartWithToolTips = (props) => {
             .attr('y', 0)
             .attr('width', width)
             .attr('height', height);
-
-        svg.on('mousemove', mouseMove);
 
         svg.on('mouseover', mouseOver);
         svg.on('mousemove', mouseMove);
@@ -114,7 +126,7 @@ const AreaChartWithToolTips = (props) => {
 
             const bisectDate = d3.bisector(d => d.date).right;
             const xIndex = bisectDate(data, mouseDateSnap, 1);
-            const mousePopulation = data[xIndex - 1].population;
+            const mousePopulation = data[xIndex].population;
 
             svg.selectAll('.hoverLine')
                 .attr('x1', xScale(mouseDateSnap))
@@ -138,9 +150,9 @@ const AreaChartWithToolTips = (props) => {
                 .attr('x', xScale(mouseDateSnap))
                 .attr('y', yScale(mousePopulation))
                 .attr('dx', hoverTextX)
-                .attr('dy', '-1.25em')
+                .attr('dy', '1.25em')
                 .style('text-anchor', hoverTextAnchor)
-                .text(d3.format('.5s')(mousePopulation));
+                .text(`${d3.format('.5s')(mousePopulation)} on ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}`);
         }
 
         function mouseOut(event) {

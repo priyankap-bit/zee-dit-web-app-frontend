@@ -2,14 +2,17 @@ import React, { useEffect } from "react";
 import * as d3 from "d3v4";
 import data from "./data.csv";
 import { useRef } from "react";
+
 const LineChart = (props) => {
   const lineChart = useRef();
+  
   var data1 = [
     { date: 0, value: 2 },
     { date: 2, value: 2000 },
     { date: 3, value: 800 },
     { date: 4, value: 1700 },
   ];
+
   useEffect(() => {
     // Create 2 datasets
 
@@ -75,7 +78,6 @@ const LineChart = (props) => {
 
       svg
         .select(".myXaxis")
-        // .attr("transform", `translate(0, ${height + 50})`)
         .call(xAxis)
         .selectAll("text")
         .attr("class", "stacekd-bar-chart-ticks");

@@ -36,7 +36,9 @@ const StackedBarChart = (props) => {
 
         const svg = select(svgRef.current);
 
-        const { width, height } = wrapperRef.current.getBoundingClientRect();
+        let { width, height } = wrapperRef.current.getBoundingClientRect();
+
+        // const width = 300, height = 90;
 
         let chartNumberDimensions;
 
@@ -230,8 +232,6 @@ const StackedBarChart = (props) => {
 
         var mouseover = function (event, d) {
 
-            // console.log("event in mouseover", event);
-
             Tooltip
                 .transition()
                 .duration(200)
@@ -241,7 +241,6 @@ const StackedBarChart = (props) => {
         const tootTipHtml = (event) => `<div><p>Date: ${event.target.__data__.data.key}</p><p>Match 1: ${event.target.__data__.data.matchOne}</p><p>Match 2: ${event.target.__data__.data.matchTwo}</p></div>`;
 
         var mousemove = function (event, d) {
-            console.log('mouse Move on tooltip', event);
             Tooltip
                 .html(tootTipHtml(event))
                 .style("top", (pointer(event)[1]) + "px")
@@ -253,12 +252,11 @@ const StackedBarChart = (props) => {
                 .duration(200)
                 .style("opacity", 0);
 
-            select(this.node())
-                .transition()
-                .duration(200)
-                // .style("stroke", "black")
-                .style("opacity", 0.7)
-                .style("transform", "scale3d(1,1,1)");
+            // select(this.node())
+            //     .transition()
+            //     .duration(200)
+            //     .style("opacity", 0.7)
+            //     .style("transform", "scale3d(1,1,1)");
         }
 
         svg
@@ -266,7 +264,7 @@ const StackedBarChart = (props) => {
             .on("mouseleave", mouseleave)
             .on("mouseover", mouseover)
 
-    }, [dimensions, colors, data, keys]);
+    }, [colors, data, keys]);
 
     return (
 
