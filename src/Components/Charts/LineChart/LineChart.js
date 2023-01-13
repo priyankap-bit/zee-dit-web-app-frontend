@@ -78,7 +78,6 @@ const LineChart = (props) => {
 
       svg
         .select(".myXaxis")
-        // .attr("transform", `translate(0, ${height + 50})`)
         .call(xAxis)
         .selectAll("text")
         .attr("class", "stacekd-bar-chart-ticks");

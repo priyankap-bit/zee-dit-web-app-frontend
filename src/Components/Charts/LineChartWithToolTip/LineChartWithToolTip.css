@@ -6,3 +6,24 @@
 .hoverText{
     z-index: 100;
 }
+
+.line-chart-with-tool-tips-ticks {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    color: #808080;
+}
+
+.hoverText{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: #333333;
+    letter-spacing: 0.3px;
+}

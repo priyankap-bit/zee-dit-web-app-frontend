@@ -187,7 +187,8 @@ const RealTimeMatchUpdate = (props) => {
               <p>0.3M</p>
             </div>
             <div className="real-time-match-update-info-chart">
-              <LineChart />
+              {/* <LineChart /> */}
+              <LineChartWithToolTip/>
             </div>
           </div>
 
@@ -199,7 +200,8 @@ const RealTimeMatchUpdate = (props) => {
               <p>0.03M</p>
             </div>
             <div className="real-time-match-update-info-chart">
-              <LineChart />
+              {/* <LineChart /> */}
+              <LineChartWithToolTip/>
             </div>
           </div>
 
@@ -211,7 +213,8 @@ const RealTimeMatchUpdate = (props) => {
               <p>0.3M</p>
             </div>
             <div className="real-time-match-update-info-chart">
-              <LineChart />
+              {/* <LineChart /> */}
+              <LineChartWithToolTip/>
             </div>
           </div>
         </div>

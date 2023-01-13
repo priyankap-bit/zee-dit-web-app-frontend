@@ -80,19 +80,48 @@ const LineChartWithToolTip = (props) => {
         // console.log(data);
 
         const xAxis = d3.axisBottom()
-            .scale(xScale);
+            .scale(xScale)
+            .tickSize(-height);
+
         const xAxisTranslate = height - margin.bottom;
 
         svg.append('g')
             .attr('transform', `translate(0, ${xAxisTranslate})`)
-            .call(xAxis);
+            .call(xAxis)
+            .selectAll("text")
+            .attr("class", "line-chart-with-tool-tips-ticks");
 
         const yAxis = d3.axisLeft()
-            .scale(yScale);
+            .scale(yScale)
+            .tickSize(0)
+            .tickValues([0, 70000000]);
 
         svg.append('g')
             .attr('transform', `translate(${margin.left}, 0)`)
-            .call(yAxis);
+            .call(yAxis)
+            .selectAll("text")
+            .attr("class", "line-chart-with-tool-tips-ticks");
+
+        svg
+            .selectAll(".domain")
+            .attr("stroke", "#D8D8D8")
+            .attr("stroke-width", "1")
+            .attr("opacity", ".1")
+            .attr("stroke-dasharray", "2");
+
+        svg
+            .selectAll(".tick")
+            .select("line")
+            .attr("stroke", "#D8D8D8")
+            .attr("stroke-width", "1")
+            .attr("opacity", "1")
+            .attr("stroke-dasharray", "2");
+
+        svg
+            .selectAll(".tick")
+            .select("text")
+            .attr("fill", "#D8D8D8");
+        // .attr("opacity", "1");
 
         svg.append('line').classed('hoverLine', true)
         svg.append('circle').classed('hoverPoint', true);
@@ -142,15 +171,15 @@ const LineChartWithToolTip = (props) => {
 
             const bisectDate = d3.bisector(d => d.date).right;
             const xIndex = bisectDate(data, mouseDateSnap, 1);
-            const mousePopulation = data[xIndex - 1].population;
+            const mousePopulation = data[xIndex].population;
 
-            svg.selectAll('.hoverLine')
-                .attr('x1', xScale(mouseDateSnap))
-                .attr('y1', margin.top)
-                .attr('x2', xScale(mouseDateSnap))
-                .attr('y2', height - margin.bottom)
-                .attr('stroke', 'rgb(148, 94, 210)')
-                .attr('fill', 'rgb(148, 94, 210)');
+            // svg.selectAll('.hoverLine')
+            //     .attr('x1', xScale(mouseDateSnap))
+            //     .attr('y1', margin.top)
+            //     .attr('x2', xScale(mouseDateSnap))
+            //     .attr('y2', height - margin.bottom)
+            //     .attr('stroke', 'rgb(148, 94, 210)')
+            //     .attr('fill', 'rgb(148, 94, 210)');
 
             svg.selectAll('.hoverPoint')
                 .attr('cx', xScale(mouseDateSnap))
@@ -166,9 +195,9 @@ const LineChartWithToolTip = (props) => {
                 .attr('x', xScale(mouseDateSnap))
                 .attr('y', yScale(mousePopulation))
                 .attr('dx', hoverTextX)
-                .attr('dy', '-1.25em')
+                .attr('dy', '1.25em')
                 .style('text-anchor', hoverTextAnchor)
-                .text(d3.format('.5s')(mousePopulation));
+                .text(`${d3.format('.5s')(mousePopulation)} on ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}`)
         }
 
         function mouseOut(event) {
