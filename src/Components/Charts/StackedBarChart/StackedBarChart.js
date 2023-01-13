@@ -205,7 +205,7 @@ const StackedBarChart = (props) => {
 
         let x2 = scaleOrdinal()
             .domain(data.map(d => d.key))
-            .range([0, width-10]);
+            .range([0, width]);
 
         const averageline = line()
             .x(function (d, i) {
