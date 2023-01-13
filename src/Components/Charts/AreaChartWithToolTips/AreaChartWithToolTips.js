@@ -23,7 +23,7 @@ const AreaChartWithToolTips = (props) => {
         const svg = d3.select(svgRef.current)
             .attr("width", width)
             .attr("height", height);
-            // .attr("viewBox", `0 0 70 300`)
+        // .attr("viewBox", `0 0 70 300`)
 
         const xExtent = d3.extent(data, d => d.date);
 
@@ -47,6 +47,21 @@ const AreaChartWithToolTips = (props) => {
             .attr('stroke', 'rgb(148, 94, 210)')
             .attr('stroke-width', '1px')
             .attr('fill', 'rgba(148, 94, 210, 0.1)');
+
+        // const lineGenerator = d3
+        //     .line()
+        //     .x((d) => xScale(d.date))
+        //     .y((d) => yScale(d.population));
+        // //.curve(d3.curveBasis);
+
+        // // 7. Convert X and Y into Path
+
+        // const line = svg
+        //     .append("path")
+        //     .attr("d", lineGenerator(data))
+        //     .attr("fill", "none")
+        //     .attr("stroke", "rgb(148, 94, 210)")
+        //     .attr("stroke-width", 1);
 
         // console.log(data);
 
@@ -75,8 +90,6 @@ const AreaChartWithToolTips = (props) => {
             .attr('y', 0)
             .attr('width', width)
             .attr('height', height);
-
-        svg.on('mousemove', mouseMove);
 
         svg.on('mouseover', mouseOver);
         svg.on('mousemove', mouseMove);

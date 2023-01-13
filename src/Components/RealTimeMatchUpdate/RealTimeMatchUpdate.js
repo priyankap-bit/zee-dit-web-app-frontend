@@ -4,6 +4,7 @@ import LineChart from "../Charts/LineChart/LineChart";
 import LinecharNormal from "../Charts/LineChart";
 import "./RealTimeMatchUpdate.css";
 import LiveMatchUpdates from "../../Services/ILTTwentySummaryServices/LiveMatchUpdates";
+import LineChartWithToolTip from "../Charts/LineChartWithToolTip/LineChartWithToolTip";
 
 const RealTimeMatchUpdate = (props) => {
 
@@ -17,7 +18,7 @@ const RealTimeMatchUpdate = (props) => {
   });
 
   const [selectedMatch, setSelectedMatch] = useState('matchOne');
-  
+
   const handleMatchSelectionClick = (matchName, event) => {
     event.preventDefault();
     setSelectedMatch(matchName)
@@ -130,7 +131,7 @@ const RealTimeMatchUpdate = (props) => {
               <p>VS</p>
             </div>
             <div className="team-icon">
-              <img src="/static/images/teams/match-mi-logo.svg" alt="MI"  className="team-logo" height={50} />
+              <img src="/static/images/teams/match-mi-logo.svg" alt="MI" className="team-logo" height={50} />
             </div>
           </div>
         </div>
@@ -173,7 +174,8 @@ const RealTimeMatchUpdate = (props) => {
               <p>0.3M</p>
             </div>
             <div className="real-time-match-update-info-chart">
-              <LineChart />
+              {/* <LineChart /> */}
+              <LineChartWithToolTip />
             </div>
           </div>
 

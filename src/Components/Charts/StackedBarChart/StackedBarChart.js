@@ -14,7 +14,7 @@ import {
     pointer,
 } from "d3";
 
-// import useResizeObserver from "./useResizeObserver";
+import useResizeObserver from "./useResizeObserver";
 
 import {
     data, keys, colors
@@ -25,7 +25,7 @@ const StackedBarChart = (props) => {
     const svgRef = useRef();
     const yAxisRef = useRef();
     const wrapperRef = useRef();
-    // const dimensions = useResizeObserver(wrapperRef);
+    const dimensions = useResizeObserver(wrapperRef);
 
     const {
         handleActiveClassName,
@@ -42,7 +42,7 @@ const StackedBarChart = (props) => {
 
         let chartNumberDimensions;
 
-        if (window.innerWidth > 1024 && window.innerWidth < 1366) {
+        if (window.innerWidth > 1024) {
             chartNumberDimensions = {
                 sevenDays: width - 35 + marginForRightChart,
                 divider: width - 27 + marginForRightChart,
