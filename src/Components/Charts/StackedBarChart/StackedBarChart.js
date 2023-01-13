@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
     select,
     scaleBand,
@@ -20,44 +20,64 @@ import {
     data, keys, colors
 } from "./data";
 import "./StackedBarChart.css";
-import { useMediaQuery } from "@material-ui/core";
 
 const StackedBarChart = (props) => {
     const svgRef = useRef();
     const yAxisRef = useRef();
     const wrapperRef = useRef();
-    const dimensions = useResizeObserver(wrapperRef);
-    const width1366 = useMediaQuery('(max-width:1366px)');
-    console.log(width1366);
 
-    var width = 300;
-    var height = 100;
+    const [chartDimensions, setChartDimensions] = useState({
+        width: 300,
+        height: 90,
+    });
 
-    if(width1366){
-        width = 260;
-    }
+    const drawStackedBarChart = useCallback(() => {
 
-    const {
-        handleActiveClassName,
-        marginForRightChart = 0
-    } = props;
+        // console.log('windowDimensions');
 
-
-    useEffect(() => {
+        const {
+            handleActiveClassName,
+            marginForRightChart = 0
+        } = props;
 
         const svg = select(svgRef.current);
 
-        // const { width, height } = wrapperRef.current.getBoundingClientRect();
+        // let width = 330, height=90;
+        let { width, height } = wrapperRef.current.getBoundingClientRect();
+
+        if (window.innerWidth > 1200 && window.innerWidth < 1366) {
+            console.log('inside if loop');
+            //    cha width = 250;
+            //     height = 90;
+            setChartDimensions({
+                width: 250,
+                height: 90,
+            })
+        } else {
+            // width = wrapperRef.current.getBoundingClientRect().width;
+            // height = wrapperRef.current.getBoundingClientRect().height;
+            // width = 330;
+        }
+
+
+        // const width = 300, height = 90;
 
         let chartNumberDimensions;
 
-        if (window.innerWidth > 1024) {
+        if (window.innerWidth > 1365) {
+            chartNumberDimensions = {
+                sevenDays: width - 12 + marginForRightChart,
+                divider: width - 5 + marginForRightChart,
+                max: width + 20 + marginForRightChart,
+            }
+        } else if (window.innerWidth >= 1024 && window.innerWidth < 1366) {
             chartNumberDimensions = {
                 sevenDays: width - 35 + marginForRightChart,
-                divider: width - 27 + marginForRightChart,
-                max: width + marginForRightChart,
+                divider: width - 5 + marginForRightChart,
+                max: width + 20 + marginForRightChart,
             }
-        } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+        }
+        else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
             if (marginForRightChart)
                 chartNumberDimensions = {
                     sevenDays: width + 10 + marginForRightChart,
@@ -100,7 +120,7 @@ const StackedBarChart = (props) => {
 
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
-            .range([0, width])
+            .range([0, chartDimensions.width])
             .padding(0.27);
 
         const yScale = scaleLinear()
@@ -108,7 +128,7 @@ const StackedBarChart = (props) => {
             .range([height + 50, 0]);
 
         svg
-            .attr("width", data.length * 10)
+            .attr("width", chartDimensions.width)
             .attr("height", height)
             .selectAll(".layer")
             .data(layers)
@@ -181,7 +201,7 @@ const StackedBarChart = (props) => {
 
         let x2 = scaleOrdinal()
             .domain(data.map(d => d.key))
-            .range([0, 300]);
+            .range([0, width]);
 
         const averageline = line()
             .x(function (d, i) {
@@ -241,8 +261,6 @@ const StackedBarChart = (props) => {
 
         var mouseover = function (event, d) {
 
-            // console.log("event in mouseover", event);
-
             Tooltip
                 .transition()
                 .duration(200)
@@ -252,7 +270,6 @@ const StackedBarChart = (props) => {
         const tootTipHtml = (event) => `<div><p>Date: ${event.target.__data__.data.key}</p><p>Match 1: ${event.target.__data__.data.matchOne}</p><p>Match 2: ${event.target.__data__.data.matchTwo}</p></div>`;
 
         var mousemove = function (event, d) {
-            console.log('mouse Move on tooltip', event);
             Tooltip
                 .html(tootTipHtml(event))
                 .style("top", (pointer(event)[1]) + "px")
@@ -264,12 +281,11 @@ const StackedBarChart = (props) => {
                 .duration(200)
                 .style("opacity", 0);
 
-            select(this.node())
-                .transition()
-                .duration(200)
-                // .style("stroke", "black")
-                .style("opacity", 0.7)
-                .style("transform", "scale3d(1,1,1)");
+            // select(this.node())
+            //     .transition()
+            //     .duration(200)
+            //     .style("opacity", 0.7)
+            //     .style("transform", "scale3d(1,1,1)");
         }
 
         svg
@@ -277,7 +293,19 @@ const StackedBarChart = (props) => {
             .on("mouseleave", mouseleave)
             .on("mouseover", mouseover)
 
-    }, [dimensions, colors, data, keys, width]);
+
+    }, [chartDimensions]);
+
+    useEffect(() => {
+
+        drawStackedBarChart();
+
+        window.addEventListener('resize', () => {
+            console.log(window.innerWidth, window.innerHeight)
+            drawStackedBarChart();
+        })
+
+    }, []);
 
     return (
 
