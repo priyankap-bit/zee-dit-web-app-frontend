@@ -12,6 +12,7 @@ const ILTTdataTowersContain = (props) => {
            <a href='executive-summary' className='Executive-Summary-tile'>
               <div className='test'>
                <img src='/static/images/logos/summary.svg' height={20} alt='Viewers Logo' className='icon' />
+               <img src='/static/images/logos/image-hover.svg' height={20} alt='Viewers Logo' className='icon-hover' />
                <div className="tile-name">Executive Summary</div>
                </div>
            </a>
