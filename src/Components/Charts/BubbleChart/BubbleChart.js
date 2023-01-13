@@ -175,7 +175,7 @@ const BubbleChart = (props) => {
                 .attr("x", 0)
                 .attr("y", (d, i, D) => `${i - D.length / 2 + 0.85}em`)
                 .attr("font-family", (d, i, D) => i === D.length - 1 ? (d) : null)
-                .text((d, i, D) => i === D.length - 1 ? (Number(d) < 100 ? (console.log(d3.select(this))) :d) : d)
+                .text((d, i, D) => i === D.length - 1 ? (Number(d) < 100 ? (document.querySelector("text").classed('Michael',true)) :d) : d)
 
 
             // ---------------------------new code -----------------------------------------

@@ -48,11 +48,9 @@ const ExecutiveSummaryContentLinear = () => {
     }
 
     const getData = (value) => {
-        console.log(value);
         setActiveTab(value)
     }
-    // console.log(top10files);
-    // console.log('bottom10files', bottom10files);
+
 
     return (
         <div>

@@ -52,7 +52,6 @@ const ExecutiveSummaryContentOtt = () => {
     }
 
     const getData = (value) => {
-        console.log(value);
         setActiveTab(value)
     }
 
