@@ -2,10 +2,21 @@ import React, { useEffect } from "react";
 import BubbleChart from "../../Charts/BubbleChart/BubbleChart";
 import * as d3 from 'd3';
 import ExecutiveSummaryContentLinearContents from "./ExecutiveSummaryContentLinearContents";
+import ExecutiveSummaryContentLinearButtonsTabs from "./ExecutiveSummaryContentLinearButtonsTabs";
+import { useState } from "react";
 
 const ExecutiveSummaryContentOtt = () => {
+    const [activeTab, setActiveTab] = useState('all-content')
 
-    const files = [
+    useEffect(() => {
+        const defs = d3.select('bubble-img-svg').append('g')
+    }, [])
+
+    let top10files = [];
+    let count = 0;
+    let bottom10files = [];
+
+    const data = [
         { id: "Mithai", value: 427.3, img: 'https://themepack.me/i/c/749x467/media/g/2137/dark-galaxy-theme-jy8.jpg' },
         { id: "Tere Bina Jiya Jaye Na", value: 400.65, img: 'https://i.pinimg.com/736x/87/72/6d/87726d7ea80b5543672bb6f162a71034.jpg' },
         { id: "Bhagya Lakshmi", value: 491.58, img: 'https://themepack.me/i/c/749x467/media/g/2137/dark-galaxy-theme-jy8.jpg' },
@@ -22,19 +33,54 @@ const ExecutiveSummaryContentOtt = () => {
         { id: "Easing", value: 100 },
         { id: "FunctionSequence", value: 200 },
         { id: "interpolate", value: 300 },
+        { id: "interpolate", value: 300 },
+        { id: "interpolate", value: 300 },
     ]
 
-    useEffect(() => {
-        const defs = d3.select('bubble-img-svg').append('g')
-    }, [])
+    let sortedFiles = data.sort((r1, r2) => (r1.value > r2.value) ? 1 : (r1.value < r2.value) ? -1 : 0);
 
+    for (let i = 0; i < sortedFiles.length; i++) {
+        if (i < 10) {
+            bottom10files.push(sortedFiles[i])
+        }
+    }
+    for (let i = sortedFiles.length - 1; i > 0; i--) {
+        count += 1;
+        if (count <= 10) {
+            top10files.push(sortedFiles[i])
+        }
+    }
 
+    const getData = (value) => {
+        console.log(value);
+        setActiveTab(value)
+    }
+
+   
     return (
         <div id="chart">
-            <BubbleChart files={files} />
-            <div className="executive-summary-content-linear-filter">
-                <ExecutiveSummaryContentLinearContents />
+            <div className="executive-summary-content-linear-tabs">
+                <ExecutiveSummaryContentLinearButtonsTabs TabValue={getData} />
             </div>
+            <div>
+                {activeTab === 'all-content' && <div className="executive-summary-content-linear-filter">
+                    <BubbleChart files={sortedFiles} />
+                    <ExecutiveSummaryContentLinearContents />
+                </div>
+
+                }
+                {activeTab === 'top-10' && <div className="executive-summary-content-linear-filter">
+                    <BubbleChart files={top10files} />
+                    <ExecutiveSummaryContentLinearContents />
+                </div>
+                }
+                {activeTab === 'bottom-10' && <div className="executive-summary-content-linear-filter">
+                    <BubbleChart files={bottom10files} />
+                    <ExecutiveSummaryContentLinearContents />
+                </div>
+                }
+            </div>
+
 
             {/* <svg className='bubble-img-svg' height={500} width={800}>
                 <defs>

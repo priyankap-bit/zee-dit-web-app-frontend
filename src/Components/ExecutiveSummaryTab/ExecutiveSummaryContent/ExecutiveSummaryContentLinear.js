@@ -3,6 +3,7 @@ import './ExecutiveSummaryContentLinear.css'
 import BubbleChart from "../../Charts/BubbleChart/BubbleChart";
 import FrontBar from "../../Charts/BubbleChart/LinearBarchart/FrontBar";
 import ExecutiveSummaryContentLinearContents from "./ExecutiveSummaryContentLinearContents";
+import ExecutiveSummaryContentLinearButtonsTabs from "./ExecutiveSummaryContentLinearButtonsTabs";
 
 const ExecutiveSummaryContentLinear = () => {
     const [activeTab, setActiveTab] = useState('all-content')
@@ -46,15 +47,17 @@ const ExecutiveSummaryContentLinear = () => {
         }
     }
 
+    const getData = (value) => {
+        console.log(value);
+        setActiveTab(value)
+    }
     // console.log(top10files);
     // console.log('bottom10files', bottom10files);
 
     return (
         <div>
             <div className="executive-summary-content-linear-tabs">
-                <button className={activeTab === 'all-content' ? ("executive-summary-content-linear-actve-tab") : ("executive-summary-content-linear")} onClick={() => setActiveTab('all-content')}>All Content</button>
-                <button className={activeTab === 'top-10' ? ("executive-summary-content-linear-actve-tab") : ("executive-summary-content-linear")} onClick={() => setActiveTab('top-10')}>Top 10</button>
-                <button className={activeTab === 'bottom-10' ? ("executive-summary-content-linear-actve-tab") : ("executive-summary-content-linear bdr-none")} onClick={() => setActiveTab('bottom-10')}>Bottom 10</button>
+                <ExecutiveSummaryContentLinearButtonsTabs TabValue={getData} />
             </div>
             <div>
                 {activeTab === 'all-content' && <div className="executive-summary-content-linear-filter">

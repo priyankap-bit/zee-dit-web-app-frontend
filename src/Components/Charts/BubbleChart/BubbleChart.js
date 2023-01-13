@@ -2,7 +2,7 @@ import React from "react";
 import * as d3 from 'd3';
 import './BubbleChart.css'
 import { useEffect } from "react";
-import { drag, dragDisable, dragEnable, forceY, scaleLinear, ticks } from "d3";
+import { drag, dragDisable, dragEnable, forceY, scaleLinear, select, ticks } from "d3";
 const BubbleChart = (props) => {
     const { files } = props
     const width = window.innerWidth;
@@ -174,8 +174,8 @@ const BubbleChart = (props) => {
                 .style("cursor", "pointer")
                 .attr("x", 0)
                 .attr("y", (d, i, D) => `${i - D.length / 2 + 0.85}em`)
-                .attr("font-family", (d, i, D) => i === D.length - 1 ? 'GothamBold' : null)
-                .text(d => d)
+                .attr("font-family", (d, i, D) => i === D.length - 1 ? (d) : null)
+                .text((d, i, D) => i === D.length - 1 ? (Number(d) < 100 ? (console.log(d3.select(this))) :d) : d)
 
 
             // ---------------------------new code -----------------------------------------
@@ -183,11 +183,11 @@ const BubbleChart = (props) => {
 
             function ticked() {
                 circle
-                    .attr("cx", function (d) {
-                        return d.x/10;
+                    .attr("x", function (d) {
+                        return d.x;
                     })
-                    .attr("cy", function (d) {
-                        return d.y/20;
+                    .attr("y", function (d) {
+                        return d.y;
                     })
                 // text
                 // .attr("x", 0 )
