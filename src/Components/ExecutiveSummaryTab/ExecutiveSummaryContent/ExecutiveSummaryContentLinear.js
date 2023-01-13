@@ -46,8 +46,8 @@ const ExecutiveSummaryContentLinear = () => {
         }
     }
 
-    console.log(top10files);
-    console.log('bottom10files', bottom10files);
+    // console.log(top10files);
+    // console.log('bottom10files', bottom10files);
 
     return (
         <div>
