@@ -34,7 +34,7 @@ const StackedBarChart = (props) => {
        var height= 100;
 
        if(width1366){
-        width = 260;
+        width = 250;
        }
 
     useEffect(() => {
@@ -297,7 +297,7 @@ const StackedBarChart = (props) => {
             .on("mouseleave", mouseleave)
             .on("mouseover", mouseover)
 
-    }, [width, height]);
+    }, [width]);
 
     return (
 
