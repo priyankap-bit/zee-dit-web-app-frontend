@@ -20,20 +20,31 @@ import {
     data, keys, colors
 } from "./data";
 import "./StackedBarChart.css";
+import { useMediaQuery } from "@material-ui/core";
 
 const StackedBarChart = (props) => {
     const svgRef = useRef();
     const yAxisRef = useRef();
     const wrapperRef = useRef();
 
-    const [chartDimensions, setChartDimensions] = useState({
-        width: 300,
-        height: 90,
-    });
+    const width1366 = useMediaQuery('(max-width: 1366px)')
+    console.log(width1366);
 
-    const drawStackedBarChart = useCallback(() => {
+       var width= 300;
+       var height= 100;
 
-        // console.log('windowDimensions');
+       if(width1366){
+        width = 260;
+       }
+
+    useEffect(() => {
+
+        // drawStackedBarChart();
+
+        // window.addEventListener('resize', () => {
+        //     // console.log(window.innerWidth, window.innerHeight)
+        //     drawStackedBarChart();
+        // })
 
         const {
             handleActiveClassName,
@@ -43,21 +54,21 @@ const StackedBarChart = (props) => {
         const svg = select(svgRef.current);
 
         // let width = 330, height=90;
-        let { width, height } = wrapperRef.current.getBoundingClientRect();
+        // let { width, height } = wrapperRef.current.getBoundingClientRect();
 
-        if (window.innerWidth > 1200 && window.innerWidth < 1366) {
-            console.log('inside if loop');
-            //    cha width = 250;
-            //     height = 90;
-            setChartDimensions({
-                width: 250,
-                height: 90,
-            })
-        } else {
-            // width = wrapperRef.current.getBoundingClientRect().width;
-            // height = wrapperRef.current.getBoundingClientRect().height;
-            // width = 330;
-        }
+        // if (window.innerWidth > 1200 && window.innerWidth < 1366) {
+        //     console.log('inside if loop');
+        //     //    cha width = 250;
+        //     //     height = 90;
+        //     setChartDimensions({
+        //         width: 250,
+        //         height: 90,
+        //     })
+        // } else {
+        //     // width = wrapperRef.current.getBoundingClientRect().width;
+        //     // height = wrapperRef.current.getBoundingClientRect().height;
+        //     // width = 330;
+        // }
 
 
         // const width = 300, height = 90;
@@ -113,7 +124,7 @@ const StackedBarChart = (props) => {
 
         const xScale = scaleBand()
             .domain(data.map(d => d.key))
-            .range([0, chartDimensions.width])
+            .range([0, width])
             .padding(0.27);
 
         const yScale = scaleLinear()
@@ -121,7 +132,7 @@ const StackedBarChart = (props) => {
             .range([height + 50, 0]);
 
         svg
-            .attr("width", chartDimensions.width)
+            .attr("width", width)
             .attr("height", height)
             .selectAll(".layer")
             .data(layers)
@@ -286,19 +297,7 @@ const StackedBarChart = (props) => {
             .on("mouseleave", mouseleave)
             .on("mouseover", mouseover)
 
-
-    }, [chartDimensions]);
-
-    useEffect(() => {
-
-        drawStackedBarChart();
-
-        window.addEventListener('resize', () => {
-            console.log(window.innerWidth, window.innerHeight)
-            drawStackedBarChart();
-        })
-
-    }, []);
+    }, [width, height]);
 
     return (
 
