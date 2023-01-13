@@ -151,6 +151,7 @@ const AreaChartWithToolTips = (props) => {
                 .attr('y', yScale(mousePopulation))
                 .attr('dx', hoverTextX)
                 .attr('dy', '1.25em')
+                .attr('background', 'red')
                 .style('text-anchor', hoverTextAnchor)
                 .text(`${d3.format('.5s')(mousePopulation)} on ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}`);
         }
