@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
     select,
     scaleBand,
@@ -25,18 +25,56 @@ const StackedBarChart = (props) => {
     const svgRef = useRef();
     const yAxisRef = useRef();
     const wrapperRef = useRef();
-    const dimensions = useResizeObserver(wrapperRef);
 
-    const {
-        handleActiveClassName,
-        marginForRightChart = 0
-    } = props;
+    // const [windowDimensions, setWindowDimensions] = useState({
+    //     width: window.innerWidth,
+    //     height: window.innerHeight,
+    // });
 
-    useEffect(() => {
+    const [chartDimensions, setChartDimensions] = useState({
+        width: 300,
+        height: 90,
+    });
+    // const dimensions = useResizeObserver(wrapperRef);
+
+    // const {
+    //     handleActiveClassName,
+    //     marginForRightChart = 0
+    // } = props;
+
+    const drawStackedBarChart = useCallback(() => {
+
+        // console.log('windowDimensions', windowDimensions);
+
+        // const svgRef = useRef();
+        // const yAxisRef = useRef();
+        // const wrapperRef = useRef();
+        // const dimensions = useResizeObserver(wrapperRef);
+
+        const {
+            handleActiveClassName,
+            marginForRightChart = 0
+        } = props;
 
         const svg = select(svgRef.current);
 
+        // let width = 330, height=90;
         let { width, height } = wrapperRef.current.getBoundingClientRect();
+
+        if (window.innerWidth > 1200 && window.innerWidth < 1366) {
+            console.log('inside if loop');
+            //    cha width = 250;
+            //     height = 90;
+            setChartDimensions({
+                width: 250,
+                height: 90,
+            })
+        } else {
+            // width = wrapperRef.current.getBoundingClientRect().width;
+            // height = wrapperRef.current.getBoundingClientRect().height;
+            // width = 330;
+        }
+
 
         // const width = 300, height = 90;
 
@@ -172,7 +210,7 @@ const StackedBarChart = (props) => {
 
         let x2 = scaleOrdinal()
             .domain(data.map(d => d.key))
-            .range([0, 300]);
+            .range([0, width]);
 
         const averageline = line()
             .x(function (d, i) {
@@ -264,7 +302,19 @@ const StackedBarChart = (props) => {
             .on("mouseleave", mouseleave)
             .on("mouseover", mouseover)
 
-    }, [colors, data, keys]);
+
+    }, [chartDimensions]);
+
+    useEffect(() => {
+
+        drawStackedBarChart();
+
+        window.addEventListener('resize', () => {
+            console.log(window.innerWidth, window.innerHeight)
+           drawStackedBarChart();
+        })
+
+    }, []);
 
     return (
 
