@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import BubbleChart from "../../Charts/BubbleChart/BubbleChart";
 import * as d3 from 'd3';
+import ExecutiveSummaryContentLinearContents from "./ExecutiveSummaryContentLinearContents";
 
 const ExecutiveSummaryContentOtt = () => {
 
@@ -16,11 +17,11 @@ const ExecutiveSummaryContentOtt = () => {
         { id: "ShortestPaths", value: 437 },
         { id: " SpanningTree", value: 1000 },
         { id: "flare.analytics.optimization", value: 1 },
-        {id: "AspectRatioBanker", value: 500},
-        {id: "animate", value: 20},
-        {id: "Easing", value: 100},
-        {id: "FunctionSequence", value: 200},
-        {id: "interpolate", value: 300},
+        { id: "AspectRatioBanker", value: 500 },
+        { id: "animate", value: 20 },
+        { id: "Easing", value: 100 },
+        { id: "FunctionSequence", value: 200 },
+        { id: "interpolate", value: 300 },
     ]
 
     useEffect(() => {
@@ -31,6 +32,10 @@ const ExecutiveSummaryContentOtt = () => {
     return (
         <div id="chart">
             <BubbleChart files={files} />
+            <div className="executive-summary-content-linear-filter">
+                <ExecutiveSummaryContentLinearContents />
+            </div>
+
             {/* <svg className='bubble-img-svg' height={500} width={800}>
                 <defs>
                     <marker id='arrw' viewBox="0 -5 10 10" refX='0' refY='0' markerWidth='12' markerHeight='12' orient='auto'>

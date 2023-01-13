@@ -30,7 +30,7 @@ const BubbleChart = (props) => {
         linkTarget = "_blank", // the target attribute for links, if any
         width = width, // outer width, in pixels
         height = 500, // outer height, in pixels
-        padding = 3, // padding between circles
+        padding = 0, // padding between circles
         margin = 1, // default margins
         marginTop = margin, // top margin, in pixels
         marginRight = margin, // right margin, in pixels
@@ -89,6 +89,46 @@ const BubbleChart = (props) => {
         trans.transition()
             .duration(1000)
             .attr("transform", d => `translate(${d.x},${d.y})`)
+
+
+
+
+            // -------------------new code -----------------------------------
+        var simulation = d3
+            .forceSimulation()
+            .velocityDecay(0.1)
+            .force("x", d3.forceX(width).strength(0.005))
+            .force("y", d3.forceY(height).strength(0.09))
+            .force(
+                "collide",
+                d3
+                    .forceCollide(function (d) {
+                        return d.Count * 7 + 3;
+                    })
+                    .iterations(1000)
+            );
+// ------------------------------------------------------------------------------------
+
+
+
+
+// function dragstarted(d) {
+//     if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+//     d.fx = d.x;
+//     d.fy = d.y;
+//   }
+
+//   function dragged(d) {
+//     d.fx = d3.event.x;
+//     d.fy = d3.event.y;
+//   }
+  
+//   function dragended(d) {
+//     if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+//     d.fx = null;
+//     d.fy = null;
+//   }
+
         const circle = leaf.append("circle")
             .attr("stroke", '#945ED2')
             .attr("stroke-width", strokeWidth)
@@ -97,6 +137,13 @@ const BubbleChart = (props) => {
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
             .style("cursor", "pointer")
+            // .call(
+            //     d3
+            //       .drag()
+            //       .on("start", dragstarted)
+            //       .on("drag", dragged)
+            //       .on("end", dragended)
+            //   )
             .on('click', function (d, i) {
                 d3.select(this)
                     .attr("stroke-width", 5)
@@ -151,7 +198,43 @@ const BubbleChart = (props) => {
                 .attr("fill-opacity", (d, i, D) => i === D.length - 1 ? 0.7 : null)
                 .text(d => d);
 
+
+
+// ---------------------------new code -----------------------------------------
+            simulation.nodes(files).on("tick", ticked);
+
+            function ticked() {
+                circle
+                    .attr("x", function (d) {
+                        return 0;
+                    })
+                    .attr("y", function (d) {
+                        return d.y -100;
+                    });
+                text
+                    .attr("x", function (d) {
+                        return d.x;
+                    })
+                    .attr("y", function (d) {
+                        return d.y;
+                    });
+                // textCount
+                //     .attr("x", function (d) {
+                //         return d.x;
+                //     })
+                //     .attr("y", function (d) {
+                //         return d.y;
+                //     });
+            }
+// -----------------------------------------------------------------------
+
+
+
         }
+
+
+
+
 
         // return Object.assign(svg.node(), { scales: { color } });
     }
