@@ -94,7 +94,7 @@ const LineChartWithToolTip = (props) => {
         const yAxis = d3.axisLeft()
             .scale(yScale)
             .tickSize(0)
-            .tickValues([0, 70000000]);
+            .tickValues([0, 70000]);
 
         svg.append('g')
             .attr('transform', `translate(${margin.left}, 0)`)
