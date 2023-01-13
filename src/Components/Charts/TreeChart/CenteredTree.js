@@ -3,61 +3,30 @@ import Tree from "react-d3-tree";
 
 const debugData = [
   {
-    name: "Accounts",
+    name: "Consumer Journey Charters",
     children: [
       {
-        name: "Dev - SOC Log Aggregator zzc",
+        name: "Acquisition ",
         children: [
           {
-            name: "FullAWSAccess"
-          }
-        ]
-      },
-      {
-        name: "IL-NX-Default-Dev zzf",
-        children: [
-          {
-            name: "FullAWSAccess"
-          }
-        ]
-      },
-      {
-        name: "The Knights of Ni zzd",
-        children: [
-          {
-            name: "FullAWSAccess"
-          }
-        ]
-      },
-      {
-        name: "Dev - Cloud Testing zzj",
-        children: [
-          {
-            name: "FullAWSAccess"
-          }
-        ]
-      },
-      {
-        name: "Dev - Turbot zza",
-        children: [
-          {
-            name: "FullAWSAccess"
-          }
-        ]
-      },
-      {
-        name: "Dev - Cloud Management zzb",
-        children: [
-          {
-            name: "FullAWSAccess"
+            name: "Total Sessions"
           },
           {
-            name: "RestrictAMItoVPC_1"
+            name: "DAU"
+          },
+          {
+            name: "MAU"
+          },
+          {
+            name: "Paid User"
+          },
+          {
+            name: "Organic User"
           }
         ]
       },
       {
-        name: "Prod - AWS Organizations (Secondary) zze",
+        name: "Discovery",
         children: [
           {
             name: "FullAWSAccess"
@@ -65,7 +34,7 @@ const debugData = [
         ]
       },
       {
-        name: "Dev - testing app zzh",
+        name: "Advertisement",
         children: [
           {
             name: "FullAWSAccess"
@@ -73,7 +42,7 @@ const debugData = [
         ]
       },
       {
-        name: "Dev - Cloud Security Monitoring zzk",
+        name: "Subscription",
         children: [
           {
             name: "FullAWSAccess"
@@ -81,13 +50,17 @@ const debugData = [
         ]
       },
       {
-        name: "EC-Default Dev Collab zzg",
+        name: "Engagement",
         children: [
           {
             name: "FullAWSAccess"
           }
         ]
-      }
+      },
+ 
+    
+    
+   
     ]
   }
 ];
