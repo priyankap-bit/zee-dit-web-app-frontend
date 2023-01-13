@@ -23,7 +23,7 @@ const ExecutiveSummaryContentLinear = () => {
         { id: "MaxFlowMinCut", value: 391 },
         { id: "ShortestPaths", value: 437 },
         { id: " SpanningTree", value: 1000 },
-        { id: "flare.analytics.optimization", value: 1 },
+        { id: "flare.analytics.optimization", value: 90 },
         { id: "AspectRatioBanker", value: 500 },
         { id: "animate", value: 20 },
         { id: "Easing", value: 100 },

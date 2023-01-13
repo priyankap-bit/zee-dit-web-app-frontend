@@ -51,39 +51,39 @@ const StackedBarChart = (props) => {
 
         let chartNumberDimensions;
 
-        if (window.innerWidth > 1024) {
-            chartNumberDimensions = {
-                sevenDays: width - 35 + marginForRightChart,
-                divider: width - 27 + marginForRightChart,
-                max: width + marginForRightChart,
-            }
-        } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-            if (marginForRightChart)
-                chartNumberDimensions = {
-                    sevenDays: width + 10 + marginForRightChart,
-                    divider: width + 20 + marginForRightChart,
-                    max: width + 45 + marginForRightChart
-                }
-            else
-                chartNumberDimensions = {
-                    sevenDays: width + 90,
-                    divider: width + 98,
-                    max: width + 125
-                }
-        } else if (window.innerWidth < 768) {
-            if (marginForRightChart)
-                chartNumberDimensions = {
-                    sevenDays: width + 110 + marginForRightChart,
-                    divider: width + 125 + marginForRightChart,
-                    max: width + 150 + marginForRightChart
-                }
-            else
-                chartNumberDimensions = {
-                    sevenDays: width + 90,
-                    divider: width + 98,
-                    max: width + 125
-                }
-        }
+        // if (window.innerWidth > 1024) {
+        //     chartNumberDimensions = {
+        //         sevenDays: width - 35 + marginForRightChart,
+        //         divider: width - 27 + marginForRightChart,
+        //         max: width + marginForRightChart,
+        //     }
+        // } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+        //     if (marginForRightChart)
+        //         chartNumberDimensions = {
+        //             sevenDays: width + 10 + marginForRightChart,
+        //             divider: width + 20 + marginForRightChart,
+        //             max: width + 45 + marginForRightChart
+        //         }
+        //     else
+        //         chartNumberDimensions = {
+        //             sevenDays: width + 90,
+        //             divider: width + 98,
+        //             max: width + 125
+        //         }
+        // } else if (window.innerWidth < 768) {
+        //     if (marginForRightChart)
+        //         chartNumberDimensions = {
+        //             sevenDays: width + 110 + marginForRightChart,
+        //             divider: width + 125 + marginForRightChart,
+        //             max: width + 150 + marginForRightChart
+        //         }
+        //     else
+        //         chartNumberDimensions = {
+        //             sevenDays: width + 90,
+        //             divider: width + 98,
+        //             max: width + 125
+        //         }
+        // }
 
         // const everything = svg.selectAll("*");
         // everything.remove();
@@ -181,7 +181,7 @@ const StackedBarChart = (props) => {
 
         let x2 = scaleOrdinal()
             .domain(data.map(d => d.key))
-            .range([0, 300]);
+            .range([0, width-10]);
 
         const averageline = line()
             .x(function (d, i) {
@@ -207,7 +207,7 @@ const StackedBarChart = (props) => {
         svg.append("text")
             .attr("class", "x-label-7days")
             .attr("text-anchor", "end")
-            .attr("x", chartNumberDimensions.sevenDays)
+            // .attr("x", chartNumberDimensions.sevenDays)
             .attr("y", -5)
             .text("Last 7 Days");
 
@@ -216,7 +216,7 @@ const StackedBarChart = (props) => {
             .attr("text-anchor", "end")
             // .attr("x", width - 27 + marginForRightChart)
             // .attr("y", -5)
-            .attr("x", chartNumberDimensions.divider)
+            // .attr("x", chartNumberDimensions.divider)
             .attr("y", -5)
             .text("|");
 
@@ -225,7 +225,7 @@ const StackedBarChart = (props) => {
             .attr("text-anchor", "end")
             // .attr("x", width + marginForRightChart)
             // .attr("y", -5)
-            .attr("x", chartNumberDimensions.max)
+            // .attr("x", chartNumberDimensions.max)
             .attr("y", -5)
             .text("Max")
             .on("click", () => {
