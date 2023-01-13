@@ -27,7 +27,7 @@ const BubbleChart = (props) => {
         group, // given d in data, returns a categorical value for color
         title, // given d in data, returns text to show on hover
         link, // given a node d, its link (if any)
-        linkTarget = "_blank", // the target attribute for links, if any
+        linkTarget = "https://themepack.me/i/c/749x467/media/g/2137/dark-galaxy-theme-jy8.jpg", // the target attribute for links, if any
         width = width, // outer width, in pixels
         height = 500, // outer height, in pixels
         padding = 0, // padding between circles
@@ -93,41 +93,27 @@ const BubbleChart = (props) => {
 
 
 
-            // -------------------new code -----------------------------------
+        // -------------------new code -----------------------------------
         var simulation = d3
-            .forceSimulation()
+            .forceSimulation(files)
+            .velocityDecay(0.005)
             .velocityDecay(0.1)
-            .force("x", d3.forceX(width).strength(0.005))
-            .force("y", d3.forceY(height).strength(0.09))
+            .force("x", d3.forceX(width / 4).strength(0.00005))
+            .force("y", d3.forceY(height).strength(9))
             .force(
                 "collide",
                 d3
                     .forceCollide(function (d) {
                         return d.Count * 7 + 3;
                     })
-                    .iterations(1000)
+                    .iterations(10)
             );
-// ------------------------------------------------------------------------------------
+        // ------------------------------------------------------------------------------------
 
 
 
 
-// function dragstarted(d) {
-//     if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-//     d.fx = d.x;
-//     d.fy = d.y;
-//   }
 
-//   function dragged(d) {
-//     d.fx = d3.event.x;
-//     d.fy = d3.event.y;
-//   }
-  
-//   function dragended(d) {
-//     if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-//     d.fx = null;
-//     d.fy = null;
-//   }
 
         const circle = leaf.append("circle")
             .attr("stroke", '#945ED2')
@@ -137,13 +123,6 @@ const BubbleChart = (props) => {
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
             .style("cursor", "pointer")
-            // .call(
-            //     d3
-            //       .drag()
-            //       .on("start", dragstarted)
-            //       .on("drag", dragged)
-            //       .on("end", dragended)
-            //   )
             .on('click', function (d, i) {
                 d3.select(this)
                     .attr("stroke-width", 5)
@@ -195,38 +174,28 @@ const BubbleChart = (props) => {
                 .style("cursor", "pointer")
                 .attr("x", 0)
                 .attr("y", (d, i, D) => `${i - D.length / 2 + 0.85}em`)
-                .attr("fill-opacity", (d, i, D) => i === D.length - 1 ? 0.7 : null)
-                .text(d => d);
+                .attr("font-family", (d, i, D) => i === D.length - 1 ? 'GothamBold' : null)
+                .text(d => d)
 
 
-
-// ---------------------------new code -----------------------------------------
-            simulation.nodes(files).on("tick", ticked);
+            // ---------------------------new code -----------------------------------------
+            simulation.nodes(D).on("tick", ticked);
 
             function ticked() {
                 circle
-                    .attr("x", function (d) {
-                        return 0;
+                    .attr("cx", function (d) {
+                        return d.x/10;
                     })
-                    .attr("y", function (d) {
-                        return d.y -100;
-                    });
-                text
-                    .attr("x", function (d) {
-                        return d.x;
+                    .attr("cy", function (d) {
+                        return d.y/20;
                     })
-                    .attr("y", function (d) {
-                        return d.y;
-                    });
-                // textCount
-                //     .attr("x", function (d) {
-                //         return d.x;
-                //     })
-                //     .attr("y", function (d) {
-                //         return d.y;
-                //     });
+                // text
+                // .attr("x", 0 )
+                // // .attr("y", (d, i, D) => `${i - D.length / 2 + 0.85}em`)
+                // .attr("font-family", (d, i, D) => i === D.length - 1 ? 'GothamBold' : null)
+
             }
-// -----------------------------------------------------------------------
+            // -----------------------------------------------------------------------
 
 
 
