@@ -36,9 +36,9 @@ const StackedBarChart = (props) => {
 
         const svg = select(svgRef.current);
 
-        // let { width, height } = wrapperRef.current.getBoundingClientRect();
+        let { width, height } = wrapperRef.current.getBoundingClientRect();
 
-        const width = 300, height = 80;
+        // const width = 300, height = 90;
 
         let chartNumberDimensions;
 
