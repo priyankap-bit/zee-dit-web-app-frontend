@@ -1,97 +1,89 @@
 import React from "react";
 import Tree from "react-d3-tree";
-
-const debugData = [
-  {
-    name: "Consumer Journey Charters",
-    children: [
-      {
-        name: "Acquisition ",
-        children: [
-          {
-            name: "Total Sessions"
-          },
-          {
-            name: "DAU"
-          },
-          {
-            name: "MAU"
-          },
-          {
-            name: "Paid User"
-          },
-          {
-            name: "Organic User"
-          }
-        ]
-      },
-      {
-        name: "Discovery",
-        children: [
-          {
-            name: "FullAWSAccess"
-          }
-        ]
-      },
-      {
-        name: "Advertisement",
-        children: [
-          {
-            name: "FullAWSAccess"
-          }
-        ]
-      },
-      {
-        name: "Subscription",
-        children: [
-          {
-            name: "FullAWSAccess"
-          }
-        ]
-      },
-      {
-        name: "Engagement",
-        children: [
-          {
-            name: "FullAWSAccess"
-          }
-        ]
-      },
- 
-    
-    
-   
-    ]
-  }
-];
+import orgChartJson from "./data/org-chart.json";
+import { useCenteredTree } from "./helpers";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
+import { Button, IconButton } from "@material-ui/core";
+import { Edit, AttachMoney, Accessible } from "@material-ui/icons";
+import "./styles.css";
 
 const containerStyles = {
-  width: "100%",
-  height: "100vh"
+  width: "100vw",
+  height: "100vh",
+  background: "#eee"
 };
 
-export default class CenteredTree extends React.PureComponent {
-  state = {};
+const useStyles = makeStyles(
+  createStyles({
+    button: {
+    },
+    name: {
+      fontSize: "16px"
+    },
+    edit: {
+      position: "absolute",
+      top: "0px",
+      right: "0px",
+      color: "#4BA083"
+    },
+    attributes: {
+      position: "absolute",
+      bottom: "5px",
+      right: "10px"
+    }
+  })
+);
 
-  componentDidMount() {
-    const dimensions = this.treeContainer.getBoundingClientRect();
-    this.setState({
-      translate: {
-        x: dimensions.width / 2,
-        y: dimensions.height / 2
-      }
-    });
-  }
+// Here we're using `renderCustomNodeElement` render a component that uses
+// both SVG and HTML tags side-by-side.
+// This is made possible by `foreignObject`, which wraps the HTML tags to
+// allow for them to be injected into the SVG namespace.
+const renderForeignObjectNode = ({
+  nodeDatum,
+  toggleNode,
+  foreignObjectProps,
+  classes
+}) => (
+  <>
+    {/* `foreignObject` requires width & height to be explicitly set. */}
+    <foreignObject {...foreignObjectProps}>
+      <Button
+        className={classes.button}
+        variant="contained"
+        onClick={toggleNode}
+      >
+        <div className={classes.name}>{nodeDatum.name}</div>
+    
+        <div className={classes.attributes}>
+       
+        </div>
+      </Button>
+    </foreignObject>
+  </>
+);
 
-  render() {
-    return (
-      <div style={containerStyles} ref={(tc) => (this.treeContainer = tc)}>
-        <Tree
-          data={debugData}
-          translate={this.state.translate}
-          orientation={"vertical"}
-        />
-      </div>
-    );
-  }
+export default function App() {
+  const classes = useStyles();
+  const [translate, containerRef] = useCenteredTree();
+  const nodeSize = { x: 200, y: 250 };
+  const foreignObjectProps = { width: nodeSize.x, height: nodeSize.y, x: -125 };
+
+  return (
+    <div style={containerStyles} ref={containerRef}>
+      <Tree
+        data={orgChartJson}
+        translate={translate}
+        nodeSize={nodeSize}
+        transitionDuration="1000"
+        pathFunc="step"
+        rootNodeClassName="node__root"
+        branchNodeClassName="node__branch"
+        leafNodeClassName="node__leaf"
+        renderCustomNodeElement={(rd3tProps) =>
+          renderForeignObjectNode({ ...rd3tProps, foreignObjectProps, classes })
+        }
+        orientation="vertical"
+      />
+    </div>
+  );
 }
