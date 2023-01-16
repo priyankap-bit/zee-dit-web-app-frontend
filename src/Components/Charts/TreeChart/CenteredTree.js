@@ -17,7 +17,7 @@ const useStyles = makeStyles(
     button: {
     },
     name: {
-      fontSize: "16px"
+      fontSize: "20px"
     },
     edit: {
       position: "absolute",
@@ -50,7 +50,7 @@ const renderForeignObjectNode = ({
         className={classes.button}
         variant="contained"
         onClick={toggleNode}
-        style={{ color: "black", background: "white", "border-radius": "21px", "border": "1px solid blue"  }}
+        style={{ color: "black", background: "white", "border-radius": "100px", "border": "3px solid #573b85", "padding": "25px", "width": "290px"  }}
       >
         <div className={classes.name}>{nodeDatum.name}</div>
     
