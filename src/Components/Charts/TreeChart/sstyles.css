@@ -5,5 +5,7 @@
   stroke: none !important;
 }
 .node__leaf {
-  stroke: none !important;
+  /* stroke: none !important; */
+  fill: rgb(181, 168, 255);
+
 }

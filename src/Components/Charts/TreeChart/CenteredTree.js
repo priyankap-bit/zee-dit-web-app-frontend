@@ -4,7 +4,6 @@ import orgChartJson from "./data/org-chart.json";
 import { useCenteredTree } from "./helpers";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { Button, IconButton } from "@material-ui/core";
-import { Edit, AttachMoney, Accessible } from "@material-ui/icons";
 import "./sstyles.css";
 
 const containerStyles = {
@@ -51,6 +50,7 @@ const renderForeignObjectNode = ({
         className={classes.button}
         variant="contained"
         onClick={toggleNode}
+        style={{ color: "black", background: "white", "border-radius": "21px", "border": "1px solid blue"  }}
       >
         <div className={classes.name}>{nodeDatum.name}</div>
     
