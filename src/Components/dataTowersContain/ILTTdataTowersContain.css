@@ -53,9 +53,14 @@ a.product {
     color: #fff !important;
 }
 
-.Executive-Summary-tile:hover  {
+.Executive-Summary-tile:hover{
     fill: #fff;
     color: white;
     border-radius: 2px;
     background: linear-gradient(180deg, #7E5AA4 0%, #3E1F76 100%);
+}
+
+.Executive-Summary-tile:hover img.icon {
+    -webkit-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
 }
