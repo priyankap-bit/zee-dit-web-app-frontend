@@ -78,9 +78,9 @@
 }
 
 .tooltip-stacked-bar-chart {
-    background: #FFFFFF;
+    /* background: #FFFFFF;
     border: 1px solid #D8E3FF;
-    border-radius: 5px;
+    border-radius: 5px; */
     position: relative;
     margin-bottom: 0;
     padding-bottom: 0;
@@ -90,15 +90,15 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
-    width: 200%;
-    padding: 0 5px;
+    /* width: 100px; */
+    /* padding: 0 5px; */
     /* width: 140%; */
     /* margin: ; */
 }
 
 .tooltip-stacked-bar-chart-right {
-    background: #FFFFFF;
-    border: 1px solid #D8E3FF;
+    /* background: #FFFFFF;
+    border: 1px solid #D8E3FF; */
     border-radius: 5px;
     position: relative;
     margin-bottom: 0;
@@ -109,8 +109,17 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
-    padding: 0 4px;
-    /* width: 110%; */
+    /* padding: 0 4px; */
+    width: 200%;
+}
+
+.tooltip-stacked-bar-chart div,
+.tooltip-stacked-bar-chart-right div {
+    width: 200%;
+    background: #FFFFFF;
+    border: 1px solid #D8E3FF;
+    border-radius: 5px;
+    padding:5px;
 }
 
 .tooltip-stacked-bar-chart p,
@@ -130,6 +139,7 @@
     z-index: 100;
     background-color: black;
 }
+
 text.chart-label {
     font-weight: 500;
     font-size: 10px;

@@ -83,6 +83,7 @@ const AreaChartWithToolTips = (props) => {
         svg.append('line').classed('hoverLine', true)
         svg.append('circle').classed('hoverPoint', true);
         svg.append("text").classed('hoverText', true);
+        // svg.append("div").classed('hoverText', true);
 
         svg.append('rect')
             .attr('fill', 'transparent')
@@ -151,9 +152,11 @@ const AreaChartWithToolTips = (props) => {
                 .attr('y', yScale(mousePopulation))
                 .attr('dx', hoverTextX)
                 .attr('dy', '1.25em')
-                .attr('background', 'red')
+                // .attr('background', 'red')
                 .style('text-anchor', hoverTextAnchor)
+                // .append('text')
                 .text(`${d3.format('.5s')(mousePopulation)} on ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}`);
+                // .append('text', "ABC");
         }
 
         function mouseOut(event) {
