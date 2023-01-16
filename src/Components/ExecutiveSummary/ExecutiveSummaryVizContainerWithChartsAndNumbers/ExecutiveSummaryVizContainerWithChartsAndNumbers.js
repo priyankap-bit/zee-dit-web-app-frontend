@@ -106,7 +106,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
               </div>
               <div className="exact-summary-viz-areachart-container">
                 {/* <AreaChart areaChartData={digitalData.watchTime.areaChartData} /> */}
-                <AreaChartWithToolTips />
+                <AreaChartWithToolTips isViewers={false} />
               </div>
               {/* <div style={{ height: "20px" }}></div> */}
             </div>

@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 
 import * as d3 from 'd3v4';
 
+// import { pointer } from 'd3';
+
 import './AreaChartWithToolTips.css';
 import areaChartWithToolTipsData from './data';
 
@@ -10,6 +12,8 @@ const AreaChartWithToolTips = (props) => {
     const svgRef = useRef();
 
     const [data, setData] = useState(areaChartWithToolTipsData);
+
+    const { isViewers = true } = props;
 
     useEffect(() => {
 
@@ -23,6 +27,8 @@ const AreaChartWithToolTips = (props) => {
         const svg = d3.select(svgRef.current)
             .attr("width", width)
             .attr("height", height);
+
+        svg.selectAll('*').remove();
         // .attr("viewBox", `0 0 70 300`)
 
         const xExtent = d3.extent(data, d => d.date);
@@ -80,10 +86,12 @@ const AreaChartWithToolTips = (props) => {
         //     .attr('transform', `translate(${margin.left}, 0)`)
         //     .call(yAxis);
 
-        svg.append('line').classed('hoverLine', true)
-        svg.append('circle').classed('hoverPoint', true);
-        // svg.append("text").classed('hoverText', true);
-        svg.append("div").classed('hoverText', true);
+        svg
+            .append('line')
+            .classed('hoverLine', true);
+        svg
+            .append('circle')
+            .classed('hoverPoint', true);
 
         svg.append('rect')
             .attr('fill', 'transparent')
@@ -91,6 +99,13 @@ const AreaChartWithToolTips = (props) => {
             .attr('y', 0)
             .attr('width', width)
             .attr('height', height);
+
+        const tooltip = d3.select(".area-chart-with-tooltips-container")
+            .append("div")
+            .style('visibility', 'hidden')
+            .classed('hoverText', true);
+
+        tooltip.selectAll("*").remove();
 
         svg.on('mouseover', mouseOver);
         svg.on('mousemove', mouseMove);
@@ -103,11 +118,13 @@ const AreaChartWithToolTips = (props) => {
             svg.selectAll('.hoverPoint')
                 .style('visibility', 'visible');
 
-            svg.selectAll('.hoverText')
+            // svg.selectAll('.hoverText')
+            //     .style('visibility', 'visible');
+            tooltip
                 .style('visibility', 'visible');
         }
 
-        function mouseMove(event) {
+        function mouseMove(event, d) {
 
             d3.event.preventDefault();
 
@@ -143,21 +160,26 @@ const AreaChartWithToolTips = (props) => {
                 .attr('r', '5')
                 .attr('fill', 'rgb(148, 94, 210)');
 
-            const isLessThanHalf = xIndex > data.length / 2;
-            const hoverTextX = isLessThanHalf ? '-0.75em' : '0.75em';
-            const hoverTextAnchor = isLessThanHalf ? 'end' : 'start';
+            // const isLessThanHalf = xIndex > data.length / 2;
+            // const hoverTextX = isLessThanHalf ? '-0.75em' : '0.75em';
+            // const hoverTextAnchor = isLessThanHalf ? 'end' : 'start';
 
-            svg.selectAll('.hoverText')
-                .attr('x', xScale(mouseDateSnap))
-                .attr('y', yScale(mousePopulation))
-                .attr('dx', hoverTextX)
-                .attr('dy', '1.25em')
-                .html('<p>Anant</p>')
-            // .attr('background', 'red')
-            // .style('text-anchor', hoverTextAnchor)
-            // .append('text')
-            // .text(`${d3.format('.5s')(mousePopulation)} on ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}`);
-            // .append('text', "ABC");
+            // svg.selectAll('.hoverText')
+            //     .attr('x', xScale(mouseDateSnap))
+            //     .attr('y', yScale(mousePopulation))
+            //     .attr('dx', hoverTextX)
+            //     .attr('dy', '1.25em')
+            //     .style('text-anchor', hoverTextAnchor)
+            //     .html('<p>Anant</p>')
+            //     .text(`${d3.format('.5s')(mousePopulation)} on ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}`);
+
+            tooltip
+                .html(`<p>Date: ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}</p><p>${isViewers ? "Viewers: " : "Watch Time: "}${mousePopulation}</p>`)
+                // .style("left", (d3.mouse(this)[0] - 20) + "px") 
+                // .style("top", (d3.mouse(this)[1] + 280) + "px");
+                .style("left", d3.event.pageX + 20 + "px")
+                .style("top", d3.event.pageY + 15 + "px");
+
         }
 
         function mouseOut(event) {
@@ -167,7 +189,10 @@ const AreaChartWithToolTips = (props) => {
             svg.selectAll('.hoverPoint')
                 .style('visibility', 'hidden');
 
-            svg.selectAll('.hoverText')
+            // svg.selectAll('.hoverText')
+            //     .style('visibility', 'hidden');
+
+            tooltip
                 .style('visibility', 'hidden');
         }
 

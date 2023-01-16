@@ -132,7 +132,7 @@ const StackedBarChart = (props) => {
                     divider: width + 98,
                     max: width + 125
                 }
-        } else if (window.innerWidth < 768) {
+        } else if (window.innerWidth > 370 && window.innerWidth < 768) {
             if (marginForRightChart)
                 chartNumberDimensions = {
                     sevenDays: width + 110 + marginForRightChart,
@@ -142,6 +142,20 @@ const StackedBarChart = (props) => {
             else {
                 chartNumberDimensions = {
                     sevenDays: width + 90,
+                    divider: width + 98,
+                    max: width + 125
+                }
+            }
+        } else if (window.innerWidth <= 370) {
+            if (marginForRightChart)
+                chartNumberDimensions = {
+                    sevenDays: width - 100 + marginForRightChart,
+                    divider: width + 125 + marginForRightChart,
+                    max: width + 150 + marginForRightChart
+                }
+            else {
+                chartNumberDimensions = {
+                    sevenDays: width - 100,
                     divider: width + 98,
                     max: width + 125
                 }
@@ -268,10 +282,8 @@ const StackedBarChart = (props) => {
             // .attr("dy", ".75em")
             .text(marginForRightChart ? "Watch Time in Mn." : "Viewers in Mn.");
 
-        const chartSevenDays = svg.selectAll(".x-label-7days");
-        chartSevenDays.remove();
-        const chartMax = svg.selectAll(".x-label-max");
-        chartMax.remove();
+        svg.selectAll(".x-label-7days").remove();
+        svg.selectAll(".x-label-max").remove();
 
         svg.append("text")
             .attr("class", "x-label-7days")
@@ -364,6 +376,7 @@ const StackedBarChart = (props) => {
                     </div>
                 </div>
             </div>
+
         </div>
 
     )
