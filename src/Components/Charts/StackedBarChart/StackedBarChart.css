@@ -90,6 +90,7 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
+    width: 200%;
     padding: 0 5px;
     /* width: 140%; */
     /* margin: ; */
@@ -138,3 +139,9 @@ text.chart-label {
 
 }
 
+@media only screen and (max-width: 1366px) {
+    .svg-wrap {
+        position: relative;
+        left: 70px;
+    }
+}

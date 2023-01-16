@@ -2,6 +2,7 @@ import ExecutiveSummaryVizContainerWithChartsAndNumbers from './ExecutiveSummary
 import './ExecutiveSummary.css';
 import { useEffect, useState } from 'react';
 import ExecutiveSummaryServices from '../../Services/ILTTwentySummaryServices/ExecutiveSummaryServices';
+import { useMediaQuery } from '@material-ui/core';
 
 const ExecutiveSummary = (props) => {
 
