@@ -5,7 +5,7 @@ import { useCenteredTree } from "./helpers";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { Button, IconButton } from "@material-ui/core";
 import { Edit, AttachMoney, Accessible } from "@material-ui/icons";
-import "./styles.css";
+import "./sstyles.css";
 
 const containerStyles = {
   width: "100vw",
@@ -65,7 +65,8 @@ const renderForeignObjectNode = ({
 export default function App() {
   const classes = useStyles();
   const [translate, containerRef] = useCenteredTree();
-  const nodeSize = { x: 200, y: 250 };
+  const nodeSize = { x: 300, y: 250 };
+  const separation = { siblings: 1, nonSiblings: 2 };
   const foreignObjectProps = { width: nodeSize.x, height: nodeSize.y, x: -125 };
 
   return (
@@ -74,8 +75,8 @@ export default function App() {
         data={orgChartJson}
         translate={translate}
         nodeSize={nodeSize}
+        separation={separation}
         transitionDuration="1000"
-        pathFunc="step"
         rootNodeClassName="node__root"
         branchNodeClassName="node__branch"
         leafNodeClassName="node__leaf"
