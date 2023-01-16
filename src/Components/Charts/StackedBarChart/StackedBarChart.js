@@ -103,7 +103,7 @@ const StackedBarChart = (props) => {
         else if (window.innerWidth >= 1024 && window.innerWidth < 1366) {
             if (marginForRightChart)
                 chartNumberDimensions = {
-                    sevenDays: width - 90 + marginForRightChart,
+                    sevenDays: width - 100 + marginForRightChart,
                     divider: width - 90 + marginForRightChart,
                     max: width - 65 + marginForRightChart,
                 }
@@ -267,6 +267,12 @@ const StackedBarChart = (props) => {
             // .attr("y", 0)
             // .attr("dy", ".75em")
             .text(marginForRightChart ? "Watch Time in Mn." : "Viewers in Mn.");
+
+        const chartSevenDays = svg.selectAll(".x-label-7days");
+        chartSevenDays.remove();
+        const chartMax = svg.selectAll(".x-label-max");
+        chartMax.remove();
+
         svg.append("text")
             .attr("class", "x-label-7days")
             .attr("text-anchor", "end")
@@ -314,7 +320,7 @@ const StackedBarChart = (props) => {
             Tooltip
                 .html(tootTipHtml(event))
                 .style("top", (pointer(event)[1]) + "px")
-                .style("left", (pointer(event)[0]-250) + "px");
+                .style("left", (pointer(event)[0] - 250) + "px");
         }
         var mouseleave = function (event, d) {
             Tooltip
@@ -351,9 +357,9 @@ const StackedBarChart = (props) => {
                         <svg className="energy-svg" ref={svgRef}>
                             <g className="x-axis" />
                             <g className="x-axis-top" />
-                            <g className="tooltip-area-stcked-barchart">
+                            {/* <g className="tooltip-area-stcked-barchart">
                                 <text className="tooltip-area__text-stcked-barchart"></text>
-                            </g>
+                            </g> */}
                         </svg>
                     </div>
                 </div>
