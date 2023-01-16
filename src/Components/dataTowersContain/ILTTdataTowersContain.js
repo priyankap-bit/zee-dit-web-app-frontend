@@ -12,13 +12,14 @@ const ILTTdataTowersContain = (props) => {
            <a href='executive-summary' className='Executive-Summary-tile'>
               <div className='test'>
                <img src='/static/images/logos/summary.svg' height={20} alt='Viewers Logo' className='icon' />
-               <img src='/static/images/logos/Consumer-icon-hover.svg' height={20} alt='Viewers Logo' className='icon-hover' />
+               
                <div className="tile-name">Executive Summary</div>
                </div>
            </a>
            <div className='data-towers'>
           <a className='Executive-Summary-tile'>
               <img src='/static/images/logos/Consumer-icon.png' height={20} alt='Viewers Logo' className='icon' />
+              <img src='/static/images/logos/Consumer-icon-hover.svg' height={20} alt='Viewers Logo' className='icon-hover' />
                <div className="tile-name">Consumer</div>
            </a>
           
