@@ -30,12 +30,12 @@ const StackedBarChart = (props) => {
     const width1366 = useMediaQuery('(max-width: 1366px)')
     console.log(width1366);
 
-       var width= 300;
-       var height= 100;
+    var width = 300;
+    var height = 100;
 
-       if(width1366){
+    if (width1366) {
         width = 250;
-       }
+    }
 
     useEffect(() => {
 
@@ -53,6 +53,11 @@ const StackedBarChart = (props) => {
 
         const svg = select(svgRef.current);
 
+        // const everything = svg.selectAll("*");
+        // everything.remove();
+
+        const averagelineSvg = svg.select('.line');
+        averagelineSvg.remove();
         // let width = 330, height=90;
         // let { width, height } = wrapperRef.current.getBoundingClientRect();
 
@@ -74,40 +79,74 @@ const StackedBarChart = (props) => {
         // const width = 300, height = 90;
 
         let chartNumberDimensions;
+        if (window.innerWidth >= 1366) {
 
-        // if (window.innerWidth > 1024) {
-        //     chartNumberDimensions = {
-        //         sevenDays: width - 35 + marginForRightChart,
-        //         divider: width - 27 + marginForRightChart,
-        //         max: width + marginForRightChart,
-        //     }
-        // } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-        //     if (marginForRightChart)
-        //         chartNumberDimensions = {
-        //             sevenDays: width + 10 + marginForRightChart,
-        //             divider: width + 20 + marginForRightChart,
-        //             max: width + 45 + marginForRightChart
-        //         }
-        //     else
-        //         chartNumberDimensions = {
-        //             sevenDays: width + 90,
-        //             divider: width + 98,
-        //             max: width + 125
-        //         }
-        // } else if (window.innerWidth < 768) {
-        //     if (marginForRightChart)
-        //         chartNumberDimensions = {
-        //             sevenDays: width + 110 + marginForRightChart,
-        //             divider: width + 125 + marginForRightChart,
-        //             max: width + 150 + marginForRightChart
-        //         }
-        //     else
-        //         chartNumberDimensions = {
-        //             sevenDays: width + 90,
-        //             divider: width + 98,
-        //             max: width + 125
-        //         }
-        // }
+            if (marginForRightChart)
+                chartNumberDimensions = {
+                    sevenDays: width - 100 + marginForRightChart,
+                    divider: width - 90 + marginForRightChart,
+                    max: width - 65 + marginForRightChart,
+                }
+            else
+                chartNumberDimensions = {
+                    sevenDays: width - 35,
+                    divider: width - 27,
+                    max: width
+                }
+
+            // chartNumberDimensions = {
+            //     sevenDays: width - 10 + marginForRightChart,
+            //     divider: width - 27 + marginForRightChart,
+            //     max: width + marginForRightChart,
+            // }
+        }
+        else if (window.innerWidth >= 1024 && window.innerWidth < 1366) {
+            if (marginForRightChart)
+                chartNumberDimensions = {
+                    sevenDays: width - 90 + marginForRightChart,
+                    divider: width - 90 + marginForRightChart,
+                    max: width - 65 + marginForRightChart,
+                }
+            else
+                chartNumberDimensions = {
+                    sevenDays: width - 35 + marginForRightChart,
+                    divider: width - 27 + marginForRightChart,
+                    max: width + marginForRightChart,
+                }
+
+            // chartNumberDimensions = {
+            //     sevenDays: width - 35 + marginForRightChart,
+            //     divider: width - 27 + marginForRightChart,
+            //     max: width + marginForRightChart,
+            // }
+        } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+            if (marginForRightChart)
+                chartNumberDimensions = {
+                    sevenDays: width + 10 + marginForRightChart,
+                    divider: width + 20 + marginForRightChart,
+                    max: width + 45 + marginForRightChart
+                }
+            else
+                chartNumberDimensions = {
+                    sevenDays: width + 90,
+                    divider: width + 98,
+                    max: width + 125
+                }
+        } else if (window.innerWidth < 768) {
+            if (marginForRightChart)
+                chartNumberDimensions = {
+                    sevenDays: width + 110 + marginForRightChart,
+                    divider: width + 125 + marginForRightChart,
+                    max: width + 150 + marginForRightChart
+                }
+            else {
+                chartNumberDimensions = {
+                    sevenDays: width + 90,
+                    divider: width + 98,
+                    max: width + 125
+                }
+            }
+        }
 
         // const everything = svg.selectAll("*");
         // everything.remove();
@@ -205,7 +244,7 @@ const StackedBarChart = (props) => {
 
         let x2 = scaleOrdinal()
             .domain(data.map(d => d.key))
-            .range([0, width-10]);
+            .range([0, width]);
 
         const averageline = line()
             .x(function (d, i) {
@@ -231,7 +270,7 @@ const StackedBarChart = (props) => {
         svg.append("text")
             .attr("class", "x-label-7days")
             .attr("text-anchor", "end")
-            // .attr("x", chartNumberDimensions.sevenDays)
+            .attr("x", chartNumberDimensions.sevenDays)
             .attr("y", -5)
             .text("Last 7 Days");
 
@@ -239,18 +278,16 @@ const StackedBarChart = (props) => {
             .attr("class", "x-label-7days")
             .attr("text-anchor", "end")
             // .attr("x", width - 27 + marginForRightChart)
-            // .attr("y", -5)
-            // .attr("x", chartNumberDimensions.divider)
             .attr("y", -5)
+            .attr("x", chartNumberDimensions.divider)
             .text("|");
 
         svg.append("text")
             .attr("class", "x-label-max")
             .attr("text-anchor", "end")
             // .attr("x", width + marginForRightChart)
-            // .attr("y", -5)
-            // .attr("x", chartNumberDimensions.max)
             .attr("y", -5)
+            .attr("x", chartNumberDimensions.max)
             .text("Max")
             .on("click", () => {
                 handleActiveClassName(true);
@@ -277,7 +314,7 @@ const StackedBarChart = (props) => {
             Tooltip
                 .html(tootTipHtml(event))
                 .style("top", (pointer(event)[1]) + "px")
-                .style("left", (pointer(event)[0] - 50) + "px");
+                .style("left", (pointer(event)[0]-250) + "px");
         }
         var mouseleave = function (event, d) {
             Tooltip
