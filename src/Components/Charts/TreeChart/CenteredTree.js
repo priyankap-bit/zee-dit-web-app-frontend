@@ -43,6 +43,7 @@ const renderForeignObjectNode = ({
   foreignObjectProps,
   classes
 }) => (
+  
   <>
     {/* `foreignObject` requires width & height to be explicitly set. */}
     <foreignObject {...foreignObjectProps}>
@@ -50,7 +51,7 @@ const renderForeignObjectNode = ({
         className={classes.button}
         variant="contained"
         onClick={toggleNode}
-        style={{ color: "black", background: "white", "border-radius": "100px", "border": "3px solid #573b85", "padding": "25px", "width": "290px"  }}
+        style={{ color: "black", background: "white", "border-radius": "100px", "border": "3px solid #573b85", "padding": "25px", "width": "90%"  }}
       >
         <div className={classes.name}>{nodeDatum.name}</div>
     
@@ -62,6 +63,8 @@ const renderForeignObjectNode = ({
   </>
 );
 
+
+
 export default function App() {
   const classes = useStyles();
   const [translate, containerRef] = useCenteredTree();
@@ -70,12 +73,23 @@ export default function App() {
   const foreignObjectProps = { width: nodeSize.x, height: nodeSize.y, x: -125 };
 
   return (
+    <div>
+
+    <div>
+      <label>
+            <input type="checkbox"  />
+            <span />
+            <strong>fg</strong>
+      </label>
+    </div>
+
     <div style={containerStyles} ref={containerRef}>
       <Tree
         data={orgChartJson}
         translate={translate}
         nodeSize={nodeSize}
         separation={separation}
+        zoomable="false"
         transitionDuration="1000"
         rootNodeClassName="node__root"
         branchNodeClassName="node__branch"
@@ -86,5 +100,7 @@ export default function App() {
         orientation="vertical"
       />
     </div>
+    </div>
+
   );
 }
