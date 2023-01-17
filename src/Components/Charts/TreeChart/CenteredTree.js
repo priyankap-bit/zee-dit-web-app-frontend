@@ -72,7 +72,9 @@ export default function App() {
   const nodeSize = { x: 300, y: 250 };
   const separation = { siblings: 1, nonSiblings: 2 };
   const foreignObjectProps = { width: nodeSize.x, height: nodeSize.y, x: -125 };
-
+  const draggable = false;
+  const zoomable = false;
+  const collapsible = true;
   return (
     <div>
 
@@ -86,11 +88,13 @@ export default function App() {
 
     <div style={containerStyles} ref={containerRef}>
       <Tree
+        zoomable = {zoomable}
+        draggable = {draggable}
+        collapsible = {collapsible}
         data={orgChartJson}
         translate={translate}
         nodeSize={nodeSize}
         separation={separation}
-        zoomable="false"
         transitionDuration="1000"
         rootNodeClassName="node__root"
         branchNodeClassName="node__branch"
