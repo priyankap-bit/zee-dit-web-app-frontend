@@ -51,7 +51,7 @@ const renderForeignObjectNode = ({
         className={classes.button}
         variant="contained"
         onClick={toggleNode}
-        style={{ color: "black", background: "white", "border-radius": "100px", "border": "3px solid #573b85", "padding": "25px", "width": "90%"  }}
+        style={{ color: "black", background: "#aaeddb", "border-radius": "100px", "border": "3px solid #18ca96", "padding": "25px", "width": "90%"  }}
       >
         <div className={classes.name}>{nodeDatum.name}</div>
     
