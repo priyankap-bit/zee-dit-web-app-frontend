@@ -124,10 +124,12 @@
 
 .tooltip-stacked-bar-chart p,
 .tooltip-stacked-bar-chart-right p {
-    font-weight: 400;
+    /* font-weight: 400; */
     color: #333333;
     margin: 0 !important;
     padding: 0 !important;
+    font-family: 'GothamLight';
+    font-size: 12px;
 }
 
 .tooltip-area-stcked-barchart {

@@ -11,6 +11,8 @@ const LineChartWithToolTip = (props) => {
 
     const [data, setData] = useState(lineChartWithToolTipsData);
 
+    // const { isViewers = true } = props;
+
     useEffect(() => {
 
 
@@ -125,7 +127,7 @@ const LineChartWithToolTip = (props) => {
 
         svg.append('line').classed('hoverLine', true)
         svg.append('circle').classed('hoverPoint', true);
-        svg.append("text").classed('hoverText', true);
+        // svg.append("text").classed('hoverText', true);
 
         svg.append('rect')
             .attr('fill', 'transparent')
@@ -134,7 +136,12 @@ const LineChartWithToolTip = (props) => {
             .attr('width', width)
             .attr('height', height);
 
-        svg.on('mousemove', mouseMove);
+        const tooltip = d3.select(".line-chart-with-tooltips-container")
+            .append("div")
+            .style('visibility', 'hidden')
+            .classed('hoverText', true);
+
+        tooltip.selectAll("*").remove();
 
         svg.on('mouseover', mouseOver);
         svg.on('mousemove', mouseMove);
@@ -147,7 +154,10 @@ const LineChartWithToolTip = (props) => {
             svg.selectAll('.hoverPoint')
                 .style('visibility', 'visible');
 
-            svg.selectAll('.hoverText')
+            // svg.selectAll('.hoverText')
+            //     .style('visibility', 'visible');
+
+            tooltip
                 .style('visibility', 'visible');
         }
 
@@ -191,13 +201,20 @@ const LineChartWithToolTip = (props) => {
             const hoverTextX = isLessThanHalf ? '-0.75em' : '0.75em';
             const hoverTextAnchor = isLessThanHalf ? 'end' : 'start';
 
-            svg.selectAll('.hoverText')
-                .attr('x', xScale(mouseDateSnap))
-                .attr('y', yScale(mousePopulation))
-                .attr('dx', hoverTextX)
-                .attr('dy', '1.25em')
-                .style('text-anchor', hoverTextAnchor)
-                .text(`${d3.format('.5s')(mousePopulation)} on ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}`)
+            // svg.selectAll('.hoverText')
+            //     .attr('x', xScale(mouseDateSnap))
+            //     .attr('y', yScale(mousePopulation))
+            //     .attr('dx', hoverTextX)
+            //     .attr('dy', '1.25em')
+            //     .style('text-anchor', hoverTextAnchor)
+            //     .text(`${d3.format('.5s')(mousePopulation)} on ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}`)
+
+            tooltip
+                .html(`<p>Date: ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}</p><p>${mousePopulation}</p>`)
+                // .style("left", (d3.mouse(this)[0] - 20) + "px") 
+                // .style("top", (d3.mouse(this)[1] + 280) + "px");
+                .style("left", d3.event.pageX + 20 + "px")
+                .style("top", d3.event.pageY + 15 + "px");
         }
 
         function mouseOut(event) {
@@ -207,7 +224,10 @@ const LineChartWithToolTip = (props) => {
             svg.selectAll('.hoverPoint')
                 .style('visibility', 'hidden');
 
-            svg.selectAll('.hoverText')
+            // svg.selectAll('.hoverText')
+            //     .style('visibility', 'hidden');
+
+            tooltip
                 .style('visibility', 'hidden');
         }
 
