@@ -3,6 +3,19 @@
     height: 100%;
 }
 
-.hoverText{
+.hoverText {
     z-index: 100;
+    width: 11%;
+    background: #FFFFFF;
+    border: 1px solid #D8E3FF;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+}
+
+.hoverText p{
+    margin: 0 !important;
+    padding: 2px;
+    font-family: 'GothamLight';
+    font-size: 12px;
 }
