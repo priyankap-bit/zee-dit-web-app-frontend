@@ -74,7 +74,7 @@
     font-size: 10px;
     line-height: 11px;
     font-family: GothamLight;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .tooltip-stacked-bar-chart {
@@ -150,7 +150,7 @@ text.chart-label {
     font-size: 10px;
     line-height: 11px;
     font-family: GothamLight;
-    cursor: pointer;
+    /* cursor: pointer; */
 
 }
 
