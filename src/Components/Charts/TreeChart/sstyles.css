@@ -1,15 +1,43 @@
-.node__root {
-  stroke: none !important;
-  fill: rgb(0, 255, 8);
+.node__root>foreignObject>button {
+  color: black !important;
+  background: rgb(255, 255, 255) !important;
+  border-radius: 100px !important;
+  border: 3px solid #5a3e89 !important;
+  padding: 25px !important;
+  width: 90% !important;
 
 }
-.node__branch {
-  stroke: none !important;
-  fill: rgb(38, 0, 255);
 
+svg .rd3t-g{
+  transform: translate(936px, 30px) scale(0.5) !important;
 }
-.node__leaf {
-  /* stroke: none !important; */
-  fill: rgb(181, 168, 255);
 
+rd3t-svg{
+  height: 60% !important;
+}
+
+/* .node__root>foreignObject{
+  width: 500 !important;
+  height: 250 !important;
+  x: -220 !important;
+} */
+
+
+
+.node__branch>foreignObject>button {
+  color: black !important;
+  background: #f3e4ec !important;
+  border-radius: 100px !important;
+  border: 3px solid #f37b92 !important;
+  padding: 25px !important;
+  width: 90% !important;
+}
+
+.node__leaf>foreignObject>button {
+  color: black !important;
+  background: rgb(201 255 241) !important;
+  border-radius: 100px !important;
+  border: 3px solid #1fcb9a !important;
+  padding: 25px !important;
+  width: 90% !important;
 }

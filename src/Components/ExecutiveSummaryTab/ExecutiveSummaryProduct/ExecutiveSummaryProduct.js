@@ -1,5 +1,5 @@
 import React from "react";
-import "./ExecutiveSummaryContent.css"
+import "./ExecutiveSummaryProduct.css"
 import { useState } from "react";
 import BubbleChart from "../../Charts/BubbleChart/BubbleChart";
 import TreeChart from "../../Charts/TreeChart/CenteredTree";
