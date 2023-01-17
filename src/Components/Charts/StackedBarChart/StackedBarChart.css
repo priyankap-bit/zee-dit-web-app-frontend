@@ -74,13 +74,14 @@
     font-size: 10px;
     line-height: 11px;
     font-family: GothamLight;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .tooltip-stacked-bar-chart {
     /* background: #FFFFFF;
     border: 1px solid #D8E3FF;
     border-radius: 5px; */
+    /* position: absolute; */
     position: relative;
     margin-bottom: 0;
     padding-bottom: 0;
@@ -115,11 +116,13 @@
 
 .tooltip-stacked-bar-chart div,
 .tooltip-stacked-bar-chart-right div {
-    width: 200%;
+    /* width: 200%; */
     background: #FFFFFF;
     border: 1px solid #D8E3FF;
     border-radius: 5px;
     padding:5px;
+    z-index: 100;
+    position: absolute;
 }
 
 .tooltip-stacked-bar-chart p,
@@ -147,7 +150,7 @@ text.chart-label {
     font-size: 10px;
     line-height: 11px;
     font-family: GothamLight;
-    cursor: pointer;
+    /* cursor: pointer; */
 
 }
 

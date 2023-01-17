@@ -120,6 +120,8 @@ ul.viewership-navigationtab-ul {
 .tableau-dashboard {
   text-align: right;
   height: 35px;
+  margin-top: 10px;
+  z-index: 1;
 }
 
 /* ---------------mobile media query--------------- */

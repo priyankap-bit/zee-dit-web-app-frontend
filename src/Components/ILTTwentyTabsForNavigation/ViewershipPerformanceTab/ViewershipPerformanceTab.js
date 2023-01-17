@@ -41,7 +41,7 @@ const ViewershipPerformanceTab = (props) => {
               onClick={() => handleOnNavigationTabClick("realtimematchupdate")}
               style={{ alignSelf: "center" }}
             >
-             Match Updates
+              Match Updates
             </li>
           </ul>
           <ul className="indicators">
@@ -84,10 +84,10 @@ const ViewershipPerformanceTab = (props) => {
         )}
       </div>
       <div className="tableau-dashboard">
-        <a href="http://pulse.zeeconnect.in/#/site/Zee5India/workbooks/1152/views" target="_blank" >
+        <a href="http://10.204.32.93/#/site/Zee5India/views/ILT20_Dashboard/ILT20ExecutiveSummary?:iid=1" target="_blank" >
           Detailed Tableau Dashboard &nbsp;
           <svg
-            style={{verticalAlign: 'sub'}}
+            style={{ verticalAlign: 'sub' }}
             xmlns="http://www.w3.org/2000/svg"
             width="18"
             height="19"

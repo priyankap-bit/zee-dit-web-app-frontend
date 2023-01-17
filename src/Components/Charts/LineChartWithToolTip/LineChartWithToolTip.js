@@ -210,7 +210,7 @@ const LineChartWithToolTip = (props) => {
             //     .text(`${d3.format('.5s')(mousePopulation)} on ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}`)
 
             tooltip
-                .html(`<p>Date: ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}</p><p>${mousePopulation}</p>`)
+                .html(`<p>Date: ${d3.timeFormat("%b %d, %Y")(mouseDateSnap)}</p><p>${d3.format("s")(mousePopulation)}</p>`)
                 // .style("left", (d3.mouse(this)[0] - 20) + "px") 
                 // .style("top", (d3.mouse(this)[1] + 280) + "px");
                 .style("left", d3.event.pageX + 20 + "px")
