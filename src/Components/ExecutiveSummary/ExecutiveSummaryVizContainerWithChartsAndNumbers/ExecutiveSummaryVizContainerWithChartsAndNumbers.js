@@ -59,7 +59,7 @@ const ExecutiveSummaryVizContainerWithChartsAndNumbers = (props) => {
 
             </div>
             <div className="exact-summary-viz-updateinfo-container">
-              <p>Updated as on 13/01/23. &nbsp; Next update expected by 14/01/23.</p>
+              <p>Updated as on 13/01/23.<br /> Next update expected by 14/01/23.</p>
             </div>
           </div>
           <div className="digital-viewers-stackbarchart">
