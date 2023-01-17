@@ -9,9 +9,12 @@
 }
 
 svg .rd3t-g{
-  transform: translate(936px, 10px) scale(0.5) !important;
+  transform: translate(936px, 30px) scale(0.5) !important;
 }
 
+rd3t-svg{
+  height: 60% !important;
+}
 
 /* .node__root>foreignObject{
   width: 500 !important;
