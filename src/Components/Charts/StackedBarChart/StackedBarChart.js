@@ -14,6 +14,8 @@ import {
     pointer,
 } from "d3";
 
+import * as d3v4 from 'd3v4';
+
 import useResizeObserver from "./useResizeObserver";
 
 import {
@@ -79,6 +81,9 @@ const StackedBarChart = (props) => {
         // const width = 300, height = 90;
 
         let chartNumberDimensions;
+        let tooltipDimensions = {
+            pageX: 0, pageY: 0
+        }
 
         console.log('window.innerWidth', window.innerWidth);
 
@@ -150,17 +155,27 @@ const StackedBarChart = (props) => {
                 }
             }
         } else if (window.innerWidth <= 470) {
-            if (marginForRightChart)
+            if (marginForRightChart) {
                 chartNumberDimensions = {
                     sevenDays: width - 100 + marginForRightChart,
                     divider: width - 95 + marginForRightChart,
                     max: width - 70 + marginForRightChart
                 }
+                tooltipDimensions = {
+                    pageX: 520,
+                    pageY: -320,
+                }
+            }
             else {
                 chartNumberDimensions = {
                     sevenDays: width - 40,
                     divider: width - 35,
                     max: width - 10
+                }
+
+                tooltipDimensions = {
+                    pageX: 600,
+                    pageY: -320,
                 }
             }
         }
@@ -283,7 +298,7 @@ const StackedBarChart = (props) => {
             // .attr
             // .attr("y", 0)
             // .attr("dy", ".75em")
-            .text(marginForRightChart ? "Watch Time in Mn." : "Viewers in Mn.");
+            .text(marginForRightChart ? "Watch Time in Min." : "Viewers in Min.");
 
         svg.selectAll(".x-label-7days").remove();
         svg.selectAll(".x-label-max").remove();
@@ -314,9 +329,9 @@ const StackedBarChart = (props) => {
                 handleActiveClassName(true);
             });
 
-        var Tooltip = select(wrapperRef.current)
+        var Tooltip = select(".stacked-barchart-sub-div")
             .append("div")
-            .style("opacity", 0)
+            .style("visibility", 'hidden')
             .attr("class", marginForRightChart ? "tooltip-stacked-bar-chart-right" : "tooltip-stacked-bar-chart");
 
         Tooltip.selectAll("*").remove();
@@ -324,24 +339,27 @@ const StackedBarChart = (props) => {
         var mouseover = function (event, d) {
 
             Tooltip
-                .transition()
-                .duration(200)
-                .style("opacity", 1)
+                // .transition()
+                // .duration(200)
+                .style('visibility', 'visible')
         }
 
         const tootTipHtml = (event) => `<div><p>Date: ${event.target.__data__.data.key}</p><p>Match 1: ${event.target.__data__.data.matchOne}</p><p>Match 2: ${event.target.__data__.data.matchTwo}</p></div>`;
 
         var mousemove = function (event, d) {
+
+            // console.log('event', event);
+
             Tooltip
                 .html(tootTipHtml(event))
-                .style("top", (pointer(event)[1]) + "px")
-                .style("left", (pointer(event)[0] - 250) + "px");
+                // .style("top", (pointer(event)[1]) + "px")
+                // .style("left", (pointer(event)[0] - 50) + "px");
+                .style("left", event.pageX - 600 + tooltipDimensions.pageX + "px")
+                .style("top", event.pageY - 200 + tooltipDimensions.pageY + "px");
         }
         var mouseleave = function (event, d) {
             Tooltip
-                .transition()
-                .duration(200)
-                .style("opacity", 0);
+                .style('visibility', 'hidden');
 
             // select(this.node())
             //     .transition()
@@ -350,7 +368,7 @@ const StackedBarChart = (props) => {
             //     .style("transform", "scale3d(1,1,1)");
         }
 
-        svg
+        svg.selectAll(".layer")
             .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)
             .on("mouseover", mouseover)

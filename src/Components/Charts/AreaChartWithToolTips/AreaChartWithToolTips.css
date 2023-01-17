@@ -19,3 +19,9 @@
     font-family: 'GothamLight';
     font-size: 12px;
 }
+
+@media only screen and (max-width: 767px) {
+    .hoverText{
+        width: 20%;
+    }
+}

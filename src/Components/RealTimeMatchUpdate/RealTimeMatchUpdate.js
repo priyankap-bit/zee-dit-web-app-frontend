@@ -220,7 +220,7 @@ const RealTimeMatchUpdate = (props) => {
         </div>
 
         <div className="real-time-match-update-info-update">
-          <p> Updated as on 21:42:14 13/01/23 Next update expected by 21:57:14 27/01/23</p>
+          <p> Updated as on 21:42:14 13/01/23. &nbsp; Next update expected by 21:57:14 27/01/23.</p>
         </div>
       </div>
       {/* <LineChart /> */}

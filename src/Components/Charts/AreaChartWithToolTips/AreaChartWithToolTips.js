@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 import * as d3 from 'd3v4';
 
-// import { pointer } from 'd3';
+// import { pointer, format } from 'd3';
 
 import './AreaChartWithToolTips.css';
 import areaChartWithToolTipsData from './data';
@@ -174,7 +174,7 @@ const AreaChartWithToolTips = (props) => {
             //     .text(`${d3.format('.5s')(mousePopulation)} on ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}`);
 
             tooltip
-                .html(`<p>Date: ${d3.timeFormat("%d/%m/%Y")(mouseDateSnap)}</p><p>${isViewers ? "Viewers: " : "Watch Time: "}${mousePopulation}</p>`)
+                .html(`<p>Date: ${d3.timeFormat("%b %d, %Y")(mouseDateSnap)}</p><p>${isViewers ? "Viewers: " : "Watch Time: "}${d3.format("s")(mousePopulation)}</p>`)
                 // .style("left", (d3.mouse(this)[0] - 20) + "px") 
                 // .style("top", (d3.mouse(this)[1] + 280) + "px");
                 .style("left", d3.event.pageX + 20 + "px")
