@@ -1,0 +1,85 @@
+{
+    "name": "Consumer Journey Charters",
+    "attributes": {
+      "age": "67"
+    },
+    "children": [
+      {
+        "name": "Acquisition",
+        "attributes": {
+          "age": "34"
+        },
+        "children": [
+          {
+            "name": "Total Sessions",
+            "attributes": {
+              "age": "34"
+            }
+          },
+          {
+            "name": "DAU",
+            "attributes": {
+              "age": "25"
+            }
+          },
+          {
+            "name": "MAU",
+            "attributes": {
+              "age": "21"
+            }
+          },
+          {
+            "name": "Paid User",
+            "attributes": {
+              "age": "21"
+            }
+          },
+          {
+            "name": "Organic User",
+            "attributes": {
+              "age": "21"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Discovery",
+        "attributes": {
+          "age": "25"
+        },
+        "children": [
+          {
+            "name": "FullAWSAccess"
+          }
+        ]
+      },
+      {
+        "name": "Advertisement",
+        "attributes": {
+          "age": "21"
+        },
+        "children": [
+          {
+            "name": "FullAWSAccess"
+          }
+        ]
+      },
+      {
+        "name": "Subscription",
+        "children": [
+          {
+            "name": "FullAWSAccess"
+          }
+        ]
+      },
+      {
+        "name": "Engagement",
+        "children": [
+          {
+            "name": "FullAWSAccess"
+          }
+        ]
+      }
+    ]
+  }
+  
