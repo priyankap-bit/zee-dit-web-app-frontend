@@ -28,7 +28,8 @@ const useStyles = makeStyles(
     attributes: {
       position: "absolute",
       bottom: "5px",
-      right: "10px"
+      right: "80px",
+      color: "#4BA083"
     }
   })
 );
@@ -55,9 +56,9 @@ const renderForeignObjectNode = ({
         style={{ color: "black", background: "#aaeddb", "border-radius": "100px", "border": "3px solid #18ca96", "padding": "25px", "width": "90%"  }}
       >
         <div className={classes.name}>{nodeDatum.name}</div>
-    
+  
         <div className={classes.attributes}>
-       
+          {nodeDatum.attributes.age}
         </div>
       </Button>
     </foreignObject>
@@ -70,7 +71,7 @@ export default function App() {
   const classes = useStyles();
   const [translate, containerRef] = useCenteredTree();
   const nodeSize = { x: 300, y: 250 };
-  const separation = { siblings: 1, nonSiblings: 2 };
+  const separation = { siblings: 1, nonSiblings: 1 };
   const foreignObjectProps = { width: nodeSize.x, height: nodeSize.y, x: -125 };
   const draggable = false;
   const zoomable = false;
