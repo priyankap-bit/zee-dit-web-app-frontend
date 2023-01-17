@@ -9,7 +9,7 @@ import "./sstyles.css";
 const containerStyles = {
   width: "100vw",
   height: "100vh",
-  background: "#eee"
+  background: "white"
 };
 
 const useStyles = makeStyles(
@@ -47,6 +47,7 @@ const renderForeignObjectNode = ({
   <>
     {/* `foreignObject` requires width & height to be explicitly set. */}
     <foreignObject {...foreignObjectProps}>
+      
       <Button
         className={classes.button}
         variant="contained"
