@@ -1,33 +1,39 @@
-.bubble-chart-div{
-    text-align: center;
-}
 text {
-    font-weight: 800;
-    font-size: 11px;
+  font-size: 0.4em;
+  font-family: "GothamLight";
+  /* text-align: center; */
 }
-.bubble-indicators {
-    color: #808080;
-    font-family: 'GothamMedium';
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 11px;
-    position: absolute;
-    left: 1.2rem;
-    top: 14rem;
-}
-img.xxk {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-/* tbody, td, tfoot, th, thead, tr{
-    padding-bottom: 5px;
-} */
 
-text.lessthan300 {
-    display: none;
+.bubble-legend-box {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
 }
-@media only screen and (max-width: 767px) {
-    .bubble-indicators{
-        margin-top: 20px;
-    }
+
+.bubble-legend-label {
+  font-family: "Lato";
+  color: #532c6c;
+  padding-left: 1em;
+}
+
+#bubble-legend-container {
+  display: none;
+}
+
+#bubble-legend {
+  columns: 2;
+  padding-top: 3em;
+}
+
+#bubble-legend li {
+  padding-bottom: 1em;
+}
+
+.accessible {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
 }
